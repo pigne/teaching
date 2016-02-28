@@ -15,7 +15,7 @@ url: "http://pigne.org" # the base hostname & protocol for your site
 twitter_username:
 github_username:  pigne
 
-future: false
+future: true
 
 permalink: /:categories/:title.html
 permalink: /:categories/:title
