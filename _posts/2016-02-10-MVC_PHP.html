@@ -1,0 +1,490 @@
+---
+title: "The Model-View-Controllor design pattern in PHP"
+layout: slide
+categories:
+- InfoWeb
+- lecture
+---
+
+<!-- ==== SLIDE ==== -->
+<section id="Prerequisite">
+
+<h2>Prerequisite</h2>
+<p >A few needed technologies</p>
+
+<ul>
+  <li>HTTP</li>
+  <li>REST</li>
+  <li>Security</li>
+</ul>
+
+</section>
+
+<!-- ==== SLIDE ==== -->
+<section id="HTTP">
+<h2>Hypertext Transfer Protocol</h2>
+<p >Application-level protocol for distributed systems. Generic and stateless.</p>
+<ul>
+  <li>Request message (from client to server)</li>
+  <li>Response message (from server to client)</li>
+  <li>Text-based messages / Multipurpose Internet Mail Extensions (MIME) format</li>
+  <li >Messages
+    <pre class="no-highlight"><code>generic-message = start-line
+                *(message-header CRLF)
+                CRLF
+                [ message-body ]
+start-line      = Request-Line | Status-Line</code></pre>
+  </li>
+</ul>
+</section>
+
+
+<!-- ==== SLIDE ==== -->
+<section  id="HTTP_Headers">
+  <h2>HTTP Headers and Entities</h2>
+    <pre class="no-highlight"><code>message-header = field-name &quot;:&quot; [ field-value ]
+field-name     = token
+field-value    = *( field-content | LWS )
+field-content  = &lt;the OCTETs making up the field-value
+                 and consisting of either *TEXT or combinations
+                 of token, separators, and quoted-string&gt;</code></pre>
+<h3>Example request headers and entities</h3>
+<pre ><code class="no-highlight prewrap">Host: tools.ietf.org
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Accept-Charset: UTF-8,*;q=0.5
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17
+</code></pre>
+
+</section>
+
+
+<!-- ==== SLIDE ==== -->
+<section  id="HTTP_Requests">
+  <h2>HTTP Requests</h2>
+  <p >From the client to the server</p>
+    <pre class="no-highlight"><code>Request = Request-Line
+          \*(( general-header
+            | request-header
+            | entity-header ) CRLF)
+          CRLF
+          [ message-body ] </code></pre>
+<h3>Request Line</h3>
+<pre class="no-highlight"><code>Request-Line = Method SP Request-URI SP HTTP-Version CRLF
+</code></pre>
+</section>
+
+
+
+<!-- ==== SLIDE ==== -->
+<section  id="HTTP_Methods">
+<h2>HTTP Methods</h2>
+  <ul >
+    <li><code>"OPTIONS"</code>:  information about the communication options available</li>
+    <li><code>"GET"</code>: retrieve whatever information is identified by the <code>Request-URI</code></li>
+    <li><code>"HEAD"</code>: same as <code>"GET"</code> <code>message-body</code> in the response</li>
+    <li><code>"POST"</code>: append entity to the existing <code>Request-URI</code></li>
+    <li><code>"PUT"</code>: store entity as the new <code>Request-URI</code></li>
+    <li><code>"DELETE"</code>: delete existing <code>Request-URI</code></li>
+    <li><code>"TRACE"</code> : see what is being received at the other end of the request chain</li>
+    <li><code>"CONNECT"</code> : for use with a proxy that can dynamically switch to being a tunnel (e.g. SSL tunneling).</li>
+  </ul>
+</section>
+
+
+<!-- ==== SLIDE ==== -->
+<section  id="HTTP_Responses">
+  <h2>HTTP Responses</h2>
+    <pre class="no-highlight"><code>Response    = Status-Line
+              *(( general-header
+               | response-header
+               | entity-header ) CRLF)
+              CRLF
+              [ message-body ]
+Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF
+</code></pre>
+<h3>Status Codes</h3>
+<ul>
+<li><code>1xx</code>: Informational - Request received, continuing process</li>
+
+<li><code>2xx</code>: Success - The action was received,
+  understood, and accepted</li>
+
+<li><code>3xx</code>: Redirection - Further action must be taken to
+  complete the request</li>
+
+<li><code>4xx</code>: Client Error - The request contains bad syntax or cannot
+  be fulfilled</li>
+
+<li><code>5xx</code>: Server Error - The server failed to fulfill an apparently
+  valid request </li>
+
+</ul>
+<p>
+OK
+</p>
+</section>
+
+
+<!-- ==== SLIDE ==== -->
+<section  id="REST">
+<h2>Representational State Transfer</h2>
+<p><code>REST</code> is a style of software architecture for distributed systems on top of HTTP.</p>
+<ul>
+  <li>Each resource are accessed through one unique request (URI).</li>
+  <li>Requests are stateless (identification within the URI)</li>
+  <li>Resources are accessed one by one or as collections</li>
+  <li>RESTful web service (RESTful web API)</li>
+</ul>
+</section>
+
+<!-- ==== SLIDE ==== -->
+<section  id="RESTful_Web_Services">
+<h2>RESTful Web Services</h2>
+<p >RESTful API and HTTP methods</p>
+<table class="x-2" >
+<tbody><tr>
+<th>Resource</th>
+<th>GET</th>
+<th>PUT</th>
+<th>POST</th>
+<th>DELETE</th>
+</tr>
+<tr>
+<th>Collection&nbsp;URI</th>
+<td><em>List</em> elements</td>
+<td><em>Replace</em> entire collection</td>
+<td><em>Create</em> new element in collection</td>
+<td><em>Delete</em> collection</td>
+</tr>
+<tr>
+<th>Element URI</th>
+<td><em>Retrieve</em> one element</td>
+<td><em>Replace</em> existing element</td>
+<td>*Generally not used*</td>
+<td ><em>Delete</em> one element</td>
+</tr>
+</tbody></table>
+  <ul>
+    <li>Plural may indicate a collection e.g. <code class="x-2">http://example.com/emails/</code></li>
+    <li>An id may indicate an element e.g. <code class="x-2">http://example.com/email/17/</code></li>
+    <li>URN can be prefixed with API version e.g. <code class="x-2">https://api.twitter.com/1.1/statuses/home_timeline.json</code></li>
+  </ul>
+</section>
+
+
+
+<!-- ==== SLIDE ==== -->
+<section id="Security">
+<h2 id="security">Security</h2>
+<p>Too many vulnerabilities exist... But developers <em>are responsible</em> for their code!</p>
+<h3 id="common-attacks">Common Attacks</h3>
+<ul>
+<li>Cross-Site Request Forgery (CSRF)</li>
+<li>Cross-site scripting (XSS)</li>
+<li>SQL injection</li>
+</ul>
+<h3 id="common-measures">Common Measures</h3>
+<ul>
+<li>Anti-CSRF tokens</li>
+<li>Forms Timeouts</li>
+<li>Escape users inputs</li>
+</ul>
+<p class="text_right"><b>Reduce vulnerability... Use frameworks!</b></p>
+
+</section>
+
+
+
+<!-- ==== SLIDE ==== -->
+<section id="MVC">
+<h2 id="mvc">MVC</h2>
+<p>The Model–View–Controller Design Pattern</p>
+<ul>
+<li>Improve the separation of concerns</li>
+<li>Facilitate automated unit testing</li>
+<li>Facilitate team work</li>
+</ul>
+<div class="threecols">
+  <div class="first">
+    <h3>Model</h3>
+    <ul class="unstyled">
+      <li>Holds the data</li>
+      <li>Links to persistent storage (DBMS)</li>
+      <li>Ignores other components</li>
+    </ul>
+  </div>
+  <div class="second">
+    <h3>View</h3>
+    <ul class="unstyled">
+      <li>Representation of data</li>
+      <li>What users see</li>
+      <li>May know the <em>Model</em></li>
+    </ul>
+  </div>
+  <div class="third">
+    <h3>Controller</h3>
+    <ul class="unstyled">
+      <li>Handles users requests</li>
+      <li>Updates <em>Model</em> data</li>
+      <li>Triggers <em>Views</em></li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ==== SLIDE ==== -->
+<section id="MVC_Schema">
+<h2>MVC Schema</h2>
+<p class="text_center">
+<img src="{{ site.baseurl }}/images/generalMVC.svg" class="maximize-width" alt="MCV overview">
+</p>
+</section>
+
+<!-- ==== SLIDE ==== -->
+<section id="MVC_Sequence">
+<h2>MVC Sequence</h2>
+<p class="text_center">
+<img src="{{ site.baseurl }}/images/mvc_sequence.png" alt="MVC Sequence" style="width:90%; valign:middle;">
+</p>
+</section>
+
+
+<!-- ==== SLIDE ==== -->
+<section id="Classical_PHP_Page">
+<h2>A simple PHP script</h2>
+<p>Show news and allow comments on them. </p>
+<pre class=" php x-2"><code>&lt;?php
+$connect = mysql_connect(&#039;myserver&#039;, &#039;mylogin&#039;, &#039;mypassword&#039;);
+mysql_select_db(&#039;myDB&#039;);
+if ($_SERVER[&#039;REQUEST_METHOD&#039;] == &#039;POST&#039;) {
+    $news_id = $_POST[&#039;news_id&#039;];
+    mysql_query(&quot;INSERT INTO commentaires SET news_id=&#039;$news_id&#039;,
+      auteur=&#039;&quot;.mysql_escape_string($_POST[&#039;auteur&#039;]).&quot;&#039;,
+      texte=&#039;&quot;.mysql_escape_string($_POST[&#039;texte&#039;]).&quot;&#039;,
+      date=NOW()&quot;
+      );
+    header(&quot;location: &quot;.$_SERVER[&#039;SCRIPT_NAME&#039;].&quot;?news_id=$news_id&quot;);
+    exit;
+} else {
+    $news_id = $_GET[&#039;news_id&#039;];
+}
+?&gt;
+&lt;!-- [...] --&gt;
+</code></pre>
+</section>
+<section id="Classical_PHP_Page_2">
+<pre class=" php x-2"><code>&lt;!-- [...] --&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Les news&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Les news&lt;/h1&gt;
+&lt;div id=&quot;news&quot;&gt;
+  &lt;?php
+  $news_req = mysql_query(&quot;SELECT * FROM news WHERE id=&#039;$news_id&#039;&quot;);
+  $news = mysql_fetch_array($news_req);
+  ?&gt;
+  &lt;h2&gt;&lt;?php echo $news[&#039;titre&#039;] ?&gt; post&eacute;e le &lt;?php echo $news[&#039;date&#039;] ?&gt;&lt;/h2&gt;
+  &lt;p&gt;&lt;?php echo $news[&#039;texte_nouvelle&#039;] ?&gt; &lt;/p&gt;
+  &lt;?php
+  $comment_req = mysql_query(&quot;SELECT * FROM commentaires
+      WHERE news_id=&#039;$news_id&#039;&quot;);
+  $nbre_comment = mysql_num_rows($comment_req);
+  ?&gt;
+  &lt;h3&gt;&lt;?php echo $nbre_comment ?&gt; commentaires relatifs &agrave; cette nouvelle&lt;/h3&gt;
+  &lt;?php while ($comment = mysql_fetch_array($comment_req)) {?&gt;
+  &lt;h3&gt;&lt;?php echo $comment[&#039;auteur&#039;] ?&gt;
+      a &eacute;crit le &lt;?php echo $comment[&#039;date&#039;] ?&gt;&lt;/h3&gt;
+  &lt;p&gt;&lt;?php echo $comment[&#039;texte&#039;] ?&gt;&lt;/p&gt;
+  &lt;?php } ?&gt;
+&lt;!-- [...] --&gt;
+</code></pre>
+</section>
+<section id="Classical_PHP_Page_3">
+<pre class=" php x-2"><code>&lt;!-- [...] --&gt;
+  &lt;form method=&quot;POST&quot; action=&quot;&lt;?php echo $_SERVER[&#039;SCRIPT_NAME&#039;] ?&gt;&quot;
+      name=&quot;ajoutcomment&quot;&gt;
+      &lt;input type=&quot;hidden&quot; name=&quot;news_id&quot; value=&quot;&lt;?php echo $news_id?&gt;&quot;&gt;
+      &lt;input type=&quot;text&quot; name=&quot;auteur&quot; value=&quot;Votre nom&quot;&gt;&lt;br /&gt;
+      &lt;textarea name=&quot;texte&quot; rows=&quot;5&quot; cols=&quot;10&quot;&gt;
+          Saisissez votre commentaire
+      &lt;/textarea&gt;&lt;br /&gt;
+      &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Envoyer&quot;&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Various actions are mixed up in this file:</p>
+<ul class="center three-columns" >
+  <li>Request handling</li>
+  <li>Database update</li>
+  <li>Database lookup</li>
+  <li>Visualization (style?)</li>
+  <li>Security</li>
+  <li>Routing</li>
+</ul>
+</section>
+
+<!-- ==== SLIDE ==== -->
+<section id="Simplest_MVC_Model">
+##The Simplest MVC App
+Same as previous example, with MVC pattern
+
+###The Model
+<pre class=" php x-2"><code>&lt;?php
+function dbconnect() {
+  static $connect = null;
+  if ($connect === null) {
+    try {
+      $connect = new PDO(&quot;mysql:dbname=simplemvc;host=127.0.0.1&quot;, &#039;pigne&#039;, &#039;n2EfCJYFx6CExzSX&#039; );
+      $connect-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) { echo &#039;Connection failed :( : &#039; . $e-&gt;getMessage(); exit;}
+  }
+  return $connect;
+}
+/* [...] */
+</code></pre>
+</section>
+
+
+<!-- ==== SLIDE ==== -->
+<section id="Simplest_MVC_Model_2">
+<pre class=" php x-2"><code>/* [...] */
+function get_news($id) {
+  try{
+    $sql = &quot;SELECT * FROM news WHERE id= :id&quot;;
+    $sth = dbconnect()-&gt;prepare($sql);
+    $sth-&gt;execute(array(&#039;:id&#039; =&gt; $id));
+    if($sth-&gt;errorCode() == 0) {
+      return  $sth-&gt;fetch();
+    }
+    else {
+      return array();
+    }
+  }catch (PDOException $e) { echo &#039;Select comments failed: &#039; . $e-&gt;getMessage(); exit;}
+}
+
+function get_comments($news_id) {
+  try {
+    $sql = &quot;SELECT * FROM commentaires WHERE news_id= :news_id&quot;;
+    $sth = dbconnect()-&gt;prepare($sql);
+    $sth-&gt;execute(array(&#039;:news_id&#039; =&gt; $news_id));
+    if($sth-&gt;errorCode() == 0) {
+      return  $sth-&gt;fetchAll();
+    }
+    else {
+      return array();
+    }
+  }catch (PDOException $e) { echo &#039;Select comments failed: &#039; . $e-&gt;getMessage(); exit;}
+}
+/* [...] */
+</code></pre>
+</section>
+
+<!-- ==== SLIDE ==== -->
+<section id="Simplest_MVC_Model_3">
+<pre class=" php x-2"><code>/* [...] */
+function insert_comment($comment) {
+  $connect = dbconnect();
+  try{
+    $sql =  &quot;INSERT INTO commentaires SET news_id= :news_id , &quot; .
+    &quot;auteur= :auteur , &quot; .
+    &quot;texte= :texte , &quot; .
+    &quot;date=NOW()&quot;;
+    $sth = $connect-&gt;prepare($sql);
+    $sth-&gt;execute(array(&#039;:news_id&#039; =&gt; (int)$comment[&#039;news_id&#039;],
+      &#039;:auteur&#039; =&gt; $connect-&gt;quote($comment[&#039;auteur&#039;]),
+      &#039;:texte&#039; =&gt; $connect-&gt;quote($comment[&#039;texte&#039;]),
+      )
+    );
+  } catch(PDOException $e) { echo &#039;Insert failed: &#039; . $e-&gt;getMessage(); exit;}
+}
+</code></pre>
+</section>
+
+
+<!-- ==== SLIDE ==== -->
+<section id="Simplest_MVC_View">
+<h3>The View</h3>
+<pre class=" php x-2"><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;Les news&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Les News&lt;/h1&gt;
+  &lt;div id=&quot;news&quot;&gt;
+    &lt;h2&gt;&lt;?php echo $news[&#039;titre&#039;] ?&gt; post&eacute;e le &lt;?php echo $news[&#039;date&#039;] ?&gt;&lt;/h2&gt;
+    &lt;p&gt;&lt;?php echo $news[&#039;texte_nouvelle&#039;] ?&gt; &lt;/p&gt;
+    &lt;h3&gt;&lt;?php echo $nbre_comment ?&gt; commentaires relatifs &agrave; cette nouvelle&lt;/h3&gt;
+    &lt;dl&gt;
+    &lt;?php foreach ($comments AS $comment) {?&gt;
+    &lt;dt&gt;&lt;?php echo $comment[&#039;auteur&#039;] ?&gt;, le &lt;?php echo $comment[&#039;date&#039;]?&gt;:&lt;/dt&gt;
+    &lt;dd&gt;&lt;?php echo $comment[&#039;texte&#039;] ?&gt;&lt;/dd&gt;
+    &lt;?php } ?&gt;
+    &lt;/dl&gt;
+    &lt;h3&gt;Un commentaire ?&lt;/h3&gt;
+    &lt;form method=&quot;POST&quot; action=&quot;&lt;?php echo $_SERVER[&#039;SCRIPT_NAME&#039;] ?&gt;&quot; name=&quot;ajoutcomment&quot;&gt;
+      &lt;input type=&quot;hidden&quot; name=&quot;news_id&quot; value=&quot;&lt;?php echo $news[&#039;id&#039;]?&gt;&quot;&gt;
+      &lt;input type=&quot;text&quot; name=&quot;auteur&quot; placeholder=&quot;Votre nom&quot;&gt;&lt;br&gt;
+      &lt;textarea name=&quot;texte&quot; placeholder=&quot;Saisissez votre commentaire&quot;&gt;&lt;/textarea&gt;&lt;br&gt;
+      &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Envoyer&quot;&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+</section>
+
+
+<!-- ==== SLIDE ==== -->
+<section id="Simplest_MVC_Controller">
+<h3>The Controller</h3>
+<pre class=" php x-2"><code>require (&#039;simpleModel.php&#039;);
+if ($_SERVER[&#039;REQUEST_METHOD&#039;] == &#039;POST&#039;) {
+  insert_comment($_POST);
+  header(&quot;HTTP/1.1 301 Moved Permanently&quot;);
+  header(&quot;location: {$_SERVER[&#039;SCRIPT_NAME&#039;]}?news_id={$_POST[&#039;news_id&#039;]}&quot;);
+  exit;
+} else {
+  $news = get_news($_GET[&#039;news_id&#039;]);
+  $comments = get_comments($_GET[&#039;news_id&#039;]);
+  $nbre_comment = sizeof($comments);
+  require (&#039;simpleView.php&#039;);
+}
+</code></pre>
+</section>
+
+<!-- ==== SLIDE ==== -->
+<section id="MVC_Frameworks">
+<h2 id="next-step-object-oriented-mvc">Next step : Object oriented MVC</h2>
+</section>
+
+
+
+<!-- ==== SLIDE ==== -->
+<section id="MVC_Frameworks">
+  <h2>PHP MVC Frameworks</h2>
+  <p >Many of them</p>
+
+  <ul class="three-columns">
+  <li>Agavi</li>
+  <li>CakePHP</li>
+  <li>CodeIgniter</li>
+  <li>Copix</li>
+  <li>Dynatrix</li>
+  <li>FuelPHP</li>
+  <li>Gest-HVSL</li>
+  <li>Hoa</li>
+  <li>Jelix</li>
+  <li>Kinkama</li>
+  <li>Kohana</li>
+  <li>MODx</li>
+  <li>Open Web Framework</li>
+  <li>Postnuke</li>
+  <li>QCodo</li>
+  <li>Symfony</li>
+  <li>TemplatePP</li>
+  <li>Yii Framework</li>
+  <li>Zend Framework</li>
+  <li>Joomla! Platform</li>
+  </ul>
+</section>

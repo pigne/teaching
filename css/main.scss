@@ -16,11 +16,17 @@ $spacing-unit:     30px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
+$darker-background-color: darken($background-color, 2%);
+
 $brand-color:      #2a7ae2;
+$question-color:   #ffb6b6;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
+
+$label-color:       lighten($brand-color, 10%);
+$label-link-hover-color: $grey-color-light;
 
 // Width of the content area
 $content-width:    800px;
@@ -42,6 +48,23 @@ $on-laptop:        800px;
         @content;
     }
 }
+
+$fa-font-path: "../bower_components/font-awesome/fonts/";
+@import "../bower_components/font-awesome/scss/font-awesome";
+
+@mixin icon($name) {
+&:before {
+font-family: FontAwesome;
+font-weight: normal;
+font-style: normal;
+display: inline-block;
+text-decoration: inherit;
+margin-right: 0.4em;
+}
+
+@extend .fa-#{$name};
+}
+
 
 
 

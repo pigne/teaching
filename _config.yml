@@ -6,18 +6,16 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: Yoann Pigné - Lectures
+email: yoann.pigne@univ-lehavre.fr
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/test-jekyll" # the subpath of your site, e.g. /blog
+  Web pages realted to my lectures and labs at the University of La Havre, France.
+baseurl: "/teaching" # the subpath of your site, e.g. /blog
 url: "http://pigne.org" # the base hostname & protocol for your site
 twitter_username: yopgn
 github_username:  pigne
 
-
+future: true
 
 permalink: /:categories/:title.html
 permalink: /:categories/:title
@@ -28,17 +26,29 @@ markdown: kramdown
 
 kramdown:
   input: GFM
+  parse_block_html: true
+
+
 
 # The Reveal theme
-reveal_theme: black.css
+reveal_theme: simple.css
 # The Reveal transition
-reveal_transition: default
+reveal_transition: linear
+reveal_transition_speed: fast
+
+
 # Path to the used theme (defaults to the Reveal.js standard theme path)
 reveal_theme_path: /bower_components/reveal.js/css/theme/
 # Embed Server-side speaker notes?
 reveal_notes_server: false
 # Additional reveal.js options
 reveal_options:
+reveal_controls: false
+reveal_center: true
+reveal_progress: true
+reveal_history: false
+reveal_slide_number: true
+
 # Additional reveal.js dependencies
 reveal_dependencies:
 # Reveal.js subdirectory

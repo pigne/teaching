@@ -240,3 +240,113 @@
         }
     }
 }
+
+
+/**
+ * Slides
+ */
+
+ #back{
+     font-family: sans-serif;
+ 	position:absolute;
+ 	z-index:100;
+ 	right:5px;
+ 	top:5px;
+     height:10%;
+     width:5%;
+     background-image: url(../images/favicon64.png) ;
+     background-position : 50% 50%  ;
+     -webkit-background-size: 80%;
+     background-size: 80%;
+     background-repeat: no-repeat;
+     text-decoration: none;
+     color:gray;
+     text-align: center;
+     vertical-align: center;
+     line-height: 100%;
+ }
+ #back:hover {
+     background-image: url(../images/back.png) ;
+ }
+
+
+/**
+ * matiere
+ */
+
+
+.matiere{
+
+  border: solid 1px $grey-color-light;
+  margin: 3em auto;
+  padding: 1em;
+  background-color: $darker-background-color;
+
+  .label-lecture {
+    @include icon(book);
+    color: $text-color;
+  }
+  .label-lab {
+    @include icon(wrench);
+    color: $text-color;
+  }
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: $label-color;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+
+  // Add hover effects, but only for links
+  &[href] {
+    &:hover,
+    &:focus {
+      color: $label-link-hover-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  // Empty labels collapse automatically (not available in IE8)
+  // &:empty {
+  //   display: none;
+  // }
+}
+
+
+/**
+ * Labs
+ */
+
+ .question {
+ 	background-color: lighten(desaturate($question-color, 80%), 5%);
+ 	position: relative;
+ 	padding: 1em;
+ 	margin: 1em ;
+ 	h3 {
+ 		margin: 0;
+ 		padding: 0 0 1ex 1em;
+ 	}
+ 	&:before {
+ 		content: "?";
+ 		background-color: $question-color;
+ 		border-radius: 50%;
+ 		width:2em;
+ 		height:2em;
+ 		line-height: 2em;
+ 		text-align: center;
+ 		display: table-cell;
+     vertical-align: middle;
+ 		border: 5px solid white;
+ 		top: -1em;
+ 		left: -1em;
+ 		position: absolute;
+ 	}
+ }

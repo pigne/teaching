@@ -1,0 +1,232 @@
+/* =================== */
+
+/* = UTILITY CLASSES = */
+
+/* =================== */
+ .prewrap {
+    white-space: prewrap;
+    word-wrap:  break-word;
+ }
+ .wrap {
+    white-space: normal;
+}
+.nowrap {
+    white-space: nowrap;
+}
+
+.maximize-width {
+    width:100%;
+}
+
+.noborder {
+    border:none;
+    box-shadow: none;
+}
+.clearfix:after {
+    content:".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.bottom {
+    position: absolute;
+    bottom: 0;
+    display:block;
+    width:100%;
+}
+.bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.below {
+    z-index:-10;
+}
+.upper {
+    z-index:10;
+}
+.intro {
+    font-size: 140%;
+}
+.left {
+    display: block;
+    float: left;
+}
+.right {
+    display: block;
+    float: right;
+}
+.right:after {
+    content:".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.center {
+    margin:auto;
+}
+.text_right,.text-right {
+    text-align: right;
+}
+.text_center,.text-center {
+    text-align: center;
+}
+.text_left,.text-left {
+    text-align: left;
+}
+.x2 {
+    font-size:120%;
+}
+.x-2 {
+    font-size:80%;
+}
+.x-3 {
+    font-size:60%;
+}
+.x-4 {
+    font-size:50%;
+}
+.x3 {
+    font-size:150%;
+}
+.x4 {
+    font-size:170%;
+}
+.x5 {
+    font-size:190%;
+}
+.wide-image,p.wide-image>img{
+    width:95%;
+}
+.high-image,p.high-image>img{
+    height:95%;
+}
+.noborder-image, p.noborder-image>img {
+    border:none;
+    box-shadow: none;
+}
+
+.codeh {
+    background-color: rgb(255, 255, 100);
+}
+.nlcomment {
+    color: grey;
+}
+ul.unstyled, ol.unstyled {
+    margin-left: 0;
+    list-style: none;
+    padding-left: 0;
+}
+.bad {
+    color: #555;
+    /*text-shadow:  rgba(1,1,1,0.1) 1px 1px 2px;*/
+    background-color: rgba(0, 0, 0, .2);
+    /*border: 1px solid #aaa;*/
+}
+body.bad {
+    background-color: black;
+}
+.outlook {
+    color: #767573;
+    background-color: #ECEAE7;
+}
+.outlook h2 {
+    color:#555;
+}
+.three-columns {
+    column-count:3;
+}
+.two-columns {
+    column-count:2;
+}
+.threecols {
+    width:100%;
+}
+.threecols::before, .threecols::after {
+    display: table;
+    content:"";
+}
+.threecols::after {
+    clear: both;
+}
+.threecols > .first {
+    float: left;
+    width:30%;
+    /* padding:0 0 0 1%; */
+    margin:0 3.5% 0 0;
+}
+.threecols > .firstsecond {
+    float: left;
+    width:63.5%;
+    /* padding:0 0 0 1%; */
+    margin:0 3.5% 0 0;
+}
+.threecols > .second {
+    float: left;
+    width:30%;
+    /* padding:0 0 0 1%; */
+    margin:0 3.5% 0 0;
+}
+.threecols > .secondthird {
+    float: left;
+    width:63.5%;
+    // padding:0 0 0 1%;
+    margin:0;
+}
+.threecols > .third {
+    float: left;
+    width:30%;
+    // padding:0 0 0 1%;
+    margin:0;
+}
+.twocols {
+    width:100%;
+}
+.twocols::before, .twocols::after {
+    display: table;
+    content:"";
+}
+.twocols::after {
+    clear: both;
+}
+.twocols > .first {
+    float: left;
+    width:47%;
+    // padding:0 0 0 1%;
+    margin:0 3% 0 0;
+}
+.twocols > .second {
+    float: left;
+    width:47%;
+    // padding:0 0 0 1%;
+    margin:0;
+}
+.highlight {
+    color: rgba(255, 255, 255, .5);
+}
+p.codepen {
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:5%;
+    padding:0;
+    margin:0 ;   
+}
+p.codepen>a {
+    font-size: 0;
+    line-height: 0;
+
+}
+p.codepen>a>img {
+    width:100%;
+    font-size: 10%;
+    padding:0;
+    margin:0 ;   
+    background:none;
+    box-shadow: none;
+    border: none;
+}
+

@@ -2,38 +2,56 @@
 layout: default
 ---
 
+{% capture matieres %}
+  {% for category in site.categories %}
+    {% for post in site.posts%}
+      {% if post.categories[0] contains category[0] %}
+        {% unless post.tags contains 'archive'%}
+          {{category | first}}
+        {% endunless %}
+      {%endif%}
+    {%endfor%}
+  {%endfor%}
+{% endcapture %}
+
+{% assign matieres  =  matieres | split:" " | uniq %}
+
 <div class="home">
 
-  <h1 class="page-heading">Cours</h1>
+{% for matiere in matieres %}
+  <section class="matiere">
+    <h2>{{matiere}}</h2>
+    <ul class="post-list">
+      {% for post in site.categories[matiere] reversed %}
+          {% unless post.tags contains 'archive'%}
+             <li>
+               <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+                 <span class="label label-{{post.categories[1]}}"></span>
+                 {{ post.title }}
+               </a>
+             </li>
+          {% endunless %}
+      {%endfor%}
+    </ul>
+  </section>
+{% endfor %}
 
-  <ul class="post-list">
+{% if site.tags contains 'archive' %}
+  <section class="archive">
+    <h2>Archives</h2>
     {% for post in site.posts %}
-      {% if post.categories contains 'lecture' %}
+      {% if post.tags contains 'archive' %}
         <li>
-          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-          <h2>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </h2>
+          <span class="label label-matiere">{{post.categories[0]}}</span>
+          <span class="label label-{{post.categories[1]}}"></span>
+          <a href="{{ post.url | prepend: site.baseurl }}">
+            {{ post.title }}
+          </a>
         </li>
       {% endif %}
-    {% endfor %}
-  </ul>
-
-  <h1 class="page-heading">TP</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
+    {%endfor%}
+  </section>
+{% endif %}
 
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
