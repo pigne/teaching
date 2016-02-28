@@ -9,13 +9,13 @@
 title: Yoann Pigné - Lectures
 email: yoann.pigne@univ-lehavre.fr
 description: > # this means to ignore newlines until "baseurl:"
-  Web pages realted to my lectures and labs at the University of La Havre, France.
+  Web pages realted to my lectures and labs at the University of Le Havre, France.
 baseurl: "/teaching" # the subpath of your site, e.g. /blog
 url: "http://pigne.org" # the base hostname & protocol for your site
-twitter_username: yopgn
+twitter_username:
 github_username:  pigne
 
-future: true
+future: false
 
 permalink: /:categories/:title.html
 permalink: /:categories/:title
