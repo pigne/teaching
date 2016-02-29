@@ -199,6 +199,19 @@
 /**
  * Posts
  */
+ body{
+   counter-reset: h2counter;
+ }
+ h1 {
+   counter-reset: h2counter;
+ }
+.post {
+
+  h2:before {
+  	content: counter(h2counter) ".\0000a0\0000a0";
+  	counter-increment: h2counter;
+  }
+}
 .post-header {
     margin-bottom: $spacing-unit;
 }
@@ -350,3 +363,10 @@
  		position: absolute;
  	}
  }
+
+/**
+ * license
+ */
+.license{
+  text-align: right;
+}

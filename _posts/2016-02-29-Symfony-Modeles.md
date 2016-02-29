@@ -1,9 +1,10 @@
 ---
-layout: page
+layout: post
 title: Gestion des modèles de données avec Symfony
 categories:
 - InfoWeb
 - lecture
+author: Yoann Pigné
 ---
 
 Récapitulatif du cours et du TP précédent :
@@ -39,10 +40,10 @@ Doctrine est présent dans l'installation par défaut que l'on utilise.
 
 On Configure doctrine pour se connecter à la BADO via les 2 fichiers
 
-  - `app/config/parameters.yml`
-  - `app/config/config.yml`
+- `app/config/parameters.yml`
+- `app/config/config.yml`
 
-```yaml
+```yml
 # app/config/parameters.yml
 parameters:
     database_host: 127.0.0.1
@@ -52,8 +53,8 @@ parameters:
     database_password: pnCFseEZI4O4joj3d76JhdjTy18gD
 ```
 
-```yaml
-# app/config/parameters.yml
+```yml
+# app/config/config.yml
 # ...
 # Doctrine Configuration
 doctrine:
@@ -86,7 +87,7 @@ php bin/console doctrine:database:create
 
 ## Création d'une entité
 
-Une entité représente le type d'objets auxquels on s'intéresse dans l'application. C'est avant tout une classe PHP. On va suivre l'exemple développé sur le site de Symfony avec l'entité `Product`.
+Une entité représente le type d'objets auxquels on s'intéresse dans l'application. C'est avant tout une classe PHP. On va suivre l'exemple développé dans le  document [Databases and Doctrine](http://symfony.com/doc/current/book/doctrine.html) sur le site de Symfony sous licence [CC BY 3.0](http://creativecommons.org/licenses/by-sa/3.0/).
 
 Par convention on crée les Modèles  dans ls sous-dossier `Entity` du _bundle_ courant.
 
@@ -111,7 +112,7 @@ Pour que l'objet soit persistant il faut **lier les champs de la classe aux colo
 Doctrine lie les objets aux bases de données grace à des paramètres (annotation, fichiers de configuration...)
 
 ```bash
- php bin/console doctrine:generate:entity
+php bin/console doctrine:generate:entity
 ```
 
 - 2 fichiers sont générés :
@@ -601,15 +602,17 @@ class Product
      */
     protected $category;
 }
+```
 
-On demande a Doctrine de générer les getters et setters manquants :
+
+On demande a Doctrine de générer les _getters_ et _setters_ manquants :
 
 ```bash
 php bin/console doctrine:generate:entities AppBundle
 ```
 
 
-Mise a jour du schema de base de données :
+Mise à jour du schema de base de données :
 
 ```bash
 php bin/console doctrine:schema:update --force

@@ -4,6 +4,7 @@ title: TP d'introduction à Symfony
 categories:
 - InfoWeb
 - lab
+author: Yoann Pigné
 ---
 
 
@@ -41,12 +42,12 @@ Pour les **machines de TP de l'université**, on va installer Symfony dans le do
 
 ```bash
 mkdir ${HOME}/bin
-curl -LsS https://symfony.com/installer -o ${HOME}/bin/symphony
+curl -LsS https://symfony.com/installer -o ${HOME}/bin/symfony
 chmod a+x ${HOME}/bin/symfony
 ```
 
 
-On modifie la variable d'environnement `$PATH` pour que l'exécutable `symphony` soit disponible partout. Attention il ne faut faire cette manip qu'une seule fois :
+On modifie la variable d'environnement `$PATH` pour que l'exécutable `symfony` soit disponible partout. Attention il ne faut faire cette manip qu'une seule fois :
 
 
 ```bash
@@ -57,7 +58,7 @@ source ${HOME}/.bashrc
 
 ### Installation dans PHPStorm
 
-Il est aussi très facile d'utiliser Symfony avec un IDE. Le plus populaire et plus facile à utiliser à l'heure actuelle (2016) est probablement PHPStorm. celui-ci n'est ni libre ni gratuit, mais une licence étudiant gratuite est accessible. Note : Il est probablement impossible d'installer PHPStorm sur les machines de TP de l'université. Pour installer Symphony dans PHPStorm, aller dans les _préférences_, puis _plugins_, puis cliquer sur "_Browse repository_", puis rechercher le plugin "Symfony Plugin". Installer et redémarrer.
+Il est aussi très facile d'utiliser Symfony avec un IDE. Le plus populaire et plus facile à utiliser à l'heure actuelle (2016) est probablement PHPStorm. celui-ci n'est ni libre ni gratuit, mais une licence étudiant gratuite est accessible. Note : Il est probablement impossible d'installer PHPStorm sur les machines de TP de l'université. Pour installer Symfony dans PHPStorm, aller dans les _préférences_, puis _plugins_, puis cliquer sur "_Browse repository_", puis rechercher le plugin "Symfony Plugin". Installer et redémarrer.
 
 ## Création d'un premier projet
 
@@ -129,7 +130,7 @@ Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](
 
 ## Lancer les Tests Unitaires
 
-La première chose à faire est de lancer les tests unitaires pour s'assurer que tout fonctionne. On exécute les testes avec PHPUnit (l'équivalent du `JUnit` de `Java` pour `PHP`). **Problème** : notre projet Symphony s'attend à ce que `PHPUnit` soit déjà installé dans le système, hors ce n'est pas le cas. Pour installer `PHPUnit` il faut :
+La première chose à faire est de lancer les tests unitaires pour s'assurer que tout fonctionne. On exécute les testes avec PHPUnit (l'équivalent du `JUnit` de `Java` pour `PHP`). **Problème** : notre projet Symfony s'attend à ce que `PHPUnit` soit déjà installé dans le système, hors ce n'est pas le cas. Pour installer `PHPUnit` il faut :
 
 - Installer `composer` qui permet de gérer les dépendances du projet.
 - Installer `PHPUnit` avec `composer`.
@@ -327,7 +328,7 @@ Coller votre (ou vos) methode(s) de test dans le quesitonnaire Eureka (Question 
 
 On souhaite maintenant générer des pages Web completes et pas seulement une chaine de caractères passée dans l'objet `Response`.
 
-Symphony utilise le langage de _template_ `twig`.
+Symfony utilise le langage de _template_ `twig`.
 
 la méthode `render()` du contrôleur permet d'utiliser un template `twig` pour fabriquer une réponse et retourner un objet `Response`.
 

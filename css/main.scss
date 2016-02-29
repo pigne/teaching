@@ -74,3 +74,28 @@ margin-right: 0.4em;
         "layout",
         "syntax-highlighting"
 ;
+
+
+@media print{
+  body {
+    background-color: transparent;
+  }
+  pre,code,p {
+    page-break-inside:avoid;
+    page-break-after:auto;
+    background-color: transparent;
+    overflow-x: visible;
+    white-space: pre-wrap;
+  }
+  h1,h2,h3,h4 {
+    page-break-before:auto;
+    page-break-inside:avoid;
+    page-break-after:avoid;
+    &>p {
+      page-break-before:avoid;
+      page-break-inside:avoid;
+      page-break-after:auto;
+    }
+  }
+
+}

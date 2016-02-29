@@ -17,7 +17,9 @@ layout: default
 {% assign matieres  =  matieres | split:" " | uniq %}
 
 <div class="home">
-
+  <header class="post-header">
+    {{ site.description }}
+  </header>
 {% for matiere in matieres %}
   <section class="matiere">
     <h2>{{matiere}}</h2>

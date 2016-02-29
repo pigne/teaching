@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Yoann Pigné - Lectures
+title: YP Teaching
 email: yoann.pigne@univ-lehavre.fr
 description: > # this means to ignore newlines until "baseurl:"
   Web pages realted to my lectures and labs at the University of Le Havre, France.
