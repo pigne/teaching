@@ -18,11 +18,17 @@ Au programme aujourd'hui la **gestion des modèles objets et la persistance des 
 
 - Configuration de la base de données
 - Représentation d'un modèle objet avec `Doctrine`. Notion d'ORM (_Object-Relational Mapping_).
-- Connection d'un modèle objet à une base de données
-- Requêtes simples
-- Création et Mise a jours d'objets
-- Jointures entre modèles
+- Conception d'un modèle objet
+- Connection du modèle objet à la base de données
+- **Création** / **Lecture** / **Modification** / **Suppression** de données persistantes
 - Utilisation des `Repository`
+- Jointures entre modèles
+
+Ce que l'on verra plus tard:
+
+- Génaration de formulaires à partir de modèles objets
+- Validation de formulaires
+- Gestion des utilisateurs et des droits dans une application Symfony
 
 
 ## Configuration
