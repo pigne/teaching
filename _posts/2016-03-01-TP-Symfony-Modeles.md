@@ -14,7 +14,7 @@ Ce TP est une mise en application du [cours](http://pigne.org/teaching/infoweb/l
 ## Les données
 
 
-On souhaite réaliser une application Web permettant de lister, localiser et donners des commentaires sur des musées Parisiens.
+On souhaite réaliser une application Web permettant de lister, localiser et donner des commentaires sur des musées Parisiens.
 
 On dispose d'un jeu de données sous [licence ouverte (Etalab)](https://www.etalab.gouv.fr/licence-ouverte-open-licence) contenant la liste des musées parisiens labelisés "Musées de France".
 
@@ -53,7 +53,7 @@ les fichiers à modifier sont :
 
 On souhaite créer une entité  principale pour représenter les musées.
 
-Utiliser le script de création d'entitées de Doctrine pour créer une entiter `AppBundle:Musee` :
+Utiliser le script de création d’entités de Doctrine pour créer une entité `AppBundle:Musee` :
 
 ```bash
 php bin/console doctrine:generate:entity
@@ -110,16 +110,16 @@ on doit donc proposer un affichage qui soit simple et facile à lire pour l'util
 
 On va dont prévoir deux  modes d'affichage :
 
-- un mode complet où tous les musés apparaissent sans ordre,  mais ils sont paginés  (affichés pas groupes de 10) ;
+- un mode complet où tous les musées apparaissent sans ordre,  mais ils sont paginés  (affichés pas groupes de 10) ;
 - un mode d'affichage par arrondissement.
 
 
-Pour réaliser des affichages on doit biensur s'assurer que :
+Pour réaliser des affichages on doit bien sur s'assurer que :
 
-- l'entitée `Musee` est associée à un contrôleur qui contient des actions ;
+- l'entité `Musee` est associée à un contrôleur qui contient des actions ;
 - chaque action est liées a une route ;
 - chaque action est aussi associée à une vue (TWIG).
-- les requêtes complexes sont "stokées" dans le _repository_ de la classe `Musee`.
+- les requêtes complexes sont "stockées" dans le _repository_ de la classe `Musee`.
 
 
 ## Commentaires sur les musées
@@ -130,7 +130,7 @@ On ne s'inquiète pas pour l'instant de la notion d'utilisateur ni de droits. To
 
 Un commentaire peut prendre différentes formes mais il doit au moins contenir :
 
-- un nom d'auteur (chmaps de texte libre),
+- un nom d'auteur (champs de texte libre),
 - la date de création du commentaire (générée automatiquement)
 - une note de 1 à 5,
 - le texte du commentaire.
@@ -146,20 +146,20 @@ Pour les musées ayant reçu des commentaires, on souhaite stocker une note moye
 
 Une application Web digne de ce nom se doit d'avoir une carte interactive...  
 
-La plupart des services de cartographie sont acessible en javascript. Or nos données sont en base de données et on ne peut y accéder que via PHP.
+La plupart des services de cartographie sont accessible en javascript. Or nos données sont en base de données et on ne peut y accéder que via PHP.
 
 N'oublions pas que PHP et surtout TWIG sont capable de générer bien plus que des pages web. Il est tout a fait possible de générer du javascript.
 
-Prenons l'exemple de la bibliothèque [Leaflet](http://leafletjs.com). Le code suivant permet de créer une carte et d'y ajouter des markers.
+Prenons l'exemple de la bibliothèque [Leaflet](http://leafletjs.com). Le code suivant permet de créer une carte et d'y ajouter des _markers_.
 
-Il suffit d'ajouter la bibliothèque en référence dans la page web :
+En utilisant par exemple les blocs `stylesheets` et `javascript` par défaut du fichier  TWIG  `base.twig.html` il suffit d'ajouter la bibliothèque en référence dans la page web :
 
 ```html
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 ```
 
-puis de définir un element du markup qui recevra la carte :
+puis de définir un élément du markup qui recevra la carte :
 
 ```html
 <div id="map" style="height: 500px;"></div>
@@ -176,10 +176,12 @@ function draw_map(data) {
   var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 14, attribution: osmAttrib});		
   map.setView(new L.LatLng(48.86, 2.34),12);
   map.addLayer(osm);
+  var marker;
   data.forEach(function(musee){
-    var marker = L.marker([musee.lat, musee.lon]).addTo(map);
-    marker.bindPopup("<b>"+musee.nom+"</b>");
+    marker = L.marker([musee.lat, musee.lon]).addTo(map);
+    marker.bindPopup("<b>"+musee.nom+"</b>").openPopup();
   });
+  marker.openPopup();
 }
 
 var data = [
@@ -214,9 +216,10 @@ function draw_map(data) {
   var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 14, attribution: osmAttrib});		
   map.setView(new L.LatLng(48.86, 2.34),12);
   map.addLayer(osm);
+
   data.forEach(function(musee){
     var marker = L.marker([musee.lat, musee.lon]).addTo(map);
-    marker.bindPopup("<b>"+musee.nom+"</b>");
+    marker.bindPopup("<b>"+musee.nom+"</b>").openPopup();
   });
 }
 

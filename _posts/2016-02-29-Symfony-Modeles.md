@@ -20,14 +20,14 @@ Au programme aujourd'hui la **gestion des modèles objets et la persistance des 
 - Configuration de la base de données
 - Représentation d'un modèle objet avec `Doctrine`. Notion d'ORM (_Object-Relational Mapping_).
 - Conception d'un modèle objet
-- Connection du modèle objet à la base de données
+- Connexion du modèle objet à la base de données
 - **Création** / **Lecture** / **Modification** / **Suppression** de données persistantes
 - Utilisation des `Repository`
 - Jointures entre modèles
 
 Ce que l'on verra plus tard:
 
-- Génaration de formulaires à partir de modèles objets
+- Génération de formulaires à partir de modèles objets
 - Validation de formulaires
 - Gestion des utilisateurs et des droits dans une application Symfony
 
@@ -79,7 +79,7 @@ doctrine:
         auto_mapping: true
 ```
 
-Creation de la base de données :
+Création de la base de données :
 
 ```bash
 php bin/console doctrine:database:create
@@ -109,7 +109,7 @@ Cette classe est bien un modèle objet (une _entité_) mais elle ne peut pas enc
 
 Pour que l'objet soit persistant il faut **lier les champs de la classe aux colonnes d'une table de base de données**.
 
-Doctrine lie les objets aux bases de données grace à des paramètres (annotation, fichiers de configuration...)
+Doctrine lie les objets aux bases de données grâce à des paramètres (annotation, fichiers de configuration...)
 
 ```bash
 php bin/console doctrine:generate:entity
@@ -121,7 +121,7 @@ php bin/console doctrine:generate:entity
 - Dans `Product.php` :
   - par défaut la table `product` est liée au modèle objet `Product` (c'est modifiable)
   - un champ `id` a été ajouté, c'est la clé primaire
-  - les noms des colonnes protent le  nom des champs (c'est modifiable)
+  - les noms des colonnes portent le  nom des champs (c'est modifiable)
   - les _setters_  retournent l'objet courant. On peut faire du chainage de méthodes
 
 
@@ -275,7 +275,7 @@ php bin/console doctrine:schema:update --force
 ```
 
 
-## Creation et persistance d'objets
+## Création et persistance d'objets
 
 On a maintenant un modèle objet persistant opérationnel. On peut **créer**, **afficher**, **modifier** et **supprimer** des objets de ce type. Ce genre d'**action** se fait naturellement dans un contrôleur.
 
@@ -286,7 +286,7 @@ On note :
 - c'est l'objet qui fait réellement les requêtes
 - la méthode `persist` qui indique à l'_entity manager_ que l'objet passé en paramètre doit être persisté
 - la méthode `flush` exécute toutes les requêtes nécessaires en un seul _prepare_.
-- on peut faire plusieurs `persist` pous un seul `flush`.
+- on peut faire plusieurs `persist` pour un seul `flush`.
 
 
 ```php
@@ -402,13 +402,13 @@ $products = $repository->findBy(
 
 ## Mise à jour d'un objet
 
-Une fois que l'on dispose d'une référence à un objet il est facile de le mettre à jours avec des accesseurs. Il faut ensuite appeller l'`entity manager` pour activer la persistance. On fait cela en 3 étapes.
+Une fois que l'on dispose d'une référence à un objet il est facile de le mettre à jours avec des accesseurs. Il faut ensuite appeler l'`entity manager` pour activer la persistance. On fait cela en 3 étapes.
 
 1. On récupère l'objet a partir de doctrine (ici c'est `@ParamConverter` qui s'en charge)
 2. modifier l'objet avec les modificateurs (e.g. : `setPrice`)
 3. appel à la méthode  `flush()` de l'`entity manager`.
 
-Remarque : on n'a pas besoin d'appeller `persist()` car la référence à `$product` vient de doctrine et l'entity manager sait déjà qu'il faut persister cet objet.
+Remarque : on n'a pas besoin d'appelles `persist()` car la référence à `$product` vient de doctrine et l'entity manager sait déjà qu'il faut persister cet objet.
 
 ```php
 <?php
@@ -431,7 +431,7 @@ Remarque : on n'a pas besoin d'appeller `persist()` car la référence à `$prod
 
 ## Supprimer un objet
 
-On supprime un objet avec la methode `remove()` de l'`entity manager` :
+On supprime un objet avec la méthode `remove()` de l'`entity manager` :
 
 ```php
 $em->remove($product);
@@ -440,11 +440,11 @@ $em->flush();
 
 ## Autres méthodes pour faire des requêtes
 
-L'usage du `repository` est de loin la méthhode la plus élégante pour accéder aux données persitées. Mais les méthodes proposées par défaut sont parfois insuffisantes.
+L'usage du `repository` est de loin la méthode la plus élégante pour accéder aux données persitées. Mais les méthodes proposées par défaut sont parfois insuffisantes.
 
 
 ### DQL
-Symfony propose un langage de requête proche du SQL : le DQL. L'idée est la même que SQL sauf qu'on requête des **objets de classes** plutot que des **tuples de tables**.
+Symfony propose un langage de requête proche du SQL : le DQL. L'idée est la même que SQL sauf qu'on requête des **objets de classes** plutôt que des **tuples de tables**.
 
 Notes :
 - on utilise l'`entity manager` pour créer des requêtes.
@@ -534,13 +534,13 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
 ```
 
 
-## Realtions entre entités / Associations
+## Relations entre entités / Associations
 
 
 ### Relations 1-n
 
 
-Supposons que chaque _product_ possède une ét une seule a catégorie. On peut créer une nouvelle entiter et la lier a `Product`:
+Supposons que chaque _product_ possède une et une seule a catégorie. On peut créer une nouvelle entité et la lier a `Product`:
 
 ```bash
 php bin/console doctrine:generate:entity --no-interaction \
@@ -548,7 +548,7 @@ php bin/console doctrine:generate:entity --no-interaction \
     --fields="name:string(255)"
 ```
 
-On crée une propriété `product` dnas la classe `Category`.
+On crée une propriété `product` dans la classe `Category`.
 
 On note :
 
@@ -580,7 +580,7 @@ class Category
 }
 ```
 
-Ensuite on ajour la catérogie unique a chaque `Product`.
+Ensuite on ajoute la catégorie unique a chaque `Product`.
 
 On note :
 
@@ -618,7 +618,7 @@ Mise à jour du schema de base de données :
 php bin/console doctrine:schema:update --force
 ```
 
-### Persister des donénes liées
+### Persister des données liées
 
 On persiste les données liées de la même manière que les données classiques. Chaque création de nouvel objet doit être suivit d'un appel a `persist()` dans l'_entity manager_
 
@@ -697,7 +697,7 @@ Si on sait d'avance que ces 2 requêtes vont être faites, on peut avoir recours
   }
 ```
 
-puis utiliser le _repository_ dans les contôleurs :
+puis utiliser le _repository_ dans les contrôleurs :
 
 ```php
 public function showAction($id)
