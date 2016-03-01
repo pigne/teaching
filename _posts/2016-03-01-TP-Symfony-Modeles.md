@@ -207,7 +207,8 @@ Resultat :
 
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-<div id="map" style="height: 500px;"></div>
+<div id="map" style="height: 500px;     page-break-inside:avoid;
+"></div>
 <script>
 function draw_map(data) {  
   var map = L.map('map');

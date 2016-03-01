@@ -80,6 +80,9 @@ margin-right: 0.4em;
   body {
     background-color: transparent;
   }
+  .no-break {
+    page-break-inside:avoid;
+  }
   pre,code,p {
     page-break-inside:avoid;
     page-break-after:auto;
