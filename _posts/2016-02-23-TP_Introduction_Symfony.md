@@ -18,7 +18,7 @@ Symfony est entre autres un framework Web. Il contient un ensemble de ressources
 Il y a 2 choses à faire dans ce TP :
 
 1. Suivre les étapes afin de réaliser le TP.
-2. Répondre aux questions qui sont posées tout au long de l'énnoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=40245) se trouvant sur la page du cours.
+2. Répondre aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=40245) se trouvant sur la page du cours.
 
 
 
@@ -200,7 +200,7 @@ Dans l'action d'un contrôleur, comment fait-on le lien avec une route (URL) de 
 
 ## Création d'un contrôleur
 
-Nous allons créer un controleur des actions et des routes associées.
+Nous allons créer un contrôleur des actions et des routes associées.
 
 **Créer** un nouveaux fichier `"src/AppBundle/Controller/HelloController.php"` avec le contenu suivant :
 
@@ -283,7 +283,7 @@ OK (3 tests, 5 assertions)
 ```
 
 
-On peut biensur voire fonctionner ce nouveeau contrôleur avec la route : [http://localhost:8000/helloRandom](http://localhost:8000/helloRandom) et recharger la page plusieurs fois...
+On peut bien sur voire fonctionner ce nouveau contrôleur avec la route : [http://localhost:8000/helloRandom](http://localhost:8000/helloRandom) et recharger la page plusieurs fois...
 
 <div class="question">
 
@@ -321,12 +321,12 @@ public function nameAction($name){
 
 Ecrire un test dans la classe `HelloControllerTest` qui vérifie que la méthode fonctionne comme prévu. Vérifier que la page web générée salut bien le Professeur Dumbledore quand son nom est passé dans l'URL. Vérifier aussi que le nom est aléatoire quand aucun paramètre n'est donné ([http://localhost:8000/hello](http://localhost:8000/hello)).
 
-Coller votre (ou vos) methode(s) de test dans le quesitonnaire Eureka (Question 8).
+Coller votre (ou vos) méthode(s) de test dans le questionnaire Eureka (Question 8).
 </div>
 
 ## Création d'une vue
 
-On souhaite maintenant générer des pages Web completes et pas seulement une chaine de caractères passée dans l'objet `Response`.
+On souhaite maintenant générer des pages Web complètes et pas seulement une chaine de caractères passée dans l'objet `Response`.
 
 Symfony utilise le langage de _template_ `twig`.
 
@@ -336,7 +336,7 @@ la méthode `render()` du contrôleur permet d'utiliser un template `twig` pour 
 **Ouvrir** et **lire** les fichiers `app/Resources/views/base.html.twig` et  `app/Resources/views/default/index.html.twig`.
 
 
-Créer un template pour notre controleur Hello `app/Resources/views/default/hello.html.twig` :
+Créer un template pour notre contrôleur Hello `app/Resources/views/default/hello.html.twig` :
 
 {% raw %}
 ```html
@@ -377,9 +377,9 @@ Copier le code de cette action dans la question 9 du questionnaire Eureka.
 
 ## Sessions
 
-On souhaite que l'application se souvienne de nous. A chaque fois que l'action `nameAction` est appelée avec un paramètre (avec un nom), on veut qu'il soit **sauvegardé** dans une **session** (en remplaçant éventuellement celui qui existait déjà). A chaque fois que l'action `nameAction` est appelée **sans** paramètre, alors on veut retrouver le paramètre précédement **enregistré**. Finalement si `nameAction` est apelé sans paramètre pour la première fois alors on génère un nom aléatoirement.
+On souhaite que l'application se souvienne de nous. A chaque fois que l'action `nameAction` est appelée avec un paramètre (avec un nom), on veut qu'il soit **sauvegardé** dans une **session** (en remplaçant éventuellement celui qui existait déjà). A chaque fois que l'action `nameAction` est appelée **sans** paramètre, alors on veut retrouver le paramètre précédemment **enregistré**. Finalement si `nameAction` est appelé sans paramètre pour la première fois alors on génère un nom aléatoirement.
 
-Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)) cela va m'afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)) cela doit également m'afficher `"Hello You!"`. En revanche si on appelle pour la première fois l'action sans paramêtres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
+Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)) cela va m'afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)) cela doit également m'afficher `"Hello You!"`. En revanche si on appelle pour la première fois l'action sans paramètres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
 
 
 <div class="question">
