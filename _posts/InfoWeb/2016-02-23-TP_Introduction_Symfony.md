@@ -137,27 +137,37 @@ La première chose à faire est de lancer les tests unitaires pour s'assurer que
 
 Suivre dans l'ordre les étapes suivantes :
 
-1. **Constater** qu'il n'y a aucune mention à `PHPUnit` dans le fichier `composer.json` qui se trouve à la racine du projet.
-2. **installer** `composer` :
+ 1) **Constater** qu'il n'y a aucune mention à `PHPUnit` dans le fichier `composer.json` qui se trouve à la racine du projet.
+
+ 2) **installer** `composer` :
+
 ```bash
 php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
-  Note : ici la [procédure d'installation pour Windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
-3. **installer** `PHPUnit`:
+Note : ici la [procédure d'installation pour Windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
+
+ 3) **installer** `PHPUnit`:
+
 ```bash
 php composer.phar require phpunit/phpunit
 ```
-4. **Constater** que `phpunit` apparait dans le fichier `composer.json` et qu'un dossier `phpunit` existe dans le dossier `vendor/`
-5. **Lancer les tests**:
+
+4) **Constater** que `phpunit` apparait dans le fichier `composer.json` et qu'un dossier `phpunit` existe dans le dossier `vendor/`
+
+5) **Lancer les tests**:
+
 ```bash
 php vendor/bin/phpunit tests
 ```
+
 il devrait y en avoir un seul pour l'instant le résultat devrait être :
+
 ```
 OK (1 test, 2 assertions)
 ```
+
 <div class="question">
 ### Question 4
 
@@ -184,7 +194,7 @@ Ces 3 termes sont importants :
 
 - Un **contrôleur** est la classe principale qui gère un ensemble d'**actions**.
 - Une **action** est une méthode de classe du contrôleur, c'est un peu comme un des services  possibles proposés par le contrôleur.
-- Une **route** est la partie qui vient après le nom de domaine dans une `URL` au sens de `HTTP`. Par exemple dans l'`URL` `"http://www.example.com/truc/machin"`, la route est `"/truc/machin"`.
+- Une **route** est la partie qui vient après le nom de domaine dans une URL au sens de HTTP. Par exemple dans l'URL `http://www.example.com/truc/machin`, la route est `/truc/machin`.
 
 Il faut configurer le contrôleur pour que ses actions soient liées à des routes.
 
