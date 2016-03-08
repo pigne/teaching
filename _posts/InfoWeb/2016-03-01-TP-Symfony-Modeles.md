@@ -123,6 +123,37 @@ Pour cela on a besoin d'une nouvelle dépendance dans le projet. A la racine du 
 php composer.phar require --dev doctrine/doctrine-fixtures-bundle
 ```
 
+Il faut ensuite modifier la configuration de notre app pour prendre en charge le _bundle_. Dans `app/KernelApp.php` il faut ajouter la ligne `$bundles[] = new Doctrine\Bundle\Fixtu resBundle\DoctrineFixturesBundle();` :
+
+```php
+<?php
+
+use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\Config\Loader\LoaderInterface;
+
+class AppKernel extends Kernel
+{
+    public function registerBundles()
+    {
+        $bundles = [
+            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            // ...
+
+        ];
+
+        if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
+            // ...
+            $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            // ----------------------------
+            //     INSERER LA LIGNE ICI
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+            // ----------------------------
+
+        }
+// ...        
+```
+
+
 
 On va créer une classe chargée de l'import des données dans un nouveau dossier à créer : `src/AppBundle/DataFixtures/ORM`. Cette classe (`LoadMuseeData`) contient une méthode `load` qui va être appelé pour l'import.
 
@@ -179,7 +210,7 @@ class LoadMuseeData implements FixtureInterface
     $contents = file_get_contents($url);
     $contents = utf8_encode($contents);
     $json = json_decode($contents, true);
-    foreach ($data as $object)
+    foreach ($json as $object)
     {
         $fields = $object['fields'];
         if (isset($fields['coordonnees_']))
