@@ -271,7 +271,7 @@ Un commentaire peut prendre différentes formes, à vous de voir, mais il doit a
 
 
 Créer une classe **persistante** `Commentaire` liée avec une relation un vers plusieurs  à la classe `Musee`.
-**Attention** au sens de la relation. Un musée peut avoir plusieurs commentaires et une commentaire ne concerne qu'un seul musée.
+**Attention** au sens de la relation. Un musée peut avoir plusieurs commentaires et un commentaire ne concerne qu'un seul musée.
 
 
 ![Modèle UML Musée Complet]({{ site.baseurl }}/images/UML-musee-full-infoweb.svg)
