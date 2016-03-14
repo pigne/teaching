@@ -97,10 +97,10 @@ class MuseeController extends Controller
 }
 ```
 
-On note les 3 fonctions TWIG permettant de générer le formulaire:
+On note plusieurs fonctions TWIG permettant de générer le formulaire:
 
 - `form_start` gère la balise `<form>`  et les attributs `action` et `method`
-- `form_widget` génère les `input`
+- `form_widget` génère tous les `input`
 - `form_end` gère le champs caché CSRF et ferme le `<form>`
 
 
@@ -123,6 +123,11 @@ Template avec un minimum de contrôle :
 
 Template avec plus de contrôle :
 
+- `form_label(form.truc)` affiche le _label_ du champs `truc`
+- `form_error(form.truc)` affiche les erreurs de validation liées au champs `truc`
+- `form_widget(form.truc)` affiche la belise HTML liée au champs `truc` (`input`, `textarea`, `select`, _etc_. )
+- `form_row(form.truc)` affiche le bloc (_label_, _error_, _widget_) pour le champ `truc`.
+
 {%raw%}
 ```liquid
 {{ form_start(form) }}
@@ -135,9 +140,7 @@ Template avec plus de contrôle :
     </div>
 
     <div>
-        {{ form_label(form.coordonnees) }}
-        {{ form_errors(form.coordonnees) }}
-        {{ form_widget(form.coordonnees) }}
+        {{ form_row(form.coordonnees) }}
     </div>
 
     <div>
