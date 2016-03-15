@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TP Symfony - Gestion des formulaires
+title: TP Symfony - Gestion des formulaires et utilisateurs
 categories:  
 - InfoWeb
 - lab
