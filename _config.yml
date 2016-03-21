@@ -28,8 +28,6 @@ kramdown:
   input: GFM
   parse_block_html: true
 
-
-
 # The Reveal theme
 reveal_theme: simple.css
 # The Reveal transition
