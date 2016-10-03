@@ -159,7 +159,7 @@ class SomeController {
   public function someAction($name)
   {
     // Exception levée si l'utilisateur n'est pas administrateur
-    this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
+    $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
 // ...
 
 ```

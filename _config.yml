@@ -5,6 +5,9 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+gems:
+  - jemoji
+
 # Site settings
 title: YP Teaching
 email: yoann.pigne@univ-lehavre.fr
@@ -27,6 +30,15 @@ markdown: kramdown
 kramdown:
   input: GFM
   parse_block_html: true
+
+
+collections:
+  matieres:
+    label: matieres
+    permalink: /:path/
+    output: true
+
+
 
 # The Reveal theme
 reveal_theme: simple.css
