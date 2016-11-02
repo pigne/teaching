@@ -25,7 +25,7 @@ Technology still relies on the HTTP protocol (althaugh HTTP2 is on its way) for 
 
 This lecture focusses on browsing a wide area of those new features, not pretending to fully cover them all. The lecture starts with a comprehensive beginner initiation to JavaSript (ES5).
 
-![Graph Outlook](img/outlook.png)
+![Graph Outlook]({{ site.baseurl }}/images/outlook.png)
 
 [[Graph Outlook on Codepen]](http://codepen.io/pigne/pen/meyVvz)
 
