@@ -13,6 +13,7 @@ author: Yoann Pigné
 On désire réaliser une application qui permet à un utilisateur, sans qu'il se connecte, de gérer différents compteurs de temps. Il doit pouvoir ajouter, modifier ou supprimer des compteurs.
 
 Pour chaque compteur il doit pouvoir :
+
 - définir un titre pour ce compteur
 - définir la langue à partir d'une liste proposée, qui permet de définir une locale
 - définir une échéance dans le temps pour ce compteur (date et heure, dans la locale définie par la langue)
@@ -67,6 +68,7 @@ Mes identifiants :
 ## Evaluation
 
 La note tiendra compte :
+
 - du nombre de fonctionnalités développées,
 - de la qualité du code et des tests,
 - de la possibilité ou non de lancer le projet sur une Ubuntu 16.04 avec un simple `mvn install`,
