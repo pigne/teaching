@@ -256,6 +256,7 @@ document.getElementById("d").style.color = "orange";
 ```
 
 4 properties:
+
 - transition-property: List of CSS properties to transform.
 - transition-duration: Duration of the smooth effect.
 - transition-timing-function (optional): Transition function (acceleration, trajectory, deceleration).
