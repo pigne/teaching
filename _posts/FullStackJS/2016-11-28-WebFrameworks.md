@@ -159,11 +159,13 @@ home_timeline.json
 Too many vulnerabilities exist... But developers *are* responsible for their code!
 
 Common Attacks
+
 - Cross-Site Request Forgery (CSRF)
 - Cross-site scripting (XSS)
 - SQL injection
 
 Common Measures
+
 - Anti-CSRF tokens
 - Forms Timeouts
 - Escape users inputs
