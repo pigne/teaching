@@ -288,11 +288,13 @@ Obviously in JavaScript... actually not only
 ## Databases
 
 Of course classical relational DBMS hold for web apps, but NoSQL type DBMS become useful in case of:
+
 - loosely structured (few or no foreign keys),
 - no need to JOIN tables,
 - Big Data.
 
 4 types of noSQL DBMs:
+
   - key-value stores
   - object-based
   - table-based
@@ -376,6 +378,7 @@ app.get('/advert/:id?', function(req, res) {
 - Templating in node with Jade: http://jade-lang.com/
 
 In the main express configuration file (`app.js`):
+
 ```javascript
 app.set('view engine', 'jade');
 var users = [{id:1, name:'Tom'},
@@ -383,6 +386,7 @@ var users = [{id:1, name:'Tom'},
 app.get('/user/:id?', function(req, res){
   res.render('hello_user', _.filter(users, {id:req.param('id')[0]);
 });
+
 ```
 In a template file (`/views/hello_user.jade`):
 ```
