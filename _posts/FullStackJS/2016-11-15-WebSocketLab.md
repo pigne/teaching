@@ -3,7 +3,7 @@ layout: post
 title: WebSocket Lab
 categories:
 - FullStackJS
-- lecture
+- lab
 author: Yoann Pigné
 ---
 
