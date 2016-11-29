@@ -271,6 +271,7 @@ many frameworks in many (all?) languages
 ### Client Side MVC Frameworks
 
 Obviously in JavaScript... actually not only
+
 - Angular.js
 - Ember.js
 - Backbone.js
@@ -281,9 +282,6 @@ Obviously in JavaScript... actually not only
 - GWT
 - Vue.js
 - The React ecosystem...
-
-
-
 
 
 
@@ -333,6 +331,7 @@ Web Application frameworks handle all the technical parts of the communication b
 
 ## Express ([expressjs.com](http://expressjs.com/)). A minimalist Web framework for node.
 
+
 ```javascript
 var express = require('express');
 
@@ -343,6 +342,7 @@ app.get('*', function(req, res){
 });
 var server = app.listen(1337);
 ```
+
 Install with npm: `npm install express --save`
 
 
@@ -369,6 +369,7 @@ app.get('/advert/:id?', function(req, res) {
 ```
 
 ### Templates with Express
+
 - Templates allow the dynamic creation of web pages.
 - Templates use a special language with variables (user data) loops and conditions
 - Templates are stored in the views/ folder of the App and are called from a route.
@@ -390,11 +391,13 @@ In a template file (`/views/hello_user.jade`):
 ```
 
 Result:
+
 ```xml
 <div class="user">
     <h2>Hello Max!</h2>
 </div>
 ```
+
 ### Express's Middlewares
 
 - Extra features given to the application. They are executed at each request.
