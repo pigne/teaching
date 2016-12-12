@@ -151,7 +151,7 @@ import { withRouter } from 'react-router'
 
 class MonComposant extends  React.Component {
   // ...
-  someEvent() : {
+  someEvent() {
     const path = createSomeNewURL();
     this.props.router.push(path);
   }
