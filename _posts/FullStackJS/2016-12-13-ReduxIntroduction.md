@@ -10,7 +10,21 @@ author: Yoann Pigné
 
 Redux (<http://redux.js.org/>) est une bibliothèque JS permettant de gérer l'état d'une application de manière déterministe.
 
-Redux propose un conteneur (le ***store***) dont les modifications sont décrites par des ***actions*** (sortes d'évènements) qui sont gérés par des réducteur (***reducers***).
+Redux propose un conteneur (le ***store***) dont les modifications sont décrites par des ***actions*** (sortes d'évènements) qui sont gérés par un réducteur (***reducer***).
+
+## les Actions
+
+C'est un **simple objet JS** qui a pour seul contrainte d'avoir une **propriété `type`** sérialisable (e.g. une `string`) assi que n'importe quelle autre propriété permettant au réducteur de générer un nouvel état.
+
+```js
+const action = {
+  type: 'CHANGE_MENU_SELECTION',
+  selectedMenuItem: '#about_menu'
+}
+```
+
+On note que le type de l'action contient un **verbe actif**. Il doit permettre d'identifier la nature de la modification correspondant à l'action.  
+
 
 
 ## Le Réducteur (*reducer*)
@@ -58,23 +72,28 @@ const modifieEtat = (etat) => {
   return etat;
 }
 
-// fonction impure (modifie les paramètres)
+// fonction pure (le paramètre n'est pas modifié)
 const etat = {valeur:1}
 const nouvelEtat = (etat) => {
   return Object.assign({}, etat, {valeur:etat.valeur+1} );
 }
 ```
 
-## les Actions
-
-C'est un simple objet JS qui a pour seul contrainte d'avoir une propriété `type` sérialisable (e.g. une `string`) assi que n'importe quelle autre propriété permettant au réducteur de générer un nouvel état.
+Le *reducer* est capable de considérer l'action en paramètre et de créer un nouvel état en fonction de cette action.
 
 ```js
-const action = {
-  type: 'CHANGE_MENU_SELECTION',
-  selectedMenuItem: '#about_menu'
+function counterReducer(state = 0, action) {
+  switch (action.type) {
+  case 'INCREMENT':
+    return state + 1
+  case 'DECREMENT':
+    return state - 1
+  default:
+    return state
+  }
 }
 ```
+
 
 ## Le Store Redux
 
@@ -82,7 +101,7 @@ Le *store Redux* est l'objet javascript qui contient l'état **immuable** d'une 
 
 Toute modification du *store* doit passer par un *reducer* qui va générer un nouvel état.
 
-On crée un *store* avec la fonction `createStore`  et en paramètre un reducteur capable de gérer les modifications.
+On crée un *store* avec la fonction `createStore`  et en paramètre un réducteur capable de gérer les actions.
 
 ```js
 function counterReducer(state = 0, action) {
@@ -146,20 +165,19 @@ render(
 ```
 
 
-Pour qu'un composant React ai effectivement accès au store il faut "connecter" ce dernier au store.
+Pour qu'un composant React ait **effectivement** accès au store, il faut "connecter" ce dernier au store.
 
-On utilise la fonction [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) de Redux sur le composant désiré pour lui donner accès.
+On utilise la fonction [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) de Redux sur le composant désiré pour lui donner accès. La fonction `connect` retourne un nouveau composant `React` ayant la possibilité de faire un `getState()` sur le store et d'appeler `dispatch()`.
 
-Les options de la fonction `connect`sont nombreuses. On peut vouloir avoir accès à la fonction `dispatch` uniquement ou bien s'enregistrer pour recevoir les modifications du store. Le filtrage est possible.  
+Les options de la fonction `connect` sont nombreuses. On peut vouloir avoir accès à la fonction `dispatch` uniquement ou bien s'enregistrer pour recevoir les modifications du store. Le filtrage est possible.  
 
 ```js
-
 import React from 'react'
 import { connect } from 'react-redux'
 
-let stuffIndex=0;
 const addStuffAction = (stuff) => ({
-  id: sruffIndex++,
+  type: 'ADD_STUFF',
+  id: Math.floor(Math.random()*1000),
   stuff
 });
 
@@ -173,7 +191,7 @@ let AddStuff = ({ dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTodo(input.value))
+        dispatch(addStuffAction(input.value))
         input.value = ''
       }}>
         <input ref={node => {
@@ -190,15 +208,63 @@ let AddStuff = ({ dispatch }) => {
 export default connect()(AddStuff)
 ```
 
+Classiquement on définit deux fonctions :
+
+- `mapStateToProps` pour définir des propriétés (`props`) dans le composant à partir des valeurs du `store`.
+- `mapDispatchToProps` pour définir des fonctions de `callback` dans les `props` qui vont être `bindées` avec la fonction `dispatch` et vont faire appel au `reducer`.
+
+Exemple pris de [redux.js.org](http://redux.js.org/docs/basics/UsageWithReact.html)
+
+```js
+const getVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case 'SHOW_ALL':
+      return todos
+    case 'SHOW_COMPLETED':
+      return todos.filter(t => t.completed)
+    case 'SHOW_ACTIVE':
+      return todos.filter(t => !t.completed)
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTodoClick: (id) => {
+      dispatch(toggleTodo(id))
+    }
+  }
+}
+
+
+import { connect } from 'react-redux'
+
+const VisibleTodoList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList)
+
+export default VisibleTodoList
+
+```
+
+
+
+
 
 
 ## Combiner les reducteurs
 
-La fonction `createStore` ne prend en parametre q'un seul réducteur qui va être chargé gérer toutes les actions de l'application. Or plusieurs types d'actions différentes vont cohabiter.
+La fonction `createStore` ne prend en paramètre q'un seul réducteur qui va être chargé de gérer toutes les actions de l'application. Or plusieurs types d'actions différentes vont cohabiter.
 
 Par exemple, les actions liées à la modification du model peuvent êtres séparées des actions liées à l'interface graphique.
 
-On va combiner les réducteur avec la fonction `combineReducers`.
+On va combiner les réducteurs avec la fonction `combineReducers`.
 
 
 ### Exemple
@@ -214,7 +280,7 @@ const stuff = (state, action) => {
   switch(action.type){
     'ADD_STUFF': return [
         ...state,
-        {action.id, action.stuff}
+        {id: action.id, stuff: action.stuff}
       ]
     'REMOVE_STUFF': return state.filter((s)=>(s.id !== action.id))
     default: return state
@@ -265,7 +331,7 @@ npm start
 ## Gestions des actions asynchrones
 
 
-`Redux Thunk middleware` est un module redux qui permet d'écrire des fonctions de création d'actions qui retournent une fonction au lieu de retourner une action.
+`Redux Thunk middleware` est un module redux qui permet d'écrire des fonctions de création d'actions qui retournent une **fonction** ou une ***Promise*** au lieu de retourner une action.
 
 Cette fonction retournée reçoit les méthodes `dispatch` et `getState` su store en paramètre.
 
@@ -295,16 +361,24 @@ const store = createStore(
 On peut ensuite l'utiliser dans les créateurs d'actions
 
 ```js
-function fetchStuff(subreddit) {
+function fetchStuff(lol) {
   return function (dispatch) {
     dispatch(requestStuff(lol))
     return fetch(`https://www.example.com/${lol}`)
       .then(response => response.json())
       .then(json => dispatch(receiveStuff(lol, json))
       ).catch(err => dispatch(cancelStuff(err)));
-
-      // In a real world app, you also want to
-      // catch any error in the network call.
   }
 }
 ```
+
+
+## Utilisation avec `React-Router`
+
+Suivre le tutoriel  [Usage with React Router](http://redux.js.org/docs/advanced/UsageWithReactRouter.html) sur le site de `Redux`.
+
+## Pour aller plus loin
+
+- On peut optimiser une app react et réduire le nombre de mises à jour avec des [seletceurs](http://redux.js.org/docs/recipes/ComputingDerivedData.html) et la library [reselect](https://github.com/reactjs/reselect)
+- On peut améliorer la création de `states` immuables avec une lib dédiée : [immutable.js](https://github.com/facebook/immutable-js)
+- Une chaine youtube sur des points précis de `React` et `Redux` : [ReactCasts](https://www.youtube.com/channel/UCZkjWyyLvzWeoVWEpRemrDQ)
