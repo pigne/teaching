@@ -3,6 +3,7 @@ layout: syllabus
 matiere: FullStackJS
 title: Full-Stack Javascript Web Development
 subtitle: M2 Info - IDOD - Université du Havre
+order: 2
 ---
 
 -	Basic tools, protocols, standards and technologies for Web development.

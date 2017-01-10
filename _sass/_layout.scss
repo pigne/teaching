@@ -9,7 +9,9 @@
     // Positioning context for the mobile navigation icon
     position: relative;
 }
-
+.tag {
+  font-style: italic;
+}
 .site-title {
     font-size: 26px;
     font-weight: 300;
@@ -346,6 +348,7 @@
  */
 
  .question {
+
  	background-color: lighten(desaturate($question-color, 80%), 5%);
  	position: relative;
  	padding: 1em;
@@ -355,7 +358,8 @@
  		padding: 0 0 1ex 1em;
  	}
  	&:before {
- 		content: "?";
+    @extend .fa;
+ 		content: "\f128";
  		background-color: $question-color;
  		border-radius: 50%;
  		width:2em;
