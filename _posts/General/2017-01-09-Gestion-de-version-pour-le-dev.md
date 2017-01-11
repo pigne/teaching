@@ -31,7 +31,7 @@ Diff
 Exemple. On a un fichier `hello_wold.c` :
 
 ```c
-int main()
+void main()
 {
   printf("Hello World!\n");
 }
