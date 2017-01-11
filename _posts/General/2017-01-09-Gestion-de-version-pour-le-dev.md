@@ -103,6 +103,7 @@ il y a 3 grandes familles systèmes de gestion de version :
 
 
 Copie manuelle de fichiers locaux.
+
 - `+` Facile à utiliser.
 - `-` Facile de se tromper.
 - `-` **Pas de travail en équipe**.
