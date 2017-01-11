@@ -509,8 +509,6 @@ $ git branch -d cli_branch  ## remove cli_branch as it is useless
 </p>
 
 
-</section>
-<section>
 
 ### Resolving conflicts
 
