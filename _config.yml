@@ -26,6 +26,8 @@ permalink: /:categories/:title
 
 # Build settings
 markdown: kramdown
+exclude:
+  - /bower_components
 
 kramdown:
   input: GFM
