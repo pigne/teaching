@@ -53,15 +53,17 @@ Le diff entre  `hello_wold.c` et `hello_wold2.c` donne :
 
 ```diff
 diff --git a/hello_world.c b/hello_world2.c
-index a39ceeb..73c3748 100644
+index 14049e2..73c3748 100644
 --- a/hello_world.c
 +++ b/hello_world2.c
-@@ -1,5 +1,8 @@
+@@ -1,6 +1,8 @@
+-void main()
 +#include <stdio.h>
 +
- int main()
++int main()
  {
      printf("Hello World!\n");
+-
 +      return 0;
  }
 
@@ -135,6 +137,7 @@ Un serveur central accessible sur le web contient le dépôt. Les utilisateurs n
 Chaque utilisateur possède **toute** le dépôt (les banches, les **commits**, etc.) en local.
 
 Il n'y a pas de serveur central. N'importe qui (avec une connexion internet entrante) peut devenir un serveur.
+
 - `+` Pas de vulnérabilité unique.
 - `+` La plupart des opérations sont en local (diff, historique, logs, manipulation de branches, etc.). Pas de connexion réseau nécessaire (plus rapide)
 - `+` Thousands of branches can be gracefully handled.
@@ -176,7 +179,8 @@ une commande pour configurer GIT : `git config`.
 git config --list
 ```
 
-3 niveaux de configuration :
+Trois niveaux de configuration :
+
 - the system level : `--system` option, modifies `/etc/gitconfig`
 - the user level : `--global`option, modifies '~/.gitconfig'
 - the repository level : no option, modifies `.git/config`
@@ -195,7 +199,7 @@ $ git config --global user.email johndoe@example.com
 
 ### Créer un nouveau dépôt
 
-Usually you already have a folder with a project in it. Source files and so.
+Souvent on dispose déjà d'un projet existant avec du code déjà écrit avant de décider d'en faire le suivit de version.
 
 `git init` initializes a new repository.
 
@@ -425,6 +429,7 @@ $ git push origin master
 Le dépôt peut se représenter comme un réseau de validations (*commits*)
 
 Les validations sont identifiées par :
+
 - un code de contrôle unique (*check-sum*)
 - un/des liens vers un/des commits parents.
 
@@ -491,9 +496,13 @@ $ git commit # moves master & HEAD
 
 As soon as concurrent modifications are finished, we want to reintegrate branches with `git merge`
 
-- To merge branch B in branch A, one have to call `merge` from branch A.
-- Merging 2 branches will create a new commit with 2 (or more) parents.
-- Conflicts may happen.
+Qaund les modificationsn et ajouts sont terminés dans la branche thématique, on va souhaiter réintégrer la branche principale.
+
+- Pour fusionner la branche B dans la branche A on doit fait appel à la commande `merge` **depuis la branche A**
+- La fusion de 2 branches peut :
+  - générer un conflit si les modifications sont incompatibles (e.g. modification des mêmes lignes de code),
+  - générer une validation (*commit*) automatique si les modifications peuvent se fusionner automatiquement (e.g. modification de lignes différentes qui n'entrent pas en conflit)
+  - l'intégration des validations de la branche B dans A **sans** validation de fusion (*merge commit*) si ocune fusion n'est nécessaire (e.g. modification de fichiers différents).
 
 ```bash
 $ git checkout master       ## be sure we are in destination branch
@@ -515,6 +524,8 @@ $ git branch -d cli_branch  ## remove cli_branch as it is useless
 
 In case of conflict the commit is aborted and problematic files are unmerged
 
+En cas de conflit, la fusion est mise en pause. La validation est annulée. Les fichiers concernés par les conflits sont marqués comme **non fusionnés** (*unmerged*).
+
 ```bash
 $ git status
 index.html: needs merge
@@ -527,8 +538,8 @@ index.html: needs merge
 #
 ```
 
-- Use `git mergetool` to call one of the merging tools available (kdiff3,tkdiff,xxdiff,meld,gvimdiff,opendiff,emerge,vimdiff).
-- Or edit the unmerged files.
+- On peut utiliser  `git mergetool` pour appeler l'utilitaire de fusion de fichiers (kdiff3,tkdiff,xxdiff,meld,gvimdiff,opendiff,emerge,vimdiff).
+- Ou éditer les fichiers non fusionnés à la main
 
 ```bash
 <<<<<<< HEAD:index.html
