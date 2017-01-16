@@ -8,11 +8,22 @@ author: Yoann Pigné
 ---
 
 
+- [Le Réducteur (*reducer*)](#le-rducteur-reducer)
+- [Le Store Redux](#le-store-redux)
+- [Inclure le store dans React](#inclure-le-store-dans-react)
+- [Combiner les reducteurs](#combiner-les-reducteurs)
+- [Exemples Redux](#exemples-redux)
+- [Gestions des actions asynchrones](#gestions-des-actions-asynchrones)
+- [Utilisation avec `React-Router`](#utilisation-avec-react-router)
+- [Pour aller plus loin](#pour-aller-plus-loin)
+
+
 Redux (<http://redux.js.org/>) est une bibliothèque JS permettant de gérer l'état d'une application de manière déterministe.
 
 Redux propose un conteneur (le ***store***) dont les modifications sont décrites par des ***actions*** (sortes d'évènements) qui sont gérés par un réducteur (***reducer***).
 
-## les Actions
+
+## Les Actions
 
 C'est un **simple objet JS** qui a pour seul contrainte d'avoir une **propriété `type`** sérialisable (e.g. une `string`) assi que n'importe quelle autre propriété permettant au réducteur de générer un nouvel état.
 
@@ -348,13 +359,12 @@ const reducer = /* ... le réducer de l'application ... */
 const etatInitial = {/* ...*/}
 
 const store = createStore(
-    reducer,
-    etatInitial,
-    applyMiddleware(
-      thunkMiddleware
-    )
-  );
-}
+  reducer,
+  etatInitial,
+  applyMiddleware(
+    thunkMiddleware
+  )
+);
 ```
 
 
