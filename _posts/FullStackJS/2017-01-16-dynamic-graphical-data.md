@@ -30,6 +30,7 @@ Graphically displaying information can be done in a static way or in a dynamic w
 These graphics can be generated on the server (e.g. a PHP script that generates a charts based on the results of a MySQL DB query). Or they can be generated on the client side with JavaScript, HTML, and CSS .  
 
 HTML5 has mainly 2 types technologies to display graphical data:
+
   - A pixel-based model for drawing:
       - in 2D with _canvas_
       - in 3D with _WebGL_
@@ -54,6 +55,7 @@ context.fillRect (10, 10, 100, 100);
 
 
 Basic drawing capabilities :
+
 - various shapes (rectangles, lines, paths, arcs)
 - text
 - Fill and stroke styles
@@ -81,6 +83,7 @@ More advanced 2D drawing with animations, events, user interaction can be achiev
 WebGL is an API based on OpenGL ES. It uses the `canvas` DOM element to build 3D scenes.
 
 Since OpenGL ES  is a low level API, we mostly always use third party libraries:
+
 - <http://threejs.org/>
 - <http://www.pixijs.com/> for 2D with WebGL
 
