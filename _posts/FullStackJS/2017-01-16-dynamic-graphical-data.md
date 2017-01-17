@@ -24,6 +24,7 @@ author: Yoann Pigné
 One of the main purposes of the Web is to present and exchange information. Information presentation can have many forms (text, graphics, audio, video, maps).
 
 Graphically displaying information can be done in a static way or in a dynamic way.
+
 - Static graphics are basically images (pictures) or pre-generated charts.
 - Dynamic graphics occur when data, in a non graphical format (structured text, binary data), are transformed into  graphics (charts).
 
