@@ -63,40 +63,41 @@ Une méthode utilitaire permet de lire les contacts à partir d'un fichier texte
 
 On peut faire des recherches sur le carnet et sélectionner des contacts pour les afficher.
 
-L'affichage se fait en choisissant l'ordre lexicographique (croissant  ou décroissant) le sens d'affichage (nom  ou prénom) et le mode présentation (abrégé, simple ou complet)
+L'affichage se fait en choisissant l'ordre lexicographique (croissant  ou décroissant), le sens d'affichage (nom ou prénom) et le mode présentation (abrégé, simple ou complet).
 
-Le modèle objet est le suivant. En plus des méthodes indéquées, toutes les classes possèdent des accesseurs pour leurs champs privés.
+En plus des méthodes indiquées, toutes les classes possèdent des accesseurs pour leurs champs privés. Le modèle objet est le suivant.
 
 ![UML Carnet d'adresses]({{ site.baseurl }}/images/UML_CA.svg)
 
+## Travail Demandé
 
 #### 1. Alice
 
-- Création du projet dut GitLab
-- copier coller le code proposé pour créer un nouveau projet
-- Ajout de Bob comme membre du projet (icon de roue crantée, puis *Members*) et lui donner les droits *Master*.
-- Ajouter le prof (`pigne`) au projet et lui donner les droits *Reporter*
+- Créer le projet sur GitLab
+- Copier/coller le code proposé pour créer un nouveau projet
+- Ajouter Bob comme membre du projet (icon de roue crantée, puis *Members*) et lui donner les droits *Master*.
+- Ajouter le prof (`pigne`) au projet et lui donner les droits *Reporter*.
 
 #### 2. Bob
 
-- cloner de dépôt
-- Utiliser Eclipse pour créer un nouveau projet java en spécifiant le dépôt cloné comme *Location* (destination) (ne pas utiliser la destination par défaut)
-- Créer un fichier .gitignore pour ignorer le dossier `bin`
+- Cloner de dépôt.
+- Utiliser Eclipse pour créer un nouveau projet java en spécifiant le dépôt cloné comme *Location* (destination). Ne pas utiliser la destination par défaut.
+- Créer un fichier `.gitignore` pour ignorer le dossier `bin`
 - sélectionner, valider et envoyer tous les autres fichiers (`.gitignore`, `.project` , `.classpath`, `.settings`)
 
 #### 3. Alice
 
-- récupérer les modifications
-- importer le projet dans Eclipse
+- Récupérer les modifications.
+- Importer le projet dans Eclipse.
 - Créer un fichier README contenant le "vrai" nom et l'adresse de Alice et de Bob.
-- sélectionner, valider et envoyer
+- Sélectionner, valider et envoyer.
 
 #### 4. Bob
 
-- créer le package `entree`
-- créer l'interface `Entree`
-- créer les énumérations `Presentaion`, `Sens` et `Genre`
-- sélectionner, valider et envoyer
+- Créer le package `entree`
+- Créer l'interface `Entree`
+- Créer les énumérations `Presentaion`, `Sens` et `Genre`
+- Sélectionner, valider et envoyer.
 
 #### 5. Alice
 
@@ -114,7 +115,7 @@ Le modèle objet est le suivant. En plus des méthodes indéquées, toutes les c
       - Fonction: Directeur
     ```
 
-- Sélectionner, valider et envoyer
+- Sélectionner, valider et envoyer.
 
 #### 6.  Bob
 
@@ -125,18 +126,18 @@ Le modèle objet est le suivant. En plus des méthodes indéquées, toutes les c
 
 #### 7.  Alice
 
-- Dans un package `test` écrire une classe de test (`TestPersonne`) qui contient un `main` qui toutes les méthodes de la classe `Personne`
-- Sélectionner, valider et envoyer
+- Dans un package `test` écrire une classe de test (`TestPersonne`) qui contient un `main` qui teste toutes les méthodes de la classe `Personne`.
+- Sélectionner, valider et envoyer.
 
 #### 8. Bob
 
-- Dans un package `test` écrire une classe de test (`TestSociete`) qui contient un `main` qui toutes les méthodes de la classe `Societe`
-- Sélectionner, valider et envoyer
+- Dans un package `test` écrire une classe de test (`TestSociete`) qui contient un `main` qui toutes les méthodes de la classe `Société`.
+- Sélectionner, valider et envoyer.
 
-#### 9.  Alice
+#### 9.  Alice ou Bob
 
-- Dans le package `carnet` créer l'énumération `Ordre` et la classe  Carnet **Sans** ses méthodes
-- Sélectionner, valider et envoyer
+- Dans le package `carnet` créer l'énumération `Ordre` et la classe  Carnet **sans** ses méthodes
+- Sélectionner, valider et envoyer.
 
 #### 10.  Bob
 
@@ -168,15 +169,15 @@ Le modèle objet est le suivant. En plus des méthodes indéquées, toutes les c
   4;PERSONNE;Ginny;Weasley;F;3;1;Elève
   ```
 
-- des tests sont écrits avec un fichiers d'exemple dans le package `test`  avec la classe `TestLecture`. Dans le `main` de cette classe on test la lecture d'un fichier, on vérifie le nombre d'entités  créées, on affiche les entités pour vérifiées qu'elles sont bien créées.
-- sélectionner, valider et envoyer la branche `lecture`
-- dans l'application Web, faire un Merge Request de la branche `lecture` dans `master` et nommer Alice comme responsable de ce Merge Request.
+- Des tests sont écrits avec un fichier d'exemple dans le package `test` avec la classe `TestLecture`. Dans le `main` de cette classe on test la lecture d'un fichier, on vérifie le nombre d'entités  créées, on affiche les entités pour vérifiées qu'elles sont bien créées.
+- Sélectionner, valider et envoyer la branche `lecture`.
+- Dans l'application Web, faire un `Merge Request` de la branche `lecture` dans `master` et nommer Alice comme responsable de ce `Merge Request`.
 
 #### 11.  Alice
 
-- Dans une nouvelle branche `recherche_selection`, écrire la méthode `ajoutEntrée` de `Carnet`, créer toutes les méthodes de sélection et de recherche. Ecrire également le corps des méthodes recherche de `Personne` et `Société`. Pour la classe  `Personne`, la méthode de `recherche` doit retourner vrai si la la chaine de caractère est contenue dans l'un des prénoms ou dans le nom. Pour les société c'est seulement le champs raison sociale qui est recherché.
-- Des tests sont écrits avec un fichiers d'exemple dans le package `test`  avec la classe `TestSelection`. Dans le `main` de cette classe on crée (dans le code) un carnet d'adresse et on teste les différentes formes de sélection   d'un fichier, on vérifie le nombre d'entités  créées, on affiche les entités pour vérifiées qu'elles sont bien créées.
-- Sélectionner, valider et envoyer la branche `recherche_selection`
+- Dans une nouvelle branche `recherche_selection`, écrire la méthode `ajoutEntrée` de `Carnet`, créer toutes les méthodes de sélection et de recherche. Ecrire également le corps des méthodes recherche de `Personne` et `Société`. Pour la classe  `Personne`, la méthode de `recherche` doit retourner vrai si la chaine de caractère est contenue dans l'un des prénoms ou dans le nom. Pour les société c'est seulement le champs raison sociale qui est recherché.
+- Des tests sont écrits avec un fichiers d'exemple dans le package `test` avec la classe `TestSelection`. Dans le `main` de cette classe on crée (dans le code) un carnet d'adresse et on teste les différentes formes de sélection  d'un fichier, on vérifie le nombre d'entités créées, on affiche les entités pour vérifiées qu'elles sont bien créées.
+- Sélectionner, valider et envoyer la branche `recherche_selection`.
 - Dans l'application Web, faire un *Merge Request* de la branche `lecture` dans `master` et nommer Bob comme responsable de ce *Merge Request*.
 
 #### 12.  Bob
