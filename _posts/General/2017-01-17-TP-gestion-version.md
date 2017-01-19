@@ -74,7 +74,7 @@ En plus des méthodes indiquées, toutes les classes possèdent des accesseurs p
 #### 1. Alice
 
 - Créer le projet sur GitLab
-- Copier/coller le code proposé pour créer un nouveau projet
+- Dans un terminal, taper les commandes git pour créer un nouveau projet git et écrire et faire un premier commit/push.
 - Ajouter Bob comme membre du projet (icon de roue crantée, puis *Members*) et lui donner les droits *Master*.
 - Ajouter le prof (`pigne`) au projet et lui donner les droits *Reporter*.
 
