@@ -5,7 +5,7 @@ categories:
 - InfoWeb
 - lab
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 
@@ -52,8 +52,8 @@ On modifie la variable d'environnement `$PATH` pour que l'exécutable `symfony` 
 
 
 ```bash
-echo "export PATH=$PATH:${HOME}/bin" >> ${HOME}/.bashrc
-source ${HOME}/.bashrc
+echo "export PATH=$PATH:${HOME}/bin" >> ${HOME}/.bash_profile
+source ${HOME}/.bash_profile
 ```
 
 
