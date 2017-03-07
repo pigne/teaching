@@ -19,9 +19,11 @@ Symfony est entre autres un framework Web. Il contient un ensemble de ressources
 Il y a 2 choses à faire dans ce TP :
 
 1. Suivre les étapes afin de réaliser le TP.
-2. Répondre aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=40245) se trouvant sur la page du cours.
+2. Répondre aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=45530) se trouvant sur la page du cours.
 
+Il est possible de travailler en binôme pour ce TP. En revanche, les réponses aux questions dans Eureka doivent être répondues par tout le monde. 
 
+ Même si cela n'est pas explicitement demandé par la suite, le projet suivant devra être géré avec GIT en utilisatn la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier de m'ajouter (`pigne`) dans le projet. 
 
 
 
@@ -50,6 +52,7 @@ chmod a+x ${HOME}/bin/symfony
 
 On modifie la variable d'environnement `$PATH` pour que l'exécutable `symfony` soit disponible partout. Attention il ne faut faire cette manip qu'une seule fois :
 
+Attention : la commande suivante ne doit être exécuté qu'une seule fois !
 
 ```bash
 echo "export PATH=$PATH:${HOME}/bin" >> ${HOME}/.bash_profile
@@ -57,9 +60,13 @@ source ${HOME}/.bash_profile
 ```
 
 
-### Installation dans PHPStorm
+### Installation dans PHPStorm (facultatif)
 
-Il est aussi très facile d'utiliser Symfony avec un IDE. Le plus populaire et plus facile à utiliser à l'heure actuelle (2016) est probablement PHPStorm. celui-ci n'est ni libre ni gratuit, mais une licence étudiant gratuite est accessible. Note : Il est probablement impossible d'installer PHPStorm sur les machines de TP de l'université. Pour installer Symfony dans PHPStorm, aller dans les _préférences_, puis _plugins_, puis cliquer sur "_Browse repository_", puis rechercher le plugin "Symfony Plugin". Installer et redémarrer.
+Il est aussi très facile d'utiliser Symfony avec un IDE. Le plus populaire et plus facile à utiliser à l'heure actuelle (2016) est probablement PHPStorm. celui-ci n'est ni libre ni gratuit, mais une licence étudiant gratuite est accessible. 
+
+Il est normalement possible d'installer PHPStorm sur les machines de TP de l'université. mais ce n'est pas obligatoire. 
+
+Pour installer Symfony dans PHPStorm, aller dans les _préférences_, puis _plugins_, puis cliquer sur "_Browse repository_", puis rechercher le plugin "Symfony Plugin". Installer et redémarrer.
 
 ## Création d'un premier projet
 
@@ -91,6 +98,11 @@ cd projet_hello
 En fonction de l'IDE les étapes diffèrent mais en gros : "fichier" /  "nouveaux" / "nouveaux projet à partir du template symfony" / ...
 
 
+
+### GIT 
+
+C'est probablementn le bon moment pour faire un `git init` dans le projet et pour le connecter à un projet sur la forge. 
+
 ## Analyse du projet de base
 
 Examiner attentivement le contenu du projet (dossier `projet_hello`). les dossiers et sous-dossiers sont organisés de sorte à ne pas mélanger les choses qui n'ont rien à voir ensemble.
@@ -121,7 +133,7 @@ Le dossier `tests/` contient comme on s'en doute les tests unitaires.
 
 ### Questions 1, 2 et 3
 
-Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=40245) :
+Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=45530) :
 
 - En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité des dossiers `vendor/` et `web/`.
 - Quel fichier dois-je modifier pour configurer les identifiants de bases de données afin que Symfony puisse accéder à la Base de données ?
