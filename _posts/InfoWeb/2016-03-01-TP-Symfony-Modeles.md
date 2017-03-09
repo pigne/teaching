@@ -14,6 +14,29 @@ Ce TP est une mise en application du [cours](http://pigne.org/teaching/infoweb/l
 
 On souhaite réaliser une application Web permettant de lister, localiser et donner des commentaires sur des musées Parisiens.
 
+## Prérequis pour les machines de TP de l'université
+
+On doit modifier un peu la configuration des machines del'université.
+
+Créer un fichier `php.ini` dans le `HOME`, contenant le code suivant :
+
+```
+[Date]
+date.timezone = Europe/Paris
+```
+
+Ensuite, modifier le fichier `.bashrc` pour qu'il contienne le code suivant :
+
+```
+export PHPRC=~/php.ini
+export PATH=${HOME}/bin:$PATH
+```
+
+Enfin, recharger la configuration en redémarrant le terminal ou en faisant :
+
+```
+source ${HOME}/.bashrc
+```
 
 
 ## Nouveau projet Symfony et configuration
