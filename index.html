@@ -2,6 +2,7 @@
 layout: default
 license: none
 ---
+{% comment %}
 
 {% capture matieres %}
   {% for category in site.categories %}
@@ -13,31 +14,48 @@ license: none
       {%endif%}
     {%endfor%}
   {%endfor%}
-{% endcapture %}
-
+  {% endcapture %}
 {% assign matieres  =  matieres | split:" " | uniq %}
+
+{% endcomment %}
 
 <div class="home">
   <header class="post-header">
     {{ site.description }}
+
+    {% comment %}
+
+    <p class="breadcrumbs">
+      {% for data_tag in site.tags %}
+      <span class="tag" >{{data_tag[0]}}</span>
+      {% endfor %}
+    </p>
+    {% endcomment %}
+
   </header>
-{% for matiere in matieres %}
-  <section class="matiere">
-    <h2>{{matiere}}</h2>
-    <ul class="post-list">
-      {% for post in site.categories[matiere] reversed %}
-          {% unless post.tags contains 'archive'%}
-             <li>
-               <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-                 <span class="label label-{{post.categories[1]}}"></span>
-                 {{ post.title }}
-               </a>
-             </li>
-          {% endunless %}
-      {%endfor%}
-    </ul>
-  </section>
-{% endfor %}
+  {% assign items = site.matieres | sort: 'order' %}
+  {% for matiere in items  %}
+  <a href="{{matiere.url | prepend: site.baseurl }}">
+    <section class="matiere">
+      <h2>{{matiere.title}}</h2>
+      <h3 class="subtitle">{{matiere.subtitle}}</h3>
+      <p>
+        {{matiere.summary}}
+      </p>
+      <p class="flat-bullets">
+        {% for post in site.categories[matiere.matiere] reversed %}
+            {% unless post.tags contains 'archive'%}
+
+                 <a  href="{{ post.url | prepend: site.baseurl }}" alt="{{post.title}}" title="{{post.title}}" >
+                   &#9679;
+                 </a>
+
+            {% endunless %}
+        {%endfor%}
+      </p>
+    </section>
+  </a>
+  {% endfor %}
 
 {% if site.tags contains 'archive' %}
   <section class="archive">

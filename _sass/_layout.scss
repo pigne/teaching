@@ -9,7 +9,9 @@
     // Positioning context for the mobile navigation icon
     position: relative;
 }
-
+.tag {
+  font-style: italic;
+}
 .site-title {
     font-size: 26px;
     font-weight: 300;
@@ -23,7 +25,15 @@
         color: $grey-color-dark;
     }
 }
-
+.breadcrumbs {
+  float: right;
+  list-style: none;
+  padding: 8px 15px;
+    border-radius: 4px;background-color: #f5f5f5;
+  >li{
+      display: inline-block;
+  }
+}
 .site-nav {
     float: right;
     line-height: 56px;
@@ -294,18 +304,17 @@
   margin: 3em auto;
   padding: 1em;
   background-color: $darker-background-color;
-
-  .label-lecture {
-    @include icon(book);
-    color: $text-color;
-  }
-  .label-lab {
-    @include icon(wrench);
-    color: $text-color;
-  }
 }
 
 .label {
+  &.label-lecture {
+    @include icon(book);
+    color: $text-color;
+  }
+  &.label-lab {
+    @include icon(wrench);
+    color: $text-color;
+  }
   display: inline;
   padding: .2em .6em .3em;
   font-size: 75%;
@@ -339,6 +348,7 @@
  */
 
  .question {
+
  	background-color: lighten(desaturate($question-color, 80%), 5%);
  	position: relative;
  	padding: 1em;
@@ -348,7 +358,8 @@
  		padding: 0 0 1ex 1em;
  	}
  	&:before {
- 		content: "?";
+    @extend .fa;
+ 		content: "\f128";
  		background-color: $question-color;
  		border-radius: 50%;
  		width:2em;

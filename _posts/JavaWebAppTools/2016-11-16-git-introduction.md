@@ -2,7 +2,7 @@
 title: "An Introduction to the GIT Repository System"
 layout: post
 categories:
-- General
+- JavaWebAppTools
 - lecture
 author: Yoann Pigné
 published: true
@@ -102,6 +102,9 @@ Different types of version control systems have evolved.
 - `+` Thousands of branches can be gracefully handled.
 - **tools**:  Git, Mercurial, Bazaar or Darcs
 
+<p class="text-center figure">
+![Local Version Control Systems.]({{ site.baseurl }}/images/dvcs.svg)
+</p>
 
 </section>
 <section>
@@ -485,10 +488,11 @@ $ git log
 $ git help log
 ```
 
-Better use GUI to see git history:
+Better use graphical tools  to see git history:
 
 - Linux : git-cola, gitg, git gui, qgit, SmartGit
 - Mac / Windows : github GUI
+- IDEs usually have good GIT support.
 
 
 </section>
@@ -496,7 +500,7 @@ Better use GUI to see git history:
 
 ### Unstage files
 
-*You did not commit but messed around with the working copy and the stage.*
+*"You did not commit but you messed around with the working copy and the stage!"*
 
 - Unstage a file that was not already in the repository:
 
@@ -534,7 +538,7 @@ $ git checkout  HEAD -- <file>
 
 ### Undo commits
 
-*So you committed but it does not compile? Or maybe you committed  a ".class" file? This is bad...*
+*"So you committed but it does not compile? Or maybe you committed  a ".class" file? This is bad..."*
 
 - Undo last commit but keep your modifications in the working directory :
 
@@ -546,12 +550,6 @@ $ git reset HEAD~1
 
 ```bash
 $ git reset --hard HEAD~1
-```
-
-- Forget all your local modifications on a file and come back to the last committed version in the repository:
-
-```bash
-$ git checkout  HEAD -- <file>
 ```
 
 
@@ -605,7 +603,8 @@ Add a remote with `git remote add [shortname] [url]`
 </section>
 <section>
 
-###Push to the Remote
+### Push to the Remote
+
 Once local changes have been committed to the local repository, we publish them to the remote server with `git push [remote-name] [branch-name]`
 
 
@@ -700,7 +699,7 @@ Commit in Git are identified by a unique number (check-sum) and one of more link
 <section>
 
 
-### Branches are Pointers
+### Branches are Pointers on Commits
 
 A branch is a simple pointer to one of the commits in the repository.
 
@@ -791,7 +790,7 @@ $ git branch -d cli_branch  ## remove cli_branch as it is useless
 </section>
 <section>
 
-###Resolving conflicts
+### Resolving conflicts
 
 In case of conflict the commit is aborted and problematic files are unmerged
 
@@ -811,16 +810,16 @@ index.html: needs merge
 - Or edit the unmerged files.
 
 ```bash
-<<div id="footer">contact : email.support@github.com</div>
->>>>>>>+HEAD:index.html
-======
-<<div id="footer">
+<<<<<<< HEAD:index.html
+<div id="footer">contact : email.support@github.com</div>
+=======
+<div id="footer">
   please contact us at support@github.com
 </div>
->>>>>>>+iss53:index.htm
-``
+>>>>>>> iss53:index.html
+```
 
-- At the end re-stage files and commit.
+- At the end **re-stage** files and **commit**.
 
 
 
@@ -835,6 +834,7 @@ Remote branches are references to the state of branches on your remote repositor
 - `git clone` will set local `master` according to `origin/master`
 - when you commit on `master` but do not "push", then you are "ahead".
 - We can push a local branch to a remote:
+
 ```bash
 $ git push origin cli_branch
 ```
@@ -847,11 +847,6 @@ $ git checkout -b bogus123 origin/fix_bug_123
 ```
 
 - any `git pull` or `git push` from the branch `bogus123` will refer to remote  `origin` with branch `fix_bug_123`.
-
-
-### test
-
-Nope.
 
 
 </section>

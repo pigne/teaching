@@ -6,6 +6,7 @@ categories:
 - lab
 published: true
 author: Yoann Pigné
+published: false
 ---
 
 Ce TP est une mise en application du [cours](http://pigne.org/teaching/infoweb/lecture/Symfony-Modeles) présenté en classe. Le but principal est la **création de modèles de données persistants** à l'aide de **Doctrine**.

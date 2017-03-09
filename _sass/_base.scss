@@ -47,7 +47,25 @@ img {
     vertical-align: middle;
 }
 
+/**
+ * definitions
+ */
+dl {
 
+  dt {
+    margin-top: 1em;
+    font-weight: bold;
+    //text-decoration: underline;
+    //text-decoration-color: $grey-color-light;
+  }
+  dd {
+    margin-left: 2em;
+    margin-right: 2em;
+    padding-left: 0.5em;
+    border-left: solid 3px $grey-color-light;
+
+  }
+}
 
 /**
  * Figures
@@ -95,7 +113,7 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: $brand-color;
     }
 
     &:hover {
@@ -131,7 +149,7 @@ pre,
 code {
     font-size: 15px;
     border: 1px solid $grey-color-light;
-    border-radius: 3px;
+    border-radius: $border-radius;
     background-color: $darker-background-color;
 }
 

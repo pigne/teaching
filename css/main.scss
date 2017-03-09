@@ -18,7 +18,7 @@ $text-color:       #111;
 $background-color: #fdfdfd;
 $darker-background-color: darken($background-color, 2%);
 
-$brand-color:      #2a7ae2;
+$brand-color:      #4685d7;
 $question-color:   #ffb6b6;
 
 $grey-color:       #828282;
@@ -27,6 +27,8 @@ $grey-color-dark:  darken($grey-color, 25%);
 
 $label-color:       lighten($brand-color, 10%);
 $label-link-hover-color: $grey-color-light;
+
+$border-radius: 3px;
 
 // Width of the content area
 $content-width:    800px;
