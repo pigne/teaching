@@ -39,6 +39,17 @@ source ${HOME}/.bashrc
 ```
 
 
+## GIT
+
+Comme d'ordinaire on utilsera GIT et la forge de l'univerrsité pour gérer les sources de ce projet. 
+
+Crer un nouveau projet GIT sur la forge que l'on va associer à ce nouveau projet. 
+
+Ce projet débute le TP final du cours d'InfoWeb. Il va être utilisé/amélioré jusqu'au dernier TP. Vous pouvez le nommer "tp final"  ou quelque chose en rapport avec le contenu de l'application (la visualisation de musées parisiens). 
+
+Ce projet peut être fait en binôme. Ne pas oublier de donner les droits *reporter* aux enseignants (messieurs Fournier et Pigné). 
+
+
 ## Nouveau projet Symfony et configuration
 
 Reprendre les étapes du [tp précédent](http://pigne.org/teaching/infoweb/lab/TP_Introduction_Symfony) pour créer un nouveau projet spécialement pour cette nouvelle app.
@@ -51,6 +62,8 @@ les fichiers à modifier sont :
 - `app/config/parameters.yml`
 - `app/config/config.yml`
 
+
+Ajouter les nom, login et adresse mail des étudiants participant au projet (2 maximum). 
 ## Création et persistance d'une entité
 
 On souhaite créer une entité  principale pour représenter les musées. après mûre réflexion on décide d'appeler ce modèle `Musee`.
@@ -62,6 +75,7 @@ Le Schémas est le suivant. Les champs sont presque tous **facultatifs** à part
 L'énumération status peut être simplement réalisée en notant la propriété comme `string` et en définissant des constantes dans la classe `Musee`.
 
 Utiliser le script de création d’entités de Doctrine pour créer une entité `AppBundle:Musee` :
+
 
 ```bash
 php bin/console doctrine:generate:entity
