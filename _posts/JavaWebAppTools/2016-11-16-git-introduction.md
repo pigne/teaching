@@ -71,7 +71,7 @@ Different types of version control systems have evolved.
 ![Local Version Control Systems.]({{ site.baseurl }}/images/vcs-diag.png)
 </p>
 
-
+ 
 </section>
 <section>
 

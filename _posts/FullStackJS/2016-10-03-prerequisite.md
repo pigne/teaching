@@ -5,6 +5,7 @@ categories:
 - FullStackJS
 - lecture
 author: Yoann Pigné
+tags: js
 ---
 
 Tools Prerequisite
