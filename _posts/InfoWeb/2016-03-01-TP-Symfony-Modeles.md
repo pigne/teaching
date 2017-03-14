@@ -49,6 +49,10 @@ Ce projet débute le TP final du cours d'InfoWeb. Il va être utilisé/amélior�
 
 Ce projet peut être fait en binôme. Ne pas oublier de donner les droits *reporter* aux enseignants (messieurs Fournier et Pigné). 
 
+## Deadline
+
+Les commits concerntant ce TP devront être publiés avant ce dimanche (19 mars) 20h. 
+
 
 ## Nouveau projet Symfony et configuration
 
@@ -63,7 +67,8 @@ les fichiers à modifier sont :
 - `app/config/config.yml`
 
 
-Ajouter les nom, login et adresse mail des étudiants participant au projet (2 maximum). 
+Dans le fichier `README`,  Ajouter les nom, login et adresse mail des étudiants participant au projet (2 maximum). 
+
 ## Création et persistance d'une entité
 
 On souhaite créer une entité  principale pour représenter les musées. après mûre réflexion on décide d'appeler ce modèle `Musee`.
