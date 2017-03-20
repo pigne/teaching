@@ -15,8 +15,8 @@ Récapitulatif des cours et TPs précédents :
 - Conception d'un modèle objet
 - Persistance d'un modèle objet dans une base de données
 - **Création** / **Lecture** / **Modification** / **Suppression** de données
-- Requêtes de lecture avec les 'Repository`
-- Requêtes de mise à jour (écriture) avec l''Entity Manager'
+- Requêtes de lecture avec les `Repository`
+- Requêtes de mise à jour (écriture) avec l'`Entity Manager`
 - Jointures entre modèles
 
 Aujourd'hui :

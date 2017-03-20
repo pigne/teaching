@@ -90,7 +90,7 @@ php bin/console doctrine:database:create
 
 Une entité représente le type d'objets auxquels on s'intéresse dans l'application. C'est avant tout une classe PHP. On va suivre l'exemple développé dans le  document [Databases and Doctrine](http://symfony.com/doc/current/book/doctrine.html) sur le site de Symfony sous licence [CC BY 3.0](http://creativecommons.org/licenses/by-sa/3.0/).
 
-Par convention on crée les Modèles  dans le sous-dossier `Entity` du _bundle_ courant.
+Par convention on crée les modèles  dans le sous-dossier `Entity` du _bundle_ courant.
 
 ```php
 <?php
