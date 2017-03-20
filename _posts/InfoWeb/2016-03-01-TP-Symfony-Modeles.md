@@ -6,7 +6,7 @@ categories:
 - lab
 published: true
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 Ce TP est une mise en application du [cours](http://pigne.org/teaching/infoweb/lecture/Symfony-Modeles) présenté en classe. Le but principal est la **création de modèles de données persistants** à l'aide de **Doctrine**.
@@ -16,7 +16,7 @@ On souhaite réaliser une application Web permettant de lister, localiser et don
 
 ## Prérequis pour les machines de TP de l'université
 
-On doit modifier un peu la configuration des machines del'université.
+On doit modifier un peu la configuration des machines de l'université.
 
 Créer un fichier `php.ini` dans le `HOME`, contenant le code suivant :
 
@@ -43,11 +43,15 @@ source ${HOME}/.bashrc
 
 Comme d'ordinaire on utilsera GIT et la forge de l'univerrsité pour gérer les sources de ce projet. 
 
-Crer un nouveau projet GIT sur la forge que l'on va associer à ce nouveau projet. 
+Créer un nouveau projet GIT sur la forge que l'on va associer à ce nouveau projet. 
 
 Ce projet débute le TP final du cours d'InfoWeb. Il va être utilisé/amélioré jusqu'au dernier TP. Vous pouvez le nommer "tp final"  ou quelque chose en rapport avec le contenu de l'application (la visualisation de musées parisiens). 
 
 Ce projet peut être fait en binôme. Ne pas oublier de donner les droits *reporter* aux enseignants (messieurs Fournier et Pigné). 
+
+## Deadline
+
+Les commits concerntant ce TP devront être publiés avant ce dimanche (19 mars) 20h. 
 
 
 ## Nouveau projet Symfony et configuration
@@ -63,7 +67,8 @@ les fichiers à modifier sont :
 - `app/config/config.yml`
 
 
-Ajouter les nom, login et adresse mail des étudiants participant au projet (2 maximum). 
+Dans le fichier `README`,  Ajouter les nom, login et adresse mail des étudiants participant au projet (2 maximum). 
+
 ## Création et persistance d'une entité
 
 On souhaite créer une entité  principale pour représenter les musées. après mûre réflexion on décide d'appeler ce modèle `Musee`.

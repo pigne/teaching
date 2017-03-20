@@ -5,6 +5,7 @@ categories:
 - JavaWebAppTools
 - lecture
 author: Yoann Pigné
+tags: java
 ---
 
 
