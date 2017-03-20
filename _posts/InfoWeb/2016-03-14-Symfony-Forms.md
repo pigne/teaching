@@ -81,7 +81,7 @@ class MuseeController extends Controller
 {
 
   /**
-  * @Route("/{id}/dummy", name="musee_demi")
+  * @Route("/{id}/dummy", name="musee_dummy")
   * @Method({"GET"})
   */
   public function dummyAction(Request $request, Musee $musee)
