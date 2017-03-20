@@ -269,7 +269,7 @@ private $codePostal;
 
 Pour plus de clareté et de réutilisabilité du code, on va utiliser des classes dédiées pour la création de formulaires en fonction des entités. On enregistre ces classes dans un dossier dédié (`src/AppBundle/Form/`). On définit en fait un _type_ pour l’entité, utilisable par un formulaire.
 
-Tout comme the type `TexType` est reconnu par la classe Form (avec un `<input type="text">`, etc.) notre entité `Musee` va avoir un type qui lui est propre. avec des _inputs_, des _seletcs_, _etc._
+Tout comme le type `TexType` est reconnu par la classe Form (avec un `<input type="text">`, etc.) notre entité `Musee` va avoir un type qui lui est propre. avec des _inputs_, des _seletcs_, _etc._
 
 
 On note :
