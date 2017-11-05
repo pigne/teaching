@@ -5,15 +5,12 @@ categories:
 - FullStackJS
 - lab
 author: Yoann Pigné
-published: true
+published: false
 ---
-
-# Object Model Lab
 
 Dans le cadre de la conception d'une application de gestion de capteurs de type internet des objets (*Internet of Things*, IoT), on veux créer un modèle objet permettant de représenter des capteurs et les données qu'ils génèrent.
 
 Le modèle objet est le suivant.
-
 
 ![Object Model]({{ site.baseurl }}/images/2016-M2-ObjectModelLab.svg)
 
@@ -62,13 +59,10 @@ On souhaite pouvoir créer de tels objets à partir d'un fichier de données JSO
 
 ## Travail a faire
 
-
-Comme pour le tp précédent, on va utiliser GitHub. Forker et clonner le projet <https://github.com/ULH-WebDevelopment/ObjectModelLab>
-
+Comme pour le tp précédent, on va utiliser la forge de l'université. Forker et cloner le projet <https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSObjectModelLab.git>
 
 En utilisant le pattern de création d'objets de votre choix (classique, `Object.create`, différentiel, fonctionnel ou `class`) créer la hiérarchie de classe permettant de représenter des données de capteur.
 
+Rédiger des tests unitaires permettant de vérifier le bon fonctionnement du modèle. Le fichier `resources/sensors_data.js` sera utilisé pour générer les objets et vérifier certaines propriétés de base (qu'il vous appartient de définir).
 
-Rédiger des tests unitaires permettant de vérifier le bon fonctionnement du modèle. Le fichier `src/data/sensors_data.js` sera utilisé pour générer les objets et vérifier certaines propriétés de base (qu'il vous appartient de définir).
-
-Enfin un *pull request* permettra de rendre le TP. Penser a donner vos nom et prénom dans le message du PR.
+Enfin un *merge request* permettra de rendre le TP. Penser a donner vos nom et prénom dans le message du PR.
