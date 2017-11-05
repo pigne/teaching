@@ -221,6 +221,12 @@
   	content: counter(h2counter) ".\0000a0\0000a0";
   	counter-increment: h2counter;
   }
+  
+  th, td {
+    border-bottom: 1px solid #ddd;
+  }
+  //tr:nth-child(2n) {background-color: #f2f2f2} 
+
 }
 .post-header {
     margin-bottom: $spacing-unit;

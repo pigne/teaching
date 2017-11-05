@@ -8,28 +8,33 @@ author: Yoann Pigné
 ---
 
 
-# JavaSript Basics Lab 1 [![Build Status](https://travis-ci.org/ULH-WebDevelopment/JSBasicsLab.svg?branch=master)](https://travis-ci.org/ULH-WebDevelopment/JSBasicsLab)
+# JSBasicsLab [![pipeline status](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/badges/master/pipeline.svg)](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/commits/master)  [![coverage report](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/badges/master/coverage.svg)](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/commits/master)
 
 Le code source nécessaire à ce tp se trouve sur GitHub : <https://github.com/ULH-WebDevelopment/JSBasicsLab>
 
-Ce projet est principalement constitué d'un fichier de tests (`test/js_basics/index.js`) qui s'applique sur un ensemble de fonctions (`src/js_basics/index.js`). Les tests sont écrits, mais le corps des fonctions testées est vide.
+Ce projet est principalement constitué d'un fichier de tests (`test/index.test.js`) qui s'applique sur un ensemble de fonctions (`src/index.js`). Les tests sont écrits, mais le corps des fonctions testées est vide !
+
+## technologies utilisées
+
+- Ce projet est écrit en [ES6](http://www.ecma-international.org/ecma-262/6.0/index.html).
+- le code est compilé en ES5 par [babel](https://babeljs.io/).
+- Le respect des règles syntaxiques est effectué par [ESLint](https://eslint.org/).
+- L'outils permettant l'exécution des tests est la plateforme [Jest](http://facebook.github.io/jest/).
+- [NPM](https://www.npmjs.com/) est utilisé pour la gestion des dépendances et l'exécution des différents scripts.
 
 ## Travail à réaliser
 
-1. Se connecter a GitHub avec son propre login (créer un compte si nécessaire).
-2. "Forker" le projet [JSBasicsLab](https://github.com/ULH-WebDevelopment/JSBasicsLab) (bouton "fork" en haut à droite).
-3. Cloner son propre projet dans une copie de travail locale
-  `git clone https://github.com/USERNAME/JSBasicsLab.git`
-4. Dans la copie de travail  exécuter la commande `npm install`
-5. Lancer les tests : `npm test`
-6. Il y a beaucoup d'erreurs. A vous de les corriger en écrivant le corps des fonctions dans le fichier `src/js_basics/index.js`.
-7. Faire des commits au fur et a mesure que vous validez des tests :
-  `git add -u && git commit -m "un test de plus..."`
+1. Se connecter à la forge de l'université avec son propre login (se connecter avec le CAS de l'université la première fois).
+1. "Forker" le projet (bouton "Fork").
+1. Cloner son propre projet dans une copie de travail locale en utilisant le schema d'URL `https` (`git clone https://www-apps.univ-lehavre.fr/forge/USERNAME/JSBasicsLab.git`)
+1. Dans la copie de travail  exécuter la commande `npm install` pour installer les dépendances du projet.
+1. Lancer les tests : `npm test`
+1. Il y a beaucoup d'erreurs. A vous de les corriger en écrivant le corps des fonctions dans le fichier `src/index.js` et en relançant les tests. Attention le style du code écrit est également testé. Les tests ne s'exécuteront pas si le code ne respectent pas les règles syntaxiques définies. On utilise les règles recommandées ([`eslint:recommended`](https://eslint.org/docs/rules/)) par le projet ESLint.
+1. Faire des commits au fur et a mesure que vous validez des tests. (`git add -u && git commit -m "un test de plus..."`)
 
 ## Fin du travail
 
 Quand tous les tests passent et que les modifications sont enregistrées (avec des `commit`) :
 
-1. Associez votre compte GitHub à la platforme d'intégration continue [Travis CI](https://travis-ci.org/) et configurez Travis pour qu'il test votre projet.
-2. publiez votre projet : `git push`
-3. créez un [pull request](https://help.github.com/articles/about-pull-requests/) pour que je puisse évaluer votre travail.
+1. publiez votre projet : `git push`. Cela aura pour conséquence, en plus de publier vos modifications sur votre version du projet, de lancer l'exécution des tests unitaires sur le serveur d'intégration continue de la forge. 
+2. créez un [merge request](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html) pour que je puisse évaluer votre travail.
