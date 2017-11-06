@@ -31,10 +31,9 @@ One ***need*** a decent text editor with at least those features :
 
 ## Web Browser Developer tools
 
-
 A good project has to be tested on all major browsers. It is however difficult to do it during development. Tip: change your default browser every week or so.
 
-### 1.1.2. Dev-channels and Developer-dedicated browsers
+### Dev-channels and Developer-dedicated browsers
 
 Main browsers provide versions of browser with latest features and/or tuned for developers.
 
@@ -119,7 +118,7 @@ Most editor can include such tools.
 ## Code Formatting
 
 - <http://jsbeautifier.org>
-- your editor should format the code for you.  
+- your editor should format the code for you.
 
 ## Quickly Test and exchange code
 
