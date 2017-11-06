@@ -10,7 +10,7 @@ author: Yoann Pigné
 
 # JSBasicsLab [![pipeline status](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/badges/master/pipeline.svg)](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/commits/master)  [![coverage report](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/badges/master/coverage.svg)](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/commits/master)
 
-Le code source nécessaire à ce tp se trouve sur GitHub : <https://github.com/ULH-WebDevelopment/JSBasicsLab>
+Le code source nécessaire à ce tp se trouve sur GitHub : <https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab>
 
 Ce projet est principalement constitué d'un fichier de tests (`test/index.test.js`) qui s'applique sur un ensemble de fonctions (`src/index.js`). Les tests sont écrits, mais le corps des fonctions testées est vide !
 
