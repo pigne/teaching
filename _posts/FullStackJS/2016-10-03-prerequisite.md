@@ -10,7 +10,7 @@ tags: js
 
 Some tools and technologies greatly help the developer's work, like code quality control, automatic formatting utilities and browser's developer tools.
 
-## 1.1. Text Editor
+## Text Editor
 
 One ***need*** a decent text editor with at least those features :
 
@@ -20,7 +20,7 @@ One ***need*** a decent text editor with at least those features :
 - Formatter
 - (opt) Minifier
 
-### 1.1.1. Some good editors
+### Some good editors
 
 - **IDE**: Netbeans, Eclipse, Aptana, *WebStorm*
 - **Windows only**: NotePad++, UltraEdit, Dreamweaver
@@ -50,7 +50,7 @@ Main browsers provide versions of browser with latest features and/or tuned for 
   - Uses different profiles than main Firefox branch.
   - <https://www.mozilla.org/fr/firefox/developer/>
 
-### 1.1.3. Developer tools
+### Developer tools
 
 Mostly same features in all browsers (without plugin)
 
@@ -87,7 +87,7 @@ npm search lodash
 npm install --save lodash
 ```
 
-### 1.1.4. Install Node.js
+### Install Node.js
 
 On préférera l'installation via le gestionnaire de paquet de votre OS <https://nodejs.org/en/download/package-manager/> ou bien via [nvm](https://github.com/creationix/nvm).
 
