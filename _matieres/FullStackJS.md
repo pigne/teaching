@@ -25,7 +25,7 @@ Technology still relies on the HTTP protocol (although HTTP2 is on its way) for 
 
 This lecture focusses on browsing a wide area of those new features, not pretending to fully cover them all. The lecture starts with a comprehensive beginner initiation to JavaScript (ES5) with a presentation of some of the new features of the language (ES6).
 
-![Graph Outlook]({{ site.baseurl }}img/outlook.png)
+![Graph Outlook]({{ site.baseurl }}/img/outlook.png)
 
 [[Graph Outlook on Codepen]](http://codepen.io/pigne/pen/meyVvz)
 
