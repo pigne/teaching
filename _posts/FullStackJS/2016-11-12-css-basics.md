@@ -5,23 +5,23 @@ categories:
 - FullStackJS
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2017-11-28
 ---
-
-
 
 Describe the presentation of a document written in HTML or XML (including XHTML, SVG, ...)
 
-- CSS1: fisrt level of the norm. Obsolete.
-- CSS2.1: legacy level.
-- CSS3: new modular approach. Many new features.
-
+- CSS level 1: fisrt level of the norm. Obsolete.
+- CSS level 2.1: legacy level.
+- CSS level 3: new modular approach. Many new features.
+- CSS snapshots 2007, 2010, 2015, 2017 
 
 ## CSS Basic building blocks
 
 - The **property**: a name that identifies a visible feature (color, position, decoration).
 - The **value**: a description of how the property should be painted.
 - Comments :
+
 ```css
 /* multiline-only c-style comments */
 ```
@@ -54,7 +54,7 @@ Style blocks may apply to a subset of the DOM, not to all the elements of the pa
 #mainmenu, div.menu > ul , nav ul
 ```
 
-Selection can be based on ids (`#myId`), classes (`.myClass`) tags (`div`), pseudo-classes (`a:hover`), attributes (p[hidden="true"]), or with general selectors(*[hidden="true"]).
+Selection can be based on ids (`#myId`), classes (`.myClass`) tags (`div`), pseudo-classes (`:hover`), attributes (p[hidden="true"]), or with general selectors(*[hidden="true"]).
 
 Search by inheritance is done strictly (direct descendant of) with `>` or loosely (some descendant of) with a "space".
 
@@ -154,7 +154,7 @@ Specify position relative to the **screen**'s viewport. Does not leave space for
 
 Mix between `relative` et `fixed` positioning. Behaves like the relative positioning up until it would normally get out of the viewport, then fixed positioning occurs.
 
-:warning: Support partiel en 2016:  <http://caniuse.com/#search=sticky>
+:warning: Support partiel en 2017:  <http://caniuse.com/#search=sticky>
 
 [CSS Position Demo on CodePen.](http://codepen.io/anon/pen/YyvVPL)
 
@@ -178,7 +178,7 @@ Limit the stylesheet's scope with media types and other properties
 `height`, `min-height`, `max-height`, `device-width`, `min-device-width`, `max-device-width`, `device-height`, `min-device-height`, `max-device-height`, `aspect-ratio`, `min-aspect-ratio`, `max-aspect-ratio`, `device-aspect-ratio`, `min-device-aspect-ratio`, `max-device-aspect-ratio`, `color`, `min-color`, `max-color`, `color-index`, `min-color-index`, `max-color-index`, `monochrome`, `min-monochrome`, `max-monochrome`, `resolution`, `min-resolution`, `max-resolution`, `scan` and `grid`.
 
 
-### Logical operators <small>CSS 3</small></h3>
+### Logical operators <small>CSS 3</small>
 
 `and`, `,`, `not` and `only`
 
@@ -319,7 +319,7 @@ transform-origin: 50% 50%;
 transform-origin: top 0 left 0;
 ```
 
-`transform` needs [vendor prefixes](http://caniuse.com/#feat=transforms2d).
+Does `transform` need [vendor prefixes](http://caniuse.com/#feat=transforms2d)? Not anymore!
 
 ```css
 #transform_test {

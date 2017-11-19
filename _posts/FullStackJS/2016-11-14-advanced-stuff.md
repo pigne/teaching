@@ -5,7 +5,7 @@ categories:
 - FullStackJS
 - lecture
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 
@@ -141,33 +141,41 @@ It relies on the underlying TCP connection opened by HTTP but does not use HTTP.
 
 ### A WebSocket Demo
 
-The [WebSocket Demo](https://github.com/ULH-WebDevelopment/WebSocketDemo) project focusses on showing the basic mechanisms used to create a bidirectional (full duplex) communication WebSocket.
+<https://www-apps.univ-lehavre.fr/forge/WEB-IHM/web-socket-demo.git>
+
+This project is a simple WebSocket demo. It focusses on showing the basic mechanisms used to create a bidirectional (full duplex) communication WebSocket.
 
 The application is a simple group chat, where any connected client receives messages sent by everyone. There is no [Same-origin policy](https://en.wikipedia.org/wiki/Same-origin_policy) control and security involved.
 
 The application code is two-folded: the server code and the client code.
 
 
-### The server
+## The server
 
-The server is a Node.js script. It uses an HTTP server with the [Express](http://expressjs.com/) framework and the [ws](https://einaros.github.io/ws/) WebSocket implementation.
+In development mode two server are used. One for the static contents of the Web app (html, js, css) and one for the WeBSocket management. The Websocket server uses the basic `http` project plus the  [ws](https://einaros.github.io/ws/) WebSocket implementation.
 
-Once the HTTP server created, the Express framework is used to serve static resources (html, css, js files). The WebSocket server is also created atop the HTTP server and uses the underlying tcp connection already established between the client and the HTTP server.
+The WebSocket server is created atop an HTTP server on a different port than the static assets  (html, css, js files) server from Webpack. The Webpack dev server is configured to proxy the WebSocket requests to the WS server.  
 
-What the server does is :
+What the WS server does is :
+
 - Create an HTTP server
-- Create and configure Express.js to serve static files
 - Create a WebSocket Server and bind it to the HTTP server
 - The WebSocket server will maintain a list of connected  WebSocket clients
 - Greet any new connection
 - Wait for messages from any client and broadcast the message to all the connected clients.
 
+What the static assets server does is :
 
-### The client
+- serve static assets (html, css, images, js files)
+- proxy the WS requests to the WS server
+
+
+## The client
 
 The client uses the default implementation of the WebSocket standard that is implemented on the browser (good overall support).
 
 What the client does:
+
 - Retrieve a client name from the cookies
 - If the name does not exist, then create a new random one.
 - Create a WebSocket connection to the server and wait for messages
@@ -175,7 +183,7 @@ What the client does:
 - When text is entered in a form input on the page, and the return key is stroke, the text of the input field is send through the WebSocket, to the server.
 
 
-### Analysis
+## Analysis
 
 This application is a very basic group chat with very little control and no security. The aim here is to show that a very few number of lines of code can already provide great communication facilities.
 
@@ -189,7 +197,7 @@ Les [*Promise*](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/O
 new Promise( /* exécuteur */ function(resolve, reject) { ... } );
 ```
 
-La fonction *exécuteur* prends 2 paramètres : `resolve` et `reject`. Ce sont du fonctions. l'exécuteur commence le travail asynchrone. Si le travail s'exécute sans problème la fonction `resolve`est exécutée, s'il y a une erreur, `reject` est exécuté.
+La fonction *exécuteur* prends 2 paramètres : `resolve` et `reject`. Ce sont des fonctions. l'exécuteur commence le travail asynchrone. Si le travail s'exécute sans problème la fonction `resolve`est exécutée, s'il y a une erreur, `reject` est exécuté.
 
 
 ```js
@@ -212,7 +220,7 @@ function trucQuiprendDuTemps() {
 const p = trucQuiprendDuTemps();
 
 p.then(
-	(r) => {console.log("Yes!", r)},
+  (r) => {console.log("Yes!", r)},
   (r) => {console.log("Erreur ! Pas de chance", r)}
 )
 ```

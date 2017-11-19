@@ -7,7 +7,6 @@ categories:
 author: Yoann Pigné
 ---
 
-
 # JSBasicsLab [![pipeline status](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/badges/master/pipeline.svg)](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/commits/master)  [![coverage report](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/badges/master/coverage.svg)](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/commits/master)
 
 Le code source nécessaire à ce tp se trouve sur GitHub : <https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab>
@@ -37,4 +36,4 @@ Ce projet est principalement constitué d'un fichier de tests (`test/index.test.
 Quand tous les tests passent et que les modifications sont enregistrées (avec des `commit`) :
 
 1. publiez votre projet : `git push`. Cela aura pour conséquence, en plus de publier vos modifications sur votre version du projet, de lancer l'exécution des tests unitaires sur le serveur d'intégration continue de la forge. 
-2. créez un [merge request](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html) pour que je puisse évaluer votre travail.
+1. créez un [merge request](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html) pour que je puisse évaluer votre travail.

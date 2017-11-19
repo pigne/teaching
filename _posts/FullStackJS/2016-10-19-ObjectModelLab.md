@@ -57,11 +57,11 @@ On souhaite pouvoir créer de tels objets à partir d'un fichier de données JSO
 ]
 ```
 
-## Travail a faire
+## Travail à réaliser
 
 Comme pour le tp précédent, on va utiliser la forge de l'université. Forker et cloner le projet <https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSObjectModelLab.git>
 
-En utilisant le pattern de création d'objets de votre choix (classique, `Object.create`, différentiel, fonctionnel ou `class`) créer la hiérarchie de classe permettant de représenter des données de capteur.
+En utilisant le pattern de création d'objets de votre choix (classique, `Object.create`, différentiel, fonctionnel ou `class`) créer la hiérarchie de classes permettant de représenter des données de capteur.
 
 Rédiger des tests unitaires permettant de vérifier le bon fonctionnement du modèle. Le fichier `resources/sensors_data.js` sera utilisé pour générer les objets et vérifier certaines propriétés de base (qu'il vous appartient de définir).
 

@@ -5,9 +5,9 @@ categories:
 - FullStackJS
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2017-11-18
 ---
-
 
 <!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -20,49 +20,54 @@ published: false
 
 ## Markup
 
-### A HTML5 Template
+### A HTML5 Template (from [html5bones](https://html5bones.com/))
 
 
 ```html
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="fr"> 
+<head>
     <meta charset="utf-8">
-    <title>My App</title>
+    <title>PAGE TITLE</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="css/mysite.css">
-  </head>
-  <body>
-    <header>
-      <h1>My Site</h1>
-      <p>Hello world! This is My Site.</p>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="css/normalize.css" rel="stylesheet" media="all">
+    <link href="css/styles.css" rel="stylesheet" media="all">
+</head>
+<body>
+    <header role="banner">
+        <h1>TITRE</h1>
+        <nav role="navigation">
+            <!-- list ou paragraphe contenant les liens internes de l'application -->
+        </nav>
     </header>
-    <nav>
-      <ul><li><a href="mon-url1">lien 1</a></li></ul>
-    </nav>
-    <div id="content">
-      <article>
-        <header><h2>One article</h2></header>
-        <section><p>...</p></section>
-        <section>...</section>
-        <footer>This article is written by...</footer>
-      </article>
-      <article><!-- ... --></article>
+    <div class="wrap">
+        <main role="main">
+          <!-- des 'sections', des 'articles' avec navigation interne, entêtes et pieds -->
+        </main>
+        <aside role="complementary">
+          <!-- Contenu non essentiel au contenu principal.  -->
+        </aside>
     </div>
-    <aside>
-      Some stand-alone content, related to My Site.
-    </aside>
-    <footer>&copy; myself, 2013</footer>
-    <script src="js/mysite.js"></script>
-  </body>
+    <footer role="contentinfo">
+        <address>
+          <p>Pour plus d'information, contactez <a href="mailto:admin@example.com">Quelqu'un</a>.</p>
+        </address>
+        <small>Copyright &copy; <time datetime="2017">2017</time></small>
+    </footer>
+</body>
 </html>
-```
 
+```
 
 
 ### Sections
 
 Sections are semantic replacements for the generic `div` tag.
+
+#### `<main>`
+
+Main visible content of the web page. Does not contribute to the outline.
 
 #### `<article>`
 
@@ -73,6 +78,7 @@ Self-sufficient content that can be exported as is.
 Coherent piece of information. Part of a larger content.
 
 #### `<header>`
+
 Introduce an article, a section, or the whole page.
 
 #### `<footer>`
@@ -256,7 +262,6 @@ Field for the result of a calculation.
 <output name="result"></output>
 </form>
 
-
 ```html
 <form oninput="result.value=parseInt(a.value)
             +parseInt(b.value)">
@@ -266,16 +271,6 @@ Field for the result of a calculation.
 </form>
 ```
 
-
-#### `<keygen>`
-
-
-<keygen name="RSA public key" challenge="123456789" keytype="RSA">
-
-
-```html
-<keygen name="RSA public key" challenge="123456789" keytype="RSA">
-```
 
 
 #### `<meter>`
@@ -390,36 +385,20 @@ A hint for the user before he starts typing. It is **not** a default value.
 
 <input type="range" min="12" max="120" step="12"><br>
 <input  type="number" min="12" max="120" step="12"><br>
-<input  type="date" min="2016-10-01" max="2016-12-01" step="14">
+<input  type="date" min="2017-11-06" max="2017-12-31" step="14">
 
 
 
 ```html
 <input type="range" min="12" max="120" step="12"><br>
 <input  type="number" min="12" max="120" step="12"><br>
-<input  type="date" min="2016-10-01" max="2016-12-01" step="14">
+<input  type="date" min="2017-11-06" max="2017-12-31" step="14">
 ```
 
 
 #### `pattern`
 
 Regular expression to validate an input.
-
-<!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Markup](#markup)
-- [Document Object Model (DOM)](#document-object-model-dom)
-- [Events](#events)
-- [Asynchronous Communication](#asynchronous-communication)
-
-<!-- /TOC --><!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Markup](#markup)
-- [Document Object Model (DOM)](#document-object-model-dom)
-- [Events](#events)
-- [Asynchronous Communication](#asynchronous-communication)
-
-<!-- /TOC -->
 
 ```html
 <input type="text" name="code" pattern="[A-Za-z]{3}" title="3 letters code" />
@@ -440,12 +419,11 @@ validation of the input. Will raise a message if no value on required input.
 
 
 
-
 ### New global attributes
 
 #### `data-*`
 
-User defined attributes. Any attribute prefixed by "_data-_" can be defined and used. HTML pages with `data-*` attributes are valid pages.</dd>
+User defined attributes. Any attribute prefixed by "_data-_" can be defined and used. HTML pages with `data-*` attributes are valid pages.
 
 #### `on*`
 
@@ -472,6 +450,7 @@ Boolean. Is this element is editable?
 Link a `command` to a menu.
 
 #### `dir`
+
 Set the direction of the text in that element.
 
 #### `draggable`
@@ -513,8 +492,6 @@ Tooltips...
 #### `translate`
 
 Boolean. Does the content of the element need to be translated when the page is localized?
-
-
 
 ## Document Object Model (DOM)
 
@@ -647,14 +624,13 @@ When an event is fired, the DOM tree is traversed twice. First from the root to 
 
 The first traversal from the root to the element is called _capturing_. The second traversal (from the element to the root) is called _bubbling_.
 
-An event when registered will be triggered during capturing or bubbling (bubbling by default) depending on the third parameter of the `addEventListener` method:
+An event, when registered, will be triggered during capturing or bubbling (bubbling by default) depending on the third parameter of the `addEventListener` method:
 
 ```javascript
-otherElement.addEventListener( 'click', respondToClick , true); // during capturing
-
-someElement.addEventListener( 'focus', someSpecialBehaviour , false); // during bubbling
+otherElement.addEventListener( 'click', respondToClick , true); // use capture
+someElement.addEventListener( 'focus', someSpecialBehaviour , false); // use bubbling
+window.addEventListener( 'load', something); // use bubbling
 ```
-
 
 The normal course of doth traversals may be stopped by any event handler with `event.stopPropagation()`.
 
@@ -663,8 +639,6 @@ The normal course of doth traversals may be stopped by any event handler with `e
 ### Default Events
 
 During an event some default behavior is intended (e.g. clicking a radio button should change it UI, etc.). Default behaviors in response to events can be controlled. An event can be prevented from happening without preventing event propagation (capturing/bubbling). `event.preventDefault()` can prevent the default behavior of an element upon the considered event.
-
-
 
 ## Asynchronous Communication
 
@@ -675,40 +649,29 @@ A JavaScript object that allows the exchange of information between the client a
 The object is standardized and mostly implemented everywhere.
 
 ```javascript
-var xhr;
-try {
-  xhr = new ActiveXObject ( "Msxml2 .XMLHTTP" ) ;
-} catch (e) {
-  try {
-    xhr = new ActiveXObject( "Microsoft .XMLHTTP" ); } catch (e) {
-    xhr = false;
-  }
-}
-if( ! xhr && typeof XMLHttpRequest != "undefined" ) {
-  xhr = new   XMLHttpRequest();
+let xhr;
+if( typeof XMLHttpRequest != "undefined" ) {
+  xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = handleData;
+  xhr.open('GET', 'test.html');
+  xhr.send();
 }
 ```
-
 
 2 important methods:
-- `open()`: set parameters, initialize the connection.
-```javascript
-xhr.open( "GET", "/message" );
-```
-- `send()`: actually send the request:
-```javascript
-xhr.send();
-```
 
-XMLHttpRequest are asynchronous. 5 states are passed after sending:
+- `open()`: sets parameters, initializes the connection.
+- `send()`: actually send the request:
+
+XMLHttpRequest are **asynchronous**. 5 states are passed after sending:
 
 | value | name | comment |
 |---|---|---|
 | 0 | `UNSENT` | open() has not been called yet. |
 | 1 | `OPENED` | send() has been called. |
 | 2 |	`HEADERS_RECEIVED` | send() has been called, and headers and status are available. |
-| 3 |	`LOADING` | Downloading; responseText holds partial data.|
-| 4 |	`DONE` | The operation is complete. Data is available in responseText.|
+| 3 |	`LOADING` | Downloading; responseText holds partial data. |
+| 4 |	`DONE` | The operation is complete. Data is available in responseText. |
 
  How do we get the data?
 
