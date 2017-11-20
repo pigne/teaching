@@ -150,7 +150,7 @@ The application is a simple group chat, where any connected client receives mess
 The application code is two-folded: the server code and the client code.
 
 
-## The server
+#### The server
 
 In development mode two server are used. One for the static contents of the Web app (html, js, css) and one for the WeBSocket management. The Websocket server uses the basic `http` project plus the  [ws](https://einaros.github.io/ws/) WebSocket implementation.
 
@@ -170,7 +170,7 @@ What the static assets server does is :
 - proxy the WS requests to the WS server
 
 
-## The client
+#### The client
 
 The client uses the default implementation of the WebSocket standard that is implemented on the browser (good overall support).
 
@@ -183,7 +183,7 @@ What the client does:
 - When text is entered in a form input on the page, and the return key is stroke, the text of the input field is send through the WebSocket, to the server.
 
 
-## Analysis
+#### Analysis
 
 This application is a very basic group chat with very little control and no security. The aim here is to show that a very few number of lines of code can already provide great communication facilities.
 
