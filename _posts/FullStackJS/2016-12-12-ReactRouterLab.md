@@ -5,25 +5,28 @@ categories:
 - FullStackJS
 - lab
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 
 On veut écrire une nouvelle itération de notre Web app de manipulation IoT. On s'intéresse ici à l'arborescence de la Web App.
 
-Voici le schéma de l'application :
+Voici la structure de l'application :
 
-![IoT Stecth]({{ site.baseurl }}/images/router_iot_app.svg)
+![IoT Sketch]({{ site.baseurl }}/images/router_iot_app.svg)
 
-En reprenant les idées de découpage de l'application "ReSpotify" Proposer une implémentation avec React et React Router de l'application.
+En reprenant l'idée du *Lifting State Up*  dans la démo de React, Proposer une implémentation avec React et React Router de l'application qui stocke son état dans un composant globale et délègue l'affichage des différents éléments de la page à des sous-composants React.
+
+On souhaite avoir des url du type : 
+
+- `/` 
+- `/temp_bureau`
+- `/ventilateur`
+- ...
+
 
 On réutilisera les éléments déjà développés dans les labs précédents. (modèle objets, connecteur MQTT/WebSocket).
 
-## Webpack modulaire
-
-La configuration du compilateur de module  Webpack n'est pas facile. Le projet `Webpack Blocks` propose une approche modulaire pour configurer Webpack. On utilisera Webpack Block et son exemple de projet :
-
-<https://github.com/andywer/webpack-blocks/tree/master/test-app>
 
 ## Flexbox
 

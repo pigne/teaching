@@ -5,7 +5,8 @@ categories:
 - FullStackJS
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 02-12-2017
 ---
 
 
@@ -228,7 +229,7 @@ The 3 MVC parts run on the client side. The server is just a gateway for the DBM
      - :negative_squared_cross_mark: `duo` ([duojs.org](http://duojs.org/))
   * server side:
       - :white_check_mark: `npm` (packaged with node)
-      - :white_check_mark: `yarn` (Octobre 2016 - peut être le remplaçant de npm?)
+      - :white_check_mark: `yarn` (peut être le remplaçant de npm?)
 - Task Runner:
   * `grunt` ([gruntjs.com](http://gruntjs.com))
   * `gulp`, `brunch`, ...
@@ -237,6 +238,7 @@ The 3 MVC parts run on the client side. The server is just a gateway for the DBM
   * `browserify`
 - Projects Scaffolding:
   * `yeoman` ([yeoman.io](http://yeoman.io/))
+  * [`create-react-app`](https://github.com/facebookincubator/create-react-app) 
 
 ## MVC Frameworks
 
@@ -275,13 +277,11 @@ many frameworks in many (all?) languages
 
 Obviously in JavaScript... actually not only
 
-- Angular.js
+- Angular 2
 - Ember.js
-- Backbone.js
-- Cappuccino (in its own language Objective-J, emulates Apple's Cocoa style)
-- Knockout.js (MVVM design pattern)
-- Javascript MVC
-- Batman.js
-- GWT
+- Dojo 2
+- Aurelia
 - Vue.js
-- The React ecosystem...
+- React + Redux
+
+ A comparison of modern client side frameworks [here](https://www.sitepen.com/blog/2017/11/10/web-frameworks-conclusions).

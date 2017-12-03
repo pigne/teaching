@@ -5,7 +5,7 @@ categories:
 - FullStackJS
 - lecture
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 [`React Router`](https://github.com/ReactTraining/react-router) est une extension a React qui permet de gérer les routes d'une application coté client. Il permet de synchroniser (d'associer ) des composants graphiques `React` à des urls.
@@ -35,8 +35,8 @@ Les objets proposés par *React Router* sont de véritables composants `React`.
 
 2 composants logiques :
 
-- `Router` Ce composant englobe toutes les toutes de l'application. C'est à lui qu'est confié le gestionnaire d'historique.
-- `Route` Ce composant d'finit une route précise. Il associe a une URL (qui peut être paramétrique) un composant React associé
+- `Router` Ce composant englobe toutes les routes de l'application. C'est à lui qu'est confié le gestionnaire d'historique.
+- `Route` Ce composant définit une route précise. Il associe a une URL (qui peut être paramétrique) un composant React associé
 
 ```js
 import { Router, Route, Link, browserHistory } from 'react-router'
@@ -125,6 +125,23 @@ Par exemple une application affichant une liste d'albums qui contiennent eux-mê
 ```
 
 
+
+```js
+class Albums extends Component {
+  render() {
+    return (
+      <div className="Albums">
+        <AlbumsList className="AlbumsList"/>
+        {this.props.children}
+      </div>
+    </div>
+    );
+  }
+}
+```
+
+
+
 ## Vue par défaut
 
 Lors de l'utilisation des sous-composants il est possible d'afficher un composant par défaut si aucun sous-composant n'est sélectionné. On utilise le composant `IndexRoute`.
@@ -137,6 +154,7 @@ Dans l'exemple précédent, quand aucun album n'est sélectionné, le composant 
   <Route path="/albums/:albumId/" component={Album}>
   ...
 ```
+
 
 ## Lien dynamiques par programmation
 

@@ -5,25 +5,23 @@ categories:
 - FullStackJS
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 02-12-2017
 ---
-
-
-
 
 ## Les bases de React
 
-- bibliothèque JavaScript de manipulation et composition de composants
-- permettant la création d'interface graphiques.
-- utilise un langage de template de type XML (JSX)
-- chaque composant possède des propriétés et *peut* posséder un état.
+- Bibliothèque JavaScript de manipulation et composition de composants
+- Permet la création d'interfaces graphiques.
+- Utilise un langage de template de type XML (JSX)
+- Chaque composant possède des propriétés et *peut* posséder un état.
 
 
 ### le langage JSX
 
 Ce langage peut s'écrire directement dans le code javascript si l'on traduit le javascript avant de l'exécuter. C'est le cas aussi pour ES6/ES7. Le traducteur (*transpiler*) `babel` sait également traduire le JSX.
 
-Les expressions JSX ne sont pas des `String` ni des balises HTML.
+Les expressions JSX ne sont **pas des `String` ni des balises HTML**.
 
 [Exemple minimal](http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010) :
 
@@ -90,7 +88,7 @@ class R extends React.Component {
   render() {
     return (
       <ul>
-        <li> Les Nombres réels  <Q/> </li>
+        <li> Les Nombres réels <Q/> </li>
       </ul>
     )
   }
@@ -112,6 +110,7 @@ Les composants React sont des objet javascript simple jusqu'à ce qu'ils soient 
 La création, la composition et la mise a jour des composants ne fait pas directement intervenir le DOM.
 
 Lors d'une mise à jours, seuls les élément qui diffèrent sont mis à jour dans le DOM.
+
 
 [Exemple de mise à jours du site React](http://codepen.io/gaearon/pen/gwoJZk?editors=0010) (inspecter le DOM)
 
@@ -168,44 +167,42 @@ function FullName2(props) {
   return (<span>{props.first}  {props.last}</span>);
 }
 
-const FullName3 = (props) => (
-  <span>{props.first}  {props.last}</span>
+const FullName3 = ({first, last}) => (
+  <span className="glyphicon glyphicon-user" >{first}  {last}</span>
 );
 ```
 
-Les propriétés (`props`) ne doivent pas être modifiées. Ces fonction sont dites *pures* car elle ne modifient l'état de leurs paramètres d'entrée. Pour un ensemble de paramètres donnés en entré, une fonction pure retourne toujours le même résultat.
+Les propriétés (`props`) ne doivent pas être modifiées. Ces fonction sont dites *pures* car elle ne modifient l'état de leurs paramètres d'entrée et possèdent un comportement déterministe étant donné ces paramètres. Pour un ensemble de paramètres donnés en entré, une fonction pure retourne toujours le même résultat.
 
 
 ### Etats
 
 On donne aux composant un état interne avec la propriété `state`. Il faut le créer et l'initialiser dans le constructeur.
 
-On modifie le `state`  uniquement via la fonction `setState` en fournissant un nouvel objet `state`. Le `state` **doit** être immuable.
+On modifie le `state`  uniquement via la fonction `setState` en fournissant :
 
+- soit une fonction *updater* qui prend l'état précédent et les propriétés actuelles du composant et retourne un nouvel état ;
+- soit un objet qui sera fusionné avec l'état précédent pour former un nouvel état. 
+
+<https://reactjs.org/docs/react-component.html#setstate>
 
 
 [Exemple de manipulation d'état](http://codepen.io/pigne/pen/rWGwvM?editors=0010).
 
 
-## Lab 1
-
-Suivre le [premier tutoriel](https://facebook.github.io/react/tutorial/tutorial.html) sur le site de React.
-
-## Lab 2
+## Template de projet 
 
 Les différentes étape de configuration pour permettre de réellement développer un projet React sont un peu fastidieuses. On va utiliser ici un projet qui met en place une configuration fonctionnelle.
-
-
-### Template
 
 Installer le projet suivant et suivre les instruction pour commencer un nouveau projet :
 
 <https://github.com/facebookincubator/create-react-app>
 
-### Lab
 
-Suivre les étapes de la démo suivante en adaptant au format du template `create-react-app`.
 
-Commencer à l'étape "UI Break Down" :
+## Lab interactif
 
-<http://patternhatch.com/2016/08/02/a-primer-on-the-react-ecosystem-part-2-of-3/#breakdown>
+Suivre le [premier tutoriel](https://facebook.github.io/react/tutorial/tutorial.html) sur le site de React en utilisant `create-react-app`.
+
+
+
