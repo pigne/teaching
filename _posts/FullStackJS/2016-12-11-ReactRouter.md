@@ -196,3 +196,11 @@ ReactDOMServer.renderToString(element)
 ## Tutorial React Router
 
 Suivre le [Tutorial React Router](https://github.com/reactjs/react-router-tutorial).
+
+## Version 4
+
+La version 4 de React Router introduit quelques modifications. Le routage est maintenant dynamique. 
+
+<https://reacttraining.com/react-router/web/guides/quick-start>
+
+ 
