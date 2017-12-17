@@ -5,7 +5,8 @@ categories:
 - FullStackJS
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 17-12-2017
 ---
 
 
@@ -73,7 +74,7 @@ const increment = (a) => {
 
 // fonction impure (effet de bord)
 let toto=0;
-const effetDeBord(a){
+const effetDeBord = (a) => {
   toto = a;
 }
 
@@ -179,7 +180,11 @@ render(
 
 Pour qu'un composant React ait **effectivement** accès au store, il faut "connecter" ce dernier au store.
 
-On utilise la fonction [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) de Redux sur le composant désiré pour lui donner accès. La fonction `connect` retourne un nouveau composant `React` ayant la possibilité de faire un `getState()` sur le store et d'appeler `dispatch()`.
+On utilise la fonction [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) de Redux sur le composant désiré pour lui donner accès. La fonction `connect` retourne un nouveau composant `React` ayant la possibilité de 
+
+- faire un `getState()` sur le store pour lire l'état courant; 
+- d'appeler `dispatch()` pour déclencher la génération d'un nouvel état. 
+
 
 Les options de la fonction `connect` sont nombreuses. On peut vouloir avoir accès à la fonction `dispatch` uniquement ou bien s'enregistrer pour recevoir les modifications du store. Le filtrage est possible.  
 
@@ -345,9 +350,9 @@ npm start
 
 `Redux Thunk middleware` est un module redux qui permet d'écrire des fonctions de création d'actions qui retournent une **fonction** ou une ***Promise*** au lieu de retourner une action.
 
-Cette fonction retournée reçoit les méthodes `dispatch` et `getState` su store en paramètre.
+Cette fonction retournée reçoit les méthodes `dispatch` et `getState` du store en paramètre.
 
-Ce mécanisme permet de retarder l'exécution du dispatch d'une action. Ce mécanisme est utile lors de l'utilisation de code asynchrone comme un appel a `fetch`.
+Ce mécanisme permet de retarder l'exécution du dispatch d'une action. Ce mécanisme est utile lors de l'utilisation de code asynchrone comme un appel a [`fetch`](/teaching/fullstackjs/lecture/advanced-stuff#fetch).
 
 On configure d'abord le store avec le middleware
 
@@ -367,7 +372,6 @@ const store = createStore(
   )
 );
 ```
-
 
 On peut ensuite l'utiliser dans les créateurs d'actions
 
