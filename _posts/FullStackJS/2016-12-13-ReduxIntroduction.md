@@ -27,7 +27,7 @@ Redux propose un conteneur (le ***store***) dont les modifications sont décrite
 
 ## Les Actions
 
-C'est un **simple objet JS** qui a pour seul contrainte d'avoir une **propriété `type`** sérialisable (e.g. une `string`) assi que n'importe quelle autre propriété permettant au réducteur de générer un nouvel état.
+C'est un **simple objet JS** qui a pour seul contrainte d'avoir une **propriété `type`** sérialisable (e.g. une `string`) ainsi que n'importe quelle autre propriété permettant au réducteur de générer un nouvel état.
 
 ```js
 const action = {
@@ -42,7 +42,7 @@ On note que le type de l'action contient un **verbe actif**. Il doit permettre d
 
 ## Le Réducteur (*reducer*)
 
-Un réducteur (*reducer*) est une fonction pure, sans état, qui prend en paramètre un état et une action,  pour retourner un (nouvel) état:
+Un réducteur (*reducer*) est une **fonction pure**, qui prend en paramètre un état et une action,  pour retourner un (nouvel) état:
 
 ```
 (état, action) => état
