@@ -1,27 +1,26 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
-gems:
-  - jemoji
-
-# Site settings
-title: YP Teaching
-email: yoann.pigne@univ-lehavre.fr
+title: Teaching
+author:
+  name: Yoann Pigné
+  email: yoann.pigne@univ-lehavre.fr
 description: > # this means to ignore newlines until "baseurl:"
-  Web pages realted to my lectures and labs at the University of Le Havre, France.
+  Web pages realted to my lectures and labs at the University Le Havre Normandy, France.
 baseurl: "/teaching" # the subpath of your site, e.g. /blog
 url: "http://pigne.org" # the base hostname & protocol for your site
-twitter_username:
 github_username:  pigne
 
 future: true
 
 permalink: /:categories/:title.html
 permalink: /:categories/:title
+
+remote_theme: chesterhow/tale
+
+plugins:
+  - jekyll-remote-theme
+  - jemoji
+  - jekyll-sitemap
+
+
 
 
 # Build settings
@@ -41,26 +40,3 @@ collections:
 
 
 
-# The Reveal theme
-reveal_theme: simple.css
-# The Reveal transition
-reveal_transition: linear
-reveal_transition_speed: fast
-
-
-# Path to the used theme (defaults to the Reveal.js standard theme path)
-reveal_theme_path: /bower_components/reveal.js/css/theme/
-# Embed Server-side speaker notes?
-reveal_notes_server: false
-# Additional reveal.js options
-reveal_options:
-reveal_controls: false
-reveal_center: true
-reveal_progress: true
-reveal_history: false
-reveal_slide_number: true
-
-# Additional reveal.js dependencies
-reveal_dependencies:
-# Reveal.js subdirectory
-reveal_path: /bower_components/reveal.js/

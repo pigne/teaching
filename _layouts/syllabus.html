@@ -14,8 +14,7 @@ license: none
         {% for post in site.categories[page.matiere] reversed %}
             {% unless post.tags contains 'archive'%}
                <li>
-                 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-                   <span class="label label-{{post.categories[1]}}"></span>
+                 <a class="post-link label-{{post.categories[1]}}" href="{{ post.url | prepend: site.baseurl }}">
                    {{ post.title }}
                  </a>
                </li>

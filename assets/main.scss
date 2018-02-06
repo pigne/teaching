@@ -1,0 +1,145 @@
+---
+---
+
+
+// this site mostly relies on the {{ site.theme }} Jekyll theme
+@import "{{ site.theme }}";
+
+.tag {
+    background-color: $blue;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-family: $sans-serif;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.center {
+    text-align: center;
+}
+.icon {
+    >svg {
+        height: 1em;
+    }
+}
+img.emoji {
+    display: inline;
+    margin:0;
+
+}
+// ---- header ----
+
+// override nav-title to include the YP logo in the title
+.nav-title{ 
+    background-image : url("{{ site.baseurl }}/assets/yp.svg");
+    background-repeat: no-repeat;
+    background-size: 1.2em 1.2em;
+    background-position : 0% 50%;
+    padding-left: 1.5em;
+}
+
+header {
+    margin-top: 2em;
+}
+// ---- footer ----
+
+footer {
+    text-align: left;
+    span{
+        font-size:1rem;
+    }
+    ul {
+        padding: 0;
+        li {
+            list-style-type: none;
+            list-style-position: inside;
+        }
+    
+    }
+    
+}
+
+// ---- license ----
+.license {
+    img {
+        display:inline;
+        margin: 0;
+    }
+}
+
+// ---- post ----
+
+.post-title {
+    font-size: 3rem;
+}
+.label-lab {
+    &:before {
+        content: "\1F527";
+    }
+    
+}
+.label-lecture {
+    &:before {
+        content: "\1F4DA";
+    }
+    
+}
+
+//  ---- home ----
+.presentation {
+    font-size: larger;
+}
+.grid {
+    display: grid;
+    @media (min-width: 600px) {
+        grid-template-columns: 33% 33% 33%;
+    }
+}
+.grid-2 {
+    @extend .grid;
+    @media (min-width: 600px) {
+        grid-template-columns: 50% 50%;
+    }
+}
+.grid-item {
+    margin-left:0.5rem;
+    margin-right:0.5rem;
+}
+.grid-item:first-child {
+    margin-left:0;
+}
+.grid-item:last-child {
+    margin-right:0;
+}
+.button-link {
+    @extend .tag;
+    &:after {
+        content: " ►";
+    }
+}
+
+// ---- publications ----
+
+.bibitem { 
+    margin-bottom:5px;
+    &_type {
+        @extend .tag;
+    }
+    &_authors { }
+    &_title {
+        font-weight:bold;
+    }
+    &_in {
+        font-style:italic;
+    }
+    &_volume {}
+    &_pages {
+        font-weight:bold;
+    }
+    &_year {}
+}

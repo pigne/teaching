@@ -6,7 +6,7 @@ categories:
 - lecture
 author: Yoann Pigné
 published: true
-update: 2017-11-28
+last_modified_at: 2017-11-28
 ---
 
 Describe the presentation of a document written in HTML or XML (including XHTML, SVG, ...)

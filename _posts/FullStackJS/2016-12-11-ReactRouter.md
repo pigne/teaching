@@ -38,12 +38,12 @@ Les objets proposés par *React Router* sont de véritables composants `React`.
 - `Router` Ce composant englobe toutes les routes de l'application. C'est à lui qu'est confié le gestionnaire d'historique.
 - `Route` Ce composant définit une route précise. Il associe a une URL (qui peut être paramétrique) un composant React associé
 
-```js
+```jsx
 import { Router, Route, Link, browserHistory } from 'react-router'
 
-...
+// ...
 
-<Router history={browserHistory}>,
+<Router history={browserHistory}>
   <Route path="/" component={App}/>
   <Route path="/about" component={About}/>
   <Route path="/contact" component={Contact}/>
@@ -73,12 +73,19 @@ On peut également utiliser des classes :
 Les routes spécifiées dans les composant `Route` peuvent être paramétriques. Ces paramètres peuvent se retrouver dans le composant appelés via la propriété `this.props.param`
 
 
-```js
+```jsx
 
 // ...
-
-<Route path="/albums/:albumId/tracks/:trackId" component={Track} />
-
+export class RouteComponent extends React.Component {
+  render() {
+    return (
+    <div>
+      <!-- ... -->
+      <Route path="/albums/:albumId/tracks/:trackId" component={Track} />
+    </div>
+    )
+  }
+}
 // ...
 
 export class Track extends React.Component {
@@ -114,7 +121,7 @@ Par exemple une application affichant une liste d'albums qui contiennent eux-mê
 ```
 
 
-```js
+```jsx
 <Route path="/albums" component={Albums}>
   <Route path="/albums/:albumId/" component={Album}>
     <Route path="/albums/:albumId/tracks" component={Tracks}>
@@ -126,7 +133,7 @@ Par exemple une application affichant une liste d'albums qui contiennent eux-mê
 
 
 
-```js
+```jsx
 class Albums extends Component {
   render() {
     return (
@@ -148,11 +155,11 @@ Lors de l'utilisation des sous-composants il est possible d'afficher un composan
 
 Dans l'exemple précédent, quand aucun album n'est sélectionné, le composant `Albums` correspondant à l'URL `"/albums/"` voudra afficher un contenu par défaut dans l'espace réservé a son sous-composant `Album`.
 
-```js
+```xml
 <Route path="/albums" component={Albums}>
-  <IndexRoute component={AlbumsIndex}/>
+  <IndexRoute component={AlbumsIndex} />
   <Route path="/albums/:albumId/" component={Album}>
-  ...
+  <!-- ... -->
 ```
 
 

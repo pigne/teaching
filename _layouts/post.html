@@ -1,25 +1,43 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta">
-        {% if page.author %}Author: <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span><br />{% endif %}
-        Created: <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: "%b %-d, %Y" }}
-      </time><br />
-      {% if page.update %}Modified: <time datetime="{{ page.update | date_to_xmlschema }}" itemprop="dateModified">
-          {{ page.update | date: "%b %-d, %Y" }}
-        </time>
-      {% endif %}
-     
-    </p>
-  </header>
+<div class="post">
+  <div class="post-info">
+    <span>Written by</span>
+    {% if page.author %}
+        {{ page.author }}
+    {% else %}
+        {{ site.author.name }}
+    {% endif %}
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
+    {% if page.date %}
+      <br>
+      <span>on&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+    {% endif %}
+    {% if page.last_modified_at %}
+    <br>
+    <span>Updated on&nbsp;</span><time datetime="{{ page.last_modified_at }}">{{ page.update | date: "%B %d, %Y" }}</time>
+    {% endif %}
+    
   </div>
 
-</article>
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-line"></div>
+
+  {{ content }}
+
+</div>
+
+<!-- No pagination on this site -->
+
+<!-- <div class="pagination">
+  {% if page.next.url %}
+    <a href="{{ page.next.url | prepend: site.baseurl }}" class="left arrow">&#8592;</a>
+  {% endif %}
+  {% if page.previous.url %}
+    <a href="{{ page.previous.url | prepend: site.baseurl }}" class="right arrow">&#8594;</a>
+  {% endif %}
+
+  <a href="#" class="top">Top</a>
+</div> -->

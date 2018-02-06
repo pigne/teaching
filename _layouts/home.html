@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<header>
+    {{ site.description }}
+</header>
+<div class="catalogue">
+{% assign items = site.matieres | sort: 'order' %}
+{% for matiere in items  %}
+    <a href="{{matiere.url | prepend: site.baseurl }}" class="catalogue-item">
+    <section >
+        <h1 class="catalogue-title" >{{matiere.title}}</h1>
+        <h3 class="subtitle">{{matiere.subtitle}}</h3>
+        <div class="catalogue-line"></div>
+        <p>
+        {{matiere.summary | truncatewords: 30 | strip_html }}
+        </p>
+    </section>
+    </a>
+{% endfor %}
+</div>
