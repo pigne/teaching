@@ -3,7 +3,7 @@ layout: syllabus
 matiere: FullStackJS
 title: Full-Stack Javascript Web Development
 subtitle: M2 Info - WEB-IHM - Université du Havre
-order: 2
+order: 3
 ---
 
 - Basic tools, protocols, standards and technologies for Web development.
