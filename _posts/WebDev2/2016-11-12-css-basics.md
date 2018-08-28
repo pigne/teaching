@@ -2,10 +2,10 @@
 layout: post
 title: Cascading Style Sheets (CSS) basics
 categories:
-- FullStackJS
+- WebDev2
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 last_modified_at: 2017-11-28
 ---
 

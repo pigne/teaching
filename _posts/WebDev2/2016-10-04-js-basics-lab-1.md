@@ -2,7 +2,7 @@
 layout: post
 title: JavaSript Basics Lab 1
 categories:
-- FullStackJS
+- WebDev2
 - lab
 author: Yoann Pigné
 ---

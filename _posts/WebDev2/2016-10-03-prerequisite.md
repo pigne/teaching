@@ -2,7 +2,7 @@
 layout: post
 title: Tools Prerequisite
 categories:
-- FullStackJS
+- WebDev2
 - lecture
 author: Yoann Pigné
 tags: js

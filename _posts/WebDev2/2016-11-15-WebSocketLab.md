@@ -2,10 +2,10 @@
 layout: post
 title: WebSocket Lab
 categories:
-- FullStackJS
+- WebDev2
 - lab
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 

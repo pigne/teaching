@@ -2,10 +2,10 @@
 layout: post
 title: Note sur les modalités de contrôle
 categories:
-- FullStackJS
+- WebDev2
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 ## Evaluation par compétences

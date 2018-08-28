@@ -7,8 +7,7 @@ license: none
     <h1>{{page.title}}</h1>
     <h4>{{page.subtitle}}</h4>
 
-    {{ content }}
-
+    
     <div class="matiere">
       <ul class="post-list">
         {% for post in site.categories[page.matiere] reversed %}
@@ -22,4 +21,10 @@ license: none
         {%endfor%}
       </ul>
     </div>
+
+<h1>Syllabus</h1>
+
+    {{ content }}
+
+
   </section>

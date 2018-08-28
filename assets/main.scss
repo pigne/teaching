@@ -148,3 +148,15 @@ footer {
 .catalogue-item {
     display:block;
 }
+
+// ---- matiere ----
+
+.matiere {
+    /*! border-radius: 10px; */
+    border: #ddd solid 2px;
+    width: 100%;
+    position: relative;
+    background-color: #eeee;
+    /*! padding: 0.5rem; */
+    box-sizing: content-box;
+}

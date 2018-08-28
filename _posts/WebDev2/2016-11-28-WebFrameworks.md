@@ -2,10 +2,10 @@
 layout: post
 title: Web Frameworks
 categories:
-- FullStackJS
+- WebDev2
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 last_modified_at: 02-12-2017
 ---
 

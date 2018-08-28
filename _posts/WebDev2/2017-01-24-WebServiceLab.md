@@ -2,7 +2,7 @@
 layout: post
 title: Lab Services Web
 categories:
-- FullStackJS
+- WebDev2
 - lab
 author: Yoann Pigné
 published: false

@@ -2,10 +2,10 @@
 layout: post
 title: Object Model Lab
 categories:
-- FullStackJS
+- WebDev2
 - lab
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 Dans le cadre de la conception d'une application de gestion de capteurs de type internet des objets (*Internet of Things*, IoT), on veux créer un modèle objet permettant de représenter des capteurs et les données qu'ils génèrent.

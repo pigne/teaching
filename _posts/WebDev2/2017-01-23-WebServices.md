@@ -2,7 +2,7 @@
 layout: post
 title: Web APIs / Web Services
 categories:
-- FullStackJS
+- WebDev2
 - lecture
 author: Yoann Pigné
 published: false

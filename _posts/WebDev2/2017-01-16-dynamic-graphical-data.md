@@ -2,7 +2,7 @@
 layout: post
 title: Dynamic Graphical Data
 categories:
-- FullStackJS
+- WebDev2
 - lecture
 author: Yoann Pigné
 published: false

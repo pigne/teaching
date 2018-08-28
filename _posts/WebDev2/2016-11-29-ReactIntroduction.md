@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Introcution à React
+title: Introduction à React
 categories:
-- FullStackJS
+- WebDev2
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 last_modified_at: 02-12-2017
 ---
 

@@ -2,10 +2,10 @@
 layout: post
 title: Advanced Web Technologies and Protocols
 categories:
-- FullStackJS
+- WebDev2
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 
