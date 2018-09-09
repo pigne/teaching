@@ -3,7 +3,7 @@ author:
   name: Yoann Pigné
   email: yoann.pigne@univ-lehavre.fr
 description: > # this means to ignore newlines until "baseurl:"
-  Web pages realted to my lectures and labs at the University Le Havre Normandy, France.
+  Web pages related to my lectures and labs at the University Le Havre Normandy, France.
 baseurl: "/teaching" # the subpath of your site, e.g. /blog
 url: "http://pigne.org" # the base hostname & protocol for your site
 github_username:  pigne

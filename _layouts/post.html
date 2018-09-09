@@ -11,13 +11,14 @@ layout: default
         {{ site.author.name }}
     {% endif %}
 
+    {% if page.update %}
+    <br>
+    <span>Updated on&nbsp;</span><time datetime="{{ page.update }}">{{ page.update | date: "%B %d, %Y" }}</time>
+    {% else %}
     {% if page.date %}
       <br>
       <span>on&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
     {% endif %}
-    {% if page.last_modified_at %}
-    <br>
-    <span>Updated on&nbsp;</span><time datetime="{{ page.last_modified_at }}">{{ page.update | date: "%B %d, %Y" }}</time>
     {% endif %}
     
   </div>

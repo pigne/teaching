@@ -74,6 +74,21 @@ footer {
 
 // ---- post ----
 
+.post {
+    figure {
+        margin: 0 0 1rem;
+        img {
+            margin: 0 auto 0.5rem;
+        }
+        figcaption {
+            text-align: center;
+            font-size: smaller;
+            font-style: italic;
+            color: $blue;
+        }
+    
+    }
+}
 .post-title {
     font-size: 3rem;
 }

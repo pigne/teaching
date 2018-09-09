@@ -1,23 +1,22 @@
 ---
 layout: post
-title: TP Gestion de version - Git - GitLab
+title: TP Forge - tests unitaires
 categories:  
 - General
 - lab
-published: false
+published: true
 author: Yoann Pigné
 ---
 
-Le but de ce TP est de prendre en main l'outil de gestion de version GitLab de l'université.
+Le but de ce TP est de prendre en main l'outil de gestion de version GitLab de l'université (la forge), et de se familiariser avec l'utilisation des tests unitaires pour la réalisation des différents TP durant le Master iWOCS.
 
-Le travail est réalisé en équipes de deux personnes. le but est de travailler en parallèle sur deux postes différents, le partage du code se faisant grâce à Git et à la plateforme GitLab.
-
+Le travail est réalisé en équipes de deux personnes. le but est de travailler en parallèle sur deux postes différents, le partage du code se faisant grâce à la forge (plateforme Gitlab).
 
 ## Avant de commencer : configuration de GitLab
 
-Le GitLab de l'université est hébergé ici : <https://www-apps.univ-lehavre.fr/forge/>
+La forge de l'université est hébergé ici : <https://www-apps.univ-lehavre.fr/forge/>
 
-Lors de la première connexion, on utilise le système d'authentification de l'université en cliquant sur le bouton : "CAS Université du Havre".
+Lors de la première connexion, on utilise le système d'authentification de l'université en cliquant sur le bouton : "CAS Université Le Havre Normandie".
 
 Une fois connecté il faut donner une adresse mail valide (une que vous utilisez, pas forcement celle de l'université). Un mail de confirmation sera envoyé à l'adresse donnée.
 
