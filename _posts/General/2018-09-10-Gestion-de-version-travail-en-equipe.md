@@ -21,33 +21,33 @@ Différents types d'outils de gestions de version existent. C'est depuis l'appar
 Ces plateformes permettent la mise en place de mécanismes d'**intégration continue** pour l'exécution automatique des testes liés au code, et la diffusion de rapport permettant à toute l'équipe de voire l'avancement du projet.
 
 - [Introduction aux systèmes de gestion de version](#introduction-aux-systèmes-de-gestion-de-version)
-  - [Quelques définitions](#quelques-définitions)
-  - [Historique des systèmes de gestions de version](#historique-des-systèmes-de-gestions-de-version)
-  - [GIT : 3 états / 3 zones / 3 actions](#git--3-états--3-zones--3-actions)
-  - [configuration de GIT](#configuration-de-git)
-  - [Manipulations de bases avec GIT](#manipulations-de-bases-avec-git)
-  - [Remotes](#remotes)
-  - [Les branches](#les-branches)
+    - [Quelques définitions](#quelques-définitions)
+    - [Historique des systèmes de gestions de version](#historique-des-systèmes-de-gestions-de-version)
+    - [GIT : 3 états / 3 zones / 3 actions](#git--3-états--3-zones--3-actions)
+    - [configuration de GIT](#configuration-de-git)
+    - [Manipulations de bases avec GIT](#manipulations-de-bases-avec-git)
+    - [Remotes](#remotes)
+    - [Les branches](#les-branches)
 - [les plateformes de gestion de projet](#les-plateformes-de-gestion-de-projet)
-  - [La forge de l'université](#la-forge-de-luniversité)
-  - [Création d'un compte sur la forge](#création-dun-compte-sur-la-forge)
-  - [Le projets](#le-projets)
-  - [Les groupes](#les-groupes)
-  - [*Fork* de projets](#fork-de-projets)
-  - [Fusions et demandes de fusions *Merge Requests*](#fusions-et-demandes-de-fusions-merge-requests)
-  - [Les tickets (*issues*)](#les-tickets-issues)
+    - [La forge de l'université](#la-forge-de-luniversité)
+    - [Création d'un compte sur la forge](#création-dun-compte-sur-la-forge)
+    - [Le projets](#le-projets)
+    - [Les groupes](#les-groupes)
+    - [*Fork* de projets](#fork-de-projets)
+    - [Fusions et demandes de fusions *Merge Requests*](#fusions-et-demandes-de-fusions-merge-requests)
+    - [Les tickets (*issues*)](#les-tickets-issues)
 - [Intégration Continue](#intégration-continue)
-  - [Tests Unitaires](#tests-unitaires)
-  - [Tests Unitaires en java](#tests-unitaires-en-java)
-  - [Gestion de production Maven](#gestion-de-production-maven)
-  - [Intégration Continue dans GitLab](#intégration-continue-dans-gitlab)
+    - [Tests Unitaires](#tests-unitaires)
+    - [Tests Unitaires en java](#tests-unitaires-en-java)
+    - [Gestion de production Maven](#gestion-de-production-maven)
+    - [Intégration Continue dans GitLab](#intégration-continue-dans-gitlab)
 - [Demo / Live Coding](#demo--live-coding)
-  - [User Story](#user-story)
-  - [Alice 1 (A1)](#alice-1-a1)
-  - [Bob 1 (B1)](#bob-1-b1)
-  - [Alice 2 (A2)](#alice-2-a2)
-  - [Bob 2](#bob-2)
-  - [Alice](#alice)
+    - [User Story](#user-story)
+    - [Alice 1 (A1)](#alice-1-a1)
+    - [Bob 1 (B1)](#bob-1-b1)
+    - [Alice 2 (A2)](#alice-2-a2)
+    - [Bob 2](#bob-2)
+    - [Alice](#alice)
 
 ## Introduction aux systèmes de gestion de version
 
@@ -405,7 +405,7 @@ git push origin master
 ```
 
 ![Les Commandes d'envoie et de reception]({{ site.baseurl }}/images/gitPushPullCommands.svg)
-</p>
+
 
 
 
@@ -439,7 +439,7 @@ La commande `git branch`permet la manipulation des branches.
 
 
 
-#### Travailler dans les  in branches
+#### Travailler dans les  branches
 
 `git checkout <branch-name>` déplace le pointeur  `HEAD` vers la branche indéquée et récupère in instantané (*snapshot*) du dernier commit de la branche dans la **copie de travail**.
 
@@ -467,8 +467,6 @@ $ git commit # moves master & HEAD
 
 #### Fusionner Branches
 
-As soon as concurrent modifications are finished, we want to reintegrate branches with `git merge`
-
 Quand les modifications et ajouts sont terminés dans la branche thématique, on va souhaiter réintégrer la branche principale.
 
 - Pour fusionner la branche B dans la branche A on doit fait appel à la commande `merge` **depuis la branche A**
@@ -486,8 +484,6 @@ git branch -d cli_branch  ## remove cli_branch as it is useless
 ![Diverging History]({{ site.baseurl }}/images/merging.svg)
 
 #### Resolving conflicts
-
-In case of conflict the commit is aborted and problematic files are unmerged
 
 En cas de conflit, la fusion est mise en pause. La validation est annulée. Les fichiers concernés par les conflits sont marqués comme **non fusionnés** (*unmerged*).
 
@@ -516,43 +512,42 @@ index.html: needs merge
 >>>>>>> iss53:index.html
 ```
 
-- At the end **re-stage** files and **commit**.
+- A la fin, on **re-sélectionne** et on **re-valide**  les fichiers. 
 
-#### Remote branches
+#### Branches distantes
 
-Remote branches are references to the state of branches on your remote repositories. They’re local branches that you can’t move.
+Les branches distantes du dépôt local représentent les branches du dépôt distant. Elles ne sont pas modifiables.
 
-- A remote branch is denoted as `[remote_name]/[branch_name]` (e.g. `origin/master`)
-- `git clone` will set local `master` according to `origin/master`
-- when you commit on `master` but do not "push", then you are "ahead".
-- We can push a local branch to a remote:
+- Une branche distante est notée `[remote_name]/[branch_name]` (e.g. `origin/master`)
+- `git clone` va synchroniser la branche locale `master` avec la branche distante  `origin/master`
+- quand on valide sur `master` sans publier, la branche se trouve en avance (*ahead*) par rapport à la branche distante.
+- On peut envoyer n'importe quelle branche locale vers le dépôt distant :
 
 ```bash
 git push origin cli_branch
 ```
 
-- We can create a new local branch that "tracks" a remote one:
+- On peut créer une branche locale qui suit (*track*) une branche distante existante
 
 ```bash
 git fetch origin
 git checkout -b bogus123 origin/fix_bug_123
 ```
 
-- any `git pull` or `git push` from the branch `bogus123` will refer to remote  `origin` with branch `fix_bug_123`.
+- dans ce cas un  `git pull` ou `git push` depuis la branche locale  `bogus123` va faire référence à la branche  `fix_bug_123` du dépôt  `origin`.
 
 ## les plateformes de gestion de projet
 
 Il en existe plusieurs. Les plus connues : 
 
 **GitHub**
-: La plateforme la plus connue. Héberge gratuitement les projets publics. Souscription pour projets privés. Possibilité d'obtenir des projets privés gratuitement (programme éducation). Le code est hébergé chez GitHub.
+: La plateforme la plus connue. Héberge gratuitement les projets publics. Souscriptions pour projets privés. Possibilité d'obtenir des projets privés gratuitement (programme éducation). Le code est hébergé chez GitHub.
 
 **BitBucket**
-: Similaire à GitHub. Programme étudiant (avec l'email universitaire). Le code est hébergé par Atlasian. 
+: Similaire à GitHub. Programme étudiant (avec l'email universitaire). Le code est hébergé par Atlasian.
 
 **GitLab**
 : Similaire aux précédents dans sa version commerciale (*Entreprise Edition*). Une version open source (*Community Edition*) permet l'installation privée d'un serveur.
-
 
 ### La forge de l'université
 
@@ -574,11 +569,11 @@ La **première connection** se fait obligatoirement via le Service Central d'Aut
 
 ![Page d'accueil de la Forge]({{ site.baseurl }}/images/2018-09-accueil-forge.png){:.figure}
 
-#### Etape 2 : email valide et vérifié
+#### Etape 2 : Email valide et vérifié
 
 Une fois connecté il faut donner une **adresse mail valide** (pas forcement celle de l'université). Un mail de confirmation sera envoyé à l'adresse donnée. Aller sur le lien envoyé par mail pour valider la création du compte.
 
-#### Etape 3 : definir un mot de passe
+#### Etape 3 : Définir un mot de passe
 
 Une fois l'adresse email validée, aller dans l'onglet [*password*](https://www-apps.univ-lehavre.fr/forge/profile/password/edit) afin de **définir un mot de passe** (différent de celui de l'université).
 
