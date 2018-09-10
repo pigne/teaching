@@ -132,16 +132,14 @@ Bob doit aussi  :
 #### 3. Alice
 
 - Récupérer les modifications.
-- Importer le projet dans Eclipse.
-- Créer un fichier README contenant le "vrai" nom et l'adresse de Alice et de Bob.
-- Sélectionner, valider et envoyer.
+- Vérifie que toutes les modifications sont correctes et que Bob n'a rien oublié. Elle modifie le projet si nécessaire, puis sélectionne, valide et envoie.
 
 #### 4. Bob
 
 - Créer et travailler dans une branche `entree`
 - Créer le package `entree`
 - Créer l'interface `Entree`
-- Créer les énumérations `Presentaion`, `Sens` et `Genre`
+- Créer les énumérations `Présentation`, `Sens` et `Genre`
 - Sélectionner, valider et envoyer la branche.
 - Faire un *Merge Request* et assigner Alice sur la forge.
 
@@ -151,7 +149,7 @@ Bob doit aussi  :
 - Créer la classe `Personne`.
   - Ne **pas** écrire le corps de la méthode `recherche`.
   - Une personne peut avoir plusieurs prénoms. On les stocke sous forme de tableau.
-  - La méthode `toString` prend en paramètre une énumération `Presentation` et `Sens`. Le sens définit si le nom doit être placé en avant les prénoms. En fonction de la valeur de `Presentation`,  la chaîne retournée sera différente.
+  - La méthode `toString` prend en paramètre une énumération `Présentation` et `Sens`. Le sens définit si le nom doit être placé avant les prénoms. En fonction de la valeur de `Présentation`,  la chaîne retournée sera différente.
     - La présentation *abrégée* affiche uniquement les initiales du prénom et le nom (e.g. `"H. J. Potter"`)
     - La présentation *simple* affiche le titre abrégé (M. ou Mme), le premier prénom suivit des initiales des autres prénoms, le nom, et entre parenthèses le nom de la société si elle existe. Exemple : `"M. Albus P. W. B. Dumbledore (Ecole de sorcellerie Poudlard)"`
     - La présentation *complète* affiche un maximum d'information sur plusieurs lignes si nécessaire. Par exemple :
@@ -176,14 +174,14 @@ Bob doit aussi  :
 - Sélectionner, valider et envoyer la branche.
 - Faire un *Merge Request* et assigner Alice.
 
-#### 9.  Alice
+#### 7.  Alice
 
 - Créer et travailler dans une branche `societe`.
 - Dans le package `carnet` créer l'énumération `Ordre` et la classe  Carnet **sans** ses méthodes
 - Sélectionner, valider et envoyer la branche.
 - Faire un *Merge Request* et assigner Bob sur la forge.
 
-#### 10.  Bob
+#### 8.  Bob
 
 - Dans une branche  `lecture` créer la méthode `lectureFichier` qui permet de créer un carnet d'adresse avec ses entrées à partir d'un fichier passé en paramètre. Le fichier contient une entrée par ligne et respecte le format suivant :
 
@@ -213,11 +211,15 @@ Bob doit aussi  :
   4;PERSONNE;Ginny;Weasley;F;3;1;Elève
   ```
 
-- Des tests sont écrits avec un fichier d'exemple dans la partie  `test` du projet, avec la classe `LectureTest`. On vérifie que la lecture d'un fichier (`src/test/resources/carnet.csv`) donne bien le nombre d'entités  attendues, on vérifie une a une les entités créées.
+- Des tests sont écrits avec un fichier d'exemple dans la partie  `test` du projet, avec la classe `LectureTest`. On vérifie que la lecture d'un fichier (`src/test/resources/carnet.csv`) donne bien le nombre d'entités  attendues, on vérifie une à une les entités créées.
+  ```java
+  ClassLoader classLoader = getClass().getClassLoader();
+  File file = new File(classLoader.getResource("carnet.csv").getFile();
+  ```
 - Sélectionner, valider et envoyer la branche `lecture`.
 - Faire un *Merge Request* et assigner Alice.
 
-#### 11.  Alice
+#### 9.  Alice
 
 - Dans une nouvelle branche `recherche_selection`, écrire la méthode `ajoutEntrée` de `Carnet`, créer toutes les méthodes de sélection et de recherche. Écrire également le corp des méthodes recherche de `Personne` et `Société`. Pour la classe  `Personne`, la méthode de `recherche` doit retourner vrai si la chaîne de caractère est contenue dans l'un des prénoms ou dans le nom. Pour les société c'est seulement le champs raison sociale qui est recherché.
 - Les tests sont écrits, dans la classe `SelectionTest` où l'on s'assure du bon fonctionnement du code écrit. 
@@ -225,14 +227,14 @@ Bob doit aussi  :
 - Faire un *Merge Request* et assigner Bob.
 
 
-#### 14. Alice ou Bob
+#### 10. Alice ou Bob
 
 - Dans une nouvelle branche `affichage` écrire le code des méthodes d'affichage.
 - Écrire une application principale (`main`) qui propose une manipulation de tout le carnet d'adresse allant de la lecteur à partir d'un fichier, la sélection via recherche de chaîne et l'affichage de la sélection. Tester toutes les combinaisons d'affichage (croissant/décroissant, simple/abrégé/complet, nom_prénoms/prénoms_nom). Oui, il en a douze.
 - Sélectionner, valider et envoyer la branche.
 - Faire un *Merge Request*...
 
-#### 15. Bob
+#### 11. Bob
 
 - Quand tout est fini, créer une [étiquette git](https://git-scm.com/book/fr/v2/Les-bases-de-Git-%C3%89tiquetage) avec le numéro de version `v1.0`.
-- S'assurer que l'étiquette est bien présente sur la forge.
+- S'assurer que l'étiquette est bien présente sur la forge (voir la section [partage d'étiquette](https://git-scm.com/book/fr/v2/Les-bases-de-Git-%C3%89tiquetage#s_sharing_tags)).
