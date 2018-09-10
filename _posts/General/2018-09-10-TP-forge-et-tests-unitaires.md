@@ -50,14 +50,11 @@ git config --global credential.helper 'cache --timeout 3600'
 
 GitLab est maintenant configuré. Plus besoin d'utiliser le "CAS de L'université" pour se connecter à l'avenir. On peut directement entrer le **login** (ou l'adresse email) et le **mot de passe** définit précédemment, sur la page de connexion.
 
-
-## But et fonctionnement du TP.
+## But et fonctionnement du TP
 
 Le but est la manipulation de la forge et le travail en équipe. Le travail s'effectue par équipe de deux personnes. Chacun doit travailler sur une machine distincte, **on ne travaille pas a deux sur la même machine**.
 
-Les binômes sont désignés par les encadrants. 
-
-Dans la suite le binôme dont le nom est premier dans l'ordre lexicographique est appelé **Alice**. L'autre binôme est **Bob**.
+Les binômes sont désignés par les encadrants.
 
 La section "travail demandé" va décrire les tâches à remplir dans ce projet. Chaque tâche ou groupe de tâche est attribué soit à Alice, soit à Bob. Alice doit faire les tâches qui la concerne uniquement, de même pour Bob.
 

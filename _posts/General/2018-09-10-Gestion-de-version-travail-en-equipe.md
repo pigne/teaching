@@ -43,8 +43,8 @@ Ces plateformes permettent la mise en place de mécanismes d'**intégration cont
     - [Intégration Continue dans GitLab](#intégration-continue-dans-gitlab)
 - [Demo / Live Coding](#demo--live-coding)
     - [User Story](#user-story)
-    - [Alice 1 (A1)](#alice-1-a1)
-    - [Bob 1 (B1)](#bob-1-b1)
+    - [Alice 1](#alice-1)
+    - [Bob 1](#bob-1)
     - [Alice 2 (A2)](#alice-2-a2)
     - [Bob 2](#bob-2)
     - [Alice](#alice)
@@ -711,13 +711,14 @@ On peut ensuite faire toutes les taches de gestion de dépendance, compilation, 
 
 On peut configurer la forge pour l'[Intégration Continue](https://docs.gitlab.com/ce/ci/quick_start/). On configure le projet avec un fichier de configuration (`.gitlab-ci.yml`) à la racine du projet.
 
+Pour se familiariser avec l'intégration continue dans la forge, on peut se référer au [Projet Standard]( https://www-apps.univ-lehavre.fr/forge/pigne/projet-standard.git) qui contient un petit projet avec des tests unitaires, configuré pour que les tests  s'exécutent et que le taux de couverture apparaisse sur les  différentes validations. 
 
 ## Demo / Live Coding
 
-Alice et Bob : 
+Alice et Bob :
 
-- projet commun 
-- chacun sa machine
+- Projet commun
+- Chacun sa machine
 - Alice utilise ligne de commande + éditeur "simple", Bob un IDE
 
 ### User Story
@@ -729,7 +730,7 @@ Alice et Bob :
 - Format de la "date donnée" ? Chaîne de caractères ("`JJ/MM/AAAA HH:MM:SS`")
 - Format du "temps restant" ? "`%d jours, %d heures, %d minutes, %d secondes`"
 
-### Alice 1 (A1)
+### Alice 1
 
 - Sur la plateforme creation d'un groupe et d'un projet. Ajout de Bob au groupe. Ajout d'un *issue* indiquant la *user story*.
 - En local création d'un projet basé sur `projet-standard` modification du README et envoie sur le nouveau projet
@@ -763,7 +764,7 @@ git remote add origin https://alice@ww-apps.univ-lehavre.fr/forge/AB-produciton/
 git push -U origin master --all
 ```
 
-### Bob 1 (B1)
+### Bob 1
 
 - Clone le projet avec un IDE
 - Implémente une première version simple.
