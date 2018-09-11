@@ -717,7 +717,7 @@ Pour se familiariser avec l'intégration continue dans la forge, on peut se réf
 
 Alice et Bob :
 
-- Projet commun
+- Projet commun sur la forge
 - Chacun sa machine
 - Alice utilise ligne de commande + éditeur "simple", Bob un IDE
 
