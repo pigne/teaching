@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TP Forge - tests unitaires
+title: Projet intégration  M1 
 categories:  
 - General
 - lab
@@ -8,7 +8,7 @@ published: true
 author: Yoann Pigné
 ---
 
-Le but de ce TP est de prendre en main l'outil de gestion de version GitLab de l'université (**la forge**), et de se familiariser avec l'utilisation des tests unitaires pour la réalisation de projets de développement mais aussi pour les différents TP durant le Master iWOCS.
+Le but de ce Projet est de prendre en main l'outil de gestion de version GitLab de l'université (**la forge**), et de se familiariser avec l'utilisation des tests unitaires pour la réalisation de projets de développement mais aussi pour les différents TP durant le Master iWOCS.
 
 Le travail est réalisé en binôme. le but est de travailler en parallèle sur **des postes différents**, le partage du code se faisant grâce à la forge.
 
