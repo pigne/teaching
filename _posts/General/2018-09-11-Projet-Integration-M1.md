@@ -101,7 +101,7 @@ Sur la forge :
 
 - Créer un nouveau projet
 - Ajouter Bob comme membre du projet. Dans le menu "⚙️ Settings" (icon de roue crantée), puis *Members* et lui donner les droits *Master*.
-- Dans l'onglet "Share with Group" ajouter le groupe `profs-iWOCS` avec les droits *Reporter*
+- Ajouter les profs M. Sanlaville (`sanlavie`) , M. Olivier (`olivierd`), M. Dutot (`dutota`), M. Balev (`balevs`) et M. Pigné (`pigne`) avec les droits *Reporter*
 
 Dans un terminal a nouveau :
 
