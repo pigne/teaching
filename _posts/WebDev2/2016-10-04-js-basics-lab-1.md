@@ -5,6 +5,7 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
+published: false
 ---
 
 # JSBasicsLab [![pipeline status](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/badges/master/pipeline.svg)](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/commits/master)  [![coverage report](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/badges/master/coverage.svg)](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/JSBasicsLab/commits/master)
