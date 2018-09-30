@@ -6,7 +6,7 @@ categories:
 - lecture
 author: Yoann Pigné
 tags: js
-published: false
+published: true
 ---
 
 Some tools and technologies greatly help the developer's work, like code quality control, automatic formatting utilities and browser's developer tools.

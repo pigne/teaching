@@ -9,6 +9,7 @@ published: false
 ---
 
 
+
 This document presents some advanced technics and protocols related to Web technologies. Some are new standards that are not fully supported by all browsers.
 
 ##  *TypedArray* & *ArrayBuffer*

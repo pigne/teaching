@@ -19,10 +19,6 @@ Le but de ce cours est de présenter les outils et les technologies permettant l
 
 Ce cours comporte une large partie dédiée à la mise en pratique et à l'utilisation de JavaScript, avec l'utilisation de frameworks, le développement de services (API) Web, et la gestion de modèles de données pour le Web.
 
-<!-- Le développement Web est une discipline complète qui fait appel à des compétences variées qu'il convient de maîtriser. On peut noter les aspects distribuées des applications (client/serveur) ou la communication asynchrone qui requièrent des bases solides en algorithmique distribuée et en programmation fonctionnelle. D'autre part L'accessibilité, l'internationalisation et l'expérience utilisateur (UX) font appel à une rigueur dans la conception des interfaces graphiques et des interactions avec l'utilisateur (IHM). -->
-
-<!-- De par son caractère novateur et évolutif le développement Web exige une forte implication dans la veille technologique et l'apprentissage de nouvelle technologies. -->
-
 ## Organisation et plan du cours
 
 Ce cours débute par une initiation au langage JavaScript (EcmaScript 6) et à ses paradigmes à la fois objets et fonctionnels. On étudie ensuite  les nouvelles fonctionnalités des navigateurs et les API JavaScript associées (Fetch, Web Socket, Promise). Le cours s'intéresse ensuite aux aspects interfaces avec `HTML`, `CSS` et les préprocesseurs. Puis les notions de Web Services et de frameworks sont étudiés.
@@ -30,11 +26,11 @@ Ce cours débute par une initiation au langage JavaScript (EcmaScript 6) et à s
 Le cours suit le plan suivant :
 
 1. Les bases de JavaScript
-1. Modèles objets et concepts avancés en JS
-1. HTML & CSS
-1. Technologies Web avancées
-1. RESTFul Web Services API
-1. Web Frameworks (React)
+2. Modèles objets et concepts avancés en JS
+3. HTML & CSS
+4. Technologies Web avancées
+5. RESTFul Web Services API
+6. Web Frameworks (React)
 
 ## Evaluation
 
@@ -65,12 +61,13 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
     - Savoir réutiliser des composant logiciels
     - Savoir gérer les dépendances logicielles d'un projet
     - Savoir utiliser des outils de construction (build)
+    - Savoir écrire des tests et gérer la couverture du code
   - Utiliser un protocole de communication
     - Savoir écrire du code asynchrone
     - Connaître et savoir utiliser les WebSocket en JS
 - BLOC 4: Gérer des projets professionnels et de recherche
   - S'organiser et planifier
-    - Savoir respecter les consignes d'un énoncé 
+    - Savoir respecter les consignes d'un énoncé
     - Savoir respecter une échéance
   - Travailler en équipe et communiquer
     - Maîtriser un outil collaboratif de gestion de code (git)
