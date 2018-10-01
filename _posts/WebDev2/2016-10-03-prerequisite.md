@@ -17,7 +17,7 @@ One ***need*** a decent text editor with at least those features :
 
 - Syntax coloration
 - Templates Snippets
-- Linter (sea later)
+- Linter (more later)
 - Formatter
 - (opt) Minifier
 
