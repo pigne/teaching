@@ -5,7 +5,7 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 Dans le cadre de la conception d'une application de gestion de capteurs de type internet des objets (*Internet of Things*, IoT), on veux créer un modèle objet permettant de représenter des capteurs et les données qu'ils génèrent.
@@ -65,4 +65,14 @@ En utilisant le pattern de création d'objets de votre choix (classique, `Object
 
 Rédiger des tests unitaires permettant de vérifier le bon fonctionnement du modèle. Le fichier `resources/sensors_data.js` sera utilisé pour générer les objets et vérifier certaines propriétés de base (qu'il vous appartient de définir).
 
-Enfin un *merge request* permettra de rendre le TP. Penser a donner vos nom et prénom dans le message du PR.
+Enfin un *merge request* permettra de rendre le TP. Penser a donner **vos nom et prénom** dans le message du PR.
+
+## Evaluation
+
+Liste des capacités évaluées :
+
+- Savoir respecter les consignes d'un énoncé
+- Savoir respecter une échéance
+- Savoir écrire des tests et gérer la couverture du code
+- Maîtriser un outil collaboratif de gestion de code (git)
+- Maîtriser un modèle objet en JS
