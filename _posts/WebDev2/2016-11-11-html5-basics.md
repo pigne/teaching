@@ -5,8 +5,8 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
-last_modified_at: 2017-11-18
+published: true
+update: 2017-11-18
 ---
 
 <!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
@@ -668,10 +668,10 @@ XMLHttpRequest are **asynchronous**. 5 states are passed after sending:
 | value | name | comment |
 |---|---|---|
 | 0 | `UNSENT` | open() has not been called yet. |
-| 1 | `OPENED` | send() has been called. |
-| 2 |	`HEADERS_RECEIVED` | send() has been called, and headers and status are available. |
-| 3 |	`LOADING` | Downloading; responseText holds partial data. |
-| 4 |	`DONE` | The operation is complete. Data is available in responseText. |
+| 1 | `OPENED` | open() has been called. |
+| 2 | `HEADERS_RECEIVED` | send() has been called, and headers and status are available. |
+| 3 | `LOADING` | Downloading; responseText holds partial data. |
+| 4 | `DONE` | The operation is complete. Data is available in responseText. |
 
  How do we get the data?
 

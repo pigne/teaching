@@ -5,7 +5,7 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
+published: true
 last_modified_at: 2017-11-28
 ---
 
@@ -15,6 +15,19 @@ Describe the presentation of a document written in HTML or XML (including XHTML,
 - CSS level 2.1: legacy level.
 - CSS level 3: new modular approach. Many new features.
 - CSS snapshots 2007, 2010, 2015, 2017 
+
+
+
+- [CSS Basic building blocks](#css-basic-building-blocks)
+- [Specificity](#specificity)
+- [The Box Model](#the-box-model)
+- [Positioning](#positioning)
+- [Media Queries](#media-queries)
+- [Get Extra Information](#get-extra-information)
+- [Vendor Prefixes](#vendor-prefixes)
+- [Focus on Some Recent Features](#focus-on-some-recent-features)
+- [CSS Pre-processors <small>Dynamic CSS</small>](#css-pre-processors-smalldynamic-csssmall)
+
 
 ## CSS Basic building blocks
 
@@ -198,14 +211,14 @@ Limit the stylesheet's scope with media types and other properties
 }
 ```
 
-## Get Extra Information, Go to MDN, check availability with "Can I Use"
+## Get Extra Information
 
 The most reliable and up to date source of information about CSS: **The Mozilla Developer network**.
 
 [developer.mozilla.org/en-US/docs/CSS](https://developer.mozilla.org/en-US/docs/CSS)
 
 
-Check browsers availabilty for new  features on <http://caniuse.com>
+Check browsers availability for new  features on <http://caniuse.com>
 
 ## Vendor Prefixes
 
@@ -238,6 +251,7 @@ Check needed prefixes on (http://caniuse.com/) or use [Autoprefixer](https://git
 ### The CSS `transition` properties
 
 Permit a smooth transition between an **old** and a **new** value of a CSS property. CSS properties are changed by:
+
 - pseudo classes: `:hover`, `:focus`, `:active`
 - adding/removing a class to an element via JavaScript:
 
@@ -249,11 +263,11 @@ Array.prototype.forEach.call(
   });
 
 ```
+
 - dynamic styling via JavaScript:
 
 ```javascript
 document.getElementById("d").style.color = "orange";
-
 ```
 
 4 properties:
@@ -283,7 +297,7 @@ color:#eee;
 
 ### Short notation may help
 
-```
+```css
   transition:
       property
       duration
@@ -392,7 +406,6 @@ Several properties:
 
 <div id="animation_test" class="third" ></div>
 ```
-
 
 ## CSS Pre-processors <small>Dynamic CSS</small>
 

@@ -5,10 +5,9 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2018-10-07
 ---
-
-
 
 This document presents some advanced technics and protocols related to Web technologies. Some are new standards that are not fully supported by all browsers.
 
@@ -40,7 +39,7 @@ WebWorkers have a different context than the main app so **no shared memory**. H
 
 ### Demonstration of a WebWorker-Enabled App
 
-The [WebWorker](https://github.com/ULH-WebDevelopment/WebWorkerDemo) Web App is a simple demonstration of the usage of WebWorkers. The app shows that heavy computation work can be done on WebWorkers without affecting the main process' performances.
+The [WebWorker](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/WebWorkerDemo/) Web App is a simple demonstration of the usage of WebWorkers. The app shows that heavy computation work can be done on WebWorkers without affecting the main process' performances.
 
 ### The main App
 
@@ -50,7 +49,7 @@ The lower part is composed of a rectangular area (1000x300) filled with randomly
 
 #### Creating workers
 
-The app creates 10 WebWorkers and assign them a script name (`ws.js`) that they will load :
+The app creates 10 WebWorkers and assign them a script name (`ww.js`) that they will load :
 
 ```javascript
 // Creation of 10 WebWorkers
@@ -200,7 +199,6 @@ new Promise( /* exécuteur */ function(resolve, reject) { ... } );
 
 La fonction *exécuteur* prends 2 paramètres : `resolve` et `reject`. Ce sont des fonctions. l'exécuteur commence le travail asynchrone. Si le travail s'exécute sans problème la fonction `resolve`est exécutée, s'il y a une erreur, `reject` est exécuté.
 
-
 ```js
 function trucQuiprendDuTemps() {
   return new Promise((resolve, reject) =>
@@ -208,12 +206,12 @@ function trucQuiprendDuTemps() {
     setTimeout(
       function() {
       var r = Math.random();
-      	if(r > 0.1) {
-  	      resolve(r);
+        if(r > 0.1) {
+          resolve(r);
         } else {
-        	reject(r);
+          reject(r);
         }
-      }, 1000
+      }, 3000
     );
   })
 }
@@ -351,16 +349,50 @@ fetch('/avatars', {
 })
 ```
 
+## Async Functions (ES7)
+
+the async function declaration defines an asynchronous function that returns an `AsyncFunction`  object.
+
+The function runs asynchronously (via the event loop) and uses a `Promise`  to return values.
+
+The syntaxe and structure of the function *looks* synchronous and is easier to read and write than async code.
+
+```js
+async function name([param[, param[, ... param]]]) {
+   statements
+}
+```
+
+the `await` reserved keyword pauses the execution of the sync function and waits for the passed promise to resolve before resuming the execution of the async function.
 
 
-## ServiceWorker (comming soon)
+
+[Example from MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function):
+
+```javascript
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved!');
+    }, 2000);
+  });
+}
+
+async function asyncCall() {
+  console.log('calling');
+  const result  = await resolveAfter2Seconds();
+  // result should be the string : "resolved!"
+  console.log("result: ", result);
+}
+
+asyncCall();
+```
+
+
+## ServiceWorker (TODO)
 
 <!-- TODO -->
 
-## WebComponents (cooming soon)
-
-<!-- TODO -->
-
-## Generator (cooming soon)
+## WebComponents (TODO)
 
 <!-- TODO -->
