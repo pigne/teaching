@@ -45,11 +45,6 @@ Quand tous les tests passent, que la couverture du code par les tests est satisf
 - [NPM](https://www.npmjs.com/) est utilisé pour la gestion des dépendances et l'exécution des différents scripts.
 
 
-## Evaluation
+## Évaluation
 
-Liste des Capacités évaluées :
-
-- Savoir respecter les consignes d'un énoncé.
-- Savoir écrire des tests et gérer la couverture du code.
-- Maîtriser un outil collaboratif de gestion de code (git).
-
+[Liste des Capacités évaluées.](/teaching/WebDev2#js-basics)

@@ -5,6 +5,11 @@
 // this site mostly relies on the {{ site.theme }} Jekyll theme
 @import "{{ site.theme }}";
 
+
+
+
+
+
 .tag {
     background-color: $blue;
     display: inline;
@@ -32,6 +37,62 @@ img.emoji {
     margin:0;
 
 }
+
+
+// tables
+table {
+	font-family:$sans-serif;
+	border-collapse: collapse;
+    
+    thead tr:last-child th{
+        border-bottom:1px solid $grey-1;
+    }
+    
+    th {
+        padding:0.2rem;
+        background: $grey-2;;
+    }
+    th:first-child {
+        text-align: left;
+        padding-left: 1rem;
+    }
+    tr {
+        text-align: center;
+    }
+    td:first-child {
+        text-align: left;
+        padding-left:1rem;
+    }
+    td {
+        vertical-align: middle;
+        padding:0.5rem;
+        border:1px solid $grey-3;
+    }
+
+    tbody {
+        th {
+            border:1px solid $white;
+        }
+        tr:nth-child(odd) {
+            td,th {
+                background: $white;
+            }
+        }
+        tr:nth-child(even) {
+            td,th {
+                background: $grey-2;
+            }
+        }
+        tr:hover {
+            td,th{
+                background-color: $default-tint;
+            }
+        }
+    }
+    
+}
+
+
 // ---- header ----
 
 // override nav-title to include the YP logo in the title

@@ -11,6 +11,17 @@ published: true
 - Master 1 informatique iWOCS, Cours WEB-IHM, université Le Havre Normandie
 - 45 heures étudiants : 18h de cours, 27h de TD/TP
 
+
+### Plan
+
+- [Présentation et Objectifs](#présentation-et-objectifs)
+- [Organisation et plan du cours](#organisation-et-plan-du-cours)
+- [Evaluation](#evaluation)
+- [Compétences](#compétences)
+- [Prérequis](#prérequis)
+- [Evaluations et aptitudes](#evaluations-et-aptitudes)
+- [Aptitudes par évaluation](#aptitudes-par-évaluation)
+
 ## Présentation et Objectifs
 
 Le développement Web fait appel à des technologies et des savoir-faire variés et en constante évolution. Il dépend principalement de l'évolution des standards et de leur implémentation dans les navigateurs. Si le HTML, le CSS et le JavaScript sont au centre de ces technologies depuis des dizaines d'années, leurs formes et leurs usages ont beaucoup changés et JavaScript est devenu un langage central, tant sur navigateur, que côté serveur.  
@@ -40,37 +51,29 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
 
 ## Compétences
 
-- BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles
+- BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles + ajouter le contexte de mobilisation de ces techniques
   - Utiliser et comprendre les techniques de programmation fonctionnelles
-    - Connaître et savoir utiliser les fermetures en JavaScript
-    - Connaître et savoir utiliser les fonction pures en JavaScript
+    - Maîtriser les aspects fonctionnels de JavaScript
   - Utiliser et comprendre les techniques de programmation objet
-    - Connaître et savoir utiliser le modèle objet à prototype de JavaScript
-- BLOC 2: Développer une application WEB
+    - Maîtriser les modèles objet de JavaScript
+- BLOC 2: Développer une application WEB + ajouter le contexte de mobilisation de ces techniques
   - Client
-    - Savoir gérer le routage coté client d'une application Web
-    - Savoir écrire des actions des réducteurs pour gérer un store Redux
-    - Comprendre les notions de base de React (composants/composition/rendu/propriétés)
+    - Maîtriser le routage dynamique de React Router
+    - Maîtriser la gestion des états d’une application avec Redux
   - Interfaces
-    - Savoir gérer la mise en page adaptative (responsive) d'une page Web avec CSS (grid, ...)
-    - Savoir écrire et réutiliser des composants React pour concevoir des interfaces graphiques Web
-    - Savoir représenter des données sous forme graphique (courbes, graphes, ) avec Javascript et CSS
-    - Savoir animer du contenu Web avec CSS.
+    - Maîtriser la création d’interfaces graphiques (React, CSS, canvas)
   - Serveur
-    - Savoir gérer l'architecture logicielle d'un projet Web
-    - Savoir réutiliser des composant logiciels
-    - Savoir gérer les dépendances logicielles d'un projet
-    - Savoir utiliser des outils de construction (build)
-    - Savoir écrire des tests et gérer la couverture du code
+    - Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)
+    - Maîtriser l’écriture des tests et la couverture du code
   - Utiliser un protocole de communication
-    - Savoir écrire du code asynchrone
-    - Connaître et savoir utiliser les WebSocket en JS
+    - Maîtriser l’écrire de code asynchrone
+    - Maîtriser les WebSocket en JavaScript
 - BLOC 4: Gérer des projets professionnels et de recherche
   - S'organiser et planifier
-    - Savoir respecter les consignes d'un énoncé
-    - Savoir respecter une échéance
+    - Savoir respecter les consignes d'un énoncé, une échéance
   - Travailler en équipe et communiquer
     - Maîtriser un outil collaboratif de gestion de code (git)
+
 
 ## Prérequis
 
@@ -79,3 +82,268 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
 - Maîtrise d'un framework Web classique (coté serveur), quelque soit le langage (Symfony, Django, Spring, Rails, etc.)
 - Connaissances de base en manipulation de lignes de commandes
 - Connaissances de base en outils de gestion de version : *GIT*
+
+## Evaluations et aptitudes
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>JS Basics</th>
+      <th>Object Models</th>
+      <th>WS Whiteboard</th>
+      <th>WS MQTT</th>
+      <th>React</th>
+      <th>Redux</th>
+      <th>Examen</th>
+    </tr>
+    <tr>
+      <th>bloc</th>
+      <th>competence</th>
+      <th>evaluation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles</th>
+      <th>Utiliser et comprendre les techniques de programmation fonctionnelles</th>
+      <th>Maîtriser les aspects fonctionnels de JavaScript</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th>Utiliser et comprendre les techniques de programmation objet</th>
+      <th>Maîtriser les modèles objet de JavaScript</th>
+      <td></td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th rowspan="7" valign="top">BLOC 2: Développer une application WEB</th>
+      <th rowspan="2" valign="top">Client</th>
+      <th>Maîtriser la gestion des états d’une application avec Redux</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th>Maîtriser le routage dynamique de React Router</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th>Interfaces</th>
+      <th>Maîtriser la création d’interfaces graphiques (React, CSS, canvas)</th>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Serveur</th>
+      <th>Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)</th>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Maîtriser l’écriture des tests et la couverture du code</th>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Utiliser un protocole de communication</th>
+      <th>Maîtriser les WebSocket en JavaScript</th>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th>Maîtriser l’écrire de code asynchrone</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">BLOC 4: Gérer des projets professionnels et de recherche</th>
+      <th>S'organiser et planifier</th>
+      <th>Savoir respecter les consignes d'un énoncé, une échéance</th>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Travailler en équipe et communiquer</th>
+      <th>Maîtriser un outil collaboratif de gestion de code (git)</th>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+## Aptitudes par évaluation
+
+
+### JS Basics 
+
+- BLOC 2: Développer une application WEB
+  - Serveur
+    - **Maîtriser l’écriture des tests et la couverture du code**
+- BLOC 4: Gérer des projets professionnels et de recherche
+  - S'organiser et planifier
+    - **Savoir respecter les consignes d'un énoncé, une échéance**
+  - Travailler en équipe et communiquer
+    - **Maîtriser un outil collaboratif de gestion de code (git)**
+
+
+### Object Models 
+
+- BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles
+  - Utiliser et comprendre les techniques de programmation objet
+    - **Maîtriser les modèles objet de JavaScript**
+- BLOC 2: Développer une application WEB
+  - Serveur
+    - **Maîtriser l’écriture des tests et la couverture du code**
+- BLOC 4: Gérer des projets professionnels et de recherche
+  - S'organiser et planifier
+    - **Savoir respecter les consignes d'un énoncé, une échéance**
+  - Travailler en équipe et communiquer
+    - **Maîtriser un outil collaboratif de gestion de code (git)**
+
+
+### WS Whiteboard 
+
+- BLOC 2: Développer une application WEB
+  - Interfaces
+    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
+  - Serveur
+    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
+  - Utiliser un protocole de communication
+    - **Maîtriser les WebSocket en JavaScript**
+- BLOC 4: Gérer des projets professionnels et de recherche
+  - S'organiser et planifier
+    - **Savoir respecter les consignes d'un énoncé, une échéance**
+  - Travailler en équipe et communiquer
+    - **Maîtriser un outil collaboratif de gestion de code (git)**
+
+
+### WS MQTT 
+
+- BLOC 2: Développer une application WEB
+  - Serveur
+    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
+  - Utiliser un protocole de communication
+    - **Maîtriser les WebSocket en JavaScript**
+- BLOC 4: Gérer des projets professionnels et de recherche
+  - S'organiser et planifier
+    - **Savoir respecter les consignes d'un énoncé, une échéance**
+  - Travailler en équipe et communiquer
+    - **Maîtriser un outil collaboratif de gestion de code (git)**
+
+
+### React 
+
+- BLOC 2: Développer une application WEB
+  - Client
+    - **Maîtriser le routage dynamique de React Router**
+  - Interfaces
+    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
+  - Serveur
+    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
+    - **Maîtriser l’écriture des tests et la couverture du code**
+- BLOC 4: Gérer des projets professionnels et de recherche
+  - S'organiser et planifier
+    - **Savoir respecter les consignes d'un énoncé, une échéance**
+  - Travailler en équipe et communiquer
+    - **Maîtriser un outil collaboratif de gestion de code (git)**
+
+
+### Redux 
+
+- BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles
+  - Utiliser et comprendre les techniques de programmation fonctionnelles
+    - **Maîtriser les aspects fonctionnels de JavaScript**
+- BLOC 2: Développer une application WEB
+  - Client
+    - **Maîtriser la gestion des états d’une application avec Redux**
+  - Serveur
+    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
+  - Utiliser un protocole de communication
+    - **Maîtriser l’écrire de code asynchrone**
+- BLOC 4: Gérer des projets professionnels et de recherche
+  - S'organiser et planifier
+    - **Savoir respecter les consignes d'un énoncé, une échéance**
+
+
+### Examen 
+
+- BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles
+  - Utiliser et comprendre les techniques de programmation fonctionnelles
+    - **Maîtriser les aspects fonctionnels de JavaScript**
+  - Utiliser et comprendre les techniques de programmation objet
+    - **Maîtriser les modèles objet de JavaScript**
+- BLOC 2: Développer une application WEB
+  - Client
+    - **Maîtriser le routage dynamique de React Router**
+    - **Maîtriser la gestion des états d’une application avec Redux**
+  - Interfaces
+    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
+  - Utiliser un protocole de communication
+    - **Maîtriser l’écrire de code asynchrone**
+    - **Maîtriser les WebSocket en JavaScript**

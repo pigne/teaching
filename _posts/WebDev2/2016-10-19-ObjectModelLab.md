@@ -67,12 +67,6 @@ Rédiger des tests unitaires permettant de vérifier le bon fonctionnement du mo
 
 Enfin un *merge request* permettra de rendre le TP. Penser a donner **vos nom et prénom** dans le message du PR.
 
-## Evaluation
+## Évaluation
 
-Liste des capacités évaluées :
-
-- Savoir respecter les consignes d'un énoncé
-- Savoir respecter une échéance
-- Savoir écrire des tests et gérer la couverture du code
-- Maîtriser un outil collaboratif de gestion de code (git)
-- Maîtriser un modèle objet en JS
+[Liste des Capacités évaluées.](/teaching/WebDev2#object-models)
