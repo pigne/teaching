@@ -1,11 +1,11 @@
 ---
 layout: post
-title: MQTT & WebSocket Lab
+title: WebSocket & MQTT Lab
 categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published: false
+published: true
 update: 2018-10-07
 ---
 
@@ -13,7 +13,7 @@ On veut réaliser une web app qui se connecte a un serveur MQTT, afin de recevoi
 
 Lire la doc sur [Le protocole MQTT](https://mosquitto.org/man/mqtt-7.html).
 
-Les messages sont envoyés sur avec un topic du type:
+Les messages sont envoyés avec un topic du type:
 
 ```
 value/[ID]
@@ -37,16 +37,16 @@ avec `[value]` la représentation en string de la valeur du capteur et `[sensorT
 -  'ON_OFF',
 -  'OPEN_CLOSE'.
 
-En reprenant la base du code de la
-[démo WebSocket](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/web-socket-demo.git) réaliser une Web app permettant de
+En divergeant (fork) le projet de base 
+[WebSocket MQTT lab](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/websocket-mqtt-lab) réaliser une Web app permettant de :
 
 - de se connecter à un serveur MQTT donnée,
 - de souscrire a tous les messages de ce serveur,
 - de créer des instances avec le model objet développé la semaine dernière,
-- d'afficher une liste des capteurs qui se met a jours en fonction des données qui arrivent.
+- d'afficher une liste des capteurs qui se met à jours en fonction des données qui arrivent.
 - en face de chaque capteur, on affiche la dernière valeur reçu, et quand cela est possible, on affiche également la valeur moyenne.
 
-Projet a rendre sous forme d'un projet GIT sur la forge de l'université.
+Projet à rendre sous forme d'un *merge request* à partir du projet de départ : <https://www-apps.univ-lehavre.fr/forge/WEB-IHM/websocket-mqtt-lab>
 
 On pourra se servir du projet suivant pour générer des données de capteurs aléatoires : <https://github.com/pigne/random-sensors.git>
 
