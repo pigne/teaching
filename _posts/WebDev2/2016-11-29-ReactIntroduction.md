@@ -25,7 +25,7 @@ Les expressions JSX ne sont **pas des `String` ni des balises HTML**.
 
 [Exemple minimal](http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010) :
 
-```js
+```jsx
 ReactDOM.render(
   <h1>Hello, world!</h1>,
   document.getElementById('root')
@@ -41,7 +41,7 @@ La classe de base de *React* est `React.Component`. On étend cette classe pour 
 
 Chaque composant a une méthode `render` qui retourne un objet `JSX`.
 
-```js
+```jsx
 class Greetings extends React.Component {
   render() {
     return (
@@ -57,7 +57,7 @@ L'intérêt principal est la composition de composants.
 
 [Exemple de composition](https://codepen.io/pigne/pen/XNeRXO?editors=0010)  :
 
-```js
+```jsx
 class N extends React.Component {
   render() {
     return (
@@ -102,7 +102,6 @@ ReactDOM.render(
 
 Chaque composant de doit retourner qu'un seul élément racine (`<ul>`dans l'exemple). On ajoute un `<div>` quand nécessaire.
 
-
 ### ReactDOM
 
 Les composants React sont des objet javascript simple jusqu'à ce qu'ils soient transformés en DOM par `ReactDOM`.
@@ -114,23 +113,14 @@ Lors d'une mise à jours, seuls les élément qui diffèrent sont mis à jour da
 
 [Exemple (du site React) de mise à jours du DOM](http://codepen.io/gaearon/pen/gwoJZk?editors=0010) (inspecter le DOM)
 
-
-
-
-
-
-
-
-
 ### Propriétés des composants
-
 
 Les composant peuvent utiliser des propriétés passées en attribut dans le code JSX.
 
 
 [Exemple de composant avec propriétés](http://codepen.io/pigne/pen/LbzyBN?editors=0010) :
 
-```js
+```jsx
 class FullName extends React.Component {
   render() {
     return (
@@ -162,7 +152,7 @@ On peut spécifier un attribut `class` dans les éléments DOM générés. Du fa
 
 Quand les composants n'ont pas d'état interne, on peut les écrire sous forme de fonctions JavaScript simples. Elles sont équivalentes aux classes dans ce cas.
 
-```js
+```jsx
 function FullName2(props) {
   return (<span>{props.first}  {props.last}</span>);
 }
