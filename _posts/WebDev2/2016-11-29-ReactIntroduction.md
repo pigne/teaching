@@ -5,8 +5,8 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
-last_modified_at: 02-12-2017
+published: true
+update: 2018-10-21
 ---
 
 ## Les bases de React
@@ -55,7 +55,7 @@ class Greetings extends React.Component {
 
 L'intérêt principal est la composition de composants.
 
-[Exemple de composition](http://codepen.io/pigne/pen/XNeRXO?editors=0012)  :
+[Exemple de composition](https://codepen.io/pigne/pen/XNeRXO?editors=0010)  :
 
 ```js
 class N extends React.Component {
@@ -112,7 +112,7 @@ La création, la composition et la mise a jour des composants ne fait pas direct
 Lors d'une mise à jours, seuls les élément qui diffèrent sont mis à jour dans le DOM.
 
 
-[Exemple de mise à jours du site React](http://codepen.io/gaearon/pen/gwoJZk?editors=0010) (inspecter le DOM)
+[Exemple (du site React) de mise à jours du DOM](http://codepen.io/gaearon/pen/gwoJZk?editors=0010) (inspecter le DOM)
 
 
 
@@ -158,9 +158,9 @@ On peut spécifier un attribut `class` dans les éléments DOM générés. Du fa
 
 
 
-### Ecriture fonctionnelle
+### Écriture fonctionnelle
 
-Quand les composant n'ont pas d'état interne, on peut les écrire sous forme de fonction JavaScript simples. Elles sont équivalentes aux classes dans ce cas.
+Quand les composants n'ont pas d'état interne, on peut les écrire sous forme de fonctions JavaScript simples. Elles sont équivalentes aux classes dans ce cas.
 
 ```js
 function FullName2(props) {
@@ -172,12 +172,11 @@ const FullName3 = ({first, last}) => (
 );
 ```
 
-Les propriétés (`props`) ne doivent pas être modifiées. Ces fonction sont dites *pures* car elle ne modifient l'état de leurs paramètres d'entrée et possèdent un comportement déterministe étant donné ces paramètres. Pour un ensemble de paramètres donnés en entré, une fonction pure retourne toujours le même résultat.
+Les propriétés (`props`) ne doivent **pas** être modifiées. Ces fonctions sont dites *pures* car elle ne modifient l'état de leurs paramètres d'entrée et possèdent un comportement déterministe étant donné ces paramètres. Pour un ensemble de paramètres donnés en entré, une *fonction pure* retourne toujours le même résultat.
 
+### États
 
-### Etats
-
-On donne aux composant un état interne avec la propriété `state`. Il faut le créer et l'initialiser dans le constructeur.
+On donne aux composants un état interne avec la propriété `state`. Il faut le créer et l'initialiser dans le constructeur.
 
 On modifie le `state`  uniquement via la fonction `setState` en fournissant :
 
@@ -189,20 +188,68 @@ On modifie le `state`  uniquement via la fonction `setState` en fournissant :
 
 [Exemple de manipulation d'état](http://codepen.io/pigne/pen/rWGwvM?editors=0010).
 
+#### Immuabilité est importante
 
-## Template de projet 
+L'avantage principal de l'utilisation de l'immuabilité est la détection des changements. Si l'état a changé alors on sait qu'il faut mettre à jour les composants.
+
+##### Données modifiées par "mutation"
+
+```js
+var player = {score: 1, name: 'Jeff'};
+player.score = 2;
+// Now player is {score: 2, name: 'Jeff'}
+```
+
+##### Données immuables modifiées
+
+```js
+var player = {score: 1, name: 'Jeff'};
+
+var newPlayer = Object.assign({}, player, {score: 2});
+// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+
+// Or if you are using object spread syntax proposal, you can write:
+// var newPlayer = {...player, score: 2};
+```
+
+### Événements
+
+
+On peut ajouter deux méthodes dans une classe pour agir sur le cycle de vie classique d'un composant. 
+
+![React Components' life cycle by Dan Abramov]({{ site.baseurl }}/images/react-life-cycle.jpeg)
+
+`componentDidMount()`  s'exécute après que le composant soit construit. `componentDidUpdate()` s'exécute après une mise à jour du composant. C'est le bon moment pour :
+
+- lancer des timers de mise à jour, 
+- faire des requêtes asynchrones (XHR, Fetch),
+- modifier le DOM.
+
+```js
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }  
+  ```
+
+`componentWillUnmount()` s'exécute avant la destruction du composant. C'est le bon moment pour annuler un timer.
+
+
+## Template de projet
 
 Les différentes étape de configuration pour permettre de réellement développer un projet React sont un peu fastidieuses. On va utiliser ici un projet qui met en place une configuration fonctionnelle.
 
 Installer le projet suivant et suivre les instruction pour commencer un nouveau projet :
 
-<https://github.com/facebookincubator/create-react-app>
-
-
+<https://github.com/facebook/create-react-app>
 
 ## Lab interactif
 
 Suivre le [premier tutoriel](https://facebook.github.io/react/tutorial/tutorial.html) sur le site de React en utilisant `create-react-app`.
+
+
 
 
 

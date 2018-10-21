@@ -8,6 +8,10 @@ author: Yoann Pigné
 published: false
 ---
 
+- [Quelles technologie(s) utiliser ?](#quelles-technologies-utiliser-)
+- [Databases](#databases)
+- [Web Application Frameworks](#web-application-frameworks)
+- [Express (expressjs.com). A minimalist Web framework for node.](#express-expressjscom-a-minimalist-web-framework-for-node)
 
 ## Quelles technologie(s) utiliser ?
 
@@ -23,7 +27,7 @@ Souvent 2 technologies s'oppose:
 
 #### SOAP
 
-SOAP est une technologie **pas seulement Web** (HTTP, SMTP, UDP, TCP, ...) dédiée à la mise en place d'outilse de manipulation de **services**. SOAP ne donne pas accès a des données, il donne accès à des services/actions dans une application serveur exposée.
+SOAP est une technologie **pas seulement Web** (HTTP, SMTP, UDP, TCP, ...) dédiée à la mise en place d'outils de manipulation de **services**. SOAP ne donne pas accès a des données, il donne accès à des services/actions dans une application serveur exposée.
 
 SOAP utilise un langage XML normalisé (WSDL) pour décrire les services à utiliser et les actions à exécuter.
 
@@ -128,12 +132,13 @@ Documents are stores in a JSON-like format (BSON: binary representation of JSON)
 
 ```javascript
 {
-   "title": "My new house in the city",
-   "text": "<h2>Great new house</h2>",
-   "plot_id": "-628141",
-   "available_date": "2012-12-14",
-   "high_priority": false,
-   "surface_area": 230
+  "_id": ObjectId("507f1f77bcf86cd799439011"),
+  "title": "My new house in the city",
+  "text": "<h2>Great new house</h2>",
+  "plot_id": "-628141",
+  "available_date": ISODate("2018-11-17T08:30:00.000Z"),
+  "high_priority": false,
+  "surface_area": 230
 }
 ```
 

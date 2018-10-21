@@ -6,7 +6,7 @@ categories:
 - lecture
 author: Yoann Pigné
 published: false
-last_modified_at: 02-12-2017
+update: 2018-10-19
 ---
 
 
@@ -224,21 +224,21 @@ The 3 MVC parts run on the client side. The server is just a gateway for the DBM
 - JS Interpreter:
   * `node` ([nodejs.org](http://nodejs.org/))
 - Dependencies Management:
-  * client side:
-     - :negative_squared_cross_mark: `bower` ([bower.io](http://bower.io/))
-     - :negative_squared_cross_mark: `duo` ([duojs.org](http://duojs.org/))
+  * :x: client side:
+     - `bower` ([bower.io](http://bower.io/))
+     - `duo` ([duojs.org](http://duojs.org/))
   * server side:
-      - :white_check_mark: `npm` (packaged with node)
-      - :white_check_mark: `yarn` (peut être le remplaçant de npm?)
+      - :+1: `npm` (packaged with node)
+      - `yarn` (facebook)
 - Task Runner:
-  * `grunt` ([gruntjs.com](http://gruntjs.com))
-  * `gulp`, `brunch`, ...
+  * :-1: `grunt` ([gruntjs.com](http://gruntjs.com)),  `gulp`
+  * +1: `npm`scripts
 - Module Builder for Browsers
-  * [`webpack`](https://webpack.github.io/docs/)
+  * [`webpack`](https://webpack.js.org/guides/getting-started/)
   * `browserify`
 - Projects Scaffolding:
   * `yeoman` ([yeoman.io](http://yeoman.io/))
-  * [`create-react-app`](https://github.com/facebookincubator/create-react-app) 
+  * :+1: [`create-react-app`](https://github.com/facebook/create-react-app) 
 
 ## MVC Frameworks
 
@@ -247,6 +247,7 @@ The 3 MVC parts run on the client side. The server is just a gateway for the DBM
 many frameworks in many (all?) languages
 
 #### Java
+
 - Spring MVC
 - Struts 2
 - Stripes
