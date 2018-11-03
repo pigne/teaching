@@ -19,9 +19,6 @@ Le but de ce cours est de présenter les outils et les technologies permettant l
 
 Ce cours comporte une large partie dédiée à la mise en pratique et à l'utilisation de JavaScript, avec l'utilisation de frameworks, le développement de services (API) Web, et la gestion de modèles de données pour le Web.
 
-<!-- Le développement Web est une discipline complète qui fait appel à des compétences variées qu'il convient de maîtriser. On peut noter les aspects distribuées des applications (client/serveur) ou la communication asynchrone qui requièrent des bases solides en algorithmique distribuée et en programmation fonctionnelle. D'autre part L'accessibilité, l'internationalisation et l'expérience utilisateur (UX) font appel à une rigueur dans la conception des interfaces graphiques et des interactions avec l'utilisateur (IHM). -->
-
-<!-- De par son caractère novateur et évolutif le développement Web exige une forte implication dans la veille technologique et l'apprentissage de nouvelle technologies. -->
 
 ## Organisation et plan du cours
 
@@ -30,11 +27,11 @@ Ce cours débute par une initiation au langage JavaScript (EcmaScript 6) et à s
 Le cours suit le plan suivant :
 
 1. Les bases de JavaScript
-1. Modèles objets et concepts avancés en JS
-1. HTML & CSS
-1. Technologies Web avancées
-1. RESTFul Web Services API
-1. Web Frameworks (React)
+2. Modèles objets et concepts avancés en JS
+3. HTML & CSS
+4. Technologies Web avancées
+5. RESTFul Web Services API
+6. Web Frameworks (React)
 
 ## Evaluation
 

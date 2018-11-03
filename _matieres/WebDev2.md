@@ -8,7 +8,7 @@ published: true
 ---
 
 - Outils, protocoles, standards et langages du Web
-- Master 1 informatique iWOCS, Cours WEB-IHM, université Le Havre Normandie
+- Master 2 informatique IWOCS, Cours WEB-IHM, université Le Havre Normandie
 - 45 heures étudiants : 18h de cours, 27h de TD/TP
 
 
@@ -239,8 +239,7 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
 
 ## Aptitudes par évaluation
 
-
-### JS Basics 
+### JS Basics
 
 - BLOC 2: Développer une application WEB
   - Serveur

@@ -5,12 +5,13 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
-last_modified_at: 17-12-2017
+published: true
+update: 2018-11-03
 ---
 
 
-- [Le Réducteur (*reducer*)](#le-rducteur-reducer)
+- [Les Actions](#les-actions)
+- [Le Réducteur (*reducer*)](#le-réducteur-reducer)
 - [Le Store Redux](#le-store-redux)
 - [Inclure le store dans React](#inclure-le-store-dans-react)
 - [Combiner les reducteurs](#combiner-les-reducteurs)
@@ -344,15 +345,13 @@ npm i
 npm start
 ```
 
-
 ## Gestions des actions asynchrones
 
-
-`Redux Thunk middleware` est un module redux qui permet d'écrire des fonctions de création d'actions qui retournent une **fonction** ou une ***Promise*** au lieu de retourner une action.
+*Redux Thunk middleware* est un module redux qui permet d'écrire des fonctions de création d'actions qui retournent une **fonction** ou une ***Promise*** au lieu de retourner une simple action.
 
 Cette fonction retournée reçoit les méthodes `dispatch` et `getState` du store en paramètre.
 
-Ce mécanisme permet de retarder l'exécution du dispatch d'une action. Ce mécanisme est utile lors de l'utilisation de code asynchrone comme un appel a [`fetch`](/teaching/fullstackjs/lecture/advanced-stuff#fetch).
+Ce mécanisme permet de retarder l'exécution du dispatch d'une action. Ce mécanisme est utile lors de l'utilisation de code asynchrone comme un appel a [`fetch`](/teaching/webdev2/lecture/advanced-stuff#fetch).
 
 On configure d'abord le store avec le middleware
 
@@ -360,9 +359,9 @@ On configure d'abord le store avec le middleware
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-const reducer = /* ... le réducer de l'application ... */
+const reducer = /* ... le réducteur de l'application... */
 
-const etatInitial = {/* ...*/}
+const etatInitial = {/* ... l'état initial du store... */}
 
 const store = createStore(
   reducer,
@@ -387,6 +386,11 @@ function fetchStuff(lol) {
 }
 ```
 
+Classiquement on utilise 3 actions intermédiaires pour une opération asynchrone  (3 appels à `dispatch`):
+
+- *REQUEST...* : pour signifier le début de l'appel asynchrone. Cela permet de notifier l'utilisateur en mettant  à jour le DOM avec un spinner, par exemple.
+- *RECEIVE...* : action générée quand le résultat de l'opération asynchrone est disponible (exemple: les données du fetch sont arrivées, on va mettre à jour le DOM et masquer le spinner)
+- *CANCEL...* : action générée quand il y a eut un problème avec l'action asynchrone (problème réseau, problème d'authentification, etc.). C'est be bon moment pour afficher un message d'erreur.
 
 ## Utilisation avec `React-Router`
 
