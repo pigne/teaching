@@ -9,26 +9,23 @@ published: true
 update: 2018-11-03
 ---
 
-
 - [Les Actions](#les-actions)
 - [Le Réducteur (*reducer*)](#le-réducteur-reducer)
 - [Le Store Redux](#le-store-redux)
 - [Inclure le store dans React](#inclure-le-store-dans-react)
-- [Combiner les reducteurs](#combiner-les-reducteurs)
+- [Combiner les réducteurs](#combiner-les-réducteurs)
 - [Exemples Redux](#exemples-redux)
 - [Gestions des actions asynchrones](#gestions-des-actions-asynchrones)
 - [Utilisation avec `React-Router`](#utilisation-avec-react-router)
 - [Pour aller plus loin](#pour-aller-plus-loin)
 
-
 Redux (<http://redux.js.org/>) est une bibliothèque JS permettant de gérer l'état d'une application de manière déterministe.
 
 Redux propose un conteneur (le ***store***) dont les modifications sont décrites par des ***actions*** (sortes d'évènements) qui sont gérés par un réducteur (***reducer***).
 
-
 ## Les Actions
 
-C'est un **simple objet JS** qui a pour seul contrainte d'avoir une **propriété `type`** sérialisable (e.g. une `string`) ainsi que n'importe quelle autre propriété permettant au réducteur de générer un nouvel état.
+Une action est un **simple objet JS** qui a pour seule contrainte d'avoir une **propriété `type`** sérialisable (une `string`) ainsi que n'importe quelles autres propriétés permettant au réducteur de générer un nouvel état.
 
 ```js
 const action = {
@@ -38,8 +35,6 @@ const action = {
 ```
 
 On note que le type de l'action contient un **verbe actif**. Il doit permettre d'identifier la nature de la modification correspondant à l'action.  
-
-
 
 ## Le Réducteur (*reducer*)
 
@@ -55,13 +50,11 @@ Le nouvel état, retourné par la fonction, est un **nouvel** objet. L'état d'o
 
 Cette fonction est dite *pure* car :
 
-- elle est déterministe (si on l'appelle 10 fois avec les mêmes paramètres, elle renvoie 10 fois le même résultat) ;
+- elle est déterministe : si on l'appelle 10 fois avec les mêmes paramètres, elle renvoie 10 fois le même résultat ;
 - elle ne modifie pas ses paramètres ;
-- elle ne modifie aucune autre ressource externe (pas de fermeture).
-
+- Elle n'a pas d'effet de bord elle ne modifie aucune ressource externe (pas de fermeture).
 
 ```js
-
 // fonction pure
 const plus = (a,b) => {
   return a+b;
@@ -72,8 +65,7 @@ const increment = (a) => {
   return a+1;
 }
 
-
-// fonction impure (effet de bord)
+// fonction impure (effet de bord: fermeture)
 let toto=0;
 const effetDeBord = (a) => {
   toto = a;
@@ -84,6 +76,12 @@ let etat = {valeur:1}
 const modifieEtat = (etat) => {
   etat.valeur++;
   return etat;
+}
+
+// fonction impure (non déterministe)
+const someRandomness = (etat) => {
+  const valeur = Math.random();
+  return {...etat, valeur}
 }
 
 // fonction pure (le paramètre n'est pas modifié)
@@ -107,7 +105,6 @@ function counterReducer(state = 0, action) {
   }
 }
 ```
-
 
 ## Le Store Redux
 
@@ -160,7 +157,7 @@ store.dispatch({ type: 'DECREMENT' })
 
 Pour donner accès au store au différents composants d'une application React, Redux offre le composant `Provider`.
 
-```js
+```jsx
 import React from 'react'
 import { render } from 'react-dom'
 import { createStore } from 'redux'
@@ -189,7 +186,7 @@ On utilise la fonction [`connect`](https://github.com/reactjs/react-redux/blob/m
 
 Les options de la fonction `connect` sont nombreuses. On peut vouloir avoir accès à la fonction `dispatch` uniquement ou bien s'enregistrer pour recevoir les modifications du store. Le filtrage est possible.  
 
-```js
+```jsx
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -271,19 +268,13 @@ export default VisibleTodoList
 
 ```
 
+## Combiner les réducteurs
 
-
-
-
-
-## Combiner les reducteurs
-
-La fonction `createStore` ne prend en paramètre q'un seul réducteur qui va être chargé de gérer toutes les actions de l'application. Or plusieurs types d'actions différentes vont cohabiter.
+La fonction `createStore` ne prend en paramètre qu'un seul réducteur qui va être chargé de gérer toutes les actions de l'application. Or plusieurs types d'actions différentes vont cohabiter.
 
 Par exemple, les actions liées à la modification du model peuvent êtres séparées des actions liées à l'interface graphique.
 
 On va combiner les réducteurs avec la fonction `combineReducers`.
-
 
 ### Exemple
 
@@ -291,7 +282,6 @@ On stocke 2 types d'informations dans le store :
 
 - Un tableau d'objets (`stuff`) qui représente le modèle,
 - Une propriété graphique (`display`) qui permet de savoir comment afficher les objets (en liste, en grille, en miniatures...)
-
 
 ```js
 const stuff = (state, action) => {
@@ -327,8 +317,6 @@ const initialState = {
 
 const store = createStore(reducer, initialState)
 ```
-
-
 
 ## Exemples Redux
 
