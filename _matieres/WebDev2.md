@@ -9,11 +9,12 @@ published: true
 
 - Outils, protocoles, standards et langages du Web
 - Master 2 informatique IWOCS, Cours WEB-IHM, université Le Havre Normandie
-- 45 heures étudiants : 18h de cours, 27h de TD/TP
+- 45 heures étudiants : 15h de cours, 30h de TD/TP
 
 
 ### Plan
 
+- [published: true](#published-true)
 - [Présentation et Objectifs](#présentation-et-objectifs)
 - [Organisation et plan du cours](#organisation-et-plan-du-cours)
 - [Evaluation](#evaluation)
@@ -100,9 +101,9 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <th>Examen</th>
     </tr>
     <tr>
-      <th>bloc</th>
-      <th>competence</th>
-      <th>evaluation</th>
+      <th>Domaine</th>
+      <th>Compétence</th>
+      <th>Aptitude</th>
       <th></th>
       <th></th>
       <th></th>
@@ -114,19 +115,8 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
   </thead>
   <tbody>
     <tr>
-      <th rowspan="2" valign="top">BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles</th>
-      <th>Utiliser et comprendre les techniques de programmation fonctionnelles</th>
-      <th>Maîtriser les aspects fonctionnels de JavaScript</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th>Utiliser et comprendre les techniques de programmation objet</th>
+      <th rowspan="2" valign="top">D1</th>
+      <th>D1.C2</th>
       <th>Maîtriser les modèles objet de JavaScript</th>
       <td></td>
       <td>✓</td>
@@ -137,8 +127,19 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <td>✓</td>
     </tr>
     <tr>
-      <th rowspan="7" valign="top">BLOC 2: Développer une application WEB</th>
-      <th rowspan="2" valign="top">Client</th>
+      <th>D1.C3</th>
+      <th>Maîtriser les aspects fonctionnels de JavaScript</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th rowspan="7" valign="top">D2</th>
+      <th rowspan="2" valign="top">D2.C1</th>
       <th>Maîtriser la gestion des états d’une application avec Redux</th>
       <td></td>
       <td></td>
@@ -159,25 +160,14 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <td>✓</td>
     </tr>
     <tr>
-      <th>Interfaces</th>
-      <th>Maîtriser la création d’interfaces graphiques (React, CSS, canvas)</th>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">Serveur</th>
+      <th rowspan="2" valign="top">D2.C2</th>
       <th>Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)</th>
       <td></td>
       <td></td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>✓</td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
@@ -191,7 +181,7 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <td></td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">Utiliser un protocole de communication</th>
+      <th rowspan="2" valign="top">D2.C3</th>
       <th>Maîtriser les WebSocket en JavaScript</th>
       <td></td>
       <td></td>
@@ -212,8 +202,19 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <td>✓</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">BLOC 4: Gérer des projets professionnels et de recherche</th>
-      <th>S'organiser et planifier</th>
+      <th>D2.C4</th>
+      <th>Maîtriser la création d’interfaces graphiques (React, CSS, canvas)</th>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">D4</th>
+      <th>D4.C1</th>
       <th>Savoir respecter les consignes d'un énoncé, une échéance</th>
       <td>✓</td>
       <td>✓</td>
@@ -224,7 +225,7 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <td></td>
     </tr>
     <tr>
-      <th>Travailler en équipe et communiquer</th>
+      <th>D4.C3</th>
       <th>Maîtriser un outil collaboratif de gestion de code (git)</th>
       <td>✓</td>
       <td>✓</td>
@@ -241,108 +242,100 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
 
 ### JS Basics
 
-- BLOC 2: Développer une application WEB
-  - Serveur
+- D2
+  - D2.C2
     - **Maîtriser l’écriture des tests et la couverture du code**
-- BLOC 4: Gérer des projets professionnels et de recherche
-  - S'organiser et planifier
+- D4
+  - D4.C1
     - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - Travailler en équipe et communiquer
+  - D4.C3
     - **Maîtriser un outil collaboratif de gestion de code (git)**
 
+### Object Models
 
-### Object Models 
-
-- BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles
-  - Utiliser et comprendre les techniques de programmation objet
+- D1
+  - D1.C2
     - **Maîtriser les modèles objet de JavaScript**
-- BLOC 2: Développer une application WEB
-  - Serveur
+- D2
+  - D2.C2
     - **Maîtriser l’écriture des tests et la couverture du code**
-- BLOC 4: Gérer des projets professionnels et de recherche
-  - S'organiser et planifier
+- D4
+  - D4.C1
     - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - Travailler en équipe et communiquer
+  - D4.C3
     - **Maîtriser un outil collaboratif de gestion de code (git)**
 
+### WS Whiteboard
 
-### WS Whiteboard 
-
-- BLOC 2: Développer une application WEB
-  - Interfaces
+- D2
+  - D2.C2
+    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
+  - D2.C3
+    - **Maîtriser les WebSocket en JavaScript**
+  - D2.C4
     - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
-  - Serveur
-    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
-  - Utiliser un protocole de communication
-    - **Maîtriser les WebSocket en JavaScript**
-- BLOC 4: Gérer des projets professionnels et de recherche
-  - S'organiser et planifier
+- D4
+  - D4.C1
     - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - Travailler en équipe et communiquer
+  - D4.C3
     - **Maîtriser un outil collaboratif de gestion de code (git)**
 
+### WS MQTT
 
-### WS MQTT 
-
-- BLOC 2: Développer une application WEB
-  - Serveur
+- D2
+  - D2.C2
     - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
-  - Utiliser un protocole de communication
+  - D2.C3
     - **Maîtriser les WebSocket en JavaScript**
-- BLOC 4: Gérer des projets professionnels et de recherche
-  - S'organiser et planifier
+- D4
+  - D4.C1
     - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - Travailler en équipe et communiquer
+  - D4.C3
     - **Maîtriser un outil collaboratif de gestion de code (git)**
 
+### React
 
-### React 
-
-- BLOC 2: Développer une application WEB
-  - Client
+- D2
+  - D2.C1
     - **Maîtriser le routage dynamique de React Router**
-  - Interfaces
-    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
-  - Serveur
+  - D2.C2
     - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
     - **Maîtriser l’écriture des tests et la couverture du code**
-- BLOC 4: Gérer des projets professionnels et de recherche
-  - S'organiser et planifier
+  - D2.C4
+    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
+- D4
+  - D4.C1
     - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - Travailler en équipe et communiquer
+  - D4.C3
     - **Maîtriser un outil collaboratif de gestion de code (git)**
 
+### Redux
 
-### Redux 
-
-- BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles
-  - Utiliser et comprendre les techniques de programmation fonctionnelles
+- D1
+  - D1.C3
     - **Maîtriser les aspects fonctionnels de JavaScript**
-- BLOC 2: Développer une application WEB
-  - Client
+- D2
+  - D2.C1
     - **Maîtriser la gestion des états d’une application avec Redux**
-  - Serveur
-    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
-  - Utiliser un protocole de communication
+  - D2.C3
     - **Maîtriser l’écrire de code asynchrone**
-- BLOC 4: Gérer des projets professionnels et de recherche
-  - S'organiser et planifier
+- D4
+  - D4.C1
     - **Savoir respecter les consignes d'un énoncé, une échéance**
 
+### Examen
 
-### Examen 
-
-- BLOC 1: Utiliser et comprendre les techniques de programmation impératives, objet et fonctionnelles
-  - Utiliser et comprendre les techniques de programmation fonctionnelles
-    - **Maîtriser les aspects fonctionnels de JavaScript**
-  - Utiliser et comprendre les techniques de programmation objet
+- D1
+  - D1.C2
     - **Maîtriser les modèles objet de JavaScript**
-- BLOC 2: Développer une application WEB
-  - Client
+  - D1.C3
+    - **Maîtriser les aspects fonctionnels de JavaScript**
+- D2
+  - D2.C1
     - **Maîtriser le routage dynamique de React Router**
     - **Maîtriser la gestion des états d’une application avec Redux**
-  - Interfaces
-    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
-  - Utiliser un protocole de communication
+  - D2.C3
     - **Maîtriser l’écrire de code asynchrone**
     - **Maîtriser les WebSocket en JavaScript**
+  - D2.C4
+    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
