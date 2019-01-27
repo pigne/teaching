@@ -6,7 +6,7 @@ categories:
 - lab
 published: true
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 Ce TP est une mise en application du [cours](http://pigne.org/teaching/infoweb/lecture/Symfony-Forms) présenté en classe. Le but principal est la **création de formulaires** et la **validation** des données saisies par les utilisateurs à l'aide du _framework_ **Symfony**.
