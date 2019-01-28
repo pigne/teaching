@@ -34,7 +34,7 @@ Il existe un bon nombre de *Frameworks CSS*. Parmi eux :
 - <https://foundation.zurb.com> 
 - <https://www.knacss.com> (alsacréation)
 
-## Design de pages Webs *Responsive*
+## Design de pages Web *Responsive*
 
 Un site web dont le design est *responsive* propose d'adapter visuellement l'affichage en fonction du support d'affichage (l'écran).
 On n'écrit pas plusieurs versions du site en fonction du support mais on inclue dans le code source (HTML et CSS) les règles d'affichages conditionnelles en fonction du support. En CSS les [media querries](https://en.wikipedia.org/wiki/Media_queries) permettent d'avoir du style conditionnel.
@@ -54,6 +54,9 @@ npm start
 ```
 
 Ce terminal est bloqué, le laisser ouvert et ouvrir un éditeur de texte pour voir les fichiers et un navigateur qui point sur le fichier `index.html`.
+
+
+
 
 ### SASS /  CSS
 
@@ -88,10 +91,13 @@ $input-shadow: none;
 @import "../node_modules/bulma/bulma";
 ```
 
-
 ### HTML
 
 Le fichier `index.html` est un exemple de base que l'on modifie et que l'on copie pour commencer toute autre page html.
+
+### Documentation
+
+Se référer à la [documentation de bulma](https://bulma.io/documentation/) pour obtenir un panel de toutes les fonctionnalités du Framework.
 
 ## Travail à réaliser
 
@@ -115,7 +121,7 @@ La page des groupes en mode étroit :
 
 Chaque groupe a sa propre page sous forme d'un onglet d'un composant `tab`. Dans chaque page figure à minima un tableau  des matchs avec le nom des équipes, la date et le lieux des matchs.
 
-Exemple d'une page du groupe A minimal en mode étroit :  
+Exemple d'une page du groupe, à minima, en mode étroit :  
 ![Groupe A mode étroit]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-GroupeA-Etroit.png){:.image-width-50}
 
 Pas la peine d'écrire *toutes* les pages de groupes. Une seule suffit.
@@ -129,8 +135,8 @@ A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les elements
 Dans le terminal qui exécutait la commande `npm start` arrêter le script avec <kbd>Ctrl c</kbd>. Puis créer une archive du tp. Si le dossier s'appelle `L3_TP_InfoWeb_CSS`:
 
 ```sh
-tar zcvf L3_TP_InfoWeb_CSS.tar.gz L3_TP_InfoWeb_CSS/{_sass/*,*.html,css/*,lib/*}
+DOSSIER="L3_TP_InfoWeb_CSS"
+tar --exclude="${DOSSIER}/node_modules" -zcvf "${DOSSIER}.tar.gz" "${DOSSIER}"
 ```
 
 Déposer l'archive sur eureka.
-
