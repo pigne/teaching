@@ -4,7 +4,7 @@ matiere: WebDev2
 title: Développement Web JavaScript (M2)
 subtitle: M2 iWOCS - WEB-IHM - Université du Havre
 order: 3
-published: true
+published: false
 ---
 
 - Outils, protocoles, standards et langages du Web
@@ -14,7 +14,6 @@ published: true
 
 ### Plan
 
-- [published: true](#published-true)
 - [Présentation et Objectifs](#présentation-et-objectifs)
 - [Organisation et plan du cours](#organisation-et-plan-du-cours)
 - [Evaluation](#evaluation)
