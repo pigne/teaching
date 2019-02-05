@@ -39,7 +39,7 @@ Le cours suit le plan suivant :
 2. Modèles objets et concepts avancés en JS
 3. HTML & CSS
 4. Technologies Web avancées
-5. RESTFul Web Services API
+<!-- 5. RESTFul Web Services API -->
 6. Web Frameworks (React)
 
 ## Evaluation
