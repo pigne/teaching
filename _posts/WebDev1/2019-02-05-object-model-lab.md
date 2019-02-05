@@ -65,7 +65,7 @@ En utilisant le pattern de création d'objets de votre choix (classique, `Object
 
 Rédiger des tests unitaires permettant de vérifier le bon fonctionnement du modèle. Le fichier `resources/sensors_data.js` sera utilisé pour générer les objets et vérifier certaines propriétés de base (qu'il vous appartient de définir).
 
-Enfin un *merge request* permettra de rendre le TP. Penser a donner **vos nom et prénom** dans le message du PR.
+Enfin un *merge request* permettra de rendre le TP. Penser à donner **vos nom et prénom** dans le message du *merge request*.
 
 ## Évaluation
 
