@@ -119,6 +119,7 @@ Most editor can include such tools.
 ## Code Formatting
 
 - <http://jsbeautifier.org>
+- <https://prettier.io>
 - your editor should format the code for you.
 
 ## Quickly Test and exchange code
