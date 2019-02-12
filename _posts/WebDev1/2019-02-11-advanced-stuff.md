@@ -2,11 +2,10 @@
 layout: post
 title: Advanced Web Technologies and Protocols
 categories:
-- WebDev2
+- WebDev1
 - lecture
 author: Yoann Pigné
-published: false
-update: 2018-10-07
+published: true
 ---
 
 This document presents some advanced technics and protocols related to Web technologies. Some are new standards that are not fully supported by all browsers.
@@ -39,7 +38,10 @@ WebWorkers have a different context than the main app so **no shared memory**. H
 
 ### Demonstration of a WebWorker-Enabled App
 
-The [WebWorker](https://www-apps.univ-lehavre.fr/forge/WEB-IHM/WebWorkerDemo/) Web App is a simple demonstration of the usage of WebWorkers. The app shows that heavy computation work can be done on WebWorkers without affecting the main process' performances.
+
+<https://www-apps.univ-lehavre.fr/forge/2018-2019-m1/WEB-webworker-demo>
+
+The WebWorker demo Web App is a simple demonstration of the usage of WebWorkers. The app shows that heavy computation work can be done on WebWorkers without affecting the main process' performances.
 
 ### The main App
 
@@ -141,7 +143,7 @@ It relies on the underlying TCP connection opened by HTTP but does not use HTTP.
 
 ### A WebSocket Demo
 
-<https://www-apps.univ-lehavre.fr/forge/WEB-IHM/web-socket-demo.git>
+<https://www-apps.univ-lehavre.fr/forge/2018-2019-m1/WEB-websocket-demo>
 
 This project is a simple WebSocket demo. It focusses on showing the basic mechanisms used to create a bidirectional (full duplex) communication WebSocket.
 
@@ -197,7 +199,7 @@ Les [*Promise*](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/O
 new Promise( /* exécuteur */ function(resolve, reject) { ... } );
 ```
 
-La fonction *exécuteur* prends 2 paramètres : `resolve` et `reject`. Ce sont des fonctions. l'exécuteur commence le travail asynchrone. Si le travail s'exécute sans problème la fonction `resolve`est exécutée, s'il y a une erreur, `reject` est exécuté.
+La fonction *exécuteur* prends 2 paramètres : `resolve` et `reject`. Ce sont des fonctions. l'exécuteur commence le travail asynchrone. Si le travail s'exécute sans problème la fonction `resolve` est exécutée, s'il y a une erreur, `reject` est exécuté.
 
 ```js
 function trucQuiprendDuTemps() {
