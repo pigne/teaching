@@ -52,5 +52,5 @@ On pourra se servir du projet suivant pour générer des données de capteurs al
 
 ## Évaluation
 
-[Liste des Capacités évaluées.](/teaching/WebDev2#ws-mqtt)
+[Liste des Capacités évaluées.](/teaching/WebDev1#ws-mqtt)
 
