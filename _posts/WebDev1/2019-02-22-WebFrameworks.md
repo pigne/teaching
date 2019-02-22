@@ -2,11 +2,10 @@
 layout: post
 title: Web Frameworks
 categories:
-- WebDev2
+- WebDev1
 - lecture
 author: Yoann Pigné
-published: false
-update: 2018-10-19
+published: true
 ---
 
 
@@ -232,7 +231,7 @@ The 3 MVC parts run on the client side. The server is just a gateway for the DBM
       - `yarn` (facebook)
 - Task Runner:
   * :-1: `grunt` ([gruntjs.com](http://gruntjs.com)),  `gulp`
-  * +1: `npm`scripts
+  * :+1: `npm`scripts
 - Module Builder for Browsers
   * [`webpack`](https://webpack.js.org/guides/getting-started/)
   * `browserify`
