@@ -5,7 +5,8 @@ categories:
 - InfoWeb
 - lab
 author: Yoann Pigné
-published: false
+published: true
+update: 2019-02-28
 ---
 
 
@@ -19,40 +20,34 @@ Symfony est entre autres un framework Web. Il contient un ensemble de ressources
 Il y a 2 choses à faire dans ce TP :
 
 1. Suivre les étapes afin de réaliser le TP.
-2. Répondre aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=45530) se trouvant sur la page du cours.
+2. Répondre aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=35458) se trouvant sur la page du cours.
 
 Il est possible de travailler en binôme pour ce TP. En revanche, les réponses aux questions dans Eureka doivent être répondues par tout le monde. 
 
- Même si cela n'est pas explicitement demandé par la suite, le projet suivant devra être géré avec GIT en utilisatn la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier de m'ajouter (`pigne`) dans le projet. 
-
+Ce TP doit être versionné avec GIT et être partagé en utilisant la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier de d'ajouter les enseignants (`pigne` et `fournied`) au projet. 
 
 
 ## Installation de Symfony
 
-Pour commencer à utiliser Symfony il faut télécharger et installer le script d'installation Symfony. Plusieurs options s'offrent à nous.
+Pour commencer à utiliser Symfony il faut installer `composer`,   le gestionnaire de dépendances de PHP.
 
-### Installation classique
 
 La méthode la plus simple,  quel que soit votre OS, est celle décrite dans la documentation officielle  : [https://symfony.com/doc/current/book/installation.html](https://symfony.com/doc/current/book/installation.html)
-
-- [Mac et Linux](https://symfony.com/doc/current/book/installation.html#linux-and-mac-os-x-systems)
-- [Windows](https://symfony.com/doc/current/book/installation.html#windows-systems)
 
 
 ### Pour les machines de TP de l'université
 
-Pour les **machines de TP de l'université**, on va installer Symfony dans le dossier utilisateur car nous n'avons pas les droits d'écriture dans `/usr/local/...`
+Pour les **machines de TP de l'université**, on va installer Composer dans le dossier utilisateur car nous n'avons pas les droits d'écriture dans `/usr/local/...`
+
+Attention : les commandes suivantes ne doivent être exécutées qu'une seule fois !
+
 
 ```bash
 mkdir ${HOME}/bin
-curl -LsS https://symfony.com/installer -o ${HOME}/bin/symfony
-chmod a+x ${HOME}/bin/symfony
+wget https://raw.githubusercontent.com/composer/getcomposer.org/cb19f2aa3aeaa2006c0cd69a7ef011eb31463067/web/installer -O - -q | php -- --install-dir=bin --filename=composer
 ```
 
-
-On modifie la variable d'environnement `$PATH` pour que l'exécutable `symfony` soit disponible partout. Attention il ne faut faire cette manip qu'une seule fois :
-
-Attention : la commande suivante ne doit être exécuté qu'une seule fois !
+On modifie la variable d'environnement `$PATH` pour que l'exécutable `composer` soit disponible partout. 
 
 ```bash
 echo "export PATH=$PATH:${HOME}/bin" >> ${HOME}/.bash_profile
@@ -62,7 +57,7 @@ source ${HOME}/.bash_profile
 
 ### Installation dans PHPStorm (facultatif)
 
-Il est aussi très facile d'utiliser Symfony avec un IDE. Le plus populaire et plus facile à utiliser à l'heure actuelle (2016) est probablement PHPStorm. celui-ci n'est ni libre ni gratuit, mais une licence étudiant gratuite est accessible. 
+Il est aussi très facile d'utiliser Symfony avec un IDE. Le plus populaire et plus facile à utiliser à l'heure actuelle (2019) est probablement PHPStorm. celui-ci n'est ni libre ni gratuit, mais une licence étudiant gratuite est accessible. 
 
 Il est normalement possible d'installer PHPStorm sur les machines de TP de l'université. mais ce n'est pas obligatoire. 
 
@@ -70,25 +65,10 @@ Pour installer Symfony dans PHPStorm, aller dans les _préférences_, puis _plug
 
 ## Création d'un premier projet
 
-On a installé l'_installer_ qui nous permet de créer de nouveaux projets. On commence donc un projet Symfony avec l'_installer_.
-
-
-### Mac & Linux
+On crée de nouveaux projets Symfony avec  Composer.
 
 ```bash
-symfony new projet_hello
-cd projet_hello
-```
-
-### Windows
-
-Dans un dossier de travail, on copie l'_installer_ `symfony` avant de l'exécuter :
-
-```bash
-move symfony c:\dossier_travail
-cd c:
-cd dossier_travail
-php symfony new projet_hello
+composer create-project symfony/website-skeleton projet_hello
 cd projet_hello
 ```
 
@@ -98,10 +78,9 @@ cd projet_hello
 En fonction de l'IDE les étapes diffèrent mais en gros : "fichier" /  "nouveaux" / "nouveaux projet à partir du template symfony" / ...
 
 
-
 ### GIT 
 
-C'est probablementn le bon moment pour faire un `git init` dans le projet et pour le connecter à un projet sur la forge. 
+C'est probablement le bon moment pour faire un `git init` dans le projet et pour le connecter à un projet sur la forge.
 
 ## Analyse du projet de base
 
@@ -110,19 +89,20 @@ Examiner attentivement le contenu du projet (dossier `projet_hello`). les dossie
 ```bash
 .
 ├── README.md
-├── app/
 ├── bin/
+├── config/
 ├── composer.json
 ├── composer.lock
 ├── phpunit.xml.dist
+├── public/
 ├── src/
+├── templates/
 ├── tests/
 ├── var/
-├── vendor/
-└── web/
+└── vendor/
 ```
 
-Le dossier `app/` est le point de départ de l'application. Il contient les classes de base,  les paramètres et les ressources par défaut de l'application. On modifiera ce dossier pour configurer l'application, ajouter des ressources ou changer son comportement par défaut (e.g.: chargement de modules complémentaires).
+Le dossier `config/` est le point de départ de l'application. Il contient les paramètres et les ressources par défaut de l'application. On modifiera ce dossier pour configurer l'application, ajouter des ressources ou changer son comportement par défaut (e.g.: chargement de modules complémentaires). Si vous utilisez Symfony 3 ce dossier s'appelle `app/`.
 
 Le dossier `src/` contient les sources de notre application. C'est le dossier qui nous intéresse le plus ici.
 
@@ -135,56 +115,9 @@ Le dossier `tests/` contient comme on s'en doute les tests unitaires.
 
 Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=45530) :
 
-- En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité des dossiers `vendor/` et `web/`.
+- En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité des dossiers `vendor/` et `public/` (`public/` = `web/` en Symfony 3).
 - Quel fichier dois-je modifier pour configurer les identifiants de bases de données afin que Symfony puisse accéder à la Base de données ?
 
-</div>
-
-
-## Lancer les Tests Unitaires
-
-La première chose à faire est de lancer les tests unitaires pour s'assurer que tout fonctionne. On exécute les testes avec PHPUnit (l'équivalent du `JUnit` de `Java` pour `PHP`). **Problème** : notre projet Symfony s'attend à ce que `PHPUnit` soit déjà installé dans le système, hors ce n'est pas le cas. Pour installer `PHPUnit` il faut :
-
-- Installer `composer` qui permet de gérer les dépendances du projet.
-- Installer `PHPUnit` avec `composer`.
-
-Suivre dans l'ordre les étapes suivantes :
-
- 1) **Constater** qu'il n'y a aucune mention à `PHPUnit` dans le fichier `composer.json` qui se trouve à la racine du projet.
-
- 2) **installer** `composer` :
-
-```bash
-php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
-php composer-setup.php
-php -r "unlink('composer-setup.php');"
-```
-Note : ici la [procédure d'installation pour Windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
-
- 3) **installer** `PHPUnit`:
-
-```bash
-php composer.phar require phpunit/phpunit
-```
-
-4) **Constater** que `phpunit` apparait dans le fichier `composer.json` et qu'un dossier `phpunit` existe dans le dossier `vendor/`
-
-5) **Lancer les tests**:
-
-```bash
-php vendor/bin/phpunit tests
-```
-
-il devrait y en avoir un seul pour l'instant le résultat devrait être :
-
-```
-OK (1 test, 2 assertions)
-```
-
-<div class="question">
-### Question 4
-
-A quoi sert le fichier `composer.json` qui se trouve à la racine du projet ?
 </div>
 
 ## Démarrer l'application
@@ -216,7 +149,7 @@ Il faut configurer le contrôleur pour que ses actions soient liées à des rout
 
 <div class="question">
 
-### Question 5
+### Question 4
 
 Dans l'action d'un contrôleur, comment fait-on le lien avec une route (URL) de l'application ?
 </div>
@@ -229,13 +162,14 @@ Nous allons créer un contrôleur des actions et des routes associées.
 
 ```php
 <?php
-namespace AppBundle\Controller;
+namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class HelloController extends Controller
+
+class HelloController extends AbstractController
 {
 
     /**
@@ -265,13 +199,15 @@ class HelloController extends Controller
 ```
 
 
-Il faut maintenant tester ce contrôleur. En s'inspirant du test déjà présent écrire le fichier de test `tests/AppBundle/Controller/HelloControllerTest.php` :
+## Lancer les Tests Unitaires
+
+Il faut maintenant tester ce contrôleur. Écrire le fichier de test `tests/Controller/HelloControllerTest.php` :
 
 ```php
 <?php
-namespace Tests\AppBundle\Controller;
+namespace App\Tests\Controller;
 
-use AppBundle\Controller\HelloController;
+use App\Controller\HelloController;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class HelloControllerTest extends WebTestCase
@@ -294,16 +230,32 @@ class HelloControllerTest extends WebTestCase
 }
 ```
 
+On exécute les tests avec PHPUnit (l'équivalent du `JUnit` de `Java` pour `PHP`). Avant d'exécuter les tests on doit installer le framework de test `phpunit`: 
+
+```bash
+composer require --dev symfony/phpunit-bridge
+```
+
+
 
 **Exécuter** les tests :
+
 ```bash
-php vendor/bin/phpunit tests
+./bin/phpunit
 ```
 
-On devrait avoir 3 tests avec 5 assertions :
+On devrait avoir :
 ```
-OK (3 tests, 5 assertions)
+OK (2 tests, 3 assertions)
 ```
+
+<div class="question">
+
+### Question 5
+
+A quoi sert le fichier `composer.json` qui se trouve à la racine du projet ?
+</div>
+
 
 
 On peut bien sur voire fonctionner ce nouveau contrôleur avec la route : [http://localhost:8000/helloRandom](http://localhost:8000/helloRandom) et recharger la page plusieurs fois...
@@ -316,9 +268,10 @@ Dans la classe de test `HelloControllerTest` :
 
 - expliquer ce que fait la méthode `testHelloRandomRoute`
 - expliquer ce que fait la méthode `testRandomNameGenerator`
+  
 </div>
 
-##  Route et action paramétriques
+## Route et action paramétriques
 
 On souhaite créer une action qui dépende des paramètres de la route (une route paramétrique).
 
@@ -342,26 +295,25 @@ public function nameAction($name){
 
 ### Questions  8
 
-Ecrire un test dans la classe `HelloControllerTest` qui vérifie que la méthode fonctionne comme prévu. Vérifier que la page web générée salut bien le Professeur Dumbledore quand son nom est passé dans l'URL. Vérifier aussi que le nom est aléatoire quand aucun paramètre n'est donné ([http://localhost:8000/hello](http://localhost:8000/hello)).
+Écrire un test dans la classe `HelloControllerTest` qui vérifie que la méthode fonctionne comme prévu. Vérifier que la page web générée salut bien le Professeur Dumbledore quand son nom est passé dans l'URL. Vérifier aussi que le nom est aléatoire quand aucun paramètre n'est donné ([http://localhost:8000/hello](http://localhost:8000/hello)).
 
 Coller votre (ou vos) méthode(s) de test dans le questionnaire Eureka (Question 8).
 </div>
 
 ## Création d'une vue
 
-On souhaite maintenant générer des pages Web complètes et pas seulement une chaine de caractères passée dans l'objet `Response`.
+On souhaite maintenant générer des pages Web complètes et pas seulement une chaîne de caractères passée dans l'objet `Response`.
 
 Symfony utilise le langage de _template_ `twig`.
 
 la méthode `render()` du contrôleur permet d'utiliser un template `twig` pour fabriquer une réponse et retourner un objet `Response`.
 
+**Ouvrir** et **lire** les fichiers `templates/base.html.twig`.
 
-**Ouvrir** et **lire** les fichiers `app/Resources/views/base.html.twig` et  `app/Resources/views/default/index.html.twig`.
-
-
-Créer un template pour notre contrôleur Hello `app/Resources/views/default/hello.html.twig` :
+Créer un template pour notre contrôleur Hello `templates/hello.html.twig` :
 
 {% raw %}
+
 ```html
 {% extends 'base.html.twig' %}
 
@@ -392,8 +344,9 @@ Créer un template pour notre contrôleur Hello `app/Resources/views/default/hel
 {% endraw %}
 
 <div class="question">
+
 ### Questions  9
-En vous inspirant du contrôleur `DefaultController` modifier l'action `nameAction` de notre contrôleur `HelloController` afin d'utiliser le _template_ qui vient d'être créé.
+En vous inspirant de la [documentation en ligne](https://symfony.com/doc/current/controller.html#rendering-templates)  modifier l'action `nameAction` de notre contrôleur `HelloController` afin d'utiliser le _template_ qui vient d'être créé.
 
 Copier le code de cette action dans la question 9 du questionnaire Eureka.
 </div>
@@ -402,8 +355,7 @@ Copier le code de cette action dans la question 9 du questionnaire Eureka.
 
 On souhaite que l'application se souvienne de nous. A chaque fois que l'action `nameAction` est appelée avec un paramètre (avec un nom), on veut qu'il soit **sauvegardé** dans une **session** (en remplaçant éventuellement celui qui existait déjà). A chaque fois que l'action `nameAction` est appelée **sans** paramètre, alors on veut retrouver le paramètre précédemment **enregistré**. Finalement si `nameAction` est appelé sans paramètre pour la première fois alors on génère un nom aléatoirement.
 
-Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)) cela va m'afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)) cela doit également m'afficher `"Hello You!"`. En revanche si on appelle pour la première fois l'action sans paramètres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
-
+Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)) cela va afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)) cela doit également afficher `"Hello You!"`. En revanche si j'appelle pour la première fois l'action sans paramètres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
 
 <div class="question">
 
@@ -412,5 +364,6 @@ Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://loc
 En utilisant la [documentation Symfony sur les sessions](http://symfony.com/doc/current/book/controller.html#managing-the-session) :
 
 - Modifier l'action `nameAction` pour qu'elle se comporte comme décrit au dessus. Copier le code dans Eureka (Question 10).  
-- Ecrire des tests pour vérifier le nouveau fonctionnement. Copier le code de ces tests dans Eureka (Question 11).  
+- Écrire des tests pour vérifier le nouveau fonctionnement. Copier le code de ces tests dans Eureka (Question 11).  
+  
 </div>
