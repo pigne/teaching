@@ -6,7 +6,6 @@ categories:
 - lab
 author: Yoann Pigné
 published: true
-update: 2019-02-28
 ---
 
 
@@ -55,30 +54,16 @@ source ${HOME}/.bash_profile
 ```
 
 
-### Installation dans PHPStorm (facultatif)
-
-Il est aussi très facile d'utiliser Symfony avec un IDE. Le plus populaire et plus facile à utiliser à l'heure actuelle (2019) est probablement PHPStorm. celui-ci n'est ni libre ni gratuit, mais une licence étudiant gratuite est accessible. 
-
-Il est normalement possible d'installer PHPStorm sur les machines de TP de l'université. mais ce n'est pas obligatoire. 
-
-Pour installer Symfony dans PHPStorm, aller dans les _préférences_, puis _plugins_, puis cliquer sur "_Browse repository_", puis rechercher le plugin "Symfony Plugin". Installer et redémarrer.
-
 ## Création d'un premier projet
 
-On crée de nouveaux projets Symfony avec  Composer.
+On crée de nouveaux projets Symfony avec Composer.
 
 ```bash
 composer create-project symfony/website-skeleton projet_hello
 cd projet_hello
 ```
 
-
-### PHPStorm ou autre IDE
-
-En fonction de l'IDE les étapes diffèrent mais en gros : "fichier" /  "nouveaux" / "nouveaux projet à partir du template symfony" / ...
-
-
-### GIT 
+### GIT
 
 C'est probablement le bon moment pour faire un `git init` dans le projet et pour le connecter à un projet sur la forge.
 
