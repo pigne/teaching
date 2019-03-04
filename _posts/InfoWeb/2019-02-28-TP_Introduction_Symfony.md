@@ -130,14 +130,6 @@ Ces 3 termes sont importants :
 Il faut configurer le contrôleur pour que ses actions soient liées à des routes.
 
 
-**Ouvrir** le fichier `src/AppBundle/Controller/DefaultController.php` et **identifier** comment le lien entre une **action** du **contrôleur** et une **route** est réalisé.
-
-<div class="question">
-
-### Question 4
-
-Dans l'action d'un contrôleur, comment fait-on le lien avec une route (URL) de l'application ?
-</div>
 
 ## Création d'un contrôleur
 
@@ -182,6 +174,15 @@ class HelloController extends AbstractController
     }
 }
 ```
+
+<div class="question">
+
+### Question 4
+
+Dans l'action d'un contrôleur, comment fait-on le lien avec une route (URL) de l'application ?
+</div>
+
+
 
 
 ## Lancer les Tests Unitaires
