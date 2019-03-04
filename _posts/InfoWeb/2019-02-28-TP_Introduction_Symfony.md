@@ -135,7 +135,7 @@ Il faut configurer le contrôleur pour que ses actions soient liées à des rout
 
 Nous allons créer un contrôleur des actions et des routes associées.
 
-**Créer** un nouveaux fichier `"src/AppBundle/Controller/HelloController.php"` avec le contenu suivant :
+**Créer** un nouveaux fichier `"src/Controller/HelloController.php"` avec le contenu suivant :
 
 ```php
 <?php
