@@ -100,4 +100,4 @@ Télécharger le [fichier de données JSON](https://pigne.org/teaching/DIU_EIL/d
 
 ### Exercice 4
 
-Télécharger [l'archive "Images"](https://pigne.org/teaching/DIU_EIL/images.zip) Suivre le [TP  sur les images matricielles de Licence 1](https://pigne.org/teaching/DIU_EIL/ExerciceImagesMatricielles.pdf). 
+Télécharger [l'archive "Images"](https://pigne.org/teaching/DIU_EIL/Images.zip) Suivre le [TP  sur les images matricielles de Licence 1](https://pigne.org/teaching/DIU_EIL/ExerciceImagesMatricielles.pdf). 
