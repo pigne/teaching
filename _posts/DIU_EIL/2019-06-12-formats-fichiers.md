@@ -66,7 +66,8 @@ Télécharger [l'archive "Données"](https://pigne.org/teaching/DIU_EIL/donnees.
   - renommer les colonnes "L" "ES" et "S" des taux de réussite en "Taux L", "Taux ES", "Taux S" ;
   - supprimer le première ligne ;
   - enregistrer.
-- Dans un nouveau notebook, répondre aux questions posées dans l'exercice 1 à l'aide de python et des `DataFrame` de `pandas`.
+- Dans un **nouveau** *notebook*, répondre aux questions posées dans l'exercice 1 à l'aide de python et des `DataFrame` de `pandas`.
+- Envoyer ce notebook par mail à `yoann.pigne@univ-lehavre.fr` avec l'entête "`[DIU-EIL] Exercice DataFrame`" et en indiquant vos nom et prénom dans le corps du mail.
 
 
 ### Données structurées et typés
@@ -85,13 +86,17 @@ with open('data.json') as f:
 
 ### Exercice 3
 
-Télécharger le [fichier de données JSON](https://pigne.org/teaching/DIU_EIL/data.json). Celui-ci contient un tableau de 3 objets qui ont un champ "data" contenant a son tour un champ "values". Faire la moyenne des valeurs dans les champs "values" respectivement et afficher de cette façon :
+Télécharger le [fichier de données JSON](https://pigne.org/teaching/DIU_EIL/data.json). Celui-ci contient un tableau de 3 objets qui ont un champ "data" contenant a son tour un champ "values" ou "value". 
+
+Dans un **nouveau** *notebook*, changer le fichier, puis faire la moyenne des valeurs dans les champs "values" respectivement et afficher de cette façon :
 
 ```text
 - Température Bureau : (TEMPERATURE = 23.11)
 - Porte du Garage : (DOOR = 0)
 - Ventilateur Ordinateur Bureau : (FAN_SPEED = 1774.50)
 ```
+
+Envoyer ce notebook par mail à `yoann.pigne@univ-lehavre.fr` avec l'entête "`[DIU-EIL] Exercice JSON`" et en indiquant vos nom et prénom dans le corps du mail.
 
 ## Fichiers images
 
