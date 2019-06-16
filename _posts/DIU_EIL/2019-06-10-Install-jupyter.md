@@ -10,7 +10,7 @@ categories:
 
 # Configurations et installations préliminaires au cours
 
-Dans le cadre des cours de de DIU EIL à l'université le Havre Normandie,certaines commandes et configurations  propres à l'environnement de travail sont nécessaires. Les postes disposent de deux systèmes d'exploitation : Windows et Ubuntu (Linux). Python est installé sur les deux systèmes mais des configurations et des installations complémentaires sot nécessaires.
+Dans le cadre des cours de de DIU EIL à l'université le Havre Normandie,certaines commandes et configurations  propres à l'environnement de travail sont nécessaires. Les postes disposent de deux systèmes d'exploitation : Windows et Ubuntu (Linux). Python est installé sur les deux systèmes mais des configurations et des installations complémentaires sont nécessaires.
 
 ## Accès
 
@@ -34,7 +34,7 @@ echo "export PATH=\$PATH:\${HOME}/.local/bin" >> ~/.profile
 export PATH=$PATH:${HOME}/.local/bin
 ```
 
-## Installation de `jupyter`
+## Installation de `jupyter` et autre modules
 
 Les *Jupyter Notebooks* permettent de partager
 facilement du code python des équations du texte et des graphiques. 
@@ -45,13 +45,19 @@ A n'exécuter qu'une seule fois :
 pip3 install --user jupyter
 ```
 
+D'une manière générale on utilisera cette commande pour installer des paquets (*packages*) dans python (sans oublier le `--user`). Par exemple :
+
+```bash
+pip3 install --user numpy pandas_ods_reader
+```
+
 <!-- > /dev/null 2>&1 && echo "OK." || exit_on_error "Erreur." -->
 
 ## Utilisation des *notebooks* 
 
-Une fois `jupyter`  installé on peut démarer l'application à partir d'un terminal, dans un dossier ou se trouverons les fichiers *notesbooks*. 
+Une fois `jupyter`  installé on peut démarrer l'application à partir d'un terminal, dans un dossier ou se trouverons les fichiers *notesbooks*. 
 
-On lance le serveur avec la commande : 
+On lance le serveur avec la commande :
 
 ```bash
 jupyter notebook
@@ -59,13 +65,9 @@ jupyter notebook
 
 Cette commande bloque le terminal et ouvre le navigateur Web sur l'application Web Jupyter.
 
-On peut ensuite suivre le cours, exécuter les exemple et faire les exercices en téléchargent les fichiers *notebooks* et en les lançant dans l'application Web Jupyter.
+On peut ensuite suivre le cours, exécuter les exemples et faire les exercices en téléchargent les fichiers *notebooks* et en les lançant dans l'application Web Jupyter.
 
-Remarque : ce document est également un [notebook à télécharger](https://pigne.org/teaching/images/2019-06-10-Install-jupyter.ipynb) et a exécuter : 
 
 ```python
 1 + 1
 ```
-
-
-
