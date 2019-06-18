@@ -34,39 +34,31 @@ F,Charlotte,1988
 En python on manipule des données tabulées facilement avec des objets `DataFrame` de bibliothèque `pandas`. La documentation sur les [dataframes](https://pandas.pydata.org/pandas-docs/stable/reference/frame.html) nos servira par la suite. 
 
 ```python
-from pandas import DataFrame 
+import pandas
 
 data = {"Civilité":("M","F", "F"),'Prénom':('Alphonse','Béatrice', 'Charlotte'), "année":(1932, 1964, 1988)}
 
-df = DataFrame(data)
+df = pandas.DataFrame(data)
 print(df.query('Civilité == "F"'))
 
 print("année moyenne: {:.0f}".format(df['année'].mean()))
 ```
 
-
-Lecture d'un tableur ODS dans un dataframe : 
+Lecture d'un tableur dans un DataFrame : 
 
 ```python
-from pandas_ods_reader import read_ods
-f = "resultats-2016.ods"
-
-df = read_ods(f, 1)
+df = pandas.read_excel("resultats-2016.xlsx")
+print("Dimensions du DataFrame :", df.shape)
 df.head()
 ```
 
 ### Exercice 1
 
-Télécharger [l'archive "Données"](https://pigne.org/teaching/DIU_EIL/donnees.zip) Suivre le [TP n°1 sur les tableurs de Licence 1](https://pigne.org/teaching/DIU_EIL/seance01-PIX-tableur.pdf) sans s'attarder sur la mise en forme. 
+Télécharger [ce tableur](https://pigne.org/teaching/DIU_EIL/resultats-2016.xlsx). Suivre le [TP n°1 sur les tableurs de Licence 1](https://pigne.org/teaching/DIU_EIL/seance01-PIX-tableur.pdf) à partir de la question N°6 sans s'attarder sur la mise en forme.
 
 ### Exercice 2
 
-- Dans le tableur précédent:  
-  - renommer les colonnes "L" "ES" et "S" des élèves présents en "Présents L", "Présents ES", "Présents S" ;
-  - renommer les colonnes "L" "ES" et "S" des taux de réussite en "Taux L", "Taux ES", "Taux S" ;
-  - supprimer le première ligne ;
-  - enregistrer.
-- Dans un **nouveau** *notebook*, répondre aux questions posées dans l'exercice 1 à l'aide de python et des `DataFrame` de `pandas`.
+- Dans un **nouveau** *notebook*, répondre aux questions 6 à 12, posées dans l'exercice 1 à l'aide de python et des `DataFrame` de `pandas`.
 - Envoyer ce notebook par mail à `yoann.pigne@univ-lehavre.fr` avec l'entête "`[DIU-EIL] Exercice DataFrame`" et en indiquant vos nom et prénom dans le corps du mail.
 
 

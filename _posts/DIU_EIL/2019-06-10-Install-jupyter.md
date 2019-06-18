@@ -30,8 +30,8 @@ A n'exécuter qu'une seule fois sur les postes de l'université :
 ```bash
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py --user
-echo "export PATH=\$PATH:\${HOME}/.local/bin" >> ~/.profile
-export PATH=$PATH:${HOME}/.local/bin
+echo "export PATH=\${HOME}/.local/bin:\${PATH}" > ~/.profile
+source ~/.profile
 ```
 
 ## Installation de `jupyter` et autre modules
@@ -42,14 +42,10 @@ facilement du code python des équations du texte et des graphiques.
 A n'exécuter qu'une seule fois :
 
 ```bash
-pip3 install --user jupyter
+pip3 install --user jupyter numpy pandas xlrd
 ```
 
-D'une manière générale on utilisera cette commande pour installer des paquets (*packages*) dans python (sans oublier le `--user`). Par exemple :
 
-```bash
-pip3 install --user numpy pandas_ods_reader
-```
 
 <!-- > /dev/null 2>&1 && echo "OK." || exit_on_error "Erreur." -->
 

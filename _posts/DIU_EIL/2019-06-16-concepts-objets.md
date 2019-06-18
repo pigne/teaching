@@ -2,7 +2,7 @@
 layout: post
 title: Les concepts objets
 author: Yoann Pigné
-published: fasle
+published: true
 categories:  
 - DIU_EIL
 - lecture
@@ -20,15 +20,15 @@ categories:
 
 ### Classe
 
-C'est la définition (le patron) d'un nouveau type de données composite (constitué de plusieurs autre types de données)  qui permet de définir de nouveaux objets. 
+C'est la définition (le patron) d'un nouveau type de donnée composite. Ces types sont un assemblage  d'autres types de données,   il permettent d'**encapsuler** différentes données (de différents types) dans  de nouveaux objets.
 
-### Objet 
+### Objet
 
 c'est un assemblage unique constitué de données dont le type est définie par une classe. 
 
-### instance 
+### Instance
 
-C'est la propriété pour un objet d'être d'une classe donnée. On dit qu'unn objet `o` créé à partir de la classe `A` est une instance de `A`
+C'est la propriété pour un objet d'être d'une classe donnée. On dit qu'nn objet `o` créé à partir de la classe `A` est une instance de `A`
 
 ## Méthode
 
@@ -44,17 +44,15 @@ C'est une variable partagée par toutes les instances de la classe. Elles sont d
 
 ### Donnée membre 
 
-C'est une variable d'instance ou de classe associée a une classe et ses instances. 
+C'est une variable d'instance ou de classe associée à une classe et ses instances. 
 
-### Surcharge de fonction
+### Surcharge de méthode
 
-C'est l'attribution de plusieurs comportements pour une fonction donnée. Elle se traduit par des variations dans les types d'objets ou d'arguments utilisés dans ces fonctions.
-
+C'est l'attribution de plusieurs comportements pour une fonction (méthode) donnée. Elle se traduit par des variations dans les types d'objets ou d'arguments utilisés dans ces fonctions.
 
 ### Surcharge d'opérateur 
 
 C'est l'attribution de plusieurs fonction à un seul opérateur. 
-
 
 ## Déclaration de classes
 
@@ -124,7 +122,7 @@ class Point3d(Point): # définition d'une classe fille de Point
     def __init__(self, x, y, z):
         print('[constructeur de Point3d]')
         super().__init__(x, y) # appel au constructeur de Point
-        self.z = z 
+        self.z = z
 
     def affichePoint(self):
         print(f"({self.x:.2f}, {self.y:.2f}, {self.z:.2f})")
@@ -155,7 +153,7 @@ Chaîne de caractère permettent de ré-instancier l'objet avec la fonction `eva
 class Point3d(Point): 
     # ...
     def __repr__(self):
-        return "Point({},{},{})".format(self.x, self.y, self.z)
+        return "Point3d({},{},{})".format(self.x, self.y, self.z)
     # ...
 ```
 
@@ -189,7 +187,7 @@ Comparaison de cet objet avec un autre (du même type). Utile pour l'utilisation
 | Subtraction | `p1 - p2` | `p1.__sub__(p2)` |
 | Multiplication | `p1 * p2` | `p1.__mul__(p2)` |
 | Power | `p1 ** p2` | `p1.__pow__(p2)` |
-| Division | `p1 / p2` | `p1.__truediv__(p2`) |
+| Division | `p1 / p2` | `p1.__truediv__(p2)` |
 | Floor Division | `p1 // p2` | `p1.__floordiv__(p)` |
 | Remainder (modulo) | `p1 % p2` | `p1.__mod__(p2)` |
 | Bitwise Left Shift | `p1 << p2` | `p1.__lshift__(p2)` |
@@ -221,39 +219,75 @@ Comparaison de cet objet avec un autre (du même type). Utile pour l'utilisation
 Dans un notebook ou dans un simple fichier `.py` : 
 
 - Écrire une classe `VecteurND` générique qui peut représenter un vecteur dans un espace a *n* dimensions, *n* étant donné en paramètre du constructeur.
-- Écrire les classes `Vecteur2D`et `Vecteur3D` qui héritent de `VecteurND` et ne sont pas paramétriques.
+- Écrire les classes `Vecteur2D`et `Vecteur3D` pour lesquelles on n'a pas besoin de spécifier la dimension. On utilisera l'**héritage** pour ces classes. 
 - Surcharger les bons opérateurs et les bonnes méthodes pour que les tests suivants fonctionnent (on veillera à ne pas être redondant)
 - Envoyer ce notebook (ou fichier) par mail à `yoann.pigne@univ-lehavre.fr`  avec l'entête `[DIU-EIL] Exercice Classes` et en indiquant vos nom et prénom dans le corps du mail.
 
 ```python
 v = VecteurND(4)
-v.set(0, 10)
-v.set(1, 20)
-v.set(2, 30)
-v.set(3, 40)
+v[0] = 10
+v[1] = 20
+v[2] = 30
+v[3] = 40
 
 catchExpectedError = False
 try:
-    v.set(4, 50)
+    v[4] = 50
 except ValueError:
     catchExpectedError = True
     
 assert(catchExpectedError)
+print("__str__():", str(v))
 assert( str(v) == "(10, 20, 30, 40)" )
 assert(eval(repr(v)) == v)
 
+## 2D
 v2D1 = Vecteur2D(1,3)
+print("__repr__()", repr(v2D1))
 assert(eval(repr(v2D1)) == v2D1)
 assert( str(v2D1) == "(1, 3)" )
 
 v2D2 = Vecteur2D(0,4)
-assert( str(v2D1 - v2D2) == "(1, -1)" )
+print("__sub__(): ", str(v2D1 - v2D2))
+assert( str(v2D1 - v2D2) == "(1, -1)")
+
+print("__mul__(): ", str(v2D1 *2))
+assert( str(v2D1 * 2) == "(2, 6)")
+
+print("v2D1.x=", v2D1.x, "v2D1.y=",v2D1.y)
+assert( v2D1.x == 1)
+assert( v2D1.y == 3)
 
 
-v3D1 = Vecteur3D(1,3,5)
+## 3D
+v3D1 = Vecteur3D(1,2,3)
+
+print("__str__():", str(v3D1))
+assert( str(v3D1) == "(1, 2, 3)" )
+
+print("__repr__():", repr(v3D1))
 assert(eval(repr(v3D1)) == v3D1)
-assert( str(v3D1) == "(1, 3, 5)" )
 
+print("__sub__():", str(v3D1 - v3D1))
+assert( str(v3D1 - v3D1) == "(0, 0, 0)")
 
+print("__add__():", str(v3D1 + v3D1))
+assert( str(v3D1 + v3D1) == "(2, 4, 6)" )
+
+print("__mul__():", str(v3D1 *2))
+assert( str(v3D1 * 2) == "(2, 4, 6)")
+
+print("v3D1.x=", v3D1.x, "v3D1.y=",v3D1.y, "v3D1.z=",v3D1.z )
+assert( v3D1.x == 1)
+assert( v3D1.y == 2)
+assert( v3D1.z == 3)
+
+## tester les exceptions sur des types différents
+catchExpectedError = False
+try:
+    str(v3D1 + v2D1)
+except ValueError:
+    catchExpectedError = True
+assert(catchExpectedError)
 ```
 
