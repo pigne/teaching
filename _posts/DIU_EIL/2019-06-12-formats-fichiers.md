@@ -58,9 +58,7 @@ Télécharger [ce tableur](https://pigne.org/teaching/DIU_EIL/resultats-2016.xls
 
 ### Exercice 2
 
-- Dans un **nouveau** *notebook*, répondre aux questions 6 à 12, posées dans l'exercice 1 à l'aide de python et des `DataFrame` de `pandas`.
-- Envoyer ce notebook par mail à `yoann.pigne@univ-lehavre.fr` avec l'entête "`[DIU-EIL] Exercice DataFrame`" et en indiquant vos nom et prénom dans le corps du mail.
-
+Dans un **nouveau** *notebook*, répondre aux questions 6 à 12, posées dans l'exercice 1 à l'aide de python et des `DataFrame` de `pandas`.
 
 ### Données structurées et typés
 
@@ -88,7 +86,6 @@ Dans un **nouveau** *notebook*, changer le fichier, puis faire la moyenne des va
 - Ventilateur Ordinateur Bureau : (FAN_SPEED = 1774.50)
 ```
 
-Envoyer ce notebook par mail à `yoann.pigne@univ-lehavre.fr` avec l'entête "`[DIU-EIL] Exercice JSON`" et en indiquant vos nom et prénom dans le corps du mail.
 
 ## Fichiers images
 
