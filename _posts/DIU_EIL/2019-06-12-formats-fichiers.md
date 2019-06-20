@@ -70,8 +70,8 @@ Dans les technologies web, le format JSON s'est imposé. Moins expressif que XML
 
 ```python
 import json
-
-with open('data.json') as f:
+from urllib.request import urlopen
+with urlopen('https://pigne.org/teaching/DIU_EIL/data.json') as f:
     d = json.load(f)
     print(d)
 ```
