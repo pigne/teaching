@@ -47,7 +47,7 @@ print("année moyenne: {:.0f}".format(df['année'].mean()))
 Lecture d'un tableur dans un DataFrame : 
 
 ```python
-df = pandas.read_excel("resultats-2016.xlsx")
+df = pandas.read_excel("https://pigne.org/teaching/DIU_EIL/resultats-2016.xlsx")
 print("Dimensions du DataFrame :", df.shape)
 df.head()
 ```
