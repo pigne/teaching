@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 On veut écrire une nouvelle itération de notre Web app de manipulation IoT. On s'intéresse ici à l'arborescence de la Web App.

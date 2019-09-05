@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 Faire un *fork* du projet <https://www-apps.univ-lehavre.fr/forge/2018-2019-m1/WEB-whiteboard-websocket-lab>
