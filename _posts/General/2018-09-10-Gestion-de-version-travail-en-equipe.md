@@ -21,33 +21,9 @@ Différents types d'outils de gestions de version existent. C'est depuis l'appar
 Ces plateformes permettent la mise en place de mécanismes d'**intégration continue** pour l'exécution automatique des testes liés au code, et la diffusion de rapport permettant à toute l'équipe de voire l'avancement du projet.
 
 - [Introduction aux systèmes de gestion de version](#introduction-aux-systèmes-de-gestion-de-version)
-    - [Quelques définitions](#quelques-définitions)
-    - [Historique des systèmes de gestions de version](#historique-des-systèmes-de-gestions-de-version)
-    - [GIT : 3 états / 3 zones / 3 actions](#git--3-états--3-zones--3-actions)
-    - [configuration de GIT](#configuration-de-git)
-    - [Manipulations de bases avec GIT](#manipulations-de-bases-avec-git)
-    - [Remotes](#remotes)
-    - [Les branches](#les-branches)
 - [les plateformes de gestion de projet](#les-plateformes-de-gestion-de-projet)
-    - [La forge de l'université](#la-forge-de-luniversité)
-    - [Création d'un compte sur la forge](#création-dun-compte-sur-la-forge)
-    - [Le projets](#le-projets)
-    - [Les groupes](#les-groupes)
-    - [*Fork* de projets](#fork-de-projets)
-    - [Fusions et demandes de fusions *Merge Requests*](#fusions-et-demandes-de-fusions-merge-requests)
-    - [Les tickets (*issues*)](#les-tickets-issues)
 - [Intégration Continue](#intégration-continue)
-    - [Tests Unitaires](#tests-unitaires)
-    - [Tests Unitaires en java](#tests-unitaires-en-java)
-    - [Gestion de production Maven](#gestion-de-production-maven)
-    - [Intégration Continue dans GitLab](#intégration-continue-dans-gitlab)
 - [Demo / Live Coding](#demo--live-coding)
-    - [User Story](#user-story)
-    - [Alice 1](#alice-1)
-    - [Bob 1](#bob-1)
-    - [Alice 2 (A2)](#alice-2-a2)
-    - [Bob 2](#bob-2)
-    - [Alice](#alice)
 
 ## Introduction aux systèmes de gestion de version
 
@@ -211,7 +187,7 @@ $ git config --global user.email johndoe@example.com
 
 ### Manipulations de bases avec GIT
 
-Les manipulation de base avec GIT. Elles sont décrites ici en ligne de commande mais sont également disponible dans les IDE dignes de ce nom.
+Elles sont décrites ici en ligne de commande mais sont également disponible dans les IDE dignes de ce nom.
 
 #### Créer un nouveau dépôt
 
@@ -759,7 +735,7 @@ git pull https://www-apps.univ-lehavre.fr/forge/pigne/projet-standard.git
 git add README.md
 git commit -m "Mise a jour du fichier README pour le projet Dates avec Alice et Bob"
 # connection à la forge
-git remote add origin https://alice@ww-apps.univ-lehavre.fr/forge/AB-produciton/Dates.git
+git remote add origin https://alice@ww-apps.univ-lehavre.fr/forge/AB-production/Dates.git
 # envoie des modifications
 git push -U origin master --all
 ```
