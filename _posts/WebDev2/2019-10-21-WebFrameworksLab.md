@@ -46,6 +46,8 @@ Le framework Express pour node.js doit être utilisé pour gérer :
 
 Les données (annonces, utilisateurs, sessions, ...) sont stockées dans une base de données MongoDB.
 
+On ne négligera pas non plus les aspects visuels. Les pages Web générées à partir des templates respecteront les standards Web (HTML et CSS) et proposeront une expérience utilisateur (UX) de qualité. Le site doit être [*responsive*](https://en.wikipedia.org/wiki/Responsive_web_design), la navigation doit atteindre un niveau d'[accessibilité minimal](https://fr.wikipedia.org/wiki/Accessibilit%C3%A9_du_web), les formulaires [efficaces](https://uxplanet.org/designing-more-efficient-forms-structure-inputs-labels-and-actions-e3a47007114f).
+
 Une telle application doit être testée ! Au delà des tests unitaires comment tester la génération de pages web à partir du contenu d'une bado ?
 
 

@@ -216,14 +216,14 @@ Web Application frameworks handle all the technical parts of the communication b
 
 
 ```javascript
-var express = require('express');
+let express = require('express');
 
-var app = express();
+let app = express();
 
 app.get('*', function(req, res){
   res.send('<h1>Hello World</h1>');
 });
-var server = app.listen(1337);
+let server = app.listen(1337);
 ```
 
 Install with npm: `npm install express --save`
@@ -256,7 +256,7 @@ app.get('/advert/:id?', function(req, res) {
 - Templates allow the dynamic creation of web pages.
 - Templates use a special language with variables (user data) loops and conditions
 - Templates are stored in the views/ folder of the App and are called from a route.
-- Templating in node with Jade: http://jade-lang.com/
+- Templating in node with Jade: <http://jade-lang.com/>
 
 In the main express configuration file (`app.js`):
 
