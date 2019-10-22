@@ -34,9 +34,11 @@ L'accent est mis sur les API Web et les paradigms de développement.
 
 ## Evaluation
 
-Chaque partie du plan du cours fait l'objet d'un travail de mise en application sur machine. Une évaluation des compétences est faite à chaque TP ou après chaque rendu. L'évaluation est faire à l'oral. C'est la compréhension du sujet et la capacité a présenter une solution originale qui sont évalués.
+Chaque partie du plan du cours fait l'objet d'un travail de mise en application sur machine. Une évaluation des compétences est faite à chaque TP ou après chaque rendu. L'évaluation est faite à l'oral. Ce sont la compréhension du problème et la capacité à proposer une solution originale, qui sont évalués.
 
 ## Compétences
+
+TODO
 
 ## Prérequis
 
