@@ -50,7 +50,7 @@ Use `express-generator` in order to create a scafoled project :
 
 ```sh
 npm i -D express-generator
-npx express-generator -hbs
+npx express-generator --hbs nomProjet
 ```
 
 ### Routing with Express
