@@ -1,8 +1,8 @@
 ---
 layout: syllabus
 matiere: WebDev2
-title: Développement Web JavaScript (M2)
-subtitle: M2 iWOCS - WEB - Université du Havre
+title: Développement Web (M2)
+subtitle: M2 iWOCS - WEB - Université Le Havre Normandie
 order: 3
 published: true
 ---
