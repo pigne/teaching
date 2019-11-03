@@ -38,7 +38,14 @@ Chaque partie du plan du cours fait l'objet d'un travail de mise en application 
 
 ## Compétences
 
-TODO
+- D1
+  - D1.C4 : Sécurité, tests de programme, robustesse
+- D2
+  - D2.C1 : Frontend / Backend
+  - D2.C2 : Concevoir et réaliser des API et des protocoles de communication
+  - D2.C3 : Concevoir des applications mobiles, distribuées, communicantes 
+- D4
+  - D4.C1 : Savoir s'organiser, travailler en équipe, et planifier
 
 ## Prérequis
 
@@ -46,4 +53,63 @@ TODO
 
 ## Evaluations et aptitudes
 
-TODO
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Web Framework</th>
+      <th>Web Service</th>
+      <th>FullStack</th>
+    </tr>
+    <tr>
+      <th>Domaine</th>
+      <th>Compétence</th>
+      <th>Aptitude</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>D1</th>
+      <th>D1.C4</th>
+      <th>Maîtriser l’écriture des tests et la couverture du code</th>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">D2</th>
+      <th>D2.C1</th>
+      <th>Frontend / Backend</th>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th>D2.C2</th>
+      <th>Concevoir et réaliser des API et des protocoles de communication</th>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th>D2.C3</th>
+      <th>Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)</th>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th>D4</th>
+      <th>D4.C1</th>
+      <th>Maîtriser un outil collaboratif de gestion de code (git)</th>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+  </tbody>
+</table>
