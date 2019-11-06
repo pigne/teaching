@@ -82,11 +82,23 @@ Chaque partie du plan du cours fait l'objet d'un travail de mise en application 
       <td>✓</td>
     </tr>
     <tr>
-      <th rowspan="3" valign="top">D2</th>
-      <th>D2.C1</th>
-      <th>Frontend / Backend</th>
+      <th rowspan="5" valign="top">D2</th>
+      <th rowspan="3" valign="top">D2.C1</th>
+      <th>Backend : Framework Web Express ; Moteurs de vues</th>
       <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Frontend : Formulaires ; Pages responsive ; Feuilles de style</th>
       <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Frontend : Visualisation de données</th>
+      <td></td>
+      <td></td>
       <td>✓</td>
     </tr>
     <tr>
