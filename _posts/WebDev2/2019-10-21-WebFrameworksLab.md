@@ -39,7 +39,7 @@ Le framework Express pour node.js doit être utilisé pour gérer :
 - l' authentification,
 - la sécurité,
 - le routage des pages Web,
-- la gestion des formulaires, 
+- la gestion des formulaires,
 - la consultation et l'enregistrement en bases de données,
 - La génération des pages à partir de templates,
 - le logging,
