@@ -8,7 +8,7 @@ author: Yoann Pigné
 published: true
 ---
 
-On cherche développer une application Web avec des composants graphiques avancés capables d'afficher les données relatives aux ventes immobilières en France.
+On cherche à développer une application Web avec des composants graphiques avancés capables d'afficher les données relatives aux ventes immobilières en France.
 
 On se repose sur des données ouvertes : les [Demandes de Valeurs Foncières](https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/).
 
