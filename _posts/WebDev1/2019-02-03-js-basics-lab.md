@@ -5,12 +5,13 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
+published: true
+update: 2020-01-22
 ---
 
 # JS Basics Lab
 
-Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2018-2019-m1/WEB-jsbasics-lab>
+Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2019-2020-M1/WEB-jsbasics-lab>
 
 Ce projet est principalement constitué d'un fichier de tests (`test/index.test.js`) qui s'applique sur un ensemble de fonctions (`src/index.js`). Certains tests sont écrits, mais le corps des fonctions testées est vide ! D'autres fonctions sont écrites mais il faut écrire leurs testes. Parfois il manque le corps des fonctions et les tests.
 
@@ -46,4 +47,4 @@ Quand tous les tests passent, que la couverture du code par les tests est satisf
 
 ## Évaluation
 
-[Liste des Capacités évaluées.](/teaching/WebDev1#js-basics)
+[Liste des aptitudes évaluées.](/teaching/WebDev1#js-basics)
