@@ -730,15 +730,19 @@ git pull https://www-apps.univ-lehavre.fr/forge/pigne/projet-standard.git
     - urls des badges
     - noms des auteurs
     - Description du projet (*User Story*)
+  - Modifier le `groupId` et le `artifactId` dans le fichier `pom.xml`
 4. En ligne de commande :
 ```sh
 git add README.md
 git commit -m "Mise a jour du fichier README pour le projet Dates avec Alice et Bob"
 # connection à la forge
-git remote add origin https://alice@ww-apps.univ-lehavre.fr/forge/AB-production/Dates.git
+git remote add origin https://alice@www-apps.univ-lehavre.fr/forge/AB-production/Dates.git
 # envoie des modifications
-git push -U origin master --all
+git push -u origin master
 ```
+
+5. Sur la forge: 
+   - Création d'un ticket "User Story"
 
 ### Bob 1
 

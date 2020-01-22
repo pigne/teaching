@@ -95,7 +95,7 @@ On préférera l'installation via le gestionnaire de paquet de votre OS <https:/
 
 ```bash
 sudo apt-get install curl build-essential
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
