@@ -9,6 +9,7 @@ published: true
 update: 2020-01-22
 ---
 
+
 # JS Basics Lab
 
 Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2019-2020-M1/WEB-jsbasics-lab>
@@ -35,7 +36,6 @@ Quand tous les tests passent, que la couverture du code par les tests est satisf
 1. publiez votre projet : `git push`. Cela aura pour conséquence, en plus de publier vos modifications sur votre version du projet, de lancer l'exécution des tests unitaires sur le serveur d'intégration continue de la forge.
 2. créez un [merge request](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html) pour que je puisse évaluer votre travail.
 
-
 ## technologies utilisées
 
 - Ce projet est écrit en [ES6](http://www.ecma-international.org/ecma-262/6.0/index.html).
@@ -43,6 +43,10 @@ Quand tous les tests passent, que la couverture du code par les tests est satisf
 - Le respect des règles syntaxiques est effectué par [ESLint](https://eslint.org/).
 - L'outils permettant l'exécution des tests est la plateforme [Jest](http://facebook.github.io/jest/).
 - [NPM](https://www.npmjs.com/) est utilisé pour la gestion des dépendances et l'exécution des différents scripts.
+
+## Echéance
+
+TP à rendre pour le **5 février 2020**.
 
 
 ## Évaluation

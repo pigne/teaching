@@ -18,7 +18,7 @@ published: true
 - [Evaluation](#evaluation)
 - [Compétences](#compétences)
 - [Prérequis](#prérequis)
-- [Evaluations et aptitudes](#evaluations-et-aptitudes)
+- [Évaluations et aptitudes](#Évaluations-et-aptitudes)
 - [Aptitudes par évaluation](#aptitudes-par-évaluation)
 
 ## Présentation et Objectifs
@@ -82,7 +82,7 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
 - Connaissances de base en manipulation de lignes de commandes
 - Connaissances de base en outils de gestion de version : *GIT*
 
-## Evaluations et aptitudes
+## Évaluations et aptitudes
 
 <table border="1" class="dataframe">
   <thead>
@@ -92,10 +92,8 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <th></th>
       <th>JS Basics</th>
       <th>Object Models</th>
-      <th>WS Whiteboard</th>
-      <th>WS MQTT</th>
-      <th>React</th>
-      <th>Redux</th>
+      <th>WebSocket</th>
+      <th>React + ReactRouter + Redux</th>
       <th>Examen</th>
     </tr>
     <tr>
@@ -107,43 +105,51 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <th></th>
       <th></th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="2" valign="top">D1</th>
-      <th>D1.C2</th>
+      <th rowspan="4" valign="top">D1</th>
+      <th rowspan="3" valign="top">D1.C2</th>
+      <th>Maîtriser la gestion des états d’une application avec Redux</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th>Maîtriser les aspects fonctionnels de JavaScript</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
       <th>Maîtriser les modèles objet de JavaScript</th>
       <td></td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
       <td>✓</td>
     </tr>
     <tr>
-      <th>D1.C3</th>
-      <th>Maîtriser les aspects fonctionnels de JavaScript</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <th>D1.C4</th>
+      <th>Maîtriser l’écriture des tests et la couverture du code</th>
       <td>✓</td>
       <td>✓</td>
+      <td></td>
+      <td>✓</td>
+      <td></td>
     </tr>
     <tr>
-      <th rowspan="7" valign="top">D2</th>
+      <th rowspan="5" valign="top">D2</th>
       <th rowspan="2" valign="top">D2.C1</th>
-      <th>Maîtriser la gestion des états d’une application avec Redux</th>
+      <th>Maîtriser la création d’interfaces graphiques (React, CSS, canvas)</th>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
       <td>✓</td>
       <td>✓</td>
     </tr>
@@ -152,70 +158,39 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
       <td>✓</td>
-      <td></td>
       <td>✓</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">D2.C2</th>
-      <th>Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)</th>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Maîtriser l’écriture des tests et la couverture du code</th>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">D2.C3</th>
+      <th>D2.C2</th>
       <th>Maîtriser les WebSocket en JavaScript</th>
       <td></td>
       <td></td>
       <td>✓</td>
       <td>✓</td>
-      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">D2.C3</th>
+      <th>Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)</th>
       <td></td>
       <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
     </tr>
     <tr>
       <th>Maîtriser l’écrire de code asynchrone</th>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
       <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th>D2.C4</th>
-      <th>Maîtriser la création d’interfaces graphiques (React, CSS, canvas)</th>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
       <td>✓</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">D4</th>
       <th>D4.C1</th>
-      <th>Savoir respecter les consignes d'un énoncé, une échéance</th>
-      <td>✓</td>
-      <td>✓</td>
+      <th>Maîtriser un outil collaboratif de gestion de code (git)</th>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -223,117 +198,95 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
       <td></td>
     </tr>
     <tr>
-      <th>D4.C3</th>
-      <th>Maîtriser un outil collaboratif de gestion de code (git)</th>
+      <th>D4.C4</th>
+      <th>Savoir respecter les consignes d'un énoncé, une échéance</th>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>✓</td>
-      <td></td>
       <td></td>
     </tr>
   </tbody>
 </table>
-
 ## Aptitudes par évaluation
 
 ### JS Basics
 
-- D2
-  - D2.C2
+- D1
+  - D1.C4
     - **Maîtriser l’écriture des tests et la couverture du code**
 - D4
   - D4.C1
-    - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - D4.C3
     - **Maîtriser un outil collaboratif de gestion de code (git)**
+  - D4.C4
+    - **Savoir respecter les consignes d'un énoncé, une échéance**
 
 ### Object Models
 
 - D1
   - D1.C2
     - **Maîtriser les modèles objet de JavaScript**
-- D2
-  - D2.C2
+  - D1.C4
     - **Maîtriser l’écriture des tests et la couverture du code**
+- D2
+  - D2.C3
+    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
 - D4
   - D4.C1
-    - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - D4.C3
     - **Maîtriser un outil collaboratif de gestion de code (git)**
+  - D4.C4
+    - **Savoir respecter les consignes d'un énoncé, une échéance**
 
-### WS Whiteboard
+### WebSocket
 
 - D2
-  - D2.C2
-    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
-  - D2.C3
-    - **Maîtriser les WebSocket en JavaScript**
-  - D2.C4
+  - D2.C1
     - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
-- D4
-  - D4.C1
-    - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - D4.C3
-    - **Maîtriser un outil collaboratif de gestion de code (git)**
-
-### WS MQTT
-
-- D2
   - D2.C2
-    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
-  - D2.C3
+### React + ReactRouter + Redux
     - **Maîtriser les WebSocket en JavaScript**
+  - D2.C3
+    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
 - D4
   - D4.C1
-    - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - D4.C3
     - **Maîtriser un outil collaboratif de gestion de code (git)**
+  - D4.C4
+    - **Savoir respecter les consignes d'un énoncé, une échéance**
 
-### React
 
+- D1
+  - D1.C2
+    - **Maîtriser les aspects fonctionnels de JavaScript**
+    - **Maîtriser la gestion des états d’une application avec Redux**
+  - D1.C4
+    - **Maîtriser l’écriture des tests et la couverture du code**
 - D2
   - D2.C1
     - **Maîtriser le routage dynamique de React Router**
-  - D2.C2
-    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
-    - **Maîtriser l’écriture des tests et la couverture du code**
-  - D2.C4
     - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
-- D4
-  - D4.C1
-    - **Savoir respecter les consignes d'un énoncé, une échéance**
-  - D4.C3
-    - **Maîtriser un outil collaboratif de gestion de code (git)**
-
-### Redux
-
-- D1
-  - D1.C3
-    - **Maîtriser les aspects fonctionnels de JavaScript**
-- D2
-  - D2.C1
-    - **Maîtriser la gestion des états d’une application avec Redux**
+  - D2.C2
+    - **Maîtriser les WebSocket en JavaScript**
   - D2.C3
+    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
     - **Maîtriser l’écrire de code asynchrone**
 - D4
   - D4.C1
+    - **Maîtriser un outil collaboratif de gestion de code (git)**
+  - D4.C4
     - **Savoir respecter les consignes d'un énoncé, une échéance**
 
 ### Examen
 
 - D1
   - D1.C2
-    - **Maîtriser les modèles objet de JavaScript**
-  - D1.C3
     - **Maîtriser les aspects fonctionnels de JavaScript**
+    - **Maîtriser les modèles objet de JavaScript**
+    - **Maîtriser la gestion des états d’une application avec Redux**
 - D2
   - D2.C1
     - **Maîtriser le routage dynamique de React Router**
-    - **Maîtriser la gestion des états d’une application avec Redux**
+    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
+  - D2.C2
+    - **Maîtriser les WebSocket en JavaScript**
   - D2.C3
     - **Maîtriser l’écrire de code asynchrone**
-    - **Maîtriser les WebSocket en JavaScript**
-  - D2.C4
-    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
