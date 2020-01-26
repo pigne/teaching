@@ -5,6 +5,7 @@ categories:
 - InfoWeb
 - lab
 published: true
+update: 2020-01-26
 ---
 
 ## Les Frameworks CSS 
@@ -101,7 +102,7 @@ Se référer à la [documentation de bulma](https://bulma.io/documentation/) pou
 
 ## Travail à réaliser
 
-On se propose de créer un site Web en HTML et CSS statique (pas de PHP) qui permet de présenter les équipes et les poules de sélection de la coupe du monde feminine de football 2019. Le but est de réaliser plusieurs pages sur ce sujet en utilisant le Framework CSS Bulma. Ce site possède plusieurs pages ou ensemble de pages liées entre elles. Le design doit respecter celui proposé par Bulma. Un maximum de [composants](https://bulma.io/documentation/components/) et d'[éléments](https://bulma.io/documentation/elements/) graphiques doivent être utilisés. Les pages sont "*responsives*" et utilisent le système de [colonnes](https://bulma.io/documentation/columns/) du Bulma.
+On se propose de créer un site Web en HTML et CSS statique (pas de PHP) qui permet de présenter les équipes et les poules de sélection du championnat du monde de hockey sur glace 2020. Le but est de réaliser plusieurs pages sur ce sujet en utilisant le Framework CSS Bulma. Ce site possède plusieurs pages ou ensemble de pages liées entre elles. Le design doit respecter celui proposé par Bulma. Un maximum de [composants](https://bulma.io/documentation/components/) et d'[éléments](https://bulma.io/documentation/elements/) graphiques doivent être utilisés. Les pages sont "*responsives*" et utilisent le système de [colonnes](https://bulma.io/documentation/columns/) du Bulma.
 
 Toutes les pages ont la même base graphique avec une entête contenant un logo et un titre. Le logo devient centré et le tite passe sur la seconde ligne en mode étroit (mobile). Chaque page propose un menu latéral qui disparaît en mode étroit (mobile).
 
@@ -122,13 +123,13 @@ La page des groupes en mode étroit :
 Chaque groupe a sa propre page sous forme d'un onglet d'un composant `tab`. Dans chaque page figure à minima un tableau  des matchs avec le nom des équipes, la date et le lieux des matchs.
 
 Exemple d'une page du groupe, à minima, en mode étroit :  
-![Groupe A mode étroit]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-GroupeA-Etroit.png){:.image-width-50}
+![Groupe A mode étroit]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-GroupeA-Etroit.png){:.image-width-90}
 
-Pas la peine d'écrire *toutes* les pages de groupes. Une seule suffit.
+Pas la peine d'écrire *toutes* les pages de groupes. Une seule suffit. Pas la peine d'afficher *tous* les matchs d'un groupe. Une dizaine suffit.
 
 ### Les pages équipe
 
-A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les elements et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe de France féminine](https://fr.wikipedia.org/wiki/%C3%89quipe_de_France_f%C3%A9minine_de_football)) pour constater qu'une équipe possède une confédération, un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
+A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les éléments et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe du Canada de Hockey](https://en.wikipedia.org/wiki/Canada_men%27s_national_ice_hockey_team)) pour constater qu'une équipe possède un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
 
 ## Fin du TP
 
@@ -139,4 +140,4 @@ DOSSIER="L3_TP_InfoWeb_CSS"
 tar --exclude="${DOSSIER}/node_modules" -zcvf "${DOSSIER}.tar.gz" "${DOSSIER}"
 ```
 
-Déposer l'archive sur eureka.
+Déposer l'archive sur Eureka.
