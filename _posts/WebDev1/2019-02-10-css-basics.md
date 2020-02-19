@@ -112,6 +112,9 @@ Order of specificity (by less specific to highly specific):
 - ID selectors (e.g.: `#item234`)
 - Inline style(e.g.: `<p style="color:red; width:100%;">.../<p>`)
 
+
+:warning: the less specific your selectors, the better. Check your selectors' specificity : <https://jonassebastianohlsson.com/specificity-graph/>
+
 ### The `!important` exception
 
 When `!important` is added at the end of a declaration, this one overwrites **all** the others made in the CSS for this property with these elements.
@@ -134,13 +137,9 @@ The `position` property defines how a block should be positioned in regard to th
 
 There are 5 possible positioning strategies for the `position` property.
 
-
-
 ### `static`
 
 The default behavior. Blocks are positioned one after the other following the normal flow of the DOM tree.
-
-
 
 ### `relative`
 
@@ -169,7 +168,6 @@ Mix between `relative` et `fixed` positioning. Behaves like the relative positio
 :warning: vérifier le support:  <http://caniuse.com/#search=sticky>
 
 [CSS Position Demo on CodePen.](http://codepen.io/anon/pen/YyvVPL)
-
 
 ## Media Queries
 
@@ -270,7 +268,7 @@ document.getElementById("d").style.color = "orange";
 
 - transition-property: List of CSS properties to transform.
 - transition-duration: Duration of the smooth effect.
-- transition-timing-function (optional): Transition function (acceleration, trajectory, deceleration).
+- transition-timing-function (optional): Transition function (acceleration, trajectory, deceleration). <https://cubic-bezier.com>
 - transition-delay (optional): Duration to wait for before starting the transition.
 
 

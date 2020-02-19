@@ -39,7 +39,7 @@ WebWorkers have a different context than the main app so **no shared memory**. H
 ### Demonstration of a WebWorker-Enabled App
 
 
-<https://www-apps.univ-lehavre.fr/forge/2018-2019-m1/WEB-webworker-demo>
+<https://www-apps.univ-lehavre.fr/forge/pigne/WEB-webworker-demo>
 
 The WebWorker demo Web App is a simple demonstration of the usage of WebWorkers. The app shows that heavy computation work can be done on WebWorkers without affecting the main process' performances.
 
@@ -143,7 +143,7 @@ It relies on the underlying TCP connection opened by HTTP but does not use HTTP.
 
 ### A WebSocket Demo
 
-<https://www-apps.univ-lehavre.fr/forge/2018-2019-m1/WEB-websocket-demo>
+<https://www-apps.univ-lehavre.fr/forge/pigne/WEB-websocket-demo>
 
 This project is a simple WebSocket demo. It focusses on showing the basic mechanisms used to create a bidirectional (full duplex) communication WebSocket.
 
@@ -366,8 +366,6 @@ async function name([param[, param[, ... param]]]) {
 ```
 
 the `await` reserved keyword pauses the execution of the sync function and waits for the passed promise to resolve before resuming the execution of the async function.
-
-
 
 [Example from MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function):
 

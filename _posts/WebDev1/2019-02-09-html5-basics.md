@@ -59,6 +59,7 @@ published: true
 
 ```
 
+Note : `role` attributes are used for accessibility purposes as per [WAI-ARIA](https://www.w3.org/TR/wai-aria/).
 
 ### Sections
 
@@ -137,6 +138,7 @@ Embed videos in the page.
 ```
 
 Possible attributes:
+
 - `autoplay`
 - `buffered`
 - `controls`
@@ -157,7 +159,6 @@ Represent sound content in the document.
 ```html
 <audio src="audio.ogg" autoplay>
 ```
-
 
 #### `<source>`
 
@@ -180,7 +181,7 @@ Specify subtitles for `audio` and `video`.
 <video src="foo.ogg">
   <track kind="subtitles" src="foo.en.vtt" srclang="en" label="English">
   <track kind="subtitles" src="foo.sv.vtt" srclang="sv" label="Svenska">
-</video>                    
+</video>
 ```
 
 #### `<mathml>`
@@ -198,7 +199,6 @@ Mathematical formula. MathML format.
 <msup><mi>c</mi><mn>2</mn></msup>
 </mrow>
 </math>
-
 
 ```html
 <math>
@@ -391,7 +391,7 @@ A hint for the user before he starts typing. It is **not** a default value.
 ```html
 <input type="range" min="12" max="120" step="12"><br>
 <input  type="number" min="12" max="120" step="12"><br>
-<input  type="date" min="2019-01-01" max="2019-06-31" step="14">
+<input  type="date" min="2020-01-01" max="2020-06-31" step="14">
 ```
 
 

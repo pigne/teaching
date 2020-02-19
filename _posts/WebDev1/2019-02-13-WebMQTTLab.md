@@ -38,7 +38,7 @@ avec `[name]` le nom du capteur (une chaîne de caractères),  `[value]` la repr
 -  'OPEN_CLOSE'.
 
 En divergeant (fork) le projet de base 
-[WebSocket MQTT lab](https://www-apps.univ-lehavre.fr/forge/2018-2019-m1/WEB-mqtt-lab) réaliser une Web app permettant de :
+[WebSocket MQTT lab](https://www-apps.univ-lehavre.fr/forge/2019-2020-m1/WEB-mqtt-lab) réaliser une Web app permettant de :
 
 - de se connecter à un serveur MQTT donnée,
 - de souscrire a tous les messages de ce serveur,
@@ -46,7 +46,7 @@ En divergeant (fork) le projet de base
 - d'afficher une liste des capteurs qui se met à jours en fonction des données qui arrivent.
 - en face de chaque capteur, on affiche la dernière valeur reçu, et quand cela est possible, on affiche également la valeur moyenne.
 
-Projet à rendre sous forme d'un *merge request* à partir du projet de départ : <https://www-apps.univ-lehavre.fr/forge/2018-2019-m1/WEB-mqtt-lab>
+Projet à rendre sous forme d'un *merge request* à partir du projet de départ : <https://www-apps.univ-lehavre.fr/forge/2019-2020-m1/WEB-mqtt-lab>
 
 On pourra se servir du projet suivant pour générer des données de capteurs aléatoires : <https://github.com/pigne/random-sensors.git>
 
