@@ -208,6 +208,7 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
     </tr>
   </tbody>
 </table>
+
 ## Aptitudes par évaluation
 
 ### JS Basics
@@ -243,7 +244,6 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
   - D2.C1
     - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
   - D2.C2
-### React + ReactRouter + Redux
     - **Maîtriser les WebSocket en JavaScript**
   - D2.C3
     - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
@@ -253,6 +253,7 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
   - D4.C4
     - **Savoir respecter les consignes d'un énoncé, une échéance**
 
+### React + ReactRouter + Redux
 
 - D1
   - D1.C2

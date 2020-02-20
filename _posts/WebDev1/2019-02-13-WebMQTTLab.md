@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 On veut réaliser une web app qui se connecte a un serveur MQTT, afin de recevoir des messages sur l'état de capteurs dans un réseau local.
@@ -50,7 +50,13 @@ Projet à rendre sous forme d'un *merge request* à partir du projet de départ 
 
 On pourra se servir du projet suivant pour générer des données de capteurs aléatoires : <https://github.com/pigne/random-sensors.git>
 
+Une instance du générateur aléatoire tourne également ici  : 
+
+- host : hyperespaceb1.univ-lehavre.fr
+- port mqtt : 1883
+- port websocket : 8080
+
 ## Évaluation
 
-[Liste des Capacités évaluées.](/teaching/WebDev1#ws-mqtt)
+[Liste des Capacités évaluées.](/teaching/WebDev1#websocket)
 
