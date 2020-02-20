@@ -6,6 +6,7 @@ categories:
 - lab
 author: Yoann Pigné
 published: true
+
 ---
 
 Faire un *fork* du projet <https://www-apps.univ-lehavre.fr/forge/2019-2020-m1/WEB-whiteboard-websocket-lab>
