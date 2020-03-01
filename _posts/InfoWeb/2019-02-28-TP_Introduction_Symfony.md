@@ -5,7 +5,7 @@ categories:
 - InfoWeb
 - lab
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 
@@ -26,40 +26,59 @@ Il est possible de travailler en binôme pour ce TP. En revanche, les réponses 
 Ce TP doit être versionné avec GIT et être partagé en utilisant la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier de d'ajouter les enseignants (`pigne` et `fournied`) au projet. 
 
 
-## Installation de Symfony
+## Installations de Symfony
 
-Pour commencer à utiliser Symfony il faut installer `composer`,   le gestionnaire de dépendances de PHP.
+Pour commencer à utiliser Symfony il faut installer `composer`,   le gestionnaire de dépendances de PHP et et `symfony`, l'utilitaire qui permet de créer de nouveaux projets.
 
 
 La méthode la plus simple,  quel que soit votre OS, est celle décrite dans la documentation officielle  : [https://symfony.com/doc/current/book/installation.html](https://symfony.com/doc/current/book/installation.html)
 
+### Composer 
 
-### Pour les machines de TP de l'université
+On installe `composer` en suivant [ces instructions](https://getcomposer.org/download/). 
 
-Pour les **machines de TP de l'université**, on va installer Composer dans le dossier utilisateur car nous n'avons pas les droits d'écriture dans `/usr/local/...`
+:warning:  Pour les machines de TP de l'université, on va installer Composer dans le dossier utilisateur car nous n'avons pas les droits d'écriture dans `/usr/local/...`
 
 Attention : les commandes suivantes ne doivent être exécutées qu'une seule fois !
 
 
 ```bash
-mkdir ${HOME}/bin
-wget https://raw.githubusercontent.com/composer/getcomposer.org/cb19f2aa3aeaa2006c0cd69a7ef011eb31463067/web/installer -O - -q | php -- --install-dir=bin --filename=composer
+mkdir -p ${HOME}/.composer/bin
+wget https://raw.githubusercontent.com/composer/getcomposer.org/cb19f2aa3aeaa2006c0cd69a7ef011eb31463067/web/installer -O - -q | php -- --install-dir=${HOME}/.composer/bin --filename=composer
 ```
 
 On modifie la variable d'environnement `$PATH` pour que l'exécutable `composer` soit disponible partout. 
 
+Ajouter la ligne suivante à votre fichier `${HOME}/.bash_profile`
+
 ```bash
-echo "export PATH=$PATH:${HOME}/bin" >> ${HOME}/.bash_profile
+export PATH="$HOME/.composer/bin:$PATH"
+```
+
+### Symfony
+
+On install l'utilitaire `symfony` en suivant [les instructions officielles](https://symfony.com/download)
+
+Sur les machines de TP de l'université on veillera a ajouter la commande dans le PATH : 
+
+Ajouter la ligne suivante à votre fichier `${HOME}/.bash_profile`
+
+```sh
+export PATH="$HOME/.symfony/bin:$PATH"
+```
+
+Enfin, exécuter la commande suivant pour recharger les fichier : 
+
+```sh
 source ${HOME}/.bash_profile
 ```
 
-
 ## Création d'un premier projet
 
-On crée de nouveaux projets Symfony avec Composer.
+On crée de nouveaux projets Symfony avec la commande `symfony`.
 
 ```bash
-composer create-project symfony/website-skeleton projet_hello
+symfony new projet_hello --full
 cd projet_hello
 ```
 
@@ -73,18 +92,19 @@ Examiner attentivement le contenu du projet (dossier `projet_hello`). les dossie
 
 ```bash
 .
-├── README.md
-├── bin/
-├── config/
+├── bin
 ├── composer.json
 ├── composer.lock
+├── config
 ├── phpunit.xml.dist
-├── public/
-├── src/
-├── templates/
-├── tests/
-├── var/
-└── vendor/
+├── public
+├── src
+├── symfony.lock
+├── templates
+├── tests
+├── translations
+├── var
+└── vendor
 ```
 
 Le dossier `config/` est le point de départ de l'application. Il contient les paramètres et les ressources par défaut de l'application. On modifiera ce dossier pour configurer l'application, ajouter des ressources ou changer son comportement par défaut (e.g.: chargement de modules complémentaires). Si vous utilisez Symfony 3 ce dossier s'appelle `app/`.
@@ -98,7 +118,7 @@ Le dossier `tests/` contient comme on s'en doute les tests unitaires.
 
 ### Questions 1, 2 et 3
 
-Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=45530) :
+Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=35458) :
 
 - En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité des dossiers `vendor/` et `public/` (`public/` = `web/` en Symfony 3).
 - Quel fichier dois-je modifier pour configurer les identifiants de bases de données afin que Symfony puisse accéder à la Base de données ?
@@ -110,7 +130,7 @@ Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](
 L'étape suivante est de démarrer l'application. On utilise le serveur web interne de PHP plutôt qu'Apache pour le développement.
 
 ```bash
-php bin/console server:run
+symfony server:start
 ```
 
 On peut voir le site dans un navigateur, à l'adresse [http://localhost:8000](http://localhost:8000).
@@ -216,7 +236,9 @@ class HelloControllerTest extends WebTestCase
 }
 ```
 
-On exécute les tests avec PHPUnit (l'équivalent du `JUnit` de `Java` pour `PHP`). Avant d'exécuter les tests on doit installer le framework de test `phpunit`: 
+On exécute les tests avec PHPUnit (l'équivalent du `JUnit` de `Java` pour `PHP`):
+
+<!-- Avant d'exécuter les tests on doit installer le framework de test `phpunit`: 
 
 ```bash
 composer require --dev symfony/phpunit-bridge
@@ -224,7 +246,7 @@ composer require --dev symfony/phpunit-bridge
 
 
 
-**Exécuter** les tests :
+**Exécuter** les tests : -->
 
 ```bash
 ./bin/phpunit
@@ -317,7 +339,7 @@ Créer un template pour notre contrôleur Hello `templates/hello.html.twig` :
 {% block stylesheets %}
 <style>
     body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+    h1, h2 { line-height: 1.2; margin: 0 0 .5em; color: #4343AA;}
     h1 { font-size: 36px; }
     #container { background: #FFF; margin: 1em auto; max-width: 800px; width: 98%; padding: 2em; box-sizing: border-box;}
 
