@@ -282,5 +282,5 @@ Obviously in JavaScript... actually not only
 - Vue.js
 - React + Redux
 
-<https://2018.stateofjs.com/front-end-frameworks/overview/>
+<https://2019.stateofjs.com/front-end-frameworks/>
 
