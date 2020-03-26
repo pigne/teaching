@@ -6,6 +6,7 @@ categories:
 - lab
 author: Yoann Pigné
 published: true
+update: 2020-03-19
 ---
 
 On veut écrire une nouvelle itération de notre Web app de manipulation IoT. On s'intéresse ici à l'arborescence de la Web App.
