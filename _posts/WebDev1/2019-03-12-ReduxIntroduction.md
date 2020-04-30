@@ -6,6 +6,7 @@ categories:
 - lecture
 author: Yoann Pigné
 published: true
+update: 2020-04-30
 ---
 
 - [Les Actions](#les-actions)
@@ -227,7 +228,7 @@ Classiquement on définit deux fonctions :
 - `mapStateToProps` pour définir des propriétés (`props`) dans le composant à partir des valeurs du `store`.
 - `mapDispatchToProps` pour définir des fonctions de `callback` dans les `props` qui vont être `bindées` avec la fonction `dispatch` et vont faire appel au `reducer`.
 
-Exemple pris de [redux.js.org](http://redux.js.org/docs/basics/UsageWithReact.html)
+Exemple pris de [redux.js.org](https://redux.js.org/basics/example)
 
 ```js
 const getVisibleTodos = (todos, filter) => {
@@ -381,10 +382,10 @@ Classiquement on utilise 3 actions intermédiaires pour une opération asynchron
 
 ## Utilisation avec `React-Router`
 
-Suivre le tutoriel  [Usage with React Router](http://redux.js.org/docs/advanced/UsageWithReactRouter.html) sur le site de `Redux`.
+Suivre le tutoriel  [Usage with React Router](https://redux.js.org/advanced/usage-with-react-router) sur le site de `Redux`.
 
 ## Pour aller plus loin
 
-- On peut optimiser une app react et réduire le nombre de mises à jour avec des [seletceurs](http://redux.js.org/docs/recipes/ComputingDerivedData.html) et la library [reselect](https://github.com/reactjs/reselect)
+- On peut optimiser une app react et réduire le nombre de mises à jour avec des [seletceurs](https://redux.js.org/recipes/computing-derived-data) et la library [reselect](https://github.com/reactjs/reselect)
 - On peut améliorer la création de `states` immuables avec une lib dédiée : [immutable.js](https://github.com/facebook/immutable-js)
 - Une chaine youtube sur des points précis de `React` et `Redux` : [ReactCasts](https://www.youtube.com/channel/UCZkjWyyLvzWeoVWEpRemrDQ)
