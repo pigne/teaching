@@ -23,7 +23,7 @@
 
 <!-- OpenGraph & Twitter Card -->
 
-<meta content="{{ site.title }}" property="og:site_name">
+{% comment %} <meta content="{{ site.title }}" property="og:site_name">
 {% if page.title %}
   <meta content="{{ page.title }}" property="og:title">
 {% else %}
@@ -67,6 +67,6 @@
   {% for tag in page.tags %}
   <meta content="{{ tag }}" property="article:tag">
   {% endfor %}
-{% endif %}
+{% endif %} {% endcomment %}
 
 </head>
