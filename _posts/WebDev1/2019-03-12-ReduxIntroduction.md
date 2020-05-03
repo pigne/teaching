@@ -7,7 +7,6 @@ categories:
 author: Yoann Pigné
 published: true
 update: 2020-04-30
-image: /assets/favicon-32x32.png
 ---
 
 - [Les Actions](#les-actions)
