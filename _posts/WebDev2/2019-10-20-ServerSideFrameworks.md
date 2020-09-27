@@ -9,7 +9,7 @@ published: true
 ---
 
 
-On s'intéresse à la réalisation d'application Web classiques (coté serveur) ou les données dynamiques sont stockées dans les bases de donénes et les pages Web générées coté serveur à partir de templates.
+On s'intéresse à la réalisation d'application Web classiques (coté serveur) ou les données dynamiques sont stockées dans les bases de données et les pages Web générées coté serveur à partir de templates.
 
 ## Web Application Frameworks
 
@@ -85,16 +85,17 @@ app.get('/advert/:id?', function(req, res) {
 In the main express configuration file (`app.js`):
 
 ```javascript
-app.set('view engine', 'blade');
+app.set('view engine', 'pug');
 var users = [{id:1, name:'Tom'},
             {id:2, name:'Max'}];
 app.get('/user/:id?', function(req, res){
-  res.render('hello_user', _.filter(users, {id:req.param('id')[0]);
+  res.render('hello_user', users.filter( user =>user.id === req.param('id') )[0]);
 });
+```
 
-```
-In a template file (`/views/hello_user.blade`):
-```
+In a template file (`/views/hello_user.pug`):
+
+```pug
 .user
   h2 Hello #{name}!
 ```
@@ -219,9 +220,9 @@ Documents are stores in a JSON-like format (BSON: binary representation of JSON)
 Create new Model Objects.
 
 ```javascript
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var animalSchema = new Schema(
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const animalSchema = new Schema(
   {
     name: String,
     type: String,
@@ -229,34 +230,52 @@ var animalSchema = new Schema(
     birthday: { type: Date, default: Date.now },
   }
 );
-var Animal = mongoose.model('Animal', animalSchema);
-var dog = new Animal({ type: 'dog' });
+const Animal = mongoose.model('Animal', animalSchema);
+const dog = new Animal({ type: 'dog' });
 ```
 
-Connect to a Mongo database and query these objects.
+Connect to a Mongo database and query objects.
 
 ```javascript
-var mongoose = require('mongoose');
-mongoose.connect("some mongodb url...");
+(async () => {
+  await mongoose
+    .connect("mongodb://localhost:27017/test", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .catch((err) => console.log("CONNECT", err));
 
-var Animal  = mongoose.models.Animal,
-var dogs;
+  const Animal = mongoose.models.Animal;
 
-Animal.
-  find({ type: 'dog' }).
-  where('age').gt(2).lt(8).
-  sort({ age: -1 }).
-  select({ name: 1, age: 1 }).
-  exec(callback);
+  const createDogs = [
+    new Animal({ name: "Paf", type: "dog", age: 4 }),
+    new Animal({ name: "Tobi", type: "dog", age: 5 }),
+    new Animal({ name: "BebePaf", type: "dog" }),
+  ].map(async (animal) => {
+    await animal.save().catch((err) => console.log("save error", err));
+  });
+  await Promise.all(createDogs);
 
-function callback(data){
-    dogs = data;
-    console.log(dogs);
-    let thisDog = dogs[0];
-    thisDog.age.$inc();
-    thisDog.save();
+  let dogs = await Animal.find({ type: "dog" })
+    .where("age")
+    .gt(2)
+    .lt(8) // contrainte
+    .sort({ age: -1 }) // tri
+    .select({ name: 1, age: 1 }); // selectin de colonnes
+  //.lean() // conversion en objets JS simples
 
-}
+  const saveDogs = dogs.map(async (dog) => {
+    dog.age++;
+    const saveDog = await dog.save().catch((err) => console.log("SAVE error"));
+    return saveDog;
+  });
+
+  dogs = await Promise.all(saveDogs);
+
+  console.log(dogs);
+
+  mongoose.disconnect().catch((err) => console.log("DISC", err));
+})(); // async IIFE
 ```
 
 Mongodb usage with Express.

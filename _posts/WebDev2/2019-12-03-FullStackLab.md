@@ -5,7 +5,7 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 On cherche à développer une application Web avec des composants graphiques avancés capables d'afficher les données relatives aux ventes immobilières en France.

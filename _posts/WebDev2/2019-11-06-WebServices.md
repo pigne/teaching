@@ -5,7 +5,7 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 - [REST vs SOAP](#rest-vs-soap)

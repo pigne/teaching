@@ -5,13 +5,13 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 
 
-- [2D Drawing on the _canvas_](#2d-drawing-on-the-_canvas_)
-- [3D Drawing with _WebGL_](#3d-drawing-with-_webgl_)
+- [2D Drawing on the _canvas_](#2d-drawing-on-the-canvas)
+- [3D Drawing with _WebGL_](#3d-drawing-with-webgl)
 - [SVG](#svg)
 - [D3.js <small>Data-Driven Documents</small>](#d3js-smalldata-driven-documentssmall)
 
