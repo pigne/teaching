@@ -30,7 +30,7 @@ Web Application frameworks handle all the technical parts of the communication b
 
 
 
-### Express ([expressjs.com](http://expressjs.com/)). A minimalist Web framework for node.
+### Express ([expressjs.com](https://expressjs.com/)). A minimalist Web framework for node.
 
 
 ```javascript
@@ -46,11 +46,11 @@ let server = app.listen(1337);
 
 Install with npm: `npm install express --save`
 
-Use `express-generator` in order to create a scafoled project : 
+Use `express-generator` in order to create a scaffold project: 
 
 ```sh
-npm i -D express-generator
-npx express-generator --hbs nomProjet
+npm i -g express-generator
+npx express-generator --view=pug nomProjet
 ```
 
 ### Routing with Express
@@ -58,7 +58,7 @@ npx express-generator --hbs nomProjet
 In a Web App each resource is accessed through one unique request (URI)
 Requests are actions on elements or collections (get, create, modify, delete)
 Close to the idea of RESTfull applications (Representational State Transfer)
-Express link URIs to actions through HTTP verbs (GET, PUT, POST, DELETE)
+Express links URIs to actions through HTTP verbs (GET, PUT, POST, DELETE)
 
 ```javascript
 app.get('/advert/:id?', function(req, res) {
@@ -80,7 +80,6 @@ app.get('/advert/:id?', function(req, res) {
 - Templates allow the dynamic creation of web pages.
 - Templates use a special language with variables (user data) loops and conditions
 - Templates are stored in the views/ folder of the App and are called from a route.
-- Templating in node with Blade: <https://github.com/bminer/node-blade>
 
 In the main express configuration file (`app.js`):
 
@@ -89,13 +88,13 @@ app.set('view engine', 'pug');
 var users = [{id:1, name:'Tom'},
             {id:2, name:'Max'}];
 app.get('/user/:id?', function(req, res){
-  res.render('hello_user', users.filter( user =>user.id === req.param('id') )[0]);
+  res.render('hello_user', users.filter( user => user.id === req.param('id') )[0]);
 });
 ```
 
-In a template file (`/views/hello_user.pug`):
+In a template file (`views/hello_user.pug`) using the *Pug* (<https://pugjs.org>) templating library:
 
-```pug
+```
 .user
   h2 Hello #{name}!
 ```
@@ -137,7 +136,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'blade');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -175,11 +174,10 @@ Of course classical relational DBMS hold for web apps, but NoSQL type DBMS becom
 
 4 types of noSQL DBMs:
 
-  - key-value stores
-  - object-based
-  - table-based
-  - graph-based
-
+- key-value stores
+- object-based
+- table-based
+- graph-based
 
 Famous projects:
 
@@ -191,8 +189,6 @@ Famous projects:
 - MongoDB (JSON/BSON store)
 - BigTable, by Google
 - Neo4J (Graph Database)
-
-
 
 ### MongoDB([www.mongodb.org](http://www.mongodb.org/)): an object-oriented storage noSQL Database
 
@@ -213,9 +209,7 @@ Documents are stores in a JSON-like format (BSON: binary representation of JSON)
 - Each document is identified by an `_id` field of default type `ObjectId`.
 - Administration is done via the mongo shell (JS)
 
-
 ### Mongoose ([mongoosejs.com](http://mongoosejs.com/)) an ODM (Object Document Mapper) for MongoDB and Node.
-
 
 Create new Model Objects.
 
