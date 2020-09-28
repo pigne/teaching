@@ -59,7 +59,7 @@ N'oubliez pas de me donner accès au projet en m'ajouter en tant que "`developer
 
 ## Évaluation
 
-Ce travail doit être rendu pour le 9 novembre (délai de rigueur). Il ne sera pas corrigé mais servira de base à un oral, le 12 novembre, ou les détails d'implémentation et le fonctionnement du projet seront présentés et expliqués.
+Ce travail doit être rendu pour le 9 octobre 2020 (délai de rigueur). Il ne sera pas corrigé mais servira de base à un oral, le 12 octobre, ou les détails d'implémentation et le fonctionnement du projet seront présentés et expliqués.
 
 Les compétences seront validées sur la base du rendu du projet ainsi que sur cette évaluation orale.
 
