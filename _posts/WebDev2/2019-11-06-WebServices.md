@@ -5,7 +5,8 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2020-10-11
 ---
 
 - [REST vs SOAP](#rest-vs-soap)
@@ -22,7 +23,7 @@ Souvent 2 technologies s'oppose:
 - REST
 - SOAP
 
-### SOAP
+### SOAP (Simple Object Access Protocol)
 
 SOAP est une technologie **pas seulement Web** (HTTP, SMTP, UDP, TCP, ...) dédiée à la mise en place d'outils de manipulation de **services**. SOAP ne donne pas accès a des données, il donne accès à des services/actions dans une application serveur exposée.
 
@@ -72,6 +73,7 @@ addProductToBasket(ProductId, BasketId)
 Les requêtes REST sont sans état (*stateless*). On peut décrire une API REST avec les mécanismes de HTTP (méthodes, URI, codes de retour).
 
 Par exemple on peut utiliser un outil comme [Swagger](http://swagger.io/) pour :
+
 - définir des API REST
 - auto-générer les codes de serveurs et de clients pour ces API.
 
@@ -81,7 +83,7 @@ Par exemple on peut utiliser un outil comme [Swagger](http://swagger.io/) pour :
 - SOAP donne beaucoup de pouvoir au client (concevoir des requêtes complexes avec jointures, filtres, etc.).
 - REST ne permet qu'un accès simple aux données. Une requête complexe (avec jointures, filtres, etc.) nécessitera plusieurs appel REST.
 - REST est sans état (*stateless*) et permet la mise en place de mécanismes de **cache**. SOAP n'est pas *stateless*, donc **pas de cache possible**.
-- il semble que REST est plus facile a mettre en place et à maintenir que SOAP.
+- il semble que REST soit plus facile a mettre en place et à maintenir que SOAP.
 
 ## GraphQL
 
@@ -93,11 +95,11 @@ Par exemple on peut utiliser un outil comme [Swagger](http://swagger.io/) pour :
 
 ## Les outils SWAGGER
 
-Swagger propose plusieurs outils pour nous aider a créer des API cohérentes et maintenables. 
+Swagger propose plusieurs outils pour nous aider a créer des API cohérentes et maintenables.
 
 D'abord on nous propose de concevoir des APIs avec une nomenclature fixée. Swagger est à l'origine de la spécification [OpenAPI](https://swagger.io/specification/).
 
-Pour concevoir une API Swagger nous propose un éditeur qui valide la saisie. Il peut être utilisé [en ligne](https://editor.swagger.io/) ou être téléchargé et exécuté en local à partir les [sources](https://github.com/swagger-api/swagger-editor) ou via docker:
+Pour concevoir une API, Swagger nous propose un éditeur qui valide la saisie. Il peut être utilisé [en ligne](https://editor.swagger.io/) ou être téléchargé et exécuté en local à partir les [sources](https://github.com/swagger-api/swagger-editor) ou via docker:
 
 ```bash
 docker pull swaggerapi/swagger-editor
@@ -120,10 +122,10 @@ Attention il y a 3 façons de spécifier des paramètre ou d'envoyer des donnée
   ```
 
 
-  Ensuite on peu générer des serveurs et des clients automatiquement à partir de cette spécification. 
+Ensuite on peu générer des serveurs et des clients automatiquement à partir de cette spécification. 
 
   
-  On teste simplement une API avec la commande `curl` : 
+On teste simplement une API avec la commande `curl` : 
 
 ```sh
 curl -X GET --header 'Accept: application/json' 'https://api.example.com/1.0.0/ping'
