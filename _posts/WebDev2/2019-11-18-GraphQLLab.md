@@ -5,7 +5,8 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published: false
+published: true
+update: 2020-10-15
 ---
 
 
@@ -17,8 +18,8 @@ En se basant sur la [documentation en ligne](https://graphql.org/learn) et sur l
 
 ## Travail à effectuer
 
-- En binome
-- Un projet git sur la forge qui heberge le code et les tests.
+- En binôme
+- Un projet git sur la forge qui héberge le code et les tests.
 - Un [sereur HTTP implementnat GraphQL](https://graphql.org/learn/serving-over-http/) (de préférence avec Express) et connecté à une base de donnée (votre base  MongoDB d'annonces immobilières).
 - Une validation des requêtes grâce au système de [validation](https://graphql.org/learn/validation/) de GraphQL.
 - Une validation du service grâce à des tests d'intégration (des requêtes)  permettant d'effectuer des requêtes paramétriques sur le serveur.
@@ -29,8 +30,8 @@ Il est convenu de m'envoyer un mail avec les noms des binômes et le lien vers l
 ## Échéance et Évaluation
 
 
-- Le **3 décembre 2019**,  évaluation à l'oral, en binômes, en salle machine, pendant 20 minutes.
-- Présentaion  de GraphQL et du projet réalisé.
+- Le **2 novembre 2020**,  évaluation à l'oral, en binômes, en salle machine, pendant 20 minutes.
+- Présentation  de GraphQL et du projet réalisé.
 - On doit pouvoir présenter et définir rapidement les concepts GraphQL suivants :
   - Variables
   - Fragments
