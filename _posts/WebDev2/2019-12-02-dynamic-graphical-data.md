@@ -5,7 +5,8 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2020-11-02
 ---
 
 
@@ -164,10 +165,6 @@ svg.selectAll('.block') // (2)
   .attr("cy", 100)
   .attr("r", function(d) {
     return d;
-  })
-  .on("click", function(d, i) { // (5.3)
-    d3.select(this)
-      .classed('clicked', 1);
   });
 
 ```
@@ -198,7 +195,7 @@ Lire la suite sur le site de d3 :
 
 - [Une introduction](https://d3js.org/#introduction).
 - [La notion de jointure](https://bost.ocks.org/mike/join/)
-
+- [La fonction `join()`](https://observablehq.com/@d3/selection-join)
 
 ### Drawing paths
 
@@ -293,7 +290,6 @@ var blocks = svg.selectAll('.block')
 ```
 
 [Events Example](http://codepen.io/pigne/pen/JBzai)
-
 
 ### Fonctionnement avec React et Redux
 

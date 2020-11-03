@@ -5,7 +5,8 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published: false
+published: true
+update: 2020-11-03
 ---
 
 On cherche à développer une application Web avec des composants graphiques avancés capables d'afficher les données relatives aux ventes immobilières en France.
@@ -46,7 +47,7 @@ On utilise le framework [API Platform](https://api-platform.com/) pour intégrer
 - Travail en groupes de 4 personnes.
 - Le template de API Plateform étant hébergé sur github, on créera un projet sur Github à partir du template en cliquant sur ["use this template"](https://github.com/api-platform/api-platform/generate). 
 - Un seul membre du groupe m'envoie un mail avec les **noms des 4 membres** et l'**url du projet**. 
-- Le **7 janvier 2020**,  évaluation à l'oral, en groupes, en salle machine, pendant **20 minutes**.
+- Le **16 novembre 2020**,  évaluation à l'oral, en groupes, en salle machine, pendant **20 minutes**.
 - Une présentation du projet et une démonstration seront faites devant la classe en utilisant le grand écran.
 - Évaluation par tout le monde (le prof et les étudiants).
 
