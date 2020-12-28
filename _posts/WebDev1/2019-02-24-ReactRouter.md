@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 [`React Router`](https://github.com/ReactTraining/react-router) est une extension a React qui permet de gérer les routes d'une application coté client. Il permet de synchroniser (d'associer) des composants graphiques `React` à des urls.

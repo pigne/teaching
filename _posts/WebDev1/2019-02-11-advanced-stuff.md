@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 This document presents some advanced technics and protocols related to Web technologies. Some are new standards that are not fully supported by all browsers.

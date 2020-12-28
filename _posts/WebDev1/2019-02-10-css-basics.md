@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 Describe the presentation of a document written in HTML or XML (including XHTML, SVG, ...)
