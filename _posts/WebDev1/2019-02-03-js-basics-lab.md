@@ -5,8 +5,8 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
-update: 2020-12-28
+published: true
+update: 2021-01-12
 ---
 
 # JS Basics Lab
@@ -19,8 +19,8 @@ Ce projet est principalement constitué d'un fichier de tests (`test/index.test.
 
 - [ ] Se connecter à la [forge de l'université](https://www-apps.univ-lehavre.fr/forge) avec son propre login (se connecter avec le CAS de l'université la première fois). :warning: Bien s'assurer que **GIT est correctement configuré**. Pour plus d'information sur GIT, GitLab et la forge de l'université, se référer au [cours introductif au travail en équipe à l'université](https://pigne.org/teaching/general/lecture/Gestion-de-version-travail-en-equipe).
 - [ ] "*Forker*" ou "diverger" le projet (bouton "*Fork*" ou "Divergence").
-- [ ] Cloner son propre projet dans une copie de travail locale en utilisant le schema d'URL `https` (`git clone https://www-apps.univ-lehavre.fr/forge/USERNAME/JSBasicsLab.git`)
-- [ ] Modifier le fichier README.md (ce fichier) pour y faire apparaître vos coordonnées (nom, prénom, login, email).
+- [ ] Cloner son propre projet dans une copie de travail locale en utilisant le schema d'URL `https` (`git clone https://www-apps.univ-lehavre.fr/forge/LOGIN/WEB-jsbasics-lab.git`) (sans oublier de changer `LOGIN` par votre login).
+- [ ] Modifier le fichier README.md du projet pour y faire apparaître vos coordonnées (nom, prénom, login, email).
 - [ ] Dans la copie de travail exécuter la commande `npm install` ou `npm i` pour installer les dépendances du projet.
 - [ ] Lancer les tests : `npm test` ou `npm t`
 - [ ] Il y a beaucoup d'erreurs. A vous de les corriger en écrivant le corps des fonctions dans le fichier `src/index.js` (à la place des commentaires `/* TODO */`) et en relançant les tests. Faire des commits **au fur et à mesure** que vous validez des tests. (`git add -u && git commit`)
@@ -30,7 +30,7 @@ Ce projet est principalement constitué d'un fichier de tests (`test/index.test.
 
 ## Fin du travail
 
-Quand tous les tests passent, que la couverture du code par les tests est satisfaisante () et que les modifications sont enregistrées (avec des `commit`) :
+Quand tous les tests passent, que la couverture du code par les tests est satisfaisante (100%, 99%, 98%, ...?) et que les modifications sont enregistrées (avec des `commit`) :
 
 1. publiez votre projet : `git push`. Cela aura pour conséquence, en plus de publier vos modifications sur votre version du projet, de lancer l'exécution des tests unitaires sur le serveur d'intégration continue de la forge.
 2. créez un [merge request](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html) pour que je puisse évaluer votre travail.
