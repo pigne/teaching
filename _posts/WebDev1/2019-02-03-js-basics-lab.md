@@ -49,7 +49,7 @@ TP à rendre pour le :
 
 - Groupe A : 21 janvier 2021
 - Groupe B : 19 janvier 2021
-- Groupe C : 26 janvier 2021
+- Groupe C : 27 janvier 2021
 
 ## Évaluation
 
