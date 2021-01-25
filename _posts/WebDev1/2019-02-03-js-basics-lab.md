@@ -47,9 +47,9 @@ Quand tous les tests passent, que la couverture du code par les tests est satisf
 
 TP à rendre pour le :
 
-- Groupe 1 : 21 janvier 2021
-- Groupe 2 : 19 janvier 2021
-- Groupe 3 : 26 janvier 2021
+- Groupe A : 21 janvier 2021
+- Groupe B : 19 janvier 2021
+- Groupe C : 26 janvier 2021
 
 ## Évaluation
 
