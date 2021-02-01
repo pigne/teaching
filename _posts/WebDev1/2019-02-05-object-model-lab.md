@@ -5,8 +5,8 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
-update: 2020-02-05
+published: true
+update: 2021-02-01
 ---
 
 Dans le cadre de la conception d'une application de gestion de capteurs de type internet des objets (*Internet of Things*, IoT), on veux créer un modèle objet permettant de représenter des capteurs et les données qu'ils génèrent.
@@ -60,18 +60,21 @@ On souhaite pouvoir créer de tels objets à partir d'un fichier de données JSO
 
 ## Travail à réaliser
 
-Comme pour le tp précédent, on va utiliser la forge de l'université. Forker et cloner le projet <https://www-apps.univ-lehavre.fr/forge/2019-2020-m1/WEB-objectmodel-lab.git>
+Comme pour le tp précédent, on va utiliser la forge de l'université. *Forker* (diverger) et cloner le projet <https://www-apps.univ-lehavre.fr/forge/2020-2021-m1/WEB-objectmodel-lab.git>
 
 En utilisant le pattern de création d'objets de votre choix (classique, `Object.create`, différentiel, fonctionnel ou `class`) créer la hiérarchie de classes permettant de représenter des données de capteur.
 
-Rédiger des tests unitaires permettant de vérifier le bon fonctionnement du modèle. Le fichier `resources/sensors_data.js` sera utilisé pour générer les objets et vérifier certaines propriétés de base (qu'il vous appartient de définir).
+Rédiger des tests unitaires permettant de vérifier le bon fonctionnement du modèle. Le fichier `resources/sensors_data.json` sera utilisé pour générer les objets et vérifier certaines propriétés de base (qu'il vous appartient de définir).
 
 Enfin un *merge request* permettra de rendre le TP. Penser à donner **vos nom et prénom** dans le message du *merge request*.
 
 ## Échéance
 
-TP à rendre pour le **19 février 2020**.
+TP à rendre pour le :
 
+- Groupe A : **16 février 2021**,
+- Groupe B: **18 février 2021**,
+- Groupe C: **25 février 2021**.
 
 ## Évaluation
 
