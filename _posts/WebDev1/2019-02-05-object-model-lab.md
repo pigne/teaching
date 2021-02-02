@@ -78,4 +78,4 @@ TP à rendre pour le :
 
 ## Évaluation
 
-[Liste des Capacités évaluées.](/teaching/webdev1#object-models)
+[Liste des aptitudes évaluées.](/teaching/DebDev1#object-models)
