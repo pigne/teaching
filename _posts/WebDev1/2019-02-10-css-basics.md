@@ -5,7 +5,8 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2021-02-02
 ---
 
 Describe the presentation of a document written in HTML or XML (including XHTML, SVG, ...)
@@ -13,7 +14,7 @@ Describe the presentation of a document written in HTML or XML (including XHTML,
 - CSS level 1: fisrt level of the norm. Obsolete.
 - CSS level 2.1: legacy level.
 - CSS level 3: new modular approach. Many new features.
-- CSS snapshots 2007, 2010, 2015, 2017 
+- CSS snapshots 2007, 2010, 2015, 2017, 2018, 2020 : <https://www.w3.org/TR/CSS/>
 
 
 
@@ -401,6 +402,7 @@ Several properties:
 <div id="animation_test" class="third" ></div>
 ```
 
+[Another CSS animation/transform example](https://codepen.io/pigne/pen/xxRGBPB).
 ## CSS Pre-processors <small>Dynamic CSS</small>
 
 CSS is a limited description language: no function, no inheritance, no arithmetic and no variables until recently.

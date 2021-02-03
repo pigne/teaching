@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 <!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
@@ -384,14 +384,14 @@ A hint for the user before he starts typing. It is **not** a default value.
 
 <input type="range" min="12" max="120" step="12"><br>
 <input  type="number" min="12" max="120" step="12"><br>
-<input  type="date" min="2019-01-01" max="2019-06-31" step="14">
+<input  type="date" min="2020-01-01" max="2025-06-31" step="14">
 
 
 
 ```html
 <input type="range" min="12" max="120" step="12"><br>
 <input  type="number" min="12" max="120" step="12"><br>
-<input  type="date" min="2020-01-01" max="2020-06-31" step="14">
+<input  type="date" min="2020-01-01" max="2025-06-31" step="14">
 ```
 
 
