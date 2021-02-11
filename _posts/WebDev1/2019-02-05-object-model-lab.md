@@ -72,9 +72,9 @@ Enfin un *merge request* permettra de rendre le TP. Penser à donner **vos nom e
 
 TP à rendre pour le :
 
-- Groupe A : **16 février 2021**,
-- Groupe B: **18 février 2021**,
-- Groupe C: **25 février 2021**.
+- Groupe A : **15 février 2021**,
+- Groupe B: **17 février 2021**,
+- Groupe C: **24 février 2021**.
 
 ## Évaluation
 
