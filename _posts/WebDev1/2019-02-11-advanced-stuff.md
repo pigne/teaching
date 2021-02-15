@@ -5,7 +5,8 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2021-02-14
 ---
 
 This document presents some advanced technics and protocols related to Web technologies. Some are new standards that are not fully supported by all browsers.
@@ -357,7 +358,7 @@ the async function declaration defines an asynchronous function that returns an 
 
 The function runs asynchronously (via the event loop) and uses a `Promise`  to return values.
 
-The syntaxe and structure of the function *looks* synchronous and is easier to read and write than async code.
+The syntax and structure of the function *looks* synchronous and is easier to read and write than async code.
 
 ```js
 async function name([param[, param[, ... param]]]) {
