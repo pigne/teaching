@@ -26,6 +26,15 @@ On ne souhaite utiliser aucune autre technologie que les WebSocket et les Canvas
  
 Projet à rendre sous forme d'un *merge request* du projet initial sur la forge de l'université.
 
+
+## Échéance
+
+TP à rendre pour le : 
+
+- Groupe A : 8 mars 2021
+- Groupe B : 9 mars 2021
+- Groupe C : 18 mars 2021
+  
 ## Évaluation
 
 [Liste des aptitudes évaluées.](/teaching/WebDev1#websocket)
