@@ -419,7 +419,7 @@ On souhaite que l'application se souvienne de nous. À chaque fois que l'action 
 
 Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)) cela va afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)) cela doit également afficher `"Hello You!"`. En revanche si j'appelle pour la première fois l'action sans paramètres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
 
-**Modifier** l'action `nameAction` pour qu'elle se comporte comme décrit ci-dessus, en utilisant la [documentation Symfony sur les sessions](http://symfony.com/doc/current/book/controller.html#managing-the-session) 
+**Modifier** l'action `nameAction` pour qu'elle se comporte comme décrit ci-dessus, en utilisant la [documentation Symfony sur les sessions](http://symfony.com/doc/current/book/controller.html#managing-the-session).
 
 <div class="question">
 
