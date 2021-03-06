@@ -248,3 +248,36 @@ footer {
     /*! padding: 0.5rem; */
     box-sizing: content-box;
 }
+
+// Labs
+
+.question {
+    // border-radius: 10px;
+
+    // border:darkgray 1px solid;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color:rgb(212, 212, 212); 
+        
+    h1,h2,h3 {
+        // border-radius: 10px  10px 0  0;
+
+        color:rgb(212, 212, 212);
+        background-color: rgb(48, 48, 48);
+        margin:0;
+        padding: 15px;
+        overflow: hidden;
+    }
+    p,ul,ol {
+        margin:0;
+        padding: 15px;
+        color:rgb(48, 48, 48);
+    }
+    ul {
+        list-style: disc;
+    }
+    ul,ol {
+        list-style-position: inside;
+    }
+    
+}

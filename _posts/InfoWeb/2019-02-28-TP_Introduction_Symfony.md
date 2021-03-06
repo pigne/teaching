@@ -5,8 +5,8 @@ categories:
 - InfoWeb
 - lab
 author: Yoann Pigné
-published: false
-update: 2020-03-01
+published: true
+update: 2021-03-04
 ---
 
 
@@ -20,37 +20,47 @@ Symfony est entre autres un framework Web. Il contient un ensemble de ressources
 Il y a 2 choses à faire dans ce TP :
 
 1. Suivre les étapes afin de réaliser le TP.
-2. Répondre aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=35458) se trouvant sur la page du cours.
+2. Répondre en parallèle aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=35458) se trouvant sur la page du cours.
 
 Il est possible de travailler en binôme pour ce TP. En revanche, les réponses aux questions dans Eureka doivent être répondues par tout le monde. 
 
-Ce TP doit être versionné avec GIT et être partagé en utilisant la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier de d'ajouter les enseignants (`pigne` et `fournied`) au projet. 
+Ce TP doit être versionné avec GIT et être partagé en utilisant la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier d'ajouter les enseignants (`pigne` et `fournied`) au projet avec le status *developper*. 
 
 
 ## Installations de Symfony
 
-Pour commencer à utiliser Symfony il faut installer `composer`,   le gestionnaire de dépendances de PHP et et `symfony`, l'utilitaire qui permet de créer de nouveaux projets.
+Pour commencer à utiliser Symfony il faut installer : 
+
+- [`composer`](https://getcomposer.org/download/),   le gestionnaire de dépendances de PHP et 
+- [`symfony`](https://symfony.com/download), l'utilitaire qui permet de créer de nouveaux projets.
 
 
-La méthode la plus simple,  quel que soit votre OS, est celle décrite dans la documentation officielle  : [https://symfony.com/doc/current/book/installation.html](https://symfony.com/doc/current/book/installation.html)
+Ces étapes sont décrites dans la doc officielle de Symfony : <https://symfony.com/doc/current/book/installation.html>
 
 ### Composer 
 
 On installe `composer` en suivant [ces instructions](https://getcomposer.org/download/). 
 
-:warning:  Pour les machines de TP de l'université, on va installer Composer dans le dossier utilisateur car nous n'avons pas les droits d'écriture dans `/usr/local/...`
+
+#### Pour Windows 
+
+On utilise l'installateur proposé sur le site de composer: <https://getcomposer.org/Composer-Setup.exe> puis on redémarre le terminal pour mettre a jour l'environnemnt. 
+
+#### Pour Linux 
+
+Suivre les instruction et exécuter les commandes données ici : <https://getcomposer.org/download/>
+
+<!-- :warning:  Pour les machines de TP de l'université, on va installer Composer dans le dossier utilisateur car nous n'avons pas les droits d'écriture dans `/usr/local/...` -->
 
 Attention : les commandes suivantes ne doivent être exécutées qu'une seule fois !
 
 
 ```bash
 mkdir -p ${HOME}/.composer/bin
-wget https://raw.githubusercontent.com/composer/getcomposer.org/cb19f2aa3aeaa2006c0cd69a7ef011eb31463067/web/installer -O - -q | php -- --install-dir=${HOME}/.composer/bin --filename=composer
+wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --install-dir=${HOME}/.composer/bin --filename=composer
 ```
 
-On modifie la variable d'environnement `$PATH` pour que l'exécutable `composer` soit disponible partout. 
-
-Ajouter la ligne suivante à votre fichier `${HOME}/.bash_profile`
+On modifie ensuite la variable d'environnement `$PATH` pour que l'exécutable `composer` soit disponible partout en ajoutant la ligne suivante au fichier `${HOME}/.profile`
 
 ```bash
 export PATH="$HOME/.composer/bin:$PATH"
@@ -58,20 +68,31 @@ export PATH="$HOME/.composer/bin:$PATH"
 
 ### Symfony
 
-On install l'utilitaire `symfony` en suivant [les instructions officielles](https://symfony.com/download)
 
-Sur les machines de TP de l'université on veillera a ajouter la commande dans le PATH : 
+#### Pour Windows
 
-Ajouter la ligne suivante à votre fichier `${HOME}/.bash_profile`
+On utilise l'installateur : <https://get.symfony.com/cli/setup.exe>
+
+Puis on redémarre le terminal pour recharger l'environnement.
+
+#### Pour Linux
+
+On installe avec cette commande : 
+
+```bash 
+curl -sS https://get.symfony.com/cli/installer | bash
+````
+
+Puis on ajoute la ligne suivante au fichier `${HOME}/.profile`
 
 ```sh
 export PATH="$HOME/.symfony/bin:$PATH"
 ```
 
-Enfin, exécuter la commande suivant pour recharger les fichier : 
+Enfin, exécuter la commande suivant pour recharger l'environnement : 
 
 ```sh
-source ${HOME}/.bash_profile
+source ${HOME}/.profile
 ```
 
 ## Création d'un premier projet
@@ -93,26 +114,33 @@ Examiner attentivement le contenu du projet (dossier `projet_hello`). les dossie
 
 ```bash
 .
-├── bin
+├── .env
+├── .env.test
+├── .git/
+├── .gitignore
+├── bin/
 ├── composer.json
 ├── composer.lock
-├── config
+├── config/
+├── migrations/
 ├── phpunit.xml.dist
-├── public
-├── src
+├── public/
+├── src/
 ├── symfony.lock
-├── templates
-├── tests
-├── translations
-├── var
-└── vendor
+├── templates/
+├── tests/
+├── translations/
+├── var/
+└── vendor/
 ```
 
-Le dossier `config/` est le point de départ de l'application. Il contient les paramètres et les ressources par défaut de l'application. On modifiera ce dossier pour configurer l'application, ajouter des ressources ou changer son comportement par défaut (e.g.: chargement de modules complémentaires). Si vous utilisez Symfony 3 ce dossier s'appelle `app/`.
+Le dossier `config/` contient les paramètres de l'application. On modifiera ce dossier pour configurer l'application ou changer son comportement par défaut (e.g.: chargement de modules complémentaires). 
 
 Le dossier `src/` contient les sources de notre application. C'est le dossier qui nous intéresse le plus ici.
 
-Le dossier `tests/` contient comme on s'en doute les tests unitaires.
+Le dossier `templates` contient les fichiers *templates* (les patrons) TWIG pour faciliter la génération de pages Web. 
+
+Le dossier `tests/` contient comme on s'en doute, les tests.
 
 
 <div class="question">
@@ -121,8 +149,9 @@ Le dossier `tests/` contient comme on s'en doute les tests unitaires.
 
 Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=35458) :
 
-- En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité des dossiers `vendor/` et `public/` (`public/` = `web/` en Symfony 3).
-- Quel fichier dois-je modifier pour configurer les identifiants de bases de données afin que Symfony puisse accéder à la Base de données ?
+1. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier `vendor/`.
+1. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier  `public/`.
+1. Quel fichier dois-je modifier pour configurer les identifiants de bases de données afin que Symfony puisse accéder à la Base de données ?
 
 </div>
 
@@ -146,7 +175,7 @@ Ces 3 termes sont importants :
 
 - Un **contrôleur** est la classe principale qui gère un ensemble d'**actions**.
 - Une **action** est une méthode de classe du contrôleur, c'est un peu comme un des services  possibles proposés par le contrôleur.
-- Une **route** est la partie qui vient après le nom de domaine dans une URL au sens de HTTP. Par exemple dans l'URL `http://www.example.com/truc/machin`, la route est `/truc/machin`.
+- Une **route** est la partie qui vient après le nom de domaine dans une URL au sens de HTTP. Par exemple dans l'URL `https://www.example.com/truc/machin`, la route est `/truc/machin`.
 
 Il faut configurer le contrôleur pour que ses actions soient liées à des routes.
 
@@ -169,46 +198,55 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HelloController extends AbstractController
 {
-
-    /**
-     * @Route("/helloRandom")
-     */
-    public function randomNameAction(){
-        return new Response("<html><body><h1>Hello "
-            .self::generateRandomName()
-            ."</h1></body></html>");
-    }
-
-
-    static function generateRandomName()
-    {
-        $nouns = ['Circle', 'Cone', 'Cylinder', 'Ellipse', 'Hexagon',
-          'Irregular Shape', 'Octagon', 'Oval', 'Parallelogram', 'Pentagon',
-          'Pyramid', 'Rectangle', 'Semicircle', 'Sphere', 'Square', 'Star',
-          'Trapezoid', 'Triangle', 'Wedge', 'Whorl'];
-        $adjectives = ['Amusing', 'Athletic', 'Beautiful', 'Brave', 'Careless',
-          'Clever', 'Crafty', 'Creative', 'Cute', 'Dependable', 'Energetic',
-          'Famous', 'Friendly', 'Graceful', 'Helpful', 'Humble', 'Inconsiderate',
-          'Likable', 'Middle Class', 'Outgoing', 'Poor', 'Practical', 'Rich',
-          'Sad', 'Skinny', 'Successful', 'Thin', 'Ugly', 'Wealth'];
-        return $adjectives[array_rand($adjectives)].' '.$nouns[array_rand($nouns)];
-    }
+  /**
+   * @Route("/helloRandom")
+   */
+  public function randomNameAction(): Response
+  {
+    return new Response(
+      "<html><body><h1>Hello " .
+        self::generateRandomName() .
+        "</h1></body></html>"
+    );
+  }
+  
+  static function generateRandomName(): string
+  {
+    $nouns = [
+      "Circle","Cone","Cylinder","Ellipse","Hexagon",
+      "Irregular Shape","Octagon","Oval","Parallelogram",
+      "Pentagon","Pyramid","Rectangle","Semicircle","Sphere",
+      "Square","Star","Trapezoid","Triangle","Wedge","Whorl",
+    ];
+    $adjectives = [
+      "Amusing", "Athletic", "Beautiful", "Brave", "Careless", 
+      "Clever", "Crafty", "Creative", "Cute", "Dependable", 
+      "Energetic", "Famous", "Friendly", "Graceful", "Helpful", 
+      "Humble", "Inconsiderate", "Likable", "Mid  Class", "Outgoing", 
+      "Poor", "Practical", "Rich", "Sad", "Skinny", "Successful", "Thin", 
+      "Ugly", "Wealth",
+    ];
+    return $adjectives[array_rand($adjectives)] .
+      " " .
+      $nouns[array_rand($nouns)];
+  }
 }
 ```
+
+
+On peut voir fonctionner ce nouveau contrôleur avec l'URL : [http://localhost:8000/helloRandom](http://localhost:8000/helloRandom) et recharger la page plusieurs fois...
 
 <div class="question">
 
 ### Question 4
 
-Dans l'action d'un contrôleur, comment fait-on le lien avec une route (URL) de l'application ?
+Comment fait-on le lien entre une route (URL) de l'application et une action d'un contrôleur ?
+
 </div>
 
+## Lancer les tests
 
-
-
-## Lancer les Tests Unitaires
-
-Il faut maintenant tester ce contrôleur. Écrire le fichier de test `tests/Controller/HelloControllerTest.php` :
+Il faut maintenant tester ce contrôleur. **Écrire** le fichier de test `tests/Controller/HelloControllerTest.php`  (il faut créer le dossier `Controlleur/` dans `tests/` s'il n'existe pas):
 
 ```php
 <?php
@@ -219,44 +257,45 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class HelloControllerTest extends WebTestCase
 {
-    public function testHelloRandomRoute()
-    {
-        $client = static::createClient();
+  public function testHelloRandomRoute()
+  {
+    $client = static::createClient();
 
-        $crawler = $client->request('GET', '/helloRandom');
+    $crawler = $client->request("GET", "/helloRandom");
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Hello ', $crawler->filter('h1')->text());
-    }
+    $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    $this->assertStringContainsString("Hello ", $crawler->filter("h1")->text());
+  }
 
-    function testRandomNameGenerator(){
-        $rdName = HelloController::generateRandomName();
-        $this->assertGreaterThan(1, strlen($rdName));
-    }
-
+  function testRandomNameGenerator()
+  {
+    $rdName = HelloController::generateRandomName();
+    $this->assertGreaterThan(1, strlen($rdName));
+  }
 }
 ```
 
-On exécute les tests avec PHPUnit (l'équivalent du `JUnit` de `Java` pour `PHP`):
+On exécute les tests avec `PHPUnit` (l'équivalent du `JUnit` de `Java` pour `PHP`):
 
-<!-- Avant d'exécuter les tests on doit installer le framework de test `phpunit`: 
-
-```bash
-composer require --dev symfony/phpunit-bridge
-```
-
-
-
-**Exécuter** les tests : -->
-
-```bash
+```sh
 ./bin/phpunit
 ```
 
 On devrait avoir :
+
 ```
 OK (2 tests, 3 assertions)
 ```
+
+
+Si un message d'erreur à propos de `symfony/monolog-bridge` apparait on peut le corriger (l'ignorer en fait) en ajoutant la ligne suivant dans le bloc `<php>` du fichier `phpunit.dist.xml` à la racine du projet : 
+
+```xml
+<env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
+```
+
+![Ignorer les message de dépressiation des helpers dans phpunit]({{ site.baseurl }}/images/ERROR_SYMFONY_PHPUNIT.png){:.image-width-80}
+
 
 <div class="question">
 
@@ -267,46 +306,57 @@ A quoi sert le fichier `composer.json` qui se trouve à la racine du projet ?
 
 
 
-On peut bien sur voire fonctionner ce nouveau contrôleur avec la route : [http://localhost:8000/helloRandom](http://localhost:8000/helloRandom) et recharger la page plusieurs fois...
+<div class="question">
+
+### Questions  6 
+
+Dans la classe de test `HelloControllerTest` expliquer ce que fait la méthode `testHelloRandomRoute`.
+
+</div>
 
 <div class="question">
 
-### Questions  6 et 7
+### Questions  7
 
-Dans la classe de test `HelloControllerTest` :
+Dans la classe de test `HelloControllerTest` expliquer ce que fait la méthode `testRandomNameGenerator`.
 
-- expliquer ce que fait la méthode `testHelloRandomRoute`
-- expliquer ce que fait la méthode `testRandomNameGenerator`
-  
 </div>
 
 ## Route et action paramétriques
 
 On souhaite créer une action qui dépende des paramètres de la route (une route paramétrique).
 
-Ajouter la méthode suivante à la classe `HelloController` :
+**Ajouter** la méthode suivante à la classe `HelloController` :
 
 ```php
-/**
- * @Route("/hello/{name}", defaults={"name" = ""})
- */
-public function nameAction($name){
-    if($name == ""){
-        $name = self::generateRandomName();
+  /**
+   * @Route("/hello/{name}", defaults={"name" = ""})
+   */
+  public function nameAction($name): Response
+  {
+    if ($name == "") {
+      $name = self::generateRandomName();
     }
+
     return new Response("<html><body><h1>Hello $name</h1></body></html>");
-}
+  }
 ```
 
-**Tester** cette méthode [http://localhost:8000/hello/Albus Perceval Wulfric Brian Dumbledore](http://localhost:8000/hello/Albus Perceval Wulfric Brian Dumbledore)
+**Exécuter** cette méthode avec la route :  [http://localhost:8000/hello/Albus Perceval Wulfric Brian Dumbledore](http://localhost:8000/hello/Albus Perceval Wulfric Brian Dumbledore)
+
+
+### Tester la route
+
+
+
+**Écrire** un test dans la classe `HelloControllerTest` qui vérifie que la méthode fonctionne comme prévu. Vérifier que la page web générée salut bien le Professeur Dumbledore quand son nom est passé dans l'URL. Vérifier aussi que le nom est aléatoire quand aucun paramètre n'est donné ([http://localhost:8000/hello](http://localhost:8000/hello)).
 
 <div class="question">
 
 ### Questions  8
 
-Écrire un test dans la classe `HelloControllerTest` qui vérifie que la méthode fonctionne comme prévu. Vérifier que la page web générée salut bien le Professeur Dumbledore quand son nom est passé dans l'URL. Vérifier aussi que le nom est aléatoire quand aucun paramètre n'est donné ([http://localhost:8000/hello](http://localhost:8000/hello)).
+Coller votre classe de test `HelloControllerTest` dans le questionnaire Eureka (Question 8).
 
-Coller votre (ou vos) méthode(s) de test dans le questionnaire Eureka (Question 8).
 </div>
 
 ## Création d'une vue
@@ -319,7 +369,7 @@ la méthode `render()` du contrôleur permet d'utiliser un template `twig` pour 
 
 **Ouvrir** et **lire** les fichiers `templates/base.html.twig`.
 
-Créer un template pour notre contrôleur Hello `templates/hello.html.twig` :
+**Créer** un template pour le contrôleur Hello dans le fichier  `templates/hello.html.twig` :
 
 {% raw %}
 
@@ -352,27 +402,40 @@ Créer un template pour notre contrôleur Hello `templates/hello.html.twig` :
 ```
 {% endraw %}
 
+
+**Modifier** l'action `nameAction` du contrôleur `HelloController` afin d'utiliser le _template_ qui vient d'être créé. On s'inspirera de la [documentation en ligne](https://symfony.com/doc/current/controller.html#rendering-templates).  
+
 <div class="question">
 
 ### Questions  9
-En vous inspirant de la [documentation en ligne](https://symfony.com/doc/current/controller.html#rendering-templates)  modifier l'action `nameAction` de notre contrôleur `HelloController` afin d'utiliser le _template_ qui vient d'être créé.
 
-Copier le code de cette action dans la question 9 du questionnaire Eureka.
+Copier le code de l'action `nameAction` dans la question 9 du questionnaire Eureka.
+
 </div>
 
 ## Sessions
 
-On souhaite que l'application se souvienne de nous. A chaque fois que l'action `nameAction` est appelée avec un paramètre (avec un nom), on veut qu'il soit **sauvegardé** dans une **session** (en remplaçant éventuellement celui qui existait déjà). A chaque fois que l'action `nameAction` est appelée **sans** paramètre, alors on veut retrouver le paramètre précédemment **enregistré**. Finalement si `nameAction` est appelé sans paramètre pour la première fois alors on génère un nom aléatoirement.
+On souhaite que l'application se souvienne de nous. À chaque fois que l'action `nameAction` est appelée avec un paramètre (avec un nom), on veut qu'il soit **sauvegardé** dans une **session** (en remplaçant éventuellement celui qui existait déjà). À chaque fois que l'action `nameAction` est appelée **sans** paramètre, alors on veut retrouver le paramètre précédemment **enregistré dans la session**. Finalement si `nameAction` est appelé sans paramètre pour la première fois (rien d'existe dans la session), alors on génère un nom aléatoirement, que l'on sauvegarde dans la session.
 
 Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)) cela va afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)) cela doit également afficher `"Hello You!"`. En revanche si j'appelle pour la première fois l'action sans paramètres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
 
+**Modifier** l'action `nameAction` pour qu'elle se comporte comme décrit ci-dessus, en utilisant la [documentation Symfony sur les sessions](http://symfony.com/doc/current/book/controller.html#managing-the-session) 
+
 <div class="question">
 
-### Questions  10 et 11
+### Questions  10
 
-En utilisant la [documentation Symfony sur les sessions](http://symfony.com/doc/current/book/controller.html#managing-the-session) :
+Copier le code de  `nameAction`  dans Eureka (Question 10).  
 
-- Modifier l'action `nameAction` pour qu'elle se comporte comme décrit au dessus. Copier le code dans Eureka (Question 10).  
-- Écrire des tests pour vérifier le nouveau fonctionnement. Copier le code de ces tests dans Eureka (Question 11).  
+</div>
+
+
+**Écrire** de nouveaux tests (en ajoutant des méthodes dans la classe `tests/Controller/HelloControllerTest.php`)  pour vérifier le nouveau fonctionnement. 
+
+<div class="question">
+
+### Questions  11
+
+Copier le code de ces tests dans Eureka (Question 11).  
   
 </div>
