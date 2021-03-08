@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
+published: true
 update: 2021-03-08
 ---
 
@@ -44,7 +44,7 @@ On veillera a bien nommer les fichier comme décrit dans la [documentation de `c
 
 ## Rendu
 
-Comme pour les autres TP, on va forker un projet de base : <https://www-apps.univ-lehavre.fr/forge/2019-2020-m1/WEB-react-router-lab> et en proposer un *Merge Request* une fois le travail terminé. On n'oubliera pas de modifier le fichier `README.md` et de nommer correctement le *Merge Request* avec vos **nom**, **prénom** et **numéro d'étudiant**.
+Comme pour les autres TP, on va forker un projet de base : <https://www-apps.univ-lehavre.fr/forge/2020-2021-m1/WEB-react-router-lab> et en proposer un *Merge Request* une fois le travail terminé. On n'oubliera pas de modifier le fichier `README.md` et de nommer correctement le *Merge Request* avec vos **nom**, **prénom** et **numéro d'étudiant**.
 
 **Ce TP peut être fait en binôme.**
 
