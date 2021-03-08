@@ -6,7 +6,7 @@ categories:
 - lab
 author: Yoann Pigné
 published: false
-update: 2020-03-19
+update: 2021-03-08
 ---
 
 On veut écrire une nouvelle itération de notre Web app de manipulation IoT. On s'intéresse ici à l'arborescence de la Web App.
@@ -29,7 +29,7 @@ On réutilisera, dans la mesure du possible, les éléments déjà développés 
 
 ## Broker MQTT
 
-Un broker MQTT avec de faux capteurs est disponible à l'adresse : `ec2-15-188-195-154.eu-west-3.compute.amazonaws.com` sur le port `1883` pour les sockets réseaux classiques et sur le port `8080` pour le support WebSocket.
+Un broker MQTT avec de faux capteurs est disponible à l'adresse : `random.pigne.org` sur le port `1883` pour les sockets réseaux classiques et sur le port `9001` pour le support WebSocket.
 
 
 ## *Flexbox* ou *CSS Grid Layout*
@@ -51,5 +51,5 @@ Comme pour les autres TP, on va forker un projet de base : <https://www-apps.uni
 
 ## Évaluation
 
-[Liste des Aptitudes évaluées.](/teaching/WebDev1#react--reactrouter--redux)
+[Liste des aptitudes évaluées.](/teaching/WebDev1#react--reactrouter--redux)
 
