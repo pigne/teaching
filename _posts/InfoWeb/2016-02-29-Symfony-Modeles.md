@@ -5,7 +5,8 @@ categories:
 - InfoWeb
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2021-03-11
 ---
 
 Récapitulatif du cours et du TP précédent :
@@ -33,52 +34,30 @@ Ce que l'on verra plus tard:
 - Gestion des utilisateurs et des droits dans une application Symfony
 
 
-## Configuration
+## Installation et configuration
 
 Symfony seul ne permet pas de gérer des modèles objets ni de se connecter à une base de données. On utilise **Doctrine**, un ORM pour mettre en concordance des objets PHP avec un modèle persistant (Base de données).
 
-Doctrine est présent dans l'installation par défaut que l'on utilise.
+Doctrine doit être installé avec `composer` : 
 
-On Configure doctrine pour se connecter à la BADO via les 2 fichiers
-
-- `app/config/parameters.yml`
-- `app/config/config.yml`
-
-```yml
-# app/config/parameters.yml
-parameters:
-    database_host: 127.0.0.1
-    database_port: null
-    database_name: symfony1
-    database_user: db_user
-    database_password: pnCFseEZI4O4joj3d76JhdjTy18gD
+```bash
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
 ```
 
-```yml
-# app/config/config.yml
-# ...
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver:   pdo_pgsql # ou pdo_mysql
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
-        charset:  UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path:     "%database_path%"
+Les informations de connexion à la base de donnée sont stockés dans la variable d'environnement `DATABASE_URL`. En mode développement on peut renseigner cette variable dans les fichier `.env` à la racine du projet. 
 
-    orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+```bash
+# to use mariadb:
+DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=mariadb-10.5.8"
+
+# to use postgresql:
+# DATABASE_URL="postgresql://db_user:db_password@127.0.0.1:5432/db_name?serverVersion=11&charset=utf8"
+
 ```
+
+D'autre réglages sont disponibles dans `config/packages/doctrine.yaml``
+
 
 Création de la base de données :
 
@@ -86,193 +65,95 @@ Création de la base de données :
 php bin/console doctrine:database:create
 ```
 
-## Création d'une entité
-
-Une entité représente le type d'objets auxquels on s'intéresse dans l'application. C'est avant tout une classe PHP. On va suivre l'exemple développé dans le  document [Databases and Doctrine](http://symfony.com/doc/current/book/doctrine.html) sur le site de Symfony sous licence [CC BY 3.0](http://creativecommons.org/licenses/by-sa/3.0/).
-
-Par convention on crée les modèles  dans le sous-dossier `Entity` du _bundle_ courant.
-
-```php
-<?php
-// src/AppBundle/Entity/Product.php
-namespace AppBundle\Entity;
-
-class Product
-{
-    protected $name;
-    protected $price;
-    protected $description;
-}
-```
-
-
-Cette classe est bien un modèle objet (une _entité_) mais elle ne peut pas encore persister en base de données.
-
-Pour que l'objet soit persistant il faut **lier les champs de la classe aux colonnes d'une table de base de données**.
-
-Doctrine lie les objets aux bases de données grâce à des paramètres (annotation, fichiers de configuration...)
+Tout effacer et recréer la basse de données (Attention !):
 
 ```bash
-php bin/console doctrine:generate:entity
+php bin/console doctrine:database:drop --force
+php bin/console doctrine:database:create
 ```
 
-- 2 fichiers sont générés :
-  - `src/AppBundle/Entity/Product.php`
-  - `src/AppBundle/Repository/RepositoryProduct.php`
-- Dans `Product.php` :
+## Création d'une entité
+
+Une entité représente le type d'objets auxquels on s'intéresse dans l'application. C'est avant tout une classe PHP. On va suivre l'exemple développé dans le  document [Databases and Doctrine](https://symfony.com/doc/current/doctrine.html) sur le site de Symfony sous licence [CC BY 3.0](http://creativecommons.org/licenses/by-sa/3.0/).
+
+Par convention on crée les modèles  dans le sous-dossier `Entity`.
+
+
+On peut créer l'entité à la main, c'est une classe php classique. On peut aussi utilsier l'utilitaire de création d'entités  :
+
+```bash
+php bin/console make:entity
+```
+
+Ce script est interactif et nous permet de définir une éntité avec ses champs. 
+
+Ce script produit 2 fichiers :
+
+- `src/Entity/Product.php`
+- `src/Repository/RepositoryProduct.php`
+
+Dans `Product.php` :
   - par défaut la table `product` est liée au modèle objet `Product` (c'est modifiable)
   - un champ `id` a été ajouté, c'est la clé primaire
   - les noms des colonnes portent le  nom des champs (c'est modifiable)
   - les _setters_  retournent l'objet courant. On peut faire du chainage de méthodes
 
-
-
 ```php
 <?php
-// src/AppBundle/Entity/Product.php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
+use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Product
- *
- * @ORM\Table(name="product")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ * @ORM\Entity(repositoryClass=ProductRepository::class)
  */
 class Product
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=100)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @var float
-     *
-     * @ORM\Column(name="price", type="decimal")
+     * @ORM\Column(type="integer")
      */
     private $price;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text")
-     */
-    private $description;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Product
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set price
-     * ...
-     */
-
-    /**
-     * Get price
-     * ...
-     */
-
-    /**
-     * Set description
-     * ...
-     */
-
-    /**
-     * Get description
-     * ...
-     */
+    // ...
 }
 ```
 
-Dans `RepositoryProduct.php` :
-
-```php
-<?php
-// src/AppBundle/Repository/RepositoryProduct.php
-namespace AppBundle\Repository;
-
-/**
- * ProductRepository
- *
- * This class was generated by the Doctrine ORM. Add your own custom
- * repository methods below.
- */
-class ProductRepository extends \Doctrine\ORM\EntityRepository
-{
-}
-```
+`RepositoryProduct.php` : on en reparle plus tard.
 
 
 ## Persistance du modèle objet
 
 
-Une fois le modèle défini, on peut générer la table associée dans la base de données. Pour cela on utilise la commande `doctrine:schema:update`.
+Une fois le modèle défini, on peut générer la table associée dans la base de données. On appelle cela la migration. 
+
+```bash
+ php bin/console make:migration
+ ```
+
 
 Cette commande est très puissante, elle compare les tables et les modèles existants et génère le code SQL approprié. (e.g. utilise des "ALTER TABLE" lors de la mise a jour de modèles existants).
 
-
-Pour voir la commande SQL qui serait exécutée :
-
-```bash
-php bin/console doctrine:schema:update --dump-sql
-```
-
-```sql
-CREATE SEQUENCE product_id_seq INCREMENT BY 1 MINVALUE 1 START 1;
-CREATE TABLE product (id INT NOT NULL, name VARCHAR(100) NOT NULL, price NUMERIC(10, 0) NOT NULL, description TEXT NOT NULL, PRIMARY KEY(id));
-```
+Le code php généré pour modifier la base de donnée se trouve dans le dossier `migrations/``
 
 
-Pour exécuter la requête :
+Pour exécuter la requête et effectivement migrer la base :
 
 ```bash
-php bin/console doctrine:schema:update --force
+php bin/console doctrine:migrations:migrate
 ```
 
 
@@ -280,6 +161,11 @@ php bin/console doctrine:schema:update --force
 
 On a maintenant un modèle objet persistant opérationnel. On peut **créer**, **afficher**, **modifier** et **supprimer** des objets de ce type. Ce genre d'**action** se fait naturellement dans un contrôleur.
 
+on utilise la commande suivante pour générer un contrôleur de base : 
+
+```bash
+php bin/console make:controller ProductController
+```
 
 On note :
 
@@ -292,35 +178,54 @@ On note :
 
 ```php
 <?php
-// src/AppBundle/Controller/ProductController.php
 
-namespace AppBundle\Controller;
+namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use AppBundle\Entity\Product;
+use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Product;
 
-class ProductController extends Controller
+class ProductController extends AbstractController
 {
-    /**
-     * @Route("/product/create", name="product_create")
-     */
-    public function createAction()
+    
+    #[Route('/product/create', name: 'create_product')]
+    public function create_product(): Response
     {
+        // you can fetch the EntityManager via $this->getDoctrine()
+        // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
+        $entityManager = $this->getDoctrine()->getManager();
 
-    $product = new Product();
-    $product->setName('A Foo Bar');
-    $product->setPrice('19.99');
-    $product->setDescription('Lorem ipsum dolor');
+        $product = new Product();
+        $product->setName('Keyboard');
+        $product->setPrice(1999);
+        $product->setDescription('Ergonomic and stylish!');
 
-    $em = $this->getDoctrine()->getManager();
+        // tell Doctrine you want to (eventually) save the Product (no queries yet)
+        $entityManager->persist($product);
 
-    $em->persist($product);
-    $em->flush();
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
 
-    return new Response('Created product id '.$product->getId());
+        return new Response('Saved new product with id '.$product->getId());
+    }
+    
+    #[Route('/product', name: 'product')]
+    public function index(): Response
+    {
+        return $this->render('product/index.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
 }
+```
+
+On appel cette route : <https://localhost:8000/product/create>
+
+On vérifie l'existantce de l'objet dans la base : 
+
+```bash
+php bin/console doctrine:query:sql 'SELECT * FROM product'
 ```
 
 ## Consulter un objet
@@ -333,45 +238,48 @@ On effectue toujours les requêtes de consultation sur un type d'objets grâce �
 
 
 ```php
-<?php
-// src/AppBundle/Controller/ProductController.php
-// ...
+    /**
+     * @Route("/product/{id}", name="product_show")
+     */
+    public function show(int $id): Response
+    {
+        $product = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->find($id);
 
-  /**
-  * @Route("/product/{id}", name="product_show")
-  */
-  public function showAction($id)
-  {
-      $product = $this->getDoctrine()
-          ->getRepository('AppBundle:Product')
-          ->find($id);
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
 
-      if (!$product) {
-          throw $this->createNotFoundException(
-              'No product found for id '.$id
-          );
-      }
-
-      // ... do something, like pass the $product object into a template
-  }
+        return new Response('Check out this great product: '.$product->getName());
+    }
 ```
 
 On peut aussi se passer de l'utilisation du _Repository_  avec l'annotation `@ParamConverter`.
 
+
+```bash
+composer require sensio/framework-extra-bundle
+```
+
+
 ```php
 <?php
-// src/AppBundle/Controller/ProductController.php
+// src/App/Controller/ProductController.php
 // ...
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 // ...
-  /**
-   * @Route("/product/{id}", name="product_show")
-   * @ParamConverter("product", class="AppBundle:Product")
-   */
-   public function showAction(Product $product)
-   {
-     // ...
-   }
+    /**
+    * @Route("/product/{id}", name="product_show")
+    * @ParamConverter("product", class="App:Product")
+    */
+    public function show(Product $product): Response
+    {
+        // use the Product!
+        // ...
+    }
 ```
 
 
@@ -413,11 +321,11 @@ Remarque : on n'a pas besoin d'appelles `persist()` car la référence à `$prod
 
 ```php
 <?php
-// src/AppBundle/Controller/ProductController.php
+// src/Controller/ProductController.php
 // ...
   /**
    * @Route("/product/{id}/inflate", name="product_inflate")
-   * @ParamConverter("product", class="AppBundle:Product")
+   * @ParamConverter("product", class="App:Product")
    */
   public function inflateAction(Product $product)
   {
@@ -458,7 +366,7 @@ Notes :
 $em = $this->getDoctrine()->getManager();
 $query = $em->createQuery(
     'SELECT p
-    FROM AppBundle:Product p
+    FROM App\Entity\Product p
     WHERE p.price > :price
     ORDER BY p.price ASC'
 )->setParameter('price', '19.99');
@@ -476,9 +384,9 @@ Le `QueryBuilder` permet de créer des requêtes type DQL avec un ensemble d'app
 <?php
 // ...
 $repository = $this->getDoctrine()
-    ->getRepository('AppBundle:Product');
+    ->getRepository(Product::class);
 
-// createQueryBuilder automatically selects FROM AppBundle:Product
+// createQueryBuilder automatically selects FROM Product
 // and aliases it to "p"
 $query = $repository->createQueryBuilder('p')
     ->where('p.price > :price')
@@ -496,27 +404,33 @@ Enfin on peut insérer ces requêtes complexes dans le `repository`  et les util
 
 ```php
 <?php
-// src/AppBundle/Repository/ProductRepository.php
-
-namespace AppBundle\Repository;
-
-class ProductRepository extends \Doctrine\ORM\EntityRepository
+// src/Repository/ProductRepository.php
+// ...
+class ProductRepository extends ServiceEntityRepository
 {
-    public function getProductsMoreExpensiveThan($price){
-        $query = $this->createQueryBuilder('p')
+    public function findAllGreaterThanPrice(int $price, bool $includeUnavailableProducts = false): array
+    {
+        // automatically knows to select Products
+        // the "p" is an alias you'll use in the rest of the query
+        $qb = $this->createQueryBuilder('p')
             ->where('p.price > :price')
             ->setParameter('price', $price)
-            ->orderBy('p.price', 'ASC')
-            ->getQuery();
+            ->orderBy('p.price', 'ASC');
 
-        return $query->getResult();
+        if (!$includeUnavailableProducts) {
+            $qb->andWhere('p.available = TRUE');
+        }
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
     }
 }
 ```
 
 ```php
 <?php
-// src/AppBundle/Controller/ProductController.php
+// src/Controller/ProductController.php
 // ...
 
   /**
@@ -525,7 +439,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
   public function showPriceMoreThanAction($price)
   {
       $repository = $this->getDoctrine()
-          ->getRepository('AppBundle:Product');
+          ->getRepository(Product::class);
       $products = $repository->getProductsPriceMoreThan($price);
 
       return $this->render('product/showAll.html.twig', array(
@@ -541,17 +455,89 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
 ### Relations 1-n
 
 
-Supposons que chaque _product_ possède une et une seule a catégorie. On peut créer une nouvelle entité et la lier a `Product`:
+Supposons que chaque _product_ possède une et une seule a catégorie. On peut créer une nouvelle entité `Category` et la lier a `Product`:
 
 ```bash
-php bin/console doctrine:generate:entity --no-interaction \
-    --entity="AppBundle:Category" \
-    --fields="name:string(255)"
+php bin/console make:entity Category
+```
+- champ `name`, type: `string`,  taille: `256`
+
+
+On utilise la commande `make:entity` pour lier les 2 entités : 
+
+```bash
+$ php bin/console make:entity
+
+Class name of the entity to create or update (e.g. BraveChef):
+> Product
+
+New property name (press <return> to stop adding fields):
+> category
+
+Field type (enter ? to see all types) [string]:
+> relation
+
+What class should this entity be related to?:
+> Category
+
+Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+> ManyToOne
+
+Is the Product.category property allowed to be null (nullable)? (yes/no) [yes]:
+> no
+
+Do you want to add a new property to Category so that you can access/update
+Product objects from it - e.g. $category->getProducts()? (yes/no) [yes]:
+> yes
+
+New field name inside Category [products]:
+> products
+
+Do you want to automatically delete orphaned App\Entity\Product objects
+(orphanRemoval)? (yes/no) [no]:
+> no
+
+New property name (press <return> to stop adding fields):
+>
+(press enter again to finish)
 ```
 
-On crée une propriété `product` dans la classe `Category`.
 
-On note :
+Dans Product on note :
+
+- l'annotation "ORM\ManyToOne"
+- et son paramètre "inversedBy"
+
+```php
+<?php
+// src/Entity/Product.php
+namespace App\Entity;
+
+// ...
+class Product
+{
+    // ...
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
+     */
+    private $category;
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+}
+```
+
+Dans category on note :
 
 - l'annotation "ORM\OneToMany"
 - et son paramètre "mappedBy"
@@ -560,92 +546,90 @@ On note :
 
 ```php
 <?php
-// src/AppBundle/Entity/Category.php
+// src/Entity/Category.php
 
 // ...
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Category
 {
     // ...
 
     /**
-     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="category")
      */
-    protected $products;
+    private $products;
 
     public function __construct()
     {
         $this->products = new ArrayCollection();
     }
-}
-```
-
-Ensuite on ajoute la catégorie unique a chaque `Product`.
-
-On note :
-
-- l'annotation "ORM\ManyToOne"
-- et son paramètre "inversedBy"
-
-```php
-<?php
-// src/AppBundle/Entity/Product.php
-
-// ...
-class Product
-{
-    // ...
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @return Collection|Product[]
      */
-    protected $category;
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    // addProduct() and removeProduct() were also added
 }
 ```
 
 
-On demande a Doctrine de générer les _getters_ et _setters_ manquants :
+
+
+On n'a plus qu'à mettre à jour le schema de base de données :
 
 ```bash
-php bin/console doctrine:generate:entities AppBundle
-```
-
-
-Mise à jour du schema de base de données :
-
-```bash
-php bin/console doctrine:schema:update --force
-```
+ php bin/console doctrine:migrations:diff
+ php bin/console doctrine:migrations:migrate
+ ```
 
 ### Persister des données liées
 
 On persiste les données liées de la même manière que les données classiques. Chaque création de nouvel objet doit être suivit d'un appel a `persist()` dans l'_entity manager_
 
 ```php
-  public function createProductAction()
-  {
-    $category = new Category();
-    $category->setName('Main Products');
+// src/Controller/ProductController.php
+namespace App\Controller;
 
-    $product = new Product();
-    $product->setName('Foo');
-    $product->setPrice(19.99);
-    $product->setDescription('Lorem ipsum dolor');
-    // relate this product to the category
-    $product->setCategory($category);
+// ...
+use App\Entity\Category;
+use App\Entity\Product;
+use Symfony\Component\HttpFoundation\Response;
 
-    $em = $this->getDoctrine()->getManager();
-    $em->persist($category);
-    $em->persist($product);
-    $em->flush();
+class ProductController extends AbstractController
+{
+    /**
+     * @Route("/product", name="product")
+     */
+    public function index(): Response
+    {
+        $category = new Category();
+        $category->setName('Computer Peripherals');
 
-    return new Response(
-        'Created product id: '.$product->getId()
-        .' and category id: '.$category->getId()
-    );
-  }
+        $product = new Product();
+        $product->setName('Keyboard');
+        $product->setPrice(19.99);
+        $product->setDescription('Ergonomic and stylish!');
+
+        // relates this product to the category
+        $product->setCategory($category);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($category);
+        $entityManager->persist($product);
+        $entityManager->flush();
+
+        return new Response(
+            'Saved new product with id: '.$product->getId()
+            .' and new category with id: '.$category->getId()
+        );
+    }
+}
 ```
 
 
@@ -662,7 +646,7 @@ Grâce aux accesseurs définis dans les modèles il est facile d'accéder aux do
 public function showAction($id)
 {
     $product = $this->getDoctrine()
-        ->getRepository('AppBundle:Product')
+        ->getRepository(Product::class)
         ->find($id);
 
     $categoryName = $product->getCategory()->getName();
@@ -681,30 +665,28 @@ Si on sait d'avance que ces 2 requêtes vont être faites, on peut avoir recours
 <?php
 // src/AppBundle/Entity/ProductRepository.php
 //...
-  public function findOneByIdJoinedToCategory($id)
-  {
-      $query = $this->getEntityManager()
-          ->createQuery(
-              'SELECT p, c FROM AppBundle:Product p
-              JOIN p.category c
-              WHERE p.id = :id'
-          )->setParameter('id', $id);
+  public function findOneByIdJoinedToCategory(int $productId): ?Product
+    {
+        $entityManager = $this->getEntityManager();
 
-      try {
-          return $query->getSingleResult();
-      } catch (\Doctrine\ORM\NoResultException $e) {
-          return null;
-      }
-  }
+        $query = $entityManager->createQuery(
+            'SELECT p, c
+            FROM App\Entity\Product p
+            INNER JOIN p.category c
+            WHERE p.id = :id'
+        )->setParameter('id', $productId);
+
+        return $query->getOneOrNullResult();
+    }
 ```
 
 puis utiliser le _repository_ dans les contrôleurs :
 
 ```php
-public function showAction($id)
+public function show(int $id): Response
 {
     $product = $this->getDoctrine()
-        ->getRepository('AppBundle:Product')
+        ->getRepository(Product::class)
         ->findOneByIdJoinedToCategory($id);
 
     $category = $product->getCategory();
