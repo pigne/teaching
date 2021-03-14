@@ -5,7 +5,7 @@ categories:
 - InfoWeb
 - lab
 published: true
-update: 2021-02-19
+
 ---
 
 ## Les Frameworks CSS 

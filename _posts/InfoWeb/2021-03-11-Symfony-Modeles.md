@@ -6,7 +6,6 @@ categories:
 - lecture
 author: Yoann Pigné
 published: true
-update: 2021-03-11
 ---
 
 Récapitulatif du cours et du TP précédent :

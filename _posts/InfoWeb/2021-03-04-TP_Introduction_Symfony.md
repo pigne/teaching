@@ -6,7 +6,6 @@ categories:
 - lab
 author: Yoann Pigné
 published: true
-update: 2021-03-04
 ---
 
 
