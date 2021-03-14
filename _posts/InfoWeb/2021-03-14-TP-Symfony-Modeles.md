@@ -25,7 +25,7 @@ Ce TP est une mise en application du [cours](http://pigne.org/teaching/infoweb/l
 ## Groupes et GIT
 
 
-Ce projet est un TP de groupe. Les groupes peuvent êtres constitués de 2, de 3 ou de 4 personnes. **Pas plus, pas moins**.  Il n'est pas nécessaire que ces groupes soient les mêmes qu'au TP précédent. 
+Ce projet est un TP de groupe. Les groupes peuvent êtres constitués de 2 ou 3 personnes. **Pas plus, pas moins**.  
 
 L'organisation du travail de groupe, la répartition de tâches et l'équilibre des contributions de chacun,  font partit du travail demandé et seront pris en compte dans l'évaluation. 
 
@@ -36,13 +36,15 @@ Ne pas oublier de donner les droits *developer* aux enseignants (messieurs Fourn
 Ce projet débute le TP final du cours d'InfoWeb. Ce dépot GIT va être utilisé/amélioré jusqu'au dernier TP. 
 
 
-Chaque groupe constitué **doit** désigner un **référent** qui se charge de créer le projet GIT et le projet Symfony puis d'envoyer un courriel aux enseignants avec les noms des membres et l'URL du projet. 
+Chaque groupe constitué **doit** désigner un **référent** qui se charge de créer le projet GIT et le projet Symfony, puis d'envoyer un courriel aux enseignants avec les noms des membres, le numéro de sujet choisi et l'URL du projet. 
 
 ## Échéances 
 
 - Le courriel du référent indiquant la composition du groupe, le n° de sujet et l'URL du projet doit être envoyé **avant le 17 mars**.
 
 - Les commits concernant ce TP doivent être publiés (push) **avant ce dimanche 21 mars à 20h**. 
+
+- Pour information, la seconde partie du TP, qui sera présentée la semaine prochaine sera a rendre pour le dimanche 28 mars. 
 
 
 ## Deux sujets au choix
@@ -51,7 +53,7 @@ Vous avez le choix entre deux sujets de TP. N'en choisissez qu'un seul !
 
 Le **sujet n°1** consiste à utiliser à nouveau votre base du Projet BD du premier semestre et de refaire un site *CRUD* entièrement avec Symfony. L'avantage de ce sujet est que vous maîtrisez la structure de la base. L'inconvénient est que c'est une structure parfois complexe avec de nombreuses associations. 
 
-Le **sujet n°2** consiste à utiliser une nouvelle source de données, plus simple, qui ne contient qu'une seule entités principale et une seule association 1-n. L'avantage de ce sujet est la simplicité du model de donnée. L'inconvénient est qu'il y a un travail d'importation et d'adaptation des données à partir d'une source au format texte (CSV, ou JSON). 
+Le **sujet n°2** consiste à utiliser une nouvelle source de données, plus simple, qui ne contient qu'une seule entités principale et une seule association 1-n. L'avantage de ce sujet est la simplicité du modèle de données. L'inconvénient est qu'il y a un travail d'importation et d'adaptation des données à partir d'une source au format texte (CSV, ou JSON). 
 
 
 Indications valable pour  les **deux sujets** : 
@@ -92,7 +94,7 @@ Une entité principale `Établissement` doit être conçue. Le schéma exacte es
 A minima, un établissement aura les champs suivants : 
 
 - une appellation officielle (son nom)
-- une dénomination principale (sa nature, collège, lycéee...)
+- une dénomination principale : sa nature (collège, lycée...)
 - un secteur (public ou privé)
 - des coordonnées GPS numériques longitude et latitude
 - une adresse
@@ -110,8 +112,8 @@ Un contrôleur principal permettra les actions *CRUD* sur ce model. Pour l'insta
 
 La visualisation par liste doit se faire par catégorie (département, région, commune, académie). On doit donc prévoir les routes adéquates par exemple : 
 
-- `/etablissements/departement/:code_depatement`
-- `/etablissements/accademie/:code_accademie`
+- `/etablissements/departement/:code_departement`
+- `/etablissements/academie/:code_academie`
 - etc.
 
 
@@ -124,17 +126,21 @@ Des données sources sont disponibles sous Licence Ouverte pour alimenter ce mod
 - lien de téléchargement direct au format CSV : <https://data.education.gouv.fr/explore/dataset/fr-en-adresse-et-geolocalisation-etablissements-premier-et-second-degre/download?format=csv&amp;timezone=Europe/Berlin&amp;use_labels_for_header=false>
 
 
-On peut bien sur ouvrir ce fichier CSV avec Excel, récupérer les colonnes intéressantes et se débattre un peu avec DataGrib ou PhpMyAdmin pour importer les données directement dans la base de donnée... Mais ce n'est pas la bonne méthode. 
+On peut bien sur ouvrir ce fichier CSV avec Excel, récupérer les colonnes intéressantes et se débattre un peu avec DataGrip ou PhpMyAdmin pour importer les données directement dans la base... Mais ce n'est pas la bonne méthode. 
 
 La  bonne méthode c'est d'écrire un script d'import en PHP qui va télécharger les données et créer des instance de l'entité `Établissement` et les faire persister en base. Pour ça on utilise DoctrineFixturesBundle: <https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html>
 
+On aura besoin d'interpréter les données en fonction du format utilisé : 
+
+- CSV : [`fgetcsv()`](https://www.php.net/manual/fr/function.fgetcsv.php)
+- JSON : [`json_decode()`](https://www.php.net/manual/fr/function.json-decode.php)
 
 
 
 ### Des commentaires 
 
 
-On souhaite que le site affiche une liste de commentaires associés à chaque établissment. 
+On souhaite que le site affiche une liste de commentaires associés à chaque établissement. 
 
 Un commentaire peut être constitué de : 
 - un nom d'auteur (champs de texte libre),
