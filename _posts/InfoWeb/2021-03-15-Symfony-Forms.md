@@ -73,6 +73,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -95,7 +96,7 @@ class MuseeController extends AbstractController
   /**
    * @Route("/{id}/dummy", name="musee_dummy")
    */
-  public function dummyAction(Musee $musee)
+  public function dummyAction(Musee $musee): Reponse
   {
      $dummyForm = $this->createFormBuilder($musee)
         ->add('nom', TextType::class)
@@ -114,11 +115,12 @@ class MuseeController extends AbstractController
 }
 ```
 
-Plusieurs fonctions TWIG permettent de générer des formulaires. On utilsie la plus simple : `form` qui génère tout le formulaire :
--
- la balise `<form>`  et les attributs `action` et `method`
-- les `input`
-- le champs caché CSRF et  le `</form>`
+
+Plusieurs fonctions TWIG permettent de générer des formulaires. On utilise la plus simple : `form` qui génère tout le formulaire :
+- la balise `<form>`  et les attributs `action` et `method`,
+- les `input`,
+- le champs caché CSRF,
+- la fin du `</form>`
 
 
 Template  minimal  :
@@ -243,6 +245,7 @@ C'est lors de la définition de l'entité (le modèle objet) que l'on définie c
 <a href="https://symfony.com/doc/current/validation.html">Documentation sur la validation.</a>
 
 
+{%raw%}
 
 ```php
 <?php
@@ -289,9 +292,8 @@ use Symfony\Component\Validator\Constraints as Assert;
      * )
      */
     private $longitude;
-
-
 ```
+{%endraw%}
 
 
 ## Classe dédiée de création de formulaire
