@@ -96,7 +96,7 @@ class MuseeController extends AbstractController
   /**
    * @Route("/{id}/dummy", name="musee_dummy")
    */
-  public function dummyAction(Musee $musee): Reponse
+  public function dummyAction(Musee $musee): Response
   {
      $dummyForm = $this->createFormBuilder($musee)
         ->add('nom', TextType::class)
