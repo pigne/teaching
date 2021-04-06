@@ -42,6 +42,10 @@ On utilise les [CSS modules](https://github.com/css-modules/css-modules) pour g�
 
 On veillera a bien nommer les fichier comme décrit dans la [documentation de `create-react-app`](https://facebook.github.io/create-react-app/docs/adding-a-css-modules-stylesheet).
 
+## Tests
+
+Les composants React peuvent être testés comme n'importe quel code javascript. Se référer à l'[aide en ligne de React  sur les tests](https://fr.reactjs.org/docs/testing.html) pour tester le code. 
+
 ## Rendu
 
 Comme pour les autres TP, on va forker un projet de base : <https://www-apps.univ-lehavre.fr/forge/2020-2021-m1/WEB-react-router-lab> et en proposer un *Merge Request* une fois le travail terminé. On n'oubliera pas de modifier le fichier `README.md` et de nommer correctement le *Merge Request* avec vos **nom**, **prénom** et **numéro d'étudiant**.
