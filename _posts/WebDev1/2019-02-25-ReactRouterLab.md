@@ -55,8 +55,8 @@ Comme pour les autres TP, on va forker un projet de base : <https://www-apps.uni
 
 ## Échéance
 
-- Groupe A & B : 21 avril 2021
-- Groupe C: 14 avril 2021
+- Groupe A & B : 28 avril 2021
+- Groupe C: 5 mai 2021
 
 
 ## Évaluation
