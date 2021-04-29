@@ -5,9 +5,12 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: false
+published: true
 update: 2020-04-30
 ---
+
+**[FACULTATIF]**
+
 
 - [Les Actions](#les-actions)
 - [Le Réducteur (*reducer*)](#le-réducteur-reducer)
@@ -38,13 +41,13 @@ On note que le type de l'action contient un **verbe actif**. Il doit permettre d
 
 ## Le Réducteur (*reducer*)
 
-Un réducteur (*reducer*) est une **fonction pure**, qui prend en paramètre un état et une action,  pour retourner un (nouvel) état:
+Un réducteur (*reducer*) est une **fonction pure**, qui prend en paramètre un état et une action, pour retourner un (nouvel) état :
 
 ```
 (état, action) => état
 ```
 
-Décrit  comment une *action* va modifier un *état* donner pour retourner un *nouvel état*.
+Il décrit comment une *action* va modifier un *état* donné pour retourner un *nouvel état*.
 
 Le nouvel état, retourné par la fonction, est un **nouvel** objet. L'état d'origine n'est **pas modifié**.
 
