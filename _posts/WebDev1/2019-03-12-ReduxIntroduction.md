@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introcution à Redux [FACULTATIF]
+title: Introduction à Redux [FACULTATIF]
 categories:
 - WebDev1
 - lecture
