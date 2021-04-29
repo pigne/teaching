@@ -31,5 +31,5 @@ Pour tous : 21 mai 2021.
 
 ## Évaluation
 
-[Liste des aptitudes évaluées.](/teaching/WebDev1#react--reactrouter--redux) C'est la meême évaluation que le rendu précédent. 
+[Liste des aptitudes évaluées.](/teaching/WebDev1#react--reactrouter--redux) C'est la même évaluation que le rendu précédent. 
 
