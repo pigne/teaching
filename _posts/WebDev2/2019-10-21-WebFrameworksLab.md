@@ -27,11 +27,11 @@ Une annonce immobilière est composée :
 - de questions posées par des utilisateurs,
 - de réponses aux questions, répondues par les agents immobiliers.
 
-Lors de la création d'une annonce, un agent doit pouvoir ajouter (glisser déposer) autant de photos que voulu.
+Lors de la création d'une annonce, un agent doit pouvoir ajouter (**glisser déposer**) autant de photos que voulu.
 
 ## But de ce TP
 
-Le but est de mettre en application les compétences déjà acquises en Licence et M1. Ce TP ne fait pas appel de nouveaux paradigmes de programmation. En revanche  deux technologies sont imposées.
+Le but est de mettre en application les compétences déjà acquises en Licence et M1. Ce TP ne fait pas appel de nouveaux paradigmes de programmation. En revanche deux technologies sont imposées.
 
 Le framework *Express* pour *node.js* doit être utilisé pour gérer :
 
@@ -45,21 +45,21 @@ Le framework *Express* pour *node.js* doit être utilisé pour gérer :
 - La génération des pages Web à partir de templates,
 - le logging,
 
-Les données (annonces, utilisateurs, sessions, ...) sont stockées dans une base de données MongoDB.
+Les données (annonces, utilisateurs, sessions, ...) sont stockées dans une base de données *MongoDB*.
 
 On ne négligera pas non plus les aspects visuels. Les pages Web générées à partir des templates respecteront les standards Web (HTML et CSS) et proposeront une expérience utilisateur (UX) de qualité. Le site doit être [*responsive*](https://en.wikipedia.org/wiki/Responsive_web_design), la navigation doit atteindre un niveau d'[accessibilité minimal](https://fr.wikipedia.org/wiki/Accessibilit%C3%A9_du_web), les formulaires [efficaces](https://uxplanet.org/designing-more-efficient-forms-structure-inputs-labels-and-actions-e3a47007114f).
 
-Une telle application doit être testée ! Au delà des tests unitaires comment tester la génération de pages web à partir du contenu d'une bado ? Il vous appartient de répondre à cette question on proposant une solution technique.
+Une telle application doit être **testée** ! Au-delà des tests unitaires comment tester la génération de pages web à partir du contenu d'une base de données ? Il vous appartient de répondre à cette question en **proposant** une solution technique.
 
 ## Travail avec la forge de l'université
 
-Ce travail doit faire l'objet d'un projet GIT sur la forge. Il faut m'envoyer dès le début du TP  un mail (yoann.pigne@univ-lehavre.fr) avec entête "[M2 IWOCS WEB] Projet n°1". Ce mail m'indiquera: votre nom, prénom, n° d'étudiant, login, et l'url de votre projet sur la forge.
+Ce travail doit faire l'objet d'un projet GIT sur la forge. Il faut m'envoyer dès le début du TP un mail (yoann.pigne@univ-lehavre.fr) avec entête "[M2 IWOCS WEB] Projet n°1". Ce mail m'indiquera : votre nom, prénom, n° d'étudiant, login et l'URL de votre projet sur la forge.
 
 N'oubliez pas de me donner accès au projet en m'ajouter en tant que "`developer`".
 
 ## Évaluation
 
-Ce travail doit être rendu pour le 9 octobre 2020 (délai de rigueur). Il ne sera pas corrigé mais servira de base à un oral, le 12 octobre, ou les détails d'implémentation et le fonctionnement du projet seront présentés et expliqués.
+Ce travail doit être rendu pour le 5 novembre 2021 (délai de rigueur). Il ne sera pas corrigé, mais servira de base à un oral, le 8 novembre 2021, ou les détails d'implémentation et le fonctionnement du projet seront présentés et expliqués.
 
 Les compétences seront validées sur la base du rendu du projet ainsi que sur cette évaluation orale.
 

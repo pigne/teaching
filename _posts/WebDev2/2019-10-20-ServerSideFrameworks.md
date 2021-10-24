@@ -255,7 +255,7 @@ Connect to a Mongo database and query objects.
     .gt(2)
     .lt(8) // contrainte
     .sort({ age: -1 }) // tri
-    .select({ name: 1, age: 1 }); // selectin de colonnes
+    .select({ name: 1, age: 1 }); // selection de colonnes
   //.lean() // conversion en objets JS simples
 
   const saveDogs = dogs.map(async (dog) => {
@@ -268,7 +268,7 @@ Connect to a Mongo database and query objects.
 
   console.log(dogs);
 
-  mongoose.disconnect().catch((err) => console.log("DISC", err));
+  mongoose.disconnect().catch((err) => console.log("DISCONNECT", err));
 })(); // async IIFE
 ```
 
@@ -301,9 +301,9 @@ function createProject(req, res) {
 };
 ```
 
-## Moteur de template
+<!-- ## Moteur de template
 
-Pour l'heure, préférer un autre moteur de template que celui par défaut (pug) car il a des dépendances avec vulnérabilités. `Blade` est compatible avec la syntaxe de jade/pug.
+Pour l'heure, préférer un autre moteur de template que celui par défaut (pug) car il a des dépendances avec vulnérabilités. `Blade` est compatible avec la syntaxe de jade/pug. -->
 
 ## Authentification
 
