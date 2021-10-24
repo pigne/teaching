@@ -6,6 +6,7 @@ categories:
 - lab
 author: Yoann Pigné
 published: true
+update: 2021-10-24
 ---
 
 Le but de ce TP est une mise en application des compétences déjà acquises dans le cursus (Licence, M1) avec la contrainte d'utiliser de nouvelles technologies. On propose de réaliser un site Web classique CRUD de gestion d'annonces immobilières.
