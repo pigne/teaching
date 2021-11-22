@@ -5,8 +5,8 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published: false
-update: 2020-10-15
+published: true
+update: 2021-11-22
 ---
 
 
@@ -20,9 +20,9 @@ En se basant sur la [documentation en ligne](https://graphql.org/learn) et sur l
 
 - En binôme
 - Un projet git sur la forge qui héberge le code et les tests.
-- Un [sereur HTTP implementnat GraphQL](https://graphql.org/learn/serving-over-http/) (de préférence avec Express) et connecté à une base de donnée (votre base  MongoDB d'annonces immobilières).
+- Un [serveur HTTP implémentant GraphQL](https://graphql.org/learn/serving-over-http/) (de préférence avec Express) et connecté à une base de donnée (votre base  MongoDB d'annonces immobilières).
 - Une validation des requêtes grâce au système de [validation](https://graphql.org/learn/validation/) de GraphQL.
-- Une validation du service grâce à des tests d'intégration (des requêtes)  permettant d'effectuer des requêtes paramétriques sur le serveur.
+- Une validation du service grâce à des tests d'intégration (des requêtes) permettant d'effectuer des requêtes paramétriques sur le serveur.
 
 
 Il est convenu de m'envoyer un mail avec les noms des binômes et le lien vers le projet sur la forge. Ne pas oublier de me donner les droits suffisants.
@@ -30,7 +30,8 @@ Il est convenu de m'envoyer un mail avec les noms des binômes et le lien vers l
 ## Échéance et Évaluation
 
 
-- Le **2 novembre 2020**,  évaluation à l'oral, en binômes, en salle machine, pendant 20 minutes.
+- Ce travail doit être rendu pour le **vendredi 3 décembre 2021**  (délai de rigueur).
+- Évaluation à l'oral, en binômes, en salle machine, pendant 20 minutes.
 - Présentation  de GraphQL et du projet réalisé.
 - On doit pouvoir présenter et définir rapidement les concepts GraphQL suivants :
   - Variables
@@ -46,9 +47,9 @@ Il est convenu de m'envoyer un mail avec les noms des binômes et le lien vers l
 
 
 - D1
-  - D1.C4 --  Maîtriser l’écriture des tests et la couverture du code
+  - D1.C4 --  Maitriser l’écriture des tests et la couverture du code
 - D2
   - D2.C2 --  Concevoir et réaliser des API et des protocoles de communication
-  - D2.C3 --  Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)
+  - D2.C3 --  Maitriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)
 - D4
-  - D4.C1 --  Maîtriser un outil collaboratif de gestion de code (git)
+  - D4.C1 --  Maitriser un outil collaboratif de gestion de code (git)
