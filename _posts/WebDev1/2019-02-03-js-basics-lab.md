@@ -11,7 +11,7 @@ update: 2021-01-12
 
 # JS Basics Lab
 
-Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2020-2021-M1/WEB-jsbasics-lab>
+Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2021-2022-M1/WEB-jsbasics-lab>
 
 Ce projet est principalement constitué d'un fichier de tests (`test/index.test.js`) qui s'applique sur un ensemble de fonctions (`src/index.js`). Certains tests sont écrits, mais le corps des fonctions testées est vide ! D'autres fonctions sont écrites mais il faut écrire leurs testes. Parfois il manque le corps des fonctions et les tests.
 
