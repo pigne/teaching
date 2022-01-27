@@ -45,11 +45,7 @@ Quand tous les tests passent, que la couverture du code par les tests est satisf
 
 ## Échéance
 
-TP à rendre pour le :
-
-- Groupe A : 21 janvier 2021
-- Groupe B : 19 janvier 2021
-- Groupe C : 27 janvier 2021
+TP à rendre pour le : 28/01/2022
 
 ## Évaluation
 
