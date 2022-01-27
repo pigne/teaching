@@ -6,7 +6,7 @@ categories:
 - lab
 author: Yoann Pigné
 published: true
-update: 2021-01-12
+update: 2022-01-27
 ---
 
 # JS Basics Lab
