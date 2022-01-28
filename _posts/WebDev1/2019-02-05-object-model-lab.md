@@ -6,7 +6,7 @@ categories:
 - lab
 author: Yoann Pigné
 published: false
-update: 2021-02-01
+update: 2022-01-28
 ---
 
 Dans le cadre de la conception d'une application de gestion de capteurs de type internet des objets (*Internet of Things*, IoT), on veux créer un modèle objet permettant de représenter des capteurs et les données qu'ils génèrent.
@@ -70,11 +70,7 @@ Enfin un *merge request* permettra de rendre le TP. Penser à donner **vos nom e
 
 ## Échéance
 
-TP à rendre pour le :
-
-- Groupe A : **15 février 2021**,
-- Groupe B: **17 février 2021**,
-- Groupe C: **24 février 2021**.
+TP à rendre pour le : 11/02/2022
 
 ## Évaluation
 
