@@ -6,7 +6,7 @@ categories:
 - lab
 published: true
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 On  continue le travail commencé lors du [TP Précédent](http://pigne.org/teaching/infoweb/lab/TP-Symfony-Modeles).
