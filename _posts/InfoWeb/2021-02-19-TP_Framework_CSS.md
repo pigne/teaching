@@ -106,7 +106,7 @@ Pas la peine d'écrire *toutes* les pages de groupes. Une seule suffit. Pas la p
 
 ### Les pages équipe
 
-A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les éléments et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe France féminine de rugby à XV](hhttps://fr.wikipedia.org/wiki/%C3%89quipe_de_France_f%C3%A9minine_de_rugby_%C3%A0_XV)) pour constater qu'une équipe possède un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
+A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les éléments et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe France féminine de rugby à XV](https://fr.wikipedia.org/wiki/%C3%89quipe_de_France_f%C3%A9minine_de_rugby_%C3%A0_XV)) pour constater qu'une équipe possède un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
 
 <!-- ## Fin du TP
 
