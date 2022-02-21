@@ -5,7 +5,8 @@ categories:
 - InfoWeb
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2022-02-21
 ---
 
 Récapitulatif du cours et du TP précédent :
