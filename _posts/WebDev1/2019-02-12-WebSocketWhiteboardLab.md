@@ -5,8 +5,8 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
-update: 2022-02-10
+published: true
+update: 2022-02-22
 ---
 
 Faire une divergence (un *fork*) du projet <https://www-apps.univ-lehavre.fr/forge/2021-2022-m1/WEB-whiteboard-websocket-lab>
@@ -17,11 +17,10 @@ Un tableau blanc sur une Web app est une surface sur laquelle les utilisateurs p
 ~~Un utilisateur doit pouvoir créer un nouveau dessin vierge. Il doit aussi pouvoir  afficher la liste des dessins en cours et participer à ces dessins.~~
 
 
-Techniquement le dessin se fait à l'aide d'un  [*canvas* html5](https://developer.mozilla.org/fr/docs/Web/Guide/Graphics/Dessiner_avec_canvas).
+Techniquement le dessin se fait à l'aide d'un  [*canvas* html5](https://developer.mozilla.org/fr/docs/Web/Guide/Graphics/Dessiner_avec_canvas). 
 
-La base du code présente ici est celle de la 
-[démo WebSocket](https://www-apps.univ-lehavre.fr/forge/pigne/WEB-websocket-demo). Il faut s'en inspirer 
-pour  permettre l'interconnection et le partage des dessins de chacun.
+
+La base du code présente ici est celle de la démo WebSocket du cours. Il faut s'en inspirer  pour  permettre l'interconnection et le partage des dessins de chacun.
 On ne souhaite utiliser aucune autre technologie que les WebSocket et les Canvas supportés nativement par le navigateur. On n'utilisera ni framework ni bibliothèque de dessins.
  
 Projet à rendre sous forme d'un *merge request* du projet initial sur la forge de l'université.
@@ -29,7 +28,7 @@ Projet à rendre sous forme d'un *merge request* du projet initial sur la forge 
 
 ## Échéance
 
-TP à rendre pour le : 25/02/2022
+TP à rendre pour le : 18/03/2022
 
 ## Évaluation
 
