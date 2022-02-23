@@ -5,7 +5,7 @@ categories:
 - InfoWeb
 - lecture
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 Récapitulatif des cours et TPs précédents :
@@ -60,7 +60,6 @@ La représentation se fait en 2 étapes.
 On note :
 
 - la route constituée en 2 parties (`/musee` +  `/{id}/dummy` =  `/musee/{id}/dummy`)
-- la variable $musee créée sans utiliser le `ParamConverter`
 - les **types** utilisés pour créer le formulaire : <https://symfony.com/doc/current/reference/forms/types.html>
 - la méthode `createView()` du formulaire pour la création du template
 

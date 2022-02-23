@@ -184,17 +184,16 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Product;
 
 class ProductController extends AbstractController
 {
     
     #[Route('/product/create', name: 'create_product')]
-    public function create_product(): Response
+    public function create_product(ManagerRegistry $doctrine): Response
     {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
-        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $doctrine->getManager();
 
         $product = new Product();
         $product->setName('Keyboard');
@@ -222,7 +221,7 @@ class ProductController extends AbstractController
 
 On appel cette route : <https://localhost:8000/product/create>
 
-On vérifie l'existantce de l'objet dans la base : 
+On vérifie l'existence de l'objet dans la base : 
 
 ```bash
 php bin/console doctrine:query:sql 'SELECT * FROM product'
@@ -238,13 +237,14 @@ On effectue toujours les requêtes de consultation sur un type d'objets grâce �
 
 
 ```php
+// src/App/Controller/ProductController.php
+// ...
     /**
      * @Route("/product/{id}", name="product_show")
      */
-    public function show(int $id): Response
+    public function show(ManagerRegistry $doctrine, int $id): Response
     {
-        $product = $this->getDoctrine()
-            ->getRepository(Product::class)
+        $product = $doctrine->getRepository(Product::class)
             ->find($id);
 
         if (!$product) {
@@ -257,29 +257,16 @@ On effectue toujours les requêtes de consultation sur un type d'objets grâce �
     }
 ```
 
-On peut aussi se passer de l'utilisation du _Repository_  avec l'annotation `@ParamConverter`.
-
-
-```bash
-composer require sensio/framework-extra-bundle
-```
-
+On peut aussi se passer de l'utilisation du _Repository_  et du champ `id` en utilisant un paramètre typé 
 
 ```php
 <?php
 // src/App/Controller/ProductController.php
 // ...
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-// ...
-    /**
-    * @Route("/product/{id}", name="product_show")
-    * @ParamConverter("product", class="App:Product")
-    */
     public function show(Product $product): Response
     {
-        // use the Product!
+        // use the product!
         // ...
-    }
 ```
 
 
@@ -313,9 +300,9 @@ $products = $repository->findBy(
 
 Une fois que l'on dispose d'une référence à un objet il est facile de le mettre à jours avec des accesseurs. Il faut ensuite appeler l'`entity manager` pour activer la persistance. On fait cela en 3 étapes.
 
-1. On récupère l'objet a partir de doctrine (ici c'est `@ParamConverter` qui s'en charge)
-2. modifier l'objet avec les modificateurs (e.g. : `setPrice`)
-3. appel à la méthode  `flush()` de l'`entity manager`.
+1. On récupère l'objet a partir de doctrine (c'est le paramètre typé `Product`)
+2. On modifie l'objet avec les modificateurs (e.g. : `setPrice`)
+3. On appel à la méthode  `flush()` de l'`entity manager`.
 
 Remarque : on n'a pas besoin d'appelles `persist()` car la référence à `$product` vient de doctrine et l'entity manager sait déjà qu'il faut persister cet objet.
 
@@ -325,12 +312,11 @@ Remarque : on n'a pas besoin d'appelles `persist()` car la référence à `$prod
 // ...
   /**
    * @Route("/product/{id}/inflate", name="product_inflate")
-   * @ParamConverter("product", class="App:Product")
    */
-  public function inflateAction(Product $product)
+  public function inflateAction(ManagerRegistry $doctrine, Product $product)
   {
       $product->setPrice($product->getPrice() * 1.01);
-      $em = $this->getDoctrine()->getManager();
+      $em = $doctrine->getManager();
       $em->flush();
       return $this->redirectToRoute('product_show', ['id'=>$product->getId()]);
 
@@ -363,7 +349,7 @@ Notes :
 ```php
 <?php
 // ...
-$em = $this->getDoctrine()->getManager();
+$em = $doctrine->getManager();
 $query = $em->createQuery(
     'SELECT p
     FROM App\Entity\Product p
@@ -383,14 +369,13 @@ Le `QueryBuilder` permet de créer des requêtes type DQL avec un ensemble d'app
 ```php
 <?php
 // ...
-$repository = $this->getDoctrine()
-    ->getRepository(Product::class);
+$repository = $doctrine->getRepository(Product::class);
 
 // createQueryBuilder automatically selects FROM Product
 // and aliases it to "p"
 $query = $repository->createQueryBuilder('p')
     ->where('p.price > :price')
-    ->setParameter('price', '19.99')
+    ->setParameter('price', 19.99)
     ->orderBy('p.price', 'ASC')
     ->getQuery();
 
@@ -408,7 +393,7 @@ Enfin on peut insérer ces requêtes complexes dans le `repository`  et les util
 // ...
 class ProductRepository extends ServiceEntityRepository
 {
-    public function findAllGreaterThanPrice(int $price, bool $includeUnavailableProducts = false): array
+    public function findAllGreaterThanPrice(int $price): array
     {
         // automatically knows to select Products
         // the "p" is an alias you'll use in the rest of the query
@@ -416,10 +401,6 @@ class ProductRepository extends ServiceEntityRepository
             ->where('p.price > :price')
             ->setParameter('price', $price)
             ->orderBy('p.price', 'ASC');
-
-        if (!$includeUnavailableProducts) {
-            $qb->andWhere('p.available = TRUE');
-        }
 
         $query = $qb->getQuery();
 
@@ -436,15 +417,13 @@ class ProductRepository extends ServiceEntityRepository
   /**
    * @Route("/products/morethan/{price}", name="product_morethan")
    */
-  public function showPriceMoreThanAction($price)
+  public function showPriceMoreThanAction(ManagerRegistry $doctrine, $price)
   {
-      $repository = $this->getDoctrine()
-          ->getRepository(Product::class);
-      $products = $repository->getProductsPriceMoreThan($price);
+      $repository = $doctrine->getRepository(Product::class);
+      $products = $repository->findAllGreaterThanPrice($price);
 
-      return $this->render('product/showAll.html.twig', array(
+      return $this->render('product/some.html.twig', array(
           'products' => $products, 'title'=> "Products whose price is more than \$$price"));
-
   }
 ```
 
@@ -518,9 +497,9 @@ class Product
 {
     // ...
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
-     */
+
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
+    #[ORM\JoinColumn(nullable: false)]
     private $category;
 
     public function getCategory(): ?Category
@@ -537,7 +516,7 @@ class Product
 }
 ```
 
-Dans category on note :
+Dans `Category` on note :
 
 - l'annotation "ORM\OneToMany"
 - et son paramètre "mappedBy"
@@ -556,9 +535,7 @@ class Category
 {
     // ...
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="category")
-     */
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
     private $products;
 
     public function __construct()
@@ -603,31 +580,29 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends AbstractController
 {
-    /**
-     * @Route("/product", name="product")
-     */
-    public function index(): Response
+    #[Route('/product/createwithcategory', name: 'create_product_with_cat')]
+    public function createWithCategory(ManagerRegistry $doctrine)
     {
-        $category = new Category();
-        $category->setName('Computer Peripherals');
+      $category = new Category();
+      $category->setName('Computer Peripherals');
 
-        $product = new Product();
-        $product->setName('Keyboard');
-        $product->setPrice(19.99);
-        $product->setDescription('Ergonomic and stylish!');
+      $product = new Product();
+      $product->setName('Keyboard');
+      $product->setPrice(19.99);
+      // $product->setDescription('Ergonomic and stylish!');
 
-        // relates this product to the category
-        $product->setCategory($category);
+      // relates this product to the category
+      $product->setCategory($category);
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($category);
-        $entityManager->persist($product);
-        $entityManager->flush();
+      $entityManager = $doctrine->getManager();
+      $entityManager->persist($category);
+      $entityManager->persist($product);
+      $entityManager->flush();
 
-        return new Response(
-            'Saved new product with id: '.$product->getId()
-            .' and new category with id: '.$category->getId()
-        );
+      return new Response(
+          'Saved new product with id: '.$product->getId()
+        .' and new category with id: '.$category->getId()
+      );
     }
 }
 ```
@@ -643,12 +618,8 @@ Grâce aux accesseurs définis dans les modèles il est facile d'accéder aux do
 ```php
 <?php
 // ...
-public function showAction($id)
+public function showAction(ManagerRegistry $doctrine, Product $product)
 {
-    $product = $this->getDoctrine()
-        ->getRepository(Product::class)
-        ->find($id);
-
     $categoryName = $product->getCategory()->getName();
     //...
 
@@ -683,11 +654,9 @@ Si on sait d'avance que ces 2 requêtes vont être faites, on peut avoir recours
 puis utiliser le _repository_ dans les contrôleurs :
 
 ```php
-public function show(int $id): Response
+public function show(ManagerRegistry $doctrine, int $id): Response
 {
-    $product = $this->getDoctrine()
-        ->getRepository(Product::class)
-        ->findOneByIdJoinedToCategory($id);
+    $product = $doctrine->getRepository(Product::class)->findOneByIdJoinedToCategory($id);
 
     $category = $product->getCategory();
 
