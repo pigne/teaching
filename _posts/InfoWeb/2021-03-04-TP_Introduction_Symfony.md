@@ -5,7 +5,7 @@ categories:
 - InfoWeb
 - lab
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 
@@ -19,7 +19,7 @@ Symfony est entre autres un framework Web. Il contient un ensemble de ressources
 Il y a 2 choses à faire dans ce TP :
 
 1. Suivre les étapes afin de réaliser le TP.
-2. Répondre en parallèle aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=35458) se trouvant sur la page du cours.
+2. Répondre en parallèle aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=337309) se trouvant sur la page du cours.
 
 Il est possible de travailler en binôme pour ce TP. En revanche, les réponses aux questions dans Eureka doivent être répondues par tout le monde. 
 
@@ -67,28 +67,19 @@ export PATH="$HOME/.composer/bin:$PATH"
 
 ### Symfony
 
+Pour installer Symfony on suit les instructions en fonction de l'OS utilisé : <https://symfony.com/download>
 
-#### Pour Windows
+#### les machine de TP de l'UFR
 
-On utilise l'installateur : <https://get.symfony.com/cli/setup.exe>
-
-Puis on redémarre le terminal pour recharger l'environnement.
-
-#### Pour Linux
-
-On installe avec cette commande : 
-
-```bash 
-curl -sS https://get.symfony.com/cli/installer | bash
-````
-
-Puis on ajoute la ligne suivante au fichier `${HOME}/.profile`
+1. On télécharge la version binaire de symfony :  <https://github.com/symfony-cli/symfony-cli/releases/download/v5.4.1/symfony-cli_linux_amd64.tar.gz>
+2. On extrait l'archive dans un dossier local, par exemple :  `$HOME/.symfony/bin`. 
+3. On ajoute la ligne suivante au fichier `${HOME}/.profile`
 
 ```sh
 export PATH="$HOME/.symfony/bin:$PATH"
 ```
 
-Enfin, exécuter la commande suivant pour recharger l'environnement : 
+Enfin, on exécute la commande suivant pour recharger l'environnement : 
 
 ```sh
 source ${HOME}/.profile
@@ -99,7 +90,7 @@ source ${HOME}/.profile
 On crée de nouveaux projets Symfony avec la commande `symfony`.
 
 ```bash
-symfony new projet_hello --full
+symfony new --webapp projet_hello
 cd projet_hello
 ```
 
@@ -146,7 +137,7 @@ Le dossier `tests/` contient comme on s'en doute, les tests.
 
 ### Questions 1, 2 et 3
 
-Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=35458) :
+Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=337309) :
 
 1. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier `vendor/`.
 1. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier  `public/`.
@@ -273,11 +264,16 @@ class HelloControllerTest extends WebTestCase
   }
 }
 ```
-
-On exécute les tests avec `PHPUnit` (l'équivalent du `JUnit` de `Java` pour `PHP`):
+On doit installer `PHPUnit`: 
 
 ```sh
-./bin/phpunit
+composer require --dev phpunit/phpunit symfony/test-pack
+```
+
+Puis, on exécute les tests avec `PHPUnit` (l'équivalent du `JUnit` de `Java` pour `PHP`):
+
+```sh
+php bin/phpunit
 ```
 
 On devrait avoir :
@@ -286,14 +282,6 @@ On devrait avoir :
 OK (2 tests, 3 assertions)
 ```
 
-
-Si un message d'erreur à propos de `symfony/monolog-bridge` apparait on peut le corriger (l'ignorer en fait) en ajoutant la ligne suivant dans le bloc `<php>` du fichier `phpunit.dist.xml` à la racine du projet : 
-
-```xml
-<env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
-```
-
-![Ignorer les message de dépressiation des helpers dans phpunit]({{ site.baseurl }}/images/ERROR_SYMFONY_PHPUNIT.png){:.image-width-80}
 
 
 <div class="question">
