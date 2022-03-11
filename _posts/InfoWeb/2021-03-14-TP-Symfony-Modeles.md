@@ -4,9 +4,8 @@ title: TP Symfony - Gestion des modèles de données
 categories:  
 - InfoWeb
 - lab
-published: true
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 
@@ -33,7 +32,7 @@ Les projets GIT sont à créer sur la forge de l'université. Le contenu et la r
 
 Ne pas oublier de donner les droits *developer* aux enseignants (messieurs Fournier et Pigné). 
 
-Ce projet débute le TP final du cours d'InfoWeb. Ce dépot GIT va être utilisé/amélioré jusqu'au dernier TP. 
+Ce projet débute le TP final du cours d'InfoWeb. Ce dépôt GIT va être utilisé/amélioré jusqu'au dernier TP. 
 
 
 Chaque groupe constitué **doit** désigner un **référent** qui se charge de créer le projet GIT et le projet Symfony, puis d'envoyer un courriel aux enseignants avec les noms des membres, le numéro de sujet choisi et l'URL du projet. 
@@ -42,18 +41,18 @@ Chaque groupe constitué **doit** désigner un **référent** qui se charge de c
 
 - Le courriel du référent indiquant la composition du groupe, le n° de sujet et l'URL du projet doit être envoyé **avant le 17 mars**.
 
-- Les commits concernant ce TP doivent être publiés (push) **avant ce dimanche 21 mars à 20h**. 
+- Les commits concernant ce TP doivent être publiés (push) **avant ce dimanche 20 mars à 20h**. 
 
-- Pour information, la seconde partie du TP, qui sera présentée la semaine prochaine sera a rendre pour le dimanche 28 mars. 
+- Pour information, la seconde partie du TP, qui sera présentée la semaine prochaine sera a rendre pour le dimanche 27 mars. 
 
 
 ## Deux sujets au choix
 
 Vous avez le choix entre deux sujets de TP. N'en choisissez qu'un seul !
 
-Le **sujet n°1** consiste à utiliser à nouveau votre base du Projet BD du premier semestre et de refaire un site *CRUD* entièrement avec Symfony. L'avantage de ce sujet est que vous maîtrisez la structure de la base. L'inconvénient est que c'est une structure parfois complexe avec de nombreuses associations. 
+Le **sujet n°1** consiste à utiliser à nouveau votre base du Projet BD du premier semestre et de refaire un site *CRUD* entièrement avec Symfony. L'avantage de ce sujet est que vous maitrisez la structure de la base. L'inconvénient est que c'est une structure parfois complexe avec de nombreuses associations. 
 
-Le **sujet n°2** consiste à utiliser une nouvelle source de données, plus simple, qui ne contient qu'une seule entités principale et une seule association 1-n. L'avantage de ce sujet est la simplicité du modèle de données. L'inconvénient est qu'il y a un travail d'importation et d'adaptation des données à partir d'une source au format texte (CSV, ou JSON). 
+Le **sujet n°2** consiste à utiliser une nouvelle source de données, plus simple, qui ne contient qu'une seule entités principale et une seule association 1-n. L'avantage de ce sujet est la simplicité du modèle de données. L'inconvénient est qu'il y a un travail d'importation et d'adaptation d'un volume important de données,  à partir d'une source au format texte (CSV, ou JSON). 
 
 
 Indications valable pour  les **deux sujets** : 
@@ -61,7 +60,7 @@ Indications valable pour  les **deux sujets** :
 - Reprendre les étapes du [tp précédent](http://pigne.org/teaching/infoweb/lab/TP_Introduction_Symfony) pour créer un nouveau projet spécialement pour cette nouvelle app. **Attention** : seul le **référent** crée le projet Symfony et l'ajoute dans le GIT. Les autres membres n'ont qu'a faire un `git clone ...` et un `composer install`  dans la racine du projet.
 
 - Reprendre les étapes du [cours précédent](http://ppigne.org/teaching/infoweb/lecture/Symfony-Modeles) pour **configurer la base de donnée**  et **créer les entités** rapidement avec les commandes de la console. 
-**Attention** : pour éviter les conflits avec le fichier `.env` il est bon que chacun configure sa base de donnée locale (la variable `DATABASE_URL`) dans un fichier `.env.local` non versionné.  
+**Attention** : pour éviter les conflits avec le fichier `.env` il est bon que chacun configure sa base de donnée locale (la variable `DATABASE_URL`) dans un fichier `.env.local` **non versionné**.  
 
 ## Sujet n°1
 
@@ -75,7 +74,7 @@ En reprenant les bases de données réalisée en Projet BD, réaliser les entit�
 
 Les pages générées doivent répondre à un design *responsive* homogène.
 
-Dans cette étape aucun formulaire n'est demandé, les méthodes d'éditions devront simplement insérer des données aléatoires ou modifier de façon arbitraire les enregistrements ciblés.
+Dans cette étape **aucun formulaire n'est demandé**, les méthodes d'éditions devront simplement insérer des données aléatoires ou modifier de façon arbitraire les enregistrements ciblés.
 
 Les tables associatives *many-to-many* ne seront pas considérées.
     
@@ -121,9 +120,8 @@ La visualisation par liste doit se faire par catégorie (département, région, 
 
 Des données sources sont disponibles sous Licence Ouverte pour alimenter ce model. Les noms des champs du model ne doivent pas forcément correspondre à ceux du fichier. 
 
-- site de la ressource : <https://www.data.gouv.fr/fr/datasets/adresse-et-geolocalisation-des-etablissements-denseignement-du-premier-et-second-degres-1/#_>
-- notice expliquant  les différents champs <https://www.data.gouv.fr/fr/datasets/r/eb9a4edc-e2f3-4ff4-bb03-a41cf7acf692> 
-- lien de téléchargement direct au format CSV : <https://data.education.gouv.fr/explore/dataset/fr-en-adresse-et-geolocalisation-etablissements-premier-et-second-degre/download?format=csv&amp;timezone=Europe/Berlin&amp;use_labels_for_header=false>
+- site de la ressource : <https://data.education.gouv.fr/explore/dataset/fr-en-adresse-et-geolocalisation-etablissements-premier-et-second-degre/table/?disjunctive.nature_uai&disjunctive.nature_uai_libe&disjunctive.code_departement&disjunctive.code_region&disjunctive.code_academie&disjunctive.secteur_prive_code_type_contrat&disjunctive.secteur_prive_libelle_type_contrat&disjunctive.code_ministere&disjunctive.libelle_ministere>
+- On parcourra les différents onglets (Tableau, Export) pour comprendre la structure des données et pour télécharger les données au format CSV (ou JSON). On ne souhaite pas utiliser la fonctionnalité d'API proposée dans le site. 
 
 
 On peut bien sur ouvrir ce fichier CSV avec Excel, récupérer les colonnes intéressantes et se débattre un peu avec DataGrip ou PhpMyAdmin pour importer les données directement dans la base... Mais ce n'est pas la bonne méthode. 
@@ -150,7 +148,7 @@ Un commentaire peut être constitué de :
 
 Prévoir cette nouvelle entité en relation 1-n avec l'entité établissement. **Attention** au sens de la relation. Un établissement peut avoir plusieurs commentaires et un commentaire ne concerne qu'un seul établissement.
 
-Se concentrer sur l'affichage  plutôt que sur la création des commentaire. Les formulaires seront abordés plus tard. 
+Se concentrer sur l'affichage  plutôt que sur la création des commentaire. **Les formulaires seront abordés plus tard**. 
 
 
 
