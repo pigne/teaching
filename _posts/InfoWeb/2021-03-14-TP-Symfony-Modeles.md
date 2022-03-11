@@ -120,7 +120,7 @@ La visualisation par liste doit se faire par catégorie (département, région, 
 
 Des données sources sont disponibles sous Licence Ouverte pour alimenter ce model. Les noms des champs du model ne doivent pas forcément correspondre à ceux du fichier. 
 
-- site de la ressource : [fr-en-adresse-et-geolocalisation-etablissements-premier-et-second-degre]<https://data.education.gouv.fr/explore/dataset/fr-en-adresse-et-geolocalisation-etablissements-premier-et-second-degre/table/?disjunctive.nature_uai&disjunctive.nature_uai_libe&disjunctive.code_departement&disjunctive.code_region&disjunctive.code_academie&disjunctive.secteur_prive_code_type_contrat&disjunctive.secteur_prive_libelle_type_contrat&disjunctive.code_ministere&disjunctive.libelle_ministere>
+- site de la ressource : [fr-en-adresse-et-geolocalisation-etablissements-premier-et-second-degre](https://data.education.gouv.fr/explore/dataset/fr-en-adresse-et-geolocalisation-etablissements-premier-et-second-degre/table/?disjunctive.nature_uai&disjunctive.nature_uai_libe&disjunctive.code_departement&disjunctive.code_region&disjunctive.code_academie&disjunctive.secteur_prive_code_type_contrat&disjunctive.secteur_prive_libelle_type_contrat&disjunctive.code_ministere&disjunctive.libelle_ministere)
 - On parcourra les différents onglets (Tableau, Export) pour comprendre la structure des données et pour télécharger les données au format CSV (ou JSON). On ne souhaite pas utiliser la fonctionnalité d'API proposée dans le site. 
 
 
