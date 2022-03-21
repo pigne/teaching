@@ -6,7 +6,7 @@ categories:
 - lab
 published: true
 author: Yoann Pigné
-published: false
+published: true
 ---
 
 On  continue le travail commencé lors du [TP Précédent](http://pigne.org/teaching/infoweb/lab/TP-Symfony-Modeles).
@@ -16,7 +16,7 @@ Suivre les instructions en fonction du n° de sujet choisi la semaine précéden
 
 ## Échéance (pour tous les sujets)
 
-Cette dernière partie doit toujours être versionnée et faire l'objet de validations régulières de la part de tous les membres du groupe. Les dépôts GIT seront relevés le **dimanche 28 mars 2021 à 20h (CEST)**, pour évaluation.
+Cette dernière partie doit toujours être versionnée et faire l'objet de validations régulières de la part de tous les membres du groupe. Les dépôts GIT seront relevés le **dimanche 27 mars 2022 à 20h (CEST)**, pour évaluation.
 
 ## Sujet 1
 
