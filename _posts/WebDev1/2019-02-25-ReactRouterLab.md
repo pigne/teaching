@@ -9,7 +9,9 @@ published: false
 update: 2021-03-08
 ---
 
-On veut écrire une nouvelle itération de notre Web app de manipulation IoT. On s'intéresse ici à l'arborescence de la Web App.
+On veut réaliser une web app qui se connecte à une source de données (un Web Service) afin de recevoir des informations  sur l'état de capteurs dans un réseau.
+
+On s'intéresse ici à l'affichage et à la représentation graphique des données de capteurs.
 
 Voici la structure de l'application :
 
@@ -17,7 +19,7 @@ Voici la structure de l'application :
 
 En reprenant l'idée du [*Lifting State Up*](https://reactjs.org/tutorial/tutorial.html#lifting-state-up)  dans la démo de React, Proposer une implémentation avec ***React*** et ***React Router*** de l'application qui stocke son état dans un composant globale et délègue l'affichage des différents éléments de la page à des composants *React* imbriqués.
 
-On souhaite avoir des url du type : 
+On souhaite avoir des URLs du type : 
 
 - `/` 
 - `/temp_bureau`
@@ -25,12 +27,17 @@ On souhaite avoir des url du type :
 - `/temperature_salle_A111`
 - ...
 
-On réutilisera, dans la mesure du possible, les éléments déjà développés dans les labs précédents. (certains éléments du modèle objets, le connecteur MQTT/WebSocket).
+Ces routes sont dynamiquement créées à partir des données de capteurs récupérées dans la ressource indiquée dans l'`input`précédent. 
 
-## Broker MQTT
+<!-- ## Broker MQTT
 
-Un broker MQTT avec de faux capteurs est disponible à l'adresse : `random.pigne.org` sur le port `1883` pour les sockets réseaux classiques et sur le port `9001` pour le support WebSocket.
+Un broker MQTT avec de faux capteurs est disponible à l'adresse : `random.pigne.org` sur le port `1883` pour les sockets réseaux classiques et sur le port `9001` pour le support WebSocket. -->
 
+## Source de données 
+
+En théorie on devrait connecter cette WebApp à un WebService. Ici, pour simplifier, on se contente de donner l'url d'une ressource sous forme de fichier JSON dans l'`input` URL du composant en haut de page. Cette ressource correspond au nom d'un fichier que l'on dispose dans le serveur, dans le dossier `public`. Dès que le champ `input` est modifié, la nouvelle resource est téléchargé de façon asynchrone pour actualiser la liste des capteurs. 
+
+On imagine que le format des fichier JSON correspond au fichier de test du TP précédent. 
 
 ## *Flexbox* ou *CSS Grid Layout*
 
@@ -44,20 +51,18 @@ On veillera a bien nommer les fichier comme décrit dans la [documentation de `c
 
 ## Tests
 
-Les composants React peuvent être testés comme n'importe quel code javascript. Se référer à l'[aide en ligne de React  sur les tests](https://fr.reactjs.org/docs/testing.html) pour tester le code. 
+Les composants React **doivent** être testés comme n'importe quel code javascript. Se référer à l'[aide en ligne de React  sur les tests](https://fr.reactjs.org/docs/testing.html) pour tester le code. 
 
 ## Rendu
 
-Comme pour les autres TP, on va forker un projet de base : <https://www-apps.univ-lehavre.fr/forge/2020-2021-m1/WEB-react-router-lab> et en proposer un *Merge Request* une fois le travail terminé. On n'oubliera pas de modifier le fichier `README.md` et de nommer correctement le *Merge Request* avec vos **nom**, **prénom** et **numéro d'étudiant**.
+Comme pour les autres TP, on va forker un projet de base : <https://www-apps.univ-lehavre.fr/forge/2021-2022-m1/WEB-react-router-lab> et en proposer un *Merge Request* une fois le travail terminé. On n'oubliera pas de modifier le fichier `README.md` et de nommer correctement le *Merge Request* avec vos **nom**, **prénom** et **numéro d'étudiant**.
 
 **Ce TP peut être fait en binôme.**
 
 
 ## Échéance
 
-- Groupe A & B : 28 avril 2021
-- Groupe C: 5 mai 2021
-
+- 8 avril 2022
 
 ## Évaluation
 
