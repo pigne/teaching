@@ -5,15 +5,15 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
-update: 2021-03-08
+published: true
+update: 2022-03-22
 ---
 
 On veut réaliser une web app qui se connecte à une source de données (un Web Service) afin de recevoir des informations  sur l'état de capteurs dans un réseau.
 
 On s'intéresse ici à l'affichage et à la représentation graphique des données de capteurs.
 
-Voici la structure de l'application :
+Voici une idée générale de la structure de l'application :
 
 ![IoT Sketch]({{ site.baseurl }}/images/router_iot_app.svg)
 
