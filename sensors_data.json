@@ -1,7 +1,7 @@
 [
   {
-    "id": 1234,
-    "name": "Température Bureau",
+    "id": 123456,
+    "name": "Température Bureau XXX",
     "type": "TEMPERATURE",
     "data": {
       "values": [23, 23, 22, 21, 23, 23, 23, 25, 25],
@@ -19,16 +19,16 @@
     }
   },
   {
-    "id": 10245,
-    "name": "Porte du Garage",
+    "id": 1024599,
+    "name": "Porte du Garage...",
     "type": "DOOR",
     "data": {
       "value": 0
     }
   },
   {
-    "id": 2222,
-    "name": "Ventilateur Ordinateur Bureau",
+    "id": 222222,
+    "name": "Ventilateur Camion",
     "type": "FAN_SPEED",
     "data": {
       "values": [1073, 1800, 2299, 2176, 1899, 1400],
