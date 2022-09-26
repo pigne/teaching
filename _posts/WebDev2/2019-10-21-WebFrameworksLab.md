@@ -5,7 +5,7 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published: false
+published: true
 update: 2021-10-24
 ---
 
@@ -36,15 +36,16 @@ Le but est de mettre en application les compétences déjà acquises en Licence 
 
 Le framework *Express* pour *node.js* doit être utilisé pour gérer :
 
-- les sessions,
-- les cookies,
-- l'authentification,
-- la sécurité,
 - le routage des pages Web,
 - la gestion des formulaires,
 - la consultation et l'enregistrement en bases de données,
 - La génération des pages Web à partir de templates,
 - le logging,
+- les sessions,
+- les cookies,
+- l'authentification,
+- la sécurité (des routes),
+
 
 Les données (annonces, utilisateurs, sessions, ...) sont stockées dans une base de données *MongoDB*.
 
@@ -54,13 +55,13 @@ Une telle application doit être **testée** ! Au-delà des tests unitaires comm
 
 ## Travail avec la forge de l'université
 
-Ce travail doit faire l'objet d'un projet GIT sur la forge. Il faut m'envoyer dès le début du TP un mail (yoann.pigne@univ-lehavre.fr) avec entête "[M2 IWOCS WEB] Projet n°1". Ce mail m'indiquera : votre nom, prénom, n° d'étudiant, login et l'URL de votre projet sur la forge.
+Ce travail doit faire l'objet d'un projet sur la [forge de l'université](https://www-apps.univ-lehavre.fr/forge/). Il faut m'envoyer dès le début du TP un email (<yoann.pigne@univ-lehavre.fr>) avec entête "[M2 IWOCS WEB] Projet n°1". Ce mail m'indiquera : votre nom, prénom, n° d'étudiant, login et l'URL de votre projet sur la forge.
 
-N'oubliez pas de me donner accès au projet en m'ajouter en tant que "`developer`".
+N'oubliez pas de me donner accès au projet en m'ajoutant en tant que "`developer`".
 
 ## Évaluation
 
-Ce travail doit être rendu pour le 5 novembre 2021 (délai de rigueur). Il ne sera pas corrigé, mais servira de base à un oral, le 8 novembre 2021, ou les détails d'implémentation et le fonctionnement du projet seront présentés et expliqués.
+Ce travail doit être rendu pour le 14 octobre 2022 (délai de rigueur). Il ne sera pas corrigé, mais servira de base à un oral, le 18 octobre 2022, où les détails d'implémentation et le fonctionnement du projet seront présentés et expliqués.
 
 Les compétences seront validées sur la base du rendu du projet ainsi que sur cette évaluation orale.
 

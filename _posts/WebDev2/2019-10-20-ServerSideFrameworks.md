@@ -5,7 +5,7 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
+published: true
 update: 2021-10-23
 ---
 
@@ -35,17 +35,18 @@ Web Application frameworks handle all the technical parts of the communication b
 
 
 ```javascript
-let express = require('express');
+const express = require('express');
+const port = 1337;
 
-let app = express();
+const app = express();
 
 app.get('*', function(req, res){
   res.send('<h1>Hello World</h1>');
 });
-let server = app.listen(1337);
+let server = app.listen(port, ()=>console.log(`http://localhost:${port}/`));
 ```
 
-Install with npm: `npm install express --save`
+Install with npm: `npm install express`
 
 Use `express-generator` in order to create a scaffold project: 
 
@@ -63,7 +64,7 @@ Express links URIs to actions through HTTP verbs (GET, PUT, POST, DELETE)
 
 ```javascript
 app.get('/advert/:id?', function(req, res) {
-    res.send('You asked for advert' + req.param('id'));
+    res.send('You asked for advert' + req.params.id);
 })
 .get('/search', function(req, res) { //search?q=something+fun
     console.log('the search query is: ' + req.query.q); // req.param('q')
@@ -86,10 +87,10 @@ In the main express configuration file (`app.js`):
 
 ```javascript
 app.set('view engine', 'pug');
-var users = [{id:1, name:'Tom'},
-            {id:2, name:'Max'}];
+var users = [{id:'1', name:'Tom'},
+            {id:'2', name:'Max'}];
 app.get('/user/:id?', function(req, res){
-  res.render('hello_user', users.filter( user => user.id === req.param('id') )[0]);
+  res.render('hello_user', users.filter( user => user.id === req.params.id )[0]);
 });
 ```
 
