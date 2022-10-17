@@ -5,8 +5,8 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
-update: 2021-11-08
+published: true
+update: 2022-10-15
 ---
 
 - [REST vs SOAP](#rest-vs-soap)
@@ -110,15 +110,24 @@ Attention il y a 3 façons de spécifier des paramètre ou d'envoyer des donnée
 
 - dans le corps d'une requête en méthode POST :
   ```yaml
-  in: "body"
+  requestBody:
+    description: Created user object
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/User'
   ```
 - en paramètre d'une URI en méthode GET :
   ```yaml
-  in: "query"
+  parameters:
+        - name: monParametre
+          in: query
   ```
 - dans l'URI :
   ```yaml
-  in: "path"
+  parameters:
+        - name: monParametre
+          in: query
   ```
 
 
