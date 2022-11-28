@@ -5,8 +5,8 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
-update: 2021-11-07
+published: true
+update: 2022-11-27
 ---
 
 
@@ -26,7 +26,7 @@ Graphically displaying information can be done in a static way or in a dynamic w
 
 These graphics can be generated on the server (e.g. a PHP script that generates a charts based on the results of a MySQL DB query). Or they can be generated on the client side with JavaScript, HTML, and CSS .  
 
-HTML5 has mainly 2 types technologies to display graphical data:
+HTML5 has mainly 2 types of technologies to display graphical data:
 
   - A pixel-based model for drawing:
       - in 2D with _canvas_
@@ -67,7 +67,7 @@ More advanced 2D drawing with animations, events, user interaction can be achiev
 
 - general purpose 2D:
   - <http://libcanvas.github.io/>
-  - <http://processingjs.org/>
+  - <https://p5js.org/>
 
 - 2D game engines:
   - <https://playcanvas.com/>
@@ -78,7 +78,7 @@ More advanced 2D drawing with animations, events, user interaction can be achiev
 
 WebGL is an API based on OpenGL ES. It uses the `canvas` DOM element to build 3D scenes.
 
-Since OpenGL ES  is a low level API, we mostly always use third party libraries:
+Since OpenGL ES  is a low level API, we mostly  use third party libraries:
 
 - <http://threejs.org/>
 - <http://www.pixijs.com/> for 2D with WebGL
