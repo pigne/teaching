@@ -4,9 +4,8 @@ title: TP Symfony - Gestion des formulaires
 categories:  
 - InfoWeb
 - lab
-published: true
+published: false
 author: Yoann Pigné
-published: true
 ---
 
 On  continue le travail commencé lors du [TP Précédent](http://pigne.org/teaching/infoweb/lab/TP-Symfony-Modeles).

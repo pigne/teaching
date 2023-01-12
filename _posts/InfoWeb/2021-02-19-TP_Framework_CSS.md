@@ -5,7 +5,7 @@ categories:
 - InfoWeb
 - lab
 published: true
-update: 2022-01-30
+update: 2023-01-11
 
 ---
 
@@ -56,7 +56,7 @@ Créer un dossier de travail ( `TP-Framework-CSS` par exemple) et y ajouter un f
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
   <body>
   <section class="section">
@@ -79,34 +79,34 @@ Se référer à la [documentation de bulma](https://bulma.io/documentation/) pou
 
 ## Travail à réaliser
 
-On se propose de créer un site Web en HTML et CSS statique (pas de PHP) qui permet de présenter les **équipes** et les **matchs** des **tours** du [Tournoi des Six Nations 2022 féminin](https://womens.sixnationsrugby.com/fr/calendrier-resultats/). Le but est de réaliser plusieurs pages sur ce sujet en utilisant le Framework CSS Bulma. Ce site possède plusieurs pages ou ensemble de pages liées entre elles. Le design doit respecter celui proposé par Bulma. Un maximum de [composants](https://bulma.io/documentation/components/) et d'[éléments](https://bulma.io/documentation/elements/) graphiques doivent être utilisés. Les pages sont "*responsives*" et utilisent le système de [colonnes](https://bulma.io/documentation/columns/) du Bulma.
+On se propose de créer un site Web en HTML et CSS statique (pas de PHP) qui permet de présenter les **équipes**  les **matchs** et les **groupes** de la [coupe du monde féminine de football](https://www.fifa.com/fifaplus/en/groupenaments/womens/womensworldcup/australia-new-zealand2023). Le but est de réaliser plusieurs pages sur ce sujet en utilisant le Framework CSS Bulma. Ce site possède plusieurs pages ou ensemble de pages liées entre elles. Le design doit respecter celui proposé par Bulma. Un maximum de [composants](https://bulma.io/documentation/components/) et d'[éléments](https://bulma.io/documentation/elements/) graphiques doivent être utilisés. Les pages sont "*responsives*" et utilisent le système de [colonnes](https://bulma.io/documentation/columns/) du Bulma.
 
-Toutes les pages ont la même base graphique avec une entête contenant un logo et un titre. Le logo devient centré et le tite passe sur la seconde ligne en mode étroit (mobile). Chaque page propose un menu latéral qui disparaît en mode étroit (mobile).
+Toutes les pages ont la même base graphique avec une entête contenant un logo et un titre. Le logo devient centré et le titre passe sur la seconde ligne en mode étroit (mobile). Chaque page propose un menu latéral qui disparaît en mode étroit (mobile).
 
-### La page des tours
+### La page des groupes
 
-La page des tours présente tous les tours (il yen a 4) avec les matchs, les équipes et leur drapeau une seule page. Deux tours  par ligne sont affichés, en mode large (desktop) et  un tour par ligne en mode étroit (mobile).
+La page des groupes présente tous les groupes (il yen a 8) avec les matchs, les équipes et leur drapeau une seule page. Deux groupes  par ligne sont affichés, en mode large (desktop) et  un groupe par ligne en mode étroit (mobile).
 
-La page des tours en mode large :
+La page des groupes en mode large :
 
-![tours mode large]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-tours-Large.png){:.image-width-90}
+![groupes mode large]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-groupes-Large.png){:.image-width-90}
 
-La page des tours en mode étroit :
+La page des groupes en mode étroit :
 
-![tours mode étroit]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-tours-Etroit.png){:.image-width-50}
+![groupes mode étroit]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-groupes-Etroit.png){:.image-width-50}
 
-### Une page par tour
+### Une page par groupe
 
-Chaque tour a sa propre page sous forme d'un onglet d'un composant `tab`. Dans chaque page figure à minima un tableau  des matchs avec le nom des équipes, la date et le lieux des matchs.
+Chaque groupe a sa propre page sous forme d'un onglet d'un composant `tab`. Dans chaque page figure à minima un tableau  des matchs avec le nom des équipes, la date et le lieux des matchs.
 
 Exemple d'une page du groupe, à minima, en mode desktop :  
-![Groupe A mode Large]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-Tour1-Large.png){:.image-width-90}
+![Groupe A mode Large]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-groupe1-Large.png){:.image-width-90}
 
-Pas la peine d'écrire *toutes* les pages de groupes. Une seule suffit. Pas la peine d'afficher *tous* les matchs d'un groupe. Une dizaine suffit.
+Pas la peine d'écrire *toutes* les pages de groupes. Une seule suffit. 
 
 ### Les pages équipe
 
-A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les éléments et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe France féminine de rugby à XV](https://fr.wikipedia.org/wiki/%C3%89quipe_de_France_f%C3%A9minine_de_rugby_%C3%A0_XV)) pour constater qu'une équipe possède un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
+A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les éléments et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe France féminine football](https://en.wikipedia.org/wiki/France_women%27s_national_football_team)) pour constater qu'une équipe possède un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
 
 <!-- ## Fin du TP
 
