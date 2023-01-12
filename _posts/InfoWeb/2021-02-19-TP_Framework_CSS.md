@@ -89,18 +89,18 @@ La page des groupes présente tous les groupes (il yen a 8) avec les matchs, les
 
 La page des groupes en mode large :
 
-![groupes mode large]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-groupes-Large.png){:.image-width-90}
+![groupes mode large]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-Groupes-Large.png){:.image-width-90}
 
 La page des groupes en mode étroit :
 
-![groupes mode étroit]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-groupes-Etroit.png){:.image-width-50}
+![groupes mode étroit]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-Groupes-Etroit.png){:.image-width-50}
 
 ### Une page par groupe
 
 Chaque groupe a sa propre page sous forme d'un onglet d'un composant `tab`. Dans chaque page figure à minima un tableau  des matchs avec le nom des équipes, la date et le lieux des matchs.
 
 Exemple d'une page du groupe, à minima, en mode desktop :  
-![Groupe A mode Large]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-groupe1-Large.png){:.image-width-90}
+![Groupe A mode Large]({{ site.baseurl }}/images/L3-INFOWEB-TPCSS-Groupe1-Large.png){:.image-width-90}
 
 Pas la peine d'écrire *toutes* les pages de groupes. Une seule suffit. 
 
