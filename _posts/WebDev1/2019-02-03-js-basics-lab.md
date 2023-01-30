@@ -6,12 +6,12 @@ categories:
 - lab
 author: Yoann Pigné
 published: false
-update: 2022-01-27
+update: 2023-01-30
 ---
 
 # JS Basics Lab
 
-Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2021-2022-M1/WEB-jsbasics-lab>
+Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2022-2023-M1/WEB-jsbasics-lab>
 
 Ce projet est principalement constitué d'un fichier de tests (`test/index.test.js`) qui s'applique sur un ensemble de fonctions (`src/index.js`). Certains tests sont écrits, mais le corps des fonctions testées est vide ! D'autres fonctions sont écrites mais il faut écrire leurs testes. Parfois il manque le corps des fonctions et les tests.
 
@@ -45,7 +45,7 @@ Quand tous les tests passent, que la couverture du code par les tests est satisf
 
 ## Échéance
 
-TP à rendre pour le : 28/01/2022
+TP à rendre pour le : 07/02/2023
 
 ## Évaluation
 

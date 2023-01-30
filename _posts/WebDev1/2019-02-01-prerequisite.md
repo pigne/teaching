@@ -6,7 +6,7 @@ categories:
 - lecture
 author: Yoann Pigné
 tags: js
-published: false
+published: true
 ---
 
 Some tools and technologies greatly help the developer's work, like code quality control, automatic formatting utilities and browser's developer tools.
@@ -95,7 +95,7 @@ On préférera l'installation via le gestionnaire de paquet de votre OS <https:/
 
 ```bash
 sudo apt-get install curl build-essential
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
