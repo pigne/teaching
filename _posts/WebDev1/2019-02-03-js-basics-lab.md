@@ -5,8 +5,8 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
-update: 2023-01-30
+published: true
+update: 2023-01-31
 ---
 
 # JS Basics Lab
