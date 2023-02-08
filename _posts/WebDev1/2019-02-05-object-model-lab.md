@@ -60,10 +60,10 @@ On souhaite pouvoir créer de tels objets à partir d'un fichier de données JSO
 
 ## Travail à réaliser
 
-- *Forker* (diverger) et cloner le projet <https://www-apps.univ-lehavre.fr/forge/2022-2023-m1/WEB-objectmodel-lab.git> 
-- S'assurer que votre projet est bien privé
-- M'ajouter en tant que développeur à votre projet
-- M'envoyer un mail avec vos **nom**, **prénom** et **URL de projet**. 
+- *Forker* (diverger) et cloner le projet <https://www-apps.univ-lehavre.fr/forge/2022-2023-m1/WEB-objectmodel-lab.git>.
+- S'assurer que votre projet est bien privé.
+- M'ajouter en tant que développeur à votre projet.
+- M'envoyer un mail avec le titre `" [M1-WEB] TP n°2 "` avec vos **nom**, **prénom** et **URL de projet**. 
 - Faire des commits régulier avec des messages claires. 
 - En utilisant le pattern de création d'objets de votre choix (classique, `Object.create`, différentiel, fonctionnel ou `class`) créer la hiérarchie de classes permettant de représenter des données de capteur.
 - Rédiger des tests unitaires permettant de vérifier le bon fonctionnement du modèle. Le fichier `resources/sensors_data.json` sera utilisé pour générer les objets et vérifier certaines propriétés de base (qu'il vous appartient de définir).
