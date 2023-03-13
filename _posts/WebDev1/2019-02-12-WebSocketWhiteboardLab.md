@@ -6,29 +6,37 @@ categories:
 - lab
 author: Yoann Pigné
 published: false
-update: 2022-02-22
+update: 2023-03-13
 ---
 
-Faire une divergence (un *fork*) du projet <https://www-apps.univ-lehavre.fr/forge/2021-2022-m1/WEB-whiteboard-websocket-lab>
 
+Un tableau blanc sur une Web app est une surface sur laquelle les utilisateurs peuvent dessiner. Chaque utilisateur a sa propre **couleur** et voit en **temps réel** les dessins des autres utilisateurs dans leur couleur respective.
 
-Un tableau blanc sur une Web app est une surface sur laquelle les utilisateurs peuvent dessiner. Chaque utilisateur a sa propre couleur et voit en temps réel les dessins des autres utilisateurs dans leur couleur respective.
-
-~~Un utilisateur doit pouvoir créer un nouveau dessin vierge. Il doit aussi pouvoir  afficher la liste des dessins en cours et participer à ces dessins.~~
+Un utilisateur doit pouvoir **créer** un nouveau dessin vierge. Il doit aussi pouvoir  **afficher** la liste des dessins en cours et **participer** à ces dessins.
 
 
 Techniquement le dessin se fait à l'aide d'un  [*canvas* html5](https://developer.mozilla.org/fr/docs/Web/Guide/Graphics/Dessiner_avec_canvas). 
 
 
-La base du code présente ici est celle de la démo WebSocket du cours. Il faut s'en inspirer  pour  permettre l'interconnection et le partage des dessins de chacun.
+On s'inspire de la base de code proposée dans la démo *websocket* du cours (<https://www-apps.univ-lehavre.fr/forge/pigne/WEB-websocket-demo>
+). Il faut s'en inspirer  pour  permettre l'interconnection et le partage des dessins de chacun.
 On ne souhaite utiliser aucune autre technologie que les WebSocket et les Canvas supportés nativement par le navigateur. On n'utilisera ni framework ni bibliothèque de dessins.
  
-Projet à rendre sous forme d'un *merge request* du projet initial sur la forge de l'université.
+Penser à ce qui se passe quand un utilisateur se connecte à un dessin déjà commencé. Il peut recevoir les nouvelles modifications , mais voit-il les anciennes (celles qui précèdent sa connexion) ? Proposer une solution. 
+
+ ## Travail à réaliser
+
+- Travail à réaliser en **binome**
+- On pourra au choix, copier le code de la démo [websocket](https://www-apps.univ-lehavre.fr/forge/pigne/WEB-websocket-demo) dans un nouveau projet vierge, ou bien faire une divergence pour obtenir une copie du code.
+- S'assurer que votre projet est bien privé.
+- M'ajouter en tant que développeur à votre projet.
+- M'envoyer un mail avec le titre `" [M1-WEB] TP n°3 "` avec les  **nom** et  **prénom** des membres du binôme ainsi que l'**URL du projet**. 
+- Faire des commits régulier avec des messages claires et réaliser le travail décrit au dessus. 
 
 
 ## Échéance
 
-TP à rendre pour le : 18/03/2022
+TP à rendre pour le :28/03/2023
 
 ## Évaluation
 

@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: false
+published: true
 update: 2021-02-14
 ---
 
@@ -389,11 +389,3 @@ async function asyncCall() {
 asyncCall();
 ```
 
-
-## ServiceWorker (TODO)
-
-<!-- TODO -->
-
-## WebComponents (TODO)
-
-<!-- TODO -->
