@@ -24,7 +24,8 @@ On ne souhaite utiliser aucune autre technologie que les WebSocket et les Canvas
  
 Penser à ce qui se passe quand un utilisateur se connecte à un dessin déjà commencé. Il peut recevoir les nouvelles modifications , mais voit-il les anciennes (celles qui précèdent sa connexion) ? Proposer une solution. 
 
- ## Travail à réaliser
+
+## Travail à réaliser
 
 - Travail à réaliser en **binome**
 - On pourra au choix, copier le code de la démo [websocket](https://www-apps.univ-lehavre.fr/forge/pigne/WEB-websocket-demo) dans un nouveau projet vierge, ou bien faire une divergence pour obtenir une copie du code.
