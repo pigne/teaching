@@ -5,7 +5,7 @@ categories:
 - InfoWeb
 - lecture
 author: Yoann Pigné
-published: false
+published: true
 update: 2022-02-21
 ---
 
@@ -36,7 +36,7 @@ Ce que l'on verra plus tard:
 
 ## Installation et configuration
 
-Symfony seul ne permet pas de gérer des modèles objets ni de se connecter à une base de données. On utilise **Doctrine**, un ORM pour mettre en concordance des objets PHP avec un modèle persistant (Base de données).
+Symfony seul ne permet pas de gérer des modèles objets ni de se connecter à une base de données. On utilise **Doctrine**, un ORM (*Object-Relational Mapping*) pour mettre en concordance des objets PHP avec un modèle persistant (Base de données relationnelle).
 
 Doctrine doit être installé avec `composer` : 
 
@@ -85,7 +85,7 @@ On peut créer l'entité à la main, c'est une classe php classique. On peut aus
 php bin/console make:entity
 ```
 
-Ce script est interactif et nous permet de définir une éntité avec ses champs. 
+Ce script est interactif et nous permet de définir une entité avec ses champs. On se laisse quider pour ajouter un champ `name` de type `string` et un `price`de type `integer`.
 
 Ce script produit 2 fichiers :
 
@@ -106,27 +106,19 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=ProductRepository::class)
- */
+#[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $price;
+    #[ORM\Column]
+    private ?int $price = null;
 
     // ...
 }
@@ -156,6 +148,16 @@ Pour exécuter la requête et effectivement migrer la base :
 php bin/console doctrine:migrations:migrate
 ```
 
+On peut modifier une entité et ainsi créer une nouvelle migration. Ajouter un champ `description`de type `text`, puis faire la migration pour appliquer les modification à la base de données : 
+```
+php bin/console make:entity product
+# ...
+php bin/console make:migration
+# on note les requetes SQL du type ALTER TABLE
+php bin/console doctrine:migrations:migrate
+```
+
+
 
 ## Création et persistance d'objets
 
@@ -169,7 +171,7 @@ php bin/console make:controller ProductController
 
 On note :
 
-- l'accès au "gestionnaire d'entités" (_entity manager_) via : `$this->getDoctrine()->getManager()`
+- l'accès au "gestionnaire d'entités" (_entity manager_) via le paramètre de l'action : `EntityManagerInterface $entityManager`
 - c'est l'objet qui fait réellement les requêtes
 - la méthode `persist` qui indique à l'_entity manager_ que l'objet passé en paramètre doit être persisté
 - la méthode `flush` exécute toutes les requêtes nécessaires en un seul _prepare_.
@@ -184,17 +186,15 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ProductController extends AbstractController
 {
     
-    #[Route('/product/create', name: 'create_product')]
-    public function create_product(ManagerRegistry $doctrine): Response
+    #[Route('/product', name: 'create_product')]
+    public function createProduct(EntityManagerInterface $entityManager): Response
     {
-        $entityManager = $doctrine->getManager();
-
         $product = new Product();
         $product->setName('Keyboard');
         $product->setPrice(1999);
@@ -209,17 +209,10 @@ class ProductController extends AbstractController
         return new Response('Saved new product with id '.$product->getId());
     }
     
-    #[Route('/product', name: 'product')]
-    public function index(): Response
-    {
-        return $this->render('product/index.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
-    }
 }
 ```
 
-On appel cette route : <https://localhost:8000/product/create>
+On appel cette route : <https://localhost:8000/product>
 
 On vérifie l'existence de l'objet dans la base : 
 
@@ -231,21 +224,16 @@ php bin/console doctrine:query:sql 'SELECT * FROM product'
 
 Si l'on connait l'identifient d'un objet alors il est très simple de le consulter (_read_) à partir du contrôleur.
 
-On effectue toujours les requêtes de consultation sur un type d'objets grâce à son  _Repository_ (`RepositoryProduct`)  : `$this->getDoctrine()->getRepository('AppBundle:Product')`.
-
-"AppBundle:Product" est équivalent a "AppBundle\Entity\Product".
+On effectue toujours les requêtes de consultation sur un type d'objets grâce à son  _Repository_ (`RepositoryProduct`)  : `$entityManager->getRepository(Product::class)`.
 
 
 ```php
 // src/App/Controller/ProductController.php
 // ...
-    /**
-     * @Route("/product/{id}", name="product_show")
-     */
-    public function show(ManagerRegistry $doctrine, int $id): Response
+    #[Route('/product/{id}', name: 'product_show')]
+    public function show(EntityManagerInterface $entityManager, int $id): Response
     {
-        $product = $doctrine->getRepository(Product::class)
-            ->find($id);
+        $product = $entityManager->getRepository(Product::class)->find($id);
 
         if (!$product) {
             throw $this->createNotFoundException(
@@ -257,33 +245,20 @@ On effectue toujours les requêtes de consultation sur un type d'objets grâce �
     }
 ```
 
-On peut aussi se passer de l'utilisation du _Repository_  et du champ `id` en utilisant un paramètre typé 
-
-```php
-<?php
-// src/App/Controller/ProductController.php
-// ...
-    public function show(Product $product): Response
-    {
-        // use the product!
-        // ...
-```
-
 
 ## Le _Repository_
 
 Le `Repository` contient une quantité de méthodes qui facilitent l'accès au modèle de données. On peut accéder aux objets:
 
-- un par un par leur `id`: `find($id)`
-- dynamiquement avec en fonction des champs: `findOneByName('foo')`, `findOneByPrice(19.99)`
-- plusieurs à la fois : `findByPrice(19.99)`
+- un par un, par leur `id`: `find($id)`
+- dynamiquement avec en fonction des champs: `findOneBy(['name' => 'Keyboard']);`, `findOneBy(['price' => 1999]);`
+- plusieurs à la fois avec plusieurs critères : `findBy(['name' => 'Keyboard' , 'price' => 1999]);`
 - tous : `findAll()`
-- un en fonction de plusieurs conditions :
 
 ```php
 // query for one product matching by name and price
 $product = $repository->findOneBy(
-    array('name' => 'foo', 'price' => 19.99)
+    ['name' => 'foo', 'price' => 19.99]
 );
 ```
 - plusieurs fonction de plusieurs conditions :
@@ -291,8 +266,8 @@ $product = $repository->findOneBy(
 ```php
 // query for all products matching the name, ordered by price
 $products = $repository->findBy(
-    array('name' => 'foo'),
-    array('price' => 'ASC')
+    ['name' => 'foo'],
+    ['price' => 'ASC']
 );
 ```
 
@@ -310,17 +285,24 @@ Remarque : on n'a pas besoin d'appelles `persist()` car la référence à `$prod
 <?php
 // src/Controller/ProductController.php
 // ...
-  /**
-   * @Route("/product/{id}/inflate", name="product_inflate")
-   */
-  public function inflateAction(ManagerRegistry $doctrine, Product $product)
-  {
-      $product->setPrice($product->getPrice() * 1.01);
-      $em = $doctrine->getManager();
-      $em->flush();
-      return $this->redirectToRoute('product_show', ['id'=>$product->getId()]);
+    #[Route('/product/{id}/inflate', name: 'product_inflate')]
+    public function update(EntityManagerInterface $entityManager, int $id): Response
+    {
+        $product = $entityManager->getRepository(Product::class)->find($id);
 
-  }
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $product->setPrice($product->getPrice() * 1.01);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('product_show', [
+            'id' => $product->getId()
+        ]);
+    }
 ```
 
 
@@ -349,15 +331,17 @@ Notes :
 ```php
 <?php
 // ...
-$em = $doctrine->getManager();
-$query = $em->createQuery(
+$entityManager = $this->getEntityManager();
+
+$query = $entityManager->createQuery(
     'SELECT p
     FROM App\Entity\Product p
     WHERE p.price > :price
     ORDER BY p.price ASC'
-)->setParameter('price', '19.99');
+)->setParameter('price', $price);
 
-$products = $query->getResult();
+// returns an array of Product objects
+return $query->getResult();
 // to get just one result:
 // $product = $query->setMaxResults(1)->getOneOrNullResult();
 ```
