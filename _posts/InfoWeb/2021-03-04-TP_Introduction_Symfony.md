@@ -5,8 +5,8 @@ categories:
 - InfoWeb
 - lab
 author: Yoann Pigné
-published: false
-update: 2022-03-06
+published: true
+update: 2023-03-17
 ---
 
 
@@ -26,6 +26,7 @@ Il est possible de travailler en binôme pour ce TP. En revanche, les réponses 
 
 Ce TP doit être versionné avec GIT et être partagé en utilisant la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier d'ajouter les enseignants (`pigne` et `fournied`) au projet avec le status *developper*. 
 
+Une fois le projet créé sur la forge, envoyer un mail à Dominique Fournier <dominique.fournier@univ-lehavre.fr> et  Yoann Pigné <yoann.pigne@univ-lehavre.fr> avec les titre "`L3 InfoWeb TP intro Symfony`". Ce mail indiquera les **nom** et **prénom** de chaque membre du groupe ainsi que l'URL du projet. 
 
 ## Installations de Symfony
 
@@ -44,7 +45,7 @@ On installe `composer` en suivant [ces instructions](https://getcomposer.org/dow
 
 #### Pour Windows 
 
-On utilise l'installateur proposé sur le site de composer: <https://getcomposer.org/Composer-Setup.exe> puis on redémarre le terminal pour mettre a jour l'environnemnt. 
+On utilise l'installateur proposé sur le site de composer: <https://getcomposer.org/Composer-Setup.exe> puis on redémarre le terminal pour mettre a jour l'environnement. 
 
 #### Pour Linux 
 
@@ -70,9 +71,9 @@ export PATH="$HOME/.composer/bin:$PATH"
 
 Pour installer Symfony on suit les instructions en fonction de l'OS utilisé : <https://symfony.com/download>
 
-#### les machine de TP de l'UFR
+#### sur les machine de TP de l'UFR
 
-1. On télécharge la version binaire de symfony :  <https://github.com/symfony-cli/symfony-cli/releases/download/v5.4.1/symfony-cli_linux_amd64.tar.gz>
+1. On télécharge la version binaire de symfony :  <https://github.com/symfony-cli/symfony-cli/releases/download/v5.5.1/symfony-cli_linux_amd64.tar.gz>
 2. On extrait l'archive dans un dossier local, par exemple :  `$HOME/.symfony/bin`. 
 3. On ajoute la ligne suivante au fichier `${HOME}/.profile`
 
@@ -91,7 +92,7 @@ source ${HOME}/.profile
 On crée de nouveaux projets Symfony avec la commande `symfony`.
 
 ```bash
-symfony new --webapp projet_hello
+symfony new projet_hello --version=lts --webapp
 cd projet_hello
 ```
 
@@ -104,7 +105,7 @@ C'est probablement le bon moment pour faire un `git init` dans le projet et pour
 Examiner attentivement le contenu du projet (dossier `projet_hello`). les dossiers et sous-dossiers sont organisés de sorte à ne pas mélanger les choses qui n'ont rien à voir ensemble.
 
 ```bash
-.
+./
 ├── .env
 ├── .env.test
 ├── .git/
@@ -113,6 +114,8 @@ Examiner attentivement le contenu du projet (dossier `projet_hello`). les dossie
 ├── composer.json
 ├── composer.lock
 ├── config/
+├── docker-compose.override.yml
+├── docker-compose.yml
 ├── migrations/
 ├── phpunit.xml.dist
 ├── public/
@@ -337,7 +340,7 @@ On souhaite créer une action qui dépende des paramètres de la route (une rout
 
 
 
-**Écrire** un test dans la classe `HelloControllerTest` qui vérifie que la méthode fonctionne comme prévu. Vérifier que la page web générée salut bien le Professeur Dumbledore quand son nom est passé dans l'URL. Vérifier aussi que le nom est aléatoire quand aucun paramètre n'est donné ([http://localhost:8000/hello](http://localhost:8000/hello)).
+**Écrire** un test dans la classe `HelloControllerTest` qui vérifie que la méthode fonctionne comme prévu. Vérifier que la page web générée salue bien le Professeur Dumbledore quand son nom est passé dans l'URL. Vérifier aussi que le nom est aléatoire quand aucun paramètre n'est donné ([http://localhost:8000/hello](http://localhost:8000/hello)).
 
 <div class="question">
 
@@ -407,7 +410,7 @@ On souhaite que l'application se souvienne de nous. À chaque fois que l'action 
 
 Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)) cela va afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)) cela doit également afficher `"Hello You!"`. En revanche si j'appelle pour la première fois l'action sans paramètres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
 
-**Modifier** l'action `nameAction` pour qu'elle se comporte comme décrit ci-dessus, en utilisant la [documentation Symfony sur les sessions](http://symfony.com/doc/current/book/controller.html#managing-the-session).
+**Modifier** l'action `nameAction` pour qu'elle se comporte comme décrit ci-dessus, en utilisant la [documentation Symfony sur les sessions](https://symfony.com/doc/current/session.html). On notera que la session courante, dans un controleur est accessible avec l'objet `Request` que l'on peut passer en paramètre de l'action : "`$session = $request->getSession();`".
 
 <div class="question">
 
