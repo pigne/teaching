@@ -5,7 +5,8 @@ categories:
 - InfoWeb
 - lab
 author: Yoann Pigné
-published: false
+published: true
+update: 2022-03-23
 ---
 
 
@@ -28,22 +29,23 @@ Ce projet est un TP de groupe. Les groupes peuvent êtres constitués de 2 ou 3 
 
 L'organisation du travail de groupe, la répartition de tâches et l'équilibre des contributions de chacun,  font partit du travail demandé et seront pris en compte dans l'évaluation. 
 
-Les projets GIT sont à créer sur la forge de l'université. Le contenu et la régularité de validations (commits) attestera des contributions de chacun. 
+Les projets GIT sont à créer sur la forge de l'université. Le contenu et la régularité des validations (commits) attestera des contributions de chacun. 
 
 Ne pas oublier de donner les droits *developer* aux enseignants (messieurs Fournier et Pigné). 
 
-Ce projet débute le TP final du cours d'InfoWeb. Ce dépôt GIT va être utilisé/amélioré jusqu'au dernier TP. 
+<!-- Ce projet débute le TP final du cours d'InfoWeb. Ce dépôt GIT va être utilisé/amélioré jusqu'au dernier TP.  -->
 
 
-Chaque groupe constitué **doit** désigner un **référent** qui se charge de créer le projet GIT et le projet Symfony, puis d'envoyer un courriel aux enseignants avec les noms des membres, le numéro de sujet choisi et l'URL du projet. 
+Chaque groupe constitué **doit** désigner un **référent** qui se charge de créer le projet GIT et le projet Symfony. Le référent envoie ensuite un mail à Dominique Fournier <dominique.fournier@univ-lehavre.fr> et  Yoann Pigné <yoann.pigne@univ-lehavre.fr> avec les titre "`L3 InfoWeb TP final Symfony`". Ce mail indiquera les **nom** et **prénom** de chaque membre du groupe ainsi que l'**URL du projet**. 
+
 
 ## Échéances 
 
-- Le courriel du référent indiquant la composition du groupe, le n° de sujet et l'URL du projet doit être envoyé **avant le 17 mars**.
+- Le courriel du référent indiquant la composition du groupe, le n° de sujet et l'URL du projet doit être envoyé **le 24 mars**.
 
-- Les commits concernant ce TP doivent être publiés (push) **avant ce dimanche 20 mars à 20h**. 
+- Les commits concernant cette première partie du TP doivent être publiés (push) **avant le jeudi 30 mars à 20h**  sur la forge. . 
 
-- Pour information, la seconde partie du TP, qui sera présentée la semaine prochaine sera a rendre pour le dimanche 27 mars. 
+<!-- - Pour information, la seconde partie du TP, qui sera présentée la semaine prochaine sera a rendre pour le dimanche 27 mars.  -->
 
 
 ## Deux sujets au choix
@@ -133,7 +135,7 @@ On aura besoin d'interpréter les données en fonction du format utilisé :
 - CSV : [`fgetcsv()`](https://www.php.net/manual/fr/function.fgetcsv.php)
 - JSON : [`json_decode()`](https://www.php.net/manual/fr/function.json-decode.php)
 
-
+Pour éviter des problèmes de mémoire lors de l'import, il faut régulièrement appeler les méthodes  `flush` et `clear` de l'`ObjectManager` dans la fonction `load`du `DataFixture`. On utilisera aussi l'option `--no-debug` dans la ligne de commande. 
 
 ### Des commentaires 
 
@@ -146,7 +148,7 @@ Un commentaire peut être constitué de :
 - une note de 1 à 5,
 - le texte du commentaire.
 
-Prévoir cette nouvelle entité en relation 1-n avec l'entité établissement. **Attention** au sens de la relation. Un établissement peut avoir plusieurs commentaires et un commentaire ne concerne qu'un seul établissement.
+Prévoir cette nouvelle entité en relation **1-n** avec l'entité établissement. **Attention** au sens de la relation. Un établissement peut avoir plusieurs commentaires et un commentaire ne concerne qu'un seul établissement.
 
 Se concentrer sur l'affichage  plutôt que sur la création des commentaire. **Les formulaires seront abordés plus tard**. 
 
