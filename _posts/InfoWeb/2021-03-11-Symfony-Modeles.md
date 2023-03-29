@@ -560,33 +560,34 @@ namespace App\Controller;
 // ...
 use App\Entity\Category;
 use App\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends AbstractController
 {
-    #[Route('/product/createwithcategory', name: 'create_product_with_cat')]
-    public function createWithCategory(ManagerRegistry $doctrine)
+    #[Route('/product', name: 'product')]
+    public function index(EntityManagerInterface $entityManager): Response
     {
-      $category = new Category();
-      $category->setName('Computer Peripherals');
+        $category = new Category();
+        $category->setName('Computer Peripherals');
 
-      $product = new Product();
-      $product->setName('Keyboard');
-      $product->setPrice(19.99);
-      // $product->setDescription('Ergonomic and stylish!');
+        $product = new Product();
+        $product->setName('Keyboard');
+        $product->setPrice(19.99);
+        $product->setDescription('Ergonomic and stylish!');
 
-      // relates this product to the category
-      $product->setCategory($category);
+        // relates this product to the category
+        $product->setCategory($category);
 
-      $entityManager = $doctrine->getManager();
-      $entityManager->persist($category);
-      $entityManager->persist($product);
-      $entityManager->flush();
+        $entityManager->persist($category);
+        $entityManager->persist($product);
+        $entityManager->flush();
 
-      return new Response(
-          'Saved new product with id: '.$product->getId()
-        .' and new category with id: '.$category->getId()
-      );
+        return new Response(
+            'Saved new product with id: '.$product->getId()
+            .' and new category with id: '.$category->getId()
+        );
     }
 }
 ```
@@ -602,10 +603,18 @@ Grâce aux accesseurs définis dans les modèles il est facile d'accéder aux do
 ```php
 <?php
 // ...
-public function showAction(ManagerRegistry $doctrine, Product $product)
+class ProductController extends AbstractController
 {
-    $categoryName = $product->getCategory()->getName();
-    //...
+    public function show(ProductRepository $productRepository, int $id): Response
+    {
+        $product = $productRepository->find($id);
+        // ...
+
+        $categoryName = $product->getCategory()->getName();
+
+        // ...
+    }
+}
 
 ```
 
@@ -638,14 +647,14 @@ Si on sait d'avance que ces 2 requêtes vont être faites, on peut avoir recours
 puis utiliser le _repository_ dans les contrôleurs :
 
 ```php
-public function show(ManagerRegistry $doctrine, int $id): Response
-{
-    $product = $doctrine->getRepository(Product::class)->findOneByIdJoinedToCategory($id);
+    public function show(ProductRepository $productRepository, int $id): Response
+    {
+        $product = $productRepository->findOneByIdJoinedToCategory($id);
 
-    $category = $product->getCategory();
+        $category = $product->getCategory();
 
-    // ...
-}
+        // ...
+    }
 ```
 
 ### Relations n-n

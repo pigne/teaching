@@ -5,8 +5,8 @@ categories:
 - InfoWeb
 - lecture
 author: Yoann Pigné
-published: false
-update: 2022-02-24
+published: true
+update: 2023-03-29
 ---
 
 Récapitulatif des cours et TPs précédents :
@@ -96,8 +96,9 @@ class MuseeController extends AbstractController
   /**
    * @Route("/{id}/dummy", name="musee_dummy")
    */
-  public function dummyAction(Musee $musee): Response
+  public function dummyAction(MuseeRepository $museeRepository, $id): Response
   {
+     $musee = $museeRepository->find($id);
      $dummyForm = $this->createFormBuilder($musee)
         ->add('nom', TextType::class)
         ->add('adresse', TextType::class)
@@ -106,7 +107,7 @@ class MuseeController extends AbstractController
         ->add('save', SubmitType::class, array('label' => 'OK.  Ou pas...'))
         ->getForm();
      return $this->render('musee/dummy.html.twig', array(
-        'form' => $dummyForm->createView(),
+        'form' => $dummyForm,
      ));
   }
 
@@ -208,10 +209,10 @@ On note que la méthode `handleRequest` est toujours appelée **avant** la méth
  * @Route("/dummynew", name="musee_dummynew")
  * @Method({"GET", "POST"})
  */
-public function dummyNewAction(Request $request): Response
+public function dummyNewAction(Request $request, EntityManagerInterface $entityManager): Response
 {
     $musee = new Musee();
-    $dummyForm = $this->createFormBuilder($musee)
+    $museeForm = $this->createFormBuilder($musee)
         ->add('nom', TextType::class)
         ->add('adresse', TextType::class)
         ->add('longitude', NumberType::class)
@@ -219,19 +220,18 @@ public function dummyNewAction(Request $request): Response
         ->add('save', SubmitType::class, array('label' => 'Enregistrer'))
         ->getForm();
 
-    $dummyForm->handleRequest($request);
+    $museeForm->handleRequest($request);
 
-    if ($dummyForm->isSubmitted() && $dummyForm->isValid()) {
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($musee);
-        $em->flush();
+    if ($museeForm->isSubmitted() && $museeForm->isValid()) {
+        $entityManager->persist($musee);
+        $entityManager->flush();
 
-        return $this->redirectToRoute('musee_dummy', array('id' => $musee->getId()));
+        return $this->redirectToRoute('musee_show', array('id' => $musee->getId()));
     }
 
     return $this->render('musee/dummy.html.twig', array(
         'musee' => $musee,
-        'form' => $dummyForm->createView(),
+        'form' => $museeForm,
     ));
 }
 ```
@@ -244,6 +244,11 @@ C'est lors de la définition de l'entité (le modèle objet) que l'on définie c
 
 <a href="https://symfony.com/doc/current/validation.html">Documentation sur la validation.</a>
 
+On ajoute une dépendance au projet : 
+
+```sh
+composer require symfony/validator
+```
 
 {%raw%}
 
