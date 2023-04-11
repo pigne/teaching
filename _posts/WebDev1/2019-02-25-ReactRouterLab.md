@@ -82,7 +82,7 @@ On imagine que le format des fichier JSON correspond au fichier de test du TP pr
 
 Le plus simple est probablement d'utiliser  l'idée du [*Lifting State Up*](https://reactjs.org/tutorial/tutorial.html#lifting-state-up)  dans la démo de React. 
 
-Pour pouvoir proposer une implémentation ***React*** et ***React Router***  il va également falloir utiliser le mécanisme (`userouteloaderdata`)[https://reactrouter.com/en/main/hooks/use-route-loader-data#userouteloaderdata] de ***React Router*** : 
+Pour pouvoir proposer une implémentation ***React*** et ***React Router***  il va également falloir utiliser le mécanisme [`userouteloaderdata`](https://reactrouter.com/en/main/hooks/use-route-loader-data#userouteloaderdata) de ***React Router*** : 
 
 
 
