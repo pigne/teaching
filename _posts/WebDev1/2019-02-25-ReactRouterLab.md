@@ -102,8 +102,8 @@ Les composants React **doivent** être testés comme n'importe quel code javascr
 
 ## Travail à réaliser
 
--[] Travail à réaliser en **binome**. 
--[] Partir d'un nouveau projet créé avec `create-react-app`  (`npx create-react-app mon-projet`) ou avec `vite` (`npm create vite@latest mon-projet -- --template react`) 
+- Travail à réaliser en **binome**. 
+- Partir d'un nouveau projet créé avec `create-react-app`  (`npx create-react-app mon-projet`) ou avec `vite` (`npm create vite@latest mon-projet -- --template react`) 
 - Versionner le projet sur la forge.
 - S'assurer que le  projet est privé et m'ajouter en tant que développeur à votre projet.
 - M'envoyer un mail avec le titre `" [M1-WEB] TP n°4 "`  et contenant les  **nom** et  **prénom** des membres du binôme ainsi que l'**URL du projet**. 
