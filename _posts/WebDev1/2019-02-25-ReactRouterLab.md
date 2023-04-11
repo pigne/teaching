@@ -30,6 +30,10 @@ On souhaite avoir des URLs du type :
 
 Ces routes sont dynamiquement créées par ***React Router*** à partir des données de capteurs récupérées dans la ressource indiquée dans l'`input`précédent. 
 
+
+On s'inspirera très largement du [tutoriel de react router](https://reactrouter.com/en/main/start/tutorial).
+
+
 ## Broker MQTT
 
 Lire la doc sur [Le protocole MQTT](https://mosquitto.org/man/mqtt-7.html).
@@ -110,7 +114,7 @@ Les composants React **doivent** être testés comme n'importe quel code javascr
 
 ## Échéance
 
-- 16 mai 2022
+- 16 mai 2023
 
 ## Évaluation
 
