@@ -6,7 +6,7 @@ categories:
 - lab
 author: Yoann Pigné
 published: false
-update: 2021-03-08
+update: 2023-03-28
 ---
 
 **Ce TP n'est pas a rendre. Il ne sera pas évalué.**
@@ -40,8 +40,7 @@ avec `[name]` le nom du capteur (une chaîne de caractères),  `[value]` la repr
 -  'ON_OFF',
 -  'OPEN_CLOSE'.
 
-En divergeant (fork) le projet de base 
-[WebSocket MQTT lab](https://www-apps.univ-lehavre.fr/forge/2020-2021-m1/WEB-mqtt-lab) réaliser une Web app permettant de :
+ Réaliser une Web app permettant de :
 
 - de se connecter à un serveur MQTT donnée,
 - de souscrire a tous les messages de ce serveur,
