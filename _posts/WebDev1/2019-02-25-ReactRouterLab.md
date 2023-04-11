@@ -5,8 +5,9 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
-update: 2022-03-22
+published: true
+update: 2022-04-10
+
 ---
 
 On veut réaliser une web app qui se connecte à une source de données (un Web Service) afin de recevoir des informations  sur l'état de capteurs dans un réseau.
@@ -15,9 +16,9 @@ On s'intéresse ici à l'affichage et à la représentation graphique des donné
 
 Voici une idée générale de la structure de l'application :
 
-![IoT Sketch]({{ site.baseurl }}/images/router_iot_app.svg)
+![IoT Sketch]({{ site.baseurl }}/images/appercu_sensor_app.jpg)
 
-En reprenant l'idée du [*Lifting State Up*](https://reactjs.org/tutorial/tutorial.html#lifting-state-up)  dans la démo de React, Proposer une implémentation avec ***React*** et ***React Router*** de l'application qui stocke son état dans un composant globale et délègue l'affichage des différents éléments de la page à des composants *React* imbriqués.
+
 
 On souhaite avoir des URLs du type : 
 
@@ -27,17 +28,59 @@ On souhaite avoir des URLs du type :
 - `/temperature_salle_A111`
 - ...
 
-Ces routes sont dynamiquement créées à partir des données de capteurs récupérées dans la ressource indiquée dans l'`input`précédent. 
+Ces routes sont dynamiquement créées par ***React Router*** à partir des données de capteurs récupérées dans la ressource indiquée dans l'`input`précédent. 
 
-<!-- ## Broker MQTT
+## Broker MQTT
 
-Un broker MQTT avec de faux capteurs est disponible à l'adresse : `random.pigne.org` sur le port `1883` pour les sockets réseaux classiques et sur le port `9001` pour le support WebSocket. -->
+Lire la doc sur [Le protocole MQTT](https://mosquitto.org/man/mqtt-7.html).
+
+Les messages sont envoyés avec un topic du type:
+
+```
+value/[ID]
+```
+
+avec `[ID]` la valeur de l'identifient du capteur.
+
+Les messages envoyées sont au format JSON et du type :
+
+```JSON
+{
+     "name": "[name]",
+     "value": "[value]",
+     "type": "[SensorType]"
+}
+```
+
+avec `[name]` le nom du capteur (une chaîne de caractères),  `[value]` la représentation en string de la valeur du capteur et `[sensorType]` le type de données parmi :
+
+-  'POSITIVE_NUMBER',
+-  'PERCENT',
+-  'ON_OFF',
+-  'OPEN_CLOSE'.
+
+
+Deux brokers MQTT avec de faux capteurs sont disponibles : 
+
+- `wss://random.pigne.org` 
+- `wss://wss.databeam.eu`
+
+tous deux sur le port `443`  pour le support WebSocket.
 
 ## Source de données 
 
 En théorie on devrait connecter cette WebApp à un WebService. Ici, pour simplifier, on se contente de donner l'url d'une ressource sous forme de fichier JSON dans l'`input` URL du composant en haut de page. Cette ressource correspond au nom d'un fichier que l'on dispose dans le serveur, dans le dossier `public`. Dès que le champ `input` est modifié, la nouvelle resource est téléchargé de façon asynchrone pour actualiser la liste des capteurs. 
 
 On imagine que le format des fichier JSON correspond au fichier de test du TP précédent. 
+
+
+## Stockage des états       
+
+Le plus simple est probablement d'utiliser  l'idée du [*Lifting State Up*](https://reactjs.org/tutorial/tutorial.html#lifting-state-up)  dans la démo de React. 
+
+Pour pouvoir proposer une implémentation ***React*** et ***React Router***  il va également falloir utiliser le mécanisme (`userouteloaderdata`)[https://reactrouter.com/en/main/hooks/use-route-loader-data#userouteloaderdata] de ***React Router*** : 
+
+
 
 ## *Flexbox* ou *CSS Grid Layout*
 
@@ -53,16 +96,21 @@ On veillera a bien nommer les fichier comme décrit dans la [documentation de `c
 
 Les composants React **doivent** être testés comme n'importe quel code javascript. Se référer à l'[aide en ligne de React  sur les tests](https://fr.reactjs.org/docs/testing.html) pour tester le code. 
 
-## Rendu
+## Travail à réaliser
 
-Comme pour les autres TP, on va forker un projet de base : <https://www-apps.univ-lehavre.fr/forge/2021-2022-m1/WEB-react-router-lab> et en proposer un *Merge Request* une fois le travail terminé. On n'oubliera pas de modifier le fichier `README.md` et de nommer correctement le *Merge Request* avec vos **nom**, **prénom** et **numéro d'étudiant**.
+-[] Travail à réaliser en **binome**. 
+-[] Partir d'un nouveau projet créé avec `create-react-app`  (`npx create-react-app mon-projet`) ou avec `vite` (`npm create vite@latest mon-projet -- --template react`) 
+- Versionner le projet sur la forge.
+- S'assurer que le  projet est privé et m'ajouter en tant que développeur à votre projet.
+- M'envoyer un mail avec le titre `" [M1-WEB] TP n°4 "`  et contenant les  **nom** et  **prénom** des membres du binôme ainsi que l'**URL du projet**. 
+- Faire des commits régulier avec des messages claires et réaliser le travail décrit au dessus. 
 
-**Ce TP peut être fait en binôme.**
+**Ce TP DOIT être fait en binôme.**
 
 
 ## Échéance
 
-- 8 avril 2022
+- 16 mai 2022
 
 ## Évaluation
 
