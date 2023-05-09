@@ -71,11 +71,7 @@ Deux brokers MQTT avec de faux capteurs sont disponibles :
 
 tous deux sur le port `443`  pour le support WebSocket.
 
-## Source de données 
 
-En théorie on devrait connecter cette WebApp à un WebService. Ici, pour simplifier, on se contente de donner l'url d'une ressource sous forme de fichier JSON dans l'`input` URL du composant en haut de page. Cette ressource correspond au nom d'un fichier que l'on dispose dans le serveur, dans le dossier `public`. Dès que le champ `input` est modifié, la nouvelle resource est téléchargé de façon asynchrone pour actualiser la liste des capteurs. 
-
-On imagine que le format des fichier JSON correspond au fichier de test du TP précédent. 
 
 
 ## Stockage des états       
