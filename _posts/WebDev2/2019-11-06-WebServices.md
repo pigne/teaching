@@ -123,11 +123,14 @@ Attention il y a 3 façons de spécifier des paramètre ou d'envoyer des donnée
         - name: monParametre
           in: query
   ```
-- dans l'URI :
+- dans l'URL :
   ```yaml
-  parameters:
+  /url/url/{monParametre}:
+    get:
+      ...
+      parameters:
         - name: monParametre
-          in: query
+          in: path
   ```
 
 
