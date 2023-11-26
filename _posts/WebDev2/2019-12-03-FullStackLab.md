@@ -5,8 +5,8 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published: false
-update: 2022-11-28
+published: true
+update: 2023-11-27
 ---
 
 On cherche à développer une application Web avec des composants graphiques avancés capables d'afficher les données relatives aux ventes immobilières en France.
@@ -34,6 +34,7 @@ On utilise le framework [API Platform](https://api-platform.com/) pour intégrer
 - Télécharger les fichiers de données une seule fois pour ne pas surcharger les serveurs car les fichiers sont très gros. 
 - Bien lire la [notice](https://www.data.gouv.fr/fr/datasets/r/d573456c-76eb-4276-b91c-e6b9c89d6656) des fichiers et en particulier le tableau (section 6) qui indique le contenu des différentes colonnes de données.
 - Il est inutile que le modèle objet de l'API comporte les mêmes champs que les données brutes. À vous de choisir.
+- On utilise la dernière version distribuée d'API Plateform sur github (<https://github.com/api-platform/api-platform/releases>). On préfèrera l'archive `.tar.gz` à l'archive `.zip`.
 - On utilisera si possible le [Fixtures Bundle](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html) de Symfony pour charger les données.
 - l'API est simple et ne comporte pas de jointure.
 - Pas d'authentification, pas de modification, uniquement de la consultation.
@@ -44,8 +45,7 @@ On utilise le framework [API Platform](https://api-platform.com/) pour intégrer
 
 ## Échéance et Évaluation
 
-- Travail en groupes de 4 personnes.
-- Le template de `API Plateform` étant hébergé sur github, on créera un projet sur Github à partir du template en cliquant sur ["use this template"](https://github.com/api-platform/api-platform/generate). 
+- Travail en groupes de 4 personnes. 
 - Un seul membre du groupe m'envoie un mail avec les **noms des 4 membres** et l'**url du projet**. 
 - Le **mardi 3 janvier 2023**,  évaluation à l'oral, en groupes, en salle machine, pendant **30 minutes**.
 - Une présentation du projet et une démonstration seront faites devant la classe en utilisant le grand écran.

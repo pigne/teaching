@@ -5,8 +5,8 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
-update: 2022-11-27
+published: true
+update: 2023-11-26
 ---
 
 
@@ -14,7 +14,16 @@ update: 2022-11-27
 - [2D Drawing on the _canvas_](#2d-drawing-on-the-canvas)
 - [3D Drawing with _WebGL_](#3d-drawing-with-webgl)
 - [SVG](#svg)
-- [D3.js <small>Data-Driven Documents</small>](#d3js-smalldata-driven-documentssmall)
+  - [SVG Elements](#svg-elements)
+    - [Shape elements](#shape-elements)
+    - [Structural elements](#structural-elements)
+    - [Text content elements](#text-content-elements)
+  - [SVG Attributes](#svg-attributes)
+- [D3.js Data-Driven Documents](#d3js-data-driven-documents)
+  - [The Design Pattern](#the-design-pattern)
+  - [Drawing paths](#drawing-paths)
+  - [Handle events](#handle-events)
+  - [Fonctionnement avec React](#fonctionnement-avec-react)
 
 
 One of the main purposes of the Web is to present and exchange information. Information presentation can have many forms (text, graphics, audio, video, maps).
@@ -291,12 +300,12 @@ var blocks = svg.selectAll('.block')
 
 [Events Example](http://codepen.io/pigne/pen/JBzai)
 
-### Fonctionnement avec React et Redux
+### Fonctionnement avec React
 
-Dans une application avec React et Redux, la source unique d'information est le store redux.
 
-On va créer des composants react connectés au store et répondre aux évènements de mise à jour du composant réact (le [cycle de vie du composant](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)):
+Utiliser D3 avec React n'est pas trivial. Les 2 bibliothèques font plus ou moins la même chose (manipuler des données ainsi que le DOM). Il y a plusieurs approches possibles. La plus simple est de laisser D3 gérer le DOM et de laisser React gérer les données. 
 
-- `componentDidMount`
-- `componentDidUpdate`
-- `componentWillUnmount`
+
+On utilise le hook `useRef` pour créer une référence à un élément div que nous utiliserons pour rendre le graphique. Ensuite, dans le hook `useEffect`, on utilise `D3` pour créer un élément svg et l'ajouter à la div. Nous utilisons ensuite D3 pour lier les données aux éléments svg et rendre le graphique.
+
+<https://www.influxdata.com/blog/guide-d3js-react/>
