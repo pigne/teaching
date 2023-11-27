@@ -47,7 +47,7 @@ On utilise le framework [API Platform](https://api-platform.com/) pour intégrer
 
 - Travail en groupes de 4 personnes. 
 - Un seul membre du groupe m'envoie un mail avec les **noms des 4 membres** et l'**url du projet**. 
-- Le **mardi 3 janvier 2023**,  évaluation à l'oral, en groupes, en salle machine, pendant **30 minutes**.
+- Le **lundi 8 janvier 2024**,  évaluation à l'oral, en groupes, en salle machine, pendant **30 minutes**.
 - Une présentation du projet et une démonstration seront faites devant la classe en utilisant le grand écran.
 - Évaluation par tout le monde (le prof et les étudiants).
 
