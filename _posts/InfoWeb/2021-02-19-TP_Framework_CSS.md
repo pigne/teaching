@@ -5,7 +5,7 @@ categories:
 - InfoWeb
 - lab
 published: true
-update: 2023-01-11
+update: 2024-01-11
 
 ---
 
@@ -79,7 +79,7 @@ Se référer à la [documentation de bulma](https://bulma.io/documentation/) pou
 
 ## Travail à réaliser
 
-On se propose de créer un site Web en HTML et CSS statique (pas de PHP) qui permet de présenter les **équipes**  les **matchs** et les **groupes** de la [coupe du monde féminine de football](https://www.fifa.com/fifaplus/en/groupenaments/womens/womensworldcup/australia-new-zealand2023). Le but est de réaliser plusieurs pages sur ce sujet en utilisant le Framework CSS Bulma. Ce site possède plusieurs pages ou ensemble de pages liées entre elles. Le design doit respecter celui proposé par Bulma. Un maximum de [composants](https://bulma.io/documentation/components/) et d'[éléments](https://bulma.io/documentation/elements/) graphiques doivent être utilisés. Les pages sont "*responsives*" et utilisent le système de [colonnes](https://bulma.io/documentation/columns/) du Bulma.
+On se propose de créer un site Web en HTML et CSS statique (pas de PHP) qui permet de présenter les **équipes**  les **matchs** et les **groupes** de la Coupe d’Afrique des nations de football. Le but est de réaliser plusieurs pages sur ce sujet en utilisant le Framework CSS Bulma. Ce site possède plusieurs pages ou ensemble de pages liées entre elles. Le design doit respecter celui proposé par Bulma. Un maximum de [composants](https://bulma.io/documentation/components/) et d'[éléments](https://bulma.io/documentation/elements/) graphiques doivent être utilisés. Les pages sont "*responsives*" et utilisent le système de [colonnes](https://bulma.io/documentation/columns/) du Bulma.
 
 Toutes les pages ont la même base graphique avec une entête contenant un logo et un titre. Le logo devient centré et le titre passe sur la seconde ligne en mode étroit (mobile). Chaque page propose un menu latéral qui disparaît en mode étroit (mobile).
 
@@ -106,7 +106,7 @@ Pas la peine d'écrire *toutes* les pages de groupes. Une seule suffit.
 
 ### Les pages équipe
 
-A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les éléments et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe France féminine football](https://en.wikipedia.org/wiki/France_women%27s_national_football_team)) pour constater qu'une équipe possède un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
+A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les éléments et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe du Sénégal (Tenant du titre)](https://fr.wikipedia.org/wiki/%C3%89quipe_du_S%C3%A9n%C3%A9gal_de_football)) pour constater qu'une équipe possède un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
 
 <!-- ## Fin du TP
 
@@ -126,18 +126,6 @@ Bulma nous permet d'obtenir des pages Web stylisées très rapidement. Mais bulm
 
 
 
-
-#### nodejs
-
-Pour développer facilement il faut disposer de l'interpréteur javascript nodejs. On commence donc par installer node :
-  
-  - Windows : <https://nodejs.org/fr/download/>
-  - ubuntu : 
-    ```sh
-    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-    sudo apt-get install -y nodejs
-    ```
-On vérifie que tout s'est bien passé en tapant la commande `node -v`.
 
 #### Bulma Start
 
