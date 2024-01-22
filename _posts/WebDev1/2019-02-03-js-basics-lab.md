@@ -5,13 +5,13 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: true
-update: 2023-01-31
+published: false
+update: 2024-01-22
 ---
 
 # JS Basics Lab
 
-Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2022-2023-M1/WEB-jsbasics-lab>
+Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2023-2024-M1/WEB-jsbasics-lab>
 
 Ce projet est principalement constitué d'un fichier de tests (`test/index.test.js`) qui s'applique sur un ensemble de fonctions (`src/index.js`). Certains tests sont écrits, mais le corps des fonctions testées est vide ! D'autres fonctions sont écrites mais il faut écrire leurs testes. Parfois il manque le corps des fonctions et les tests.
 
@@ -23,7 +23,7 @@ Ce projet est principalement constitué d'un fichier de tests (`test/index.test.
 - [ ] Modifier le fichier README.md du projet pour y faire apparaître vos coordonnées (nom, prénom, login, email).
 - [ ] Dans la copie de travail exécuter la commande `npm install` ou `npm i` pour installer les dépendances du projet.
 - [ ] Lancer les tests : `npm test` ou `npm t`
-- [ ] Il y a beaucoup d'erreurs. A vous de les corriger en écrivant le corps des fonctions dans le fichier `src/index.js` (à la place des commentaires `/* TODO */`) et en relançant les tests. Faire des commits **au fur et à mesure** que vous validez des tests. (`git add -u && git commit`)
+- [ ] Il y a beaucoup d'erreurs. A vous de les corriger en écrivant le corps des fonctions dans les fichiers `src/index.js` et `src/circle.js` (à la place des commentaires `/* TODO */`) et en relançant les tests. Faire des commits **au fur et à mesure** que vous validez des tests. (`git add -u && git commit`)
 - [ ] A l'inverse certaines fonctions sont écrites dans `src/index.js` mais ne sont pas testées. A vous d'écrire les tests dans `src/index.test.js` afin de **maximiser le taux de couverture des tests**. Le taux de couverture s'affiche en ligne de commande dans le tableau à la fin des tests. Pour avoir des infos détaillées on peut ouvrir le fichier `coverage/lcov-report/index.html` dans un navigateur pour comprendre quelles lignes et quelles branches ont été oubliées. Faire des commits **au fur et à mesure** que vous écrivez les tests.
 
 :warning: Le style du code écrit est également testé. Les tests ne s'exécuteront pas si le code ne respectent pas les règles syntaxiques définies. On utilise les règles recommandées ([`eslint:recommended`](https://eslint.org/docs/rules/)) par le projet ESLint.
