@@ -45,7 +45,9 @@ Quand tous les tests passent, que la couverture du code par les tests est satisf
 
 ## Échéance
 
-TP à rendre pour le : 07/02/2023
+TP à rendre pour le : 
+- 13/02/2024 pour le groupe 2
+- 20/02/2024 pour le groupe 1
 
 ## Évaluation
 
