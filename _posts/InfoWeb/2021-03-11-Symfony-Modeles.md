@@ -6,7 +6,7 @@ categories:
 - lecture
 author: Yoann Pigné
 published: false
-update: 2023-03-15
+update: 2024-02-21
 ---
 
 Récapitulatif du cours et du TP précédent :
@@ -246,6 +246,7 @@ On effectue toujours les requêtes de consultation sur un type d'objets grâce �
 ```
 
 
+
 ## Le _Repository_
 
 Le `Repository` contient une quantité de méthodes qui facilitent l'accès au modèle de données. On peut accéder aux objets:
@@ -271,11 +272,28 @@ $products = $repository->findBy(
 );
 ```
 
+
+## EntityValueResolver
+
+Dans bien des cas on peut résoudre les entités automatiquement à partir de l'identifiant. On peut alors utiliser le _EntityValueResolver_ pour passer directement l'objet en paramètre de la méthode du contrôleur.
+
+```php
+// src/Controller/ProductController.php
+// ...
+    #[Route('/product/{id}', name: 'product_show')]
+    public function show(Product $product): Response
+    {
+        return new Response('Check out this great product: '.$product->getName());
+    }
+```
+
+
+
 ## Mise à jour d'un objet
 
 Une fois que l'on dispose d'une référence à un objet il est facile de le mettre à jours avec des accesseurs. Il faut ensuite appeler l'`entity manager` pour activer la persistance. On fait cela en 3 étapes.
 
-1. On récupère l'objet a partir de doctrine (c'est le paramètre typé `Product`)
+1. On récupère l'objet a partir de doctrine avec le _repository_.
 2. On modifie l'objet avec les modificateurs (e.g. : `setPrice`)
 3. On appel à la méthode  `flush()` de l'`entity manager`.
 
@@ -325,7 +343,7 @@ Symfony propose un langage de requête proche du SQL : le DQL. L'idée est la m�
 
 Notes :
 - on utilise l'`entity manager` pour créer des requêtes.
-- on utilise des _placeholder_ (`:price`) et la fonction `setParameter()` comme avec `PDO` pour évider les attaques de type injection SQL.
+- on utilise des _placeholder_ (`:price`) et la fonction `setParameter()` comme avec `PDO` pour éviter les injections SQL.
 
 
 ```php

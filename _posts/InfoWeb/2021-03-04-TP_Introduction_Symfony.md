@@ -6,7 +6,7 @@ categories:
 - lab
 author: Yoann Pigné
 published: false
-update: 2023-03-17
+update: 2024-02-20
 ---
 
 
@@ -26,66 +26,50 @@ Il est possible de travailler en binôme pour ce TP. En revanche, les réponses 
 
 Ce TP doit être versionné avec GIT et être partagé en utilisant la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier d'ajouter les enseignants (`pigne` et `fournied`) au projet avec le status *developper*. 
 
-Une fois le projet créé sur la forge, envoyer un mail à Dominique Fournier <dominique.fournier@univ-lehavre.fr> et  Yoann Pigné <yoann.pigne@univ-lehavre.fr> avec les titre "`L3 InfoWeb TP intro Symfony`". Ce mail indiquera les **nom** et **prénom** de chaque membre du groupe ainsi que l'URL du projet. 
+Une fois le projet créé sur la forge, envoyer un mail à Dominique Fournier <dominique.fournier@univ-lehavre.fr> et  Yoann Pigné <yoann.pigne@univ-lehavre.fr> avec le titre "`[L3 InfoWeb] TP intro Symfony`". Ce mail indiquera les **nom** et **prénom** de chaque membre du groupe ainsi que l'URL du projet. 
 
-## Installations de Symfony
+## Installations préalables
 
-Pour commencer à utiliser Symfony il faut installer : 
-
-- [`composer`](https://getcomposer.org/download/),   le gestionnaire de dépendances de PHP et 
-- [`symfony`](https://symfony.com/download), l'utilitaire qui permet de créer de nouveaux projets.
-
-
-Ces étapes sont décrites dans la doc officielle de Symfony : <https://symfony.com/doc/current/book/installation.html>
+Pour commencer à utiliser Symfony il faut installer  `composer` ainsi que le client `symfony`.
 
 ### Composer 
 
-On installe `composer` en suivant [ces instructions](https://getcomposer.org/download/). 
+Pour installer Composer on peut suivre les instructions en fonction de l'OS utilisé : <https://getcomposer.org>
 
+#### Composer sur les machine de TP de l'UFR
 
-#### Pour Windows 
-
-On utilise l'installateur proposé sur le site de composer: <https://getcomposer.org/Composer-Setup.exe> puis on redémarre le terminal pour mettre a jour l'environnement. 
-
-#### Pour Linux 
-
-Suivre les instruction et exécuter les commandes données ici : <https://getcomposer.org/download/>
-
-<!-- :warning:  Pour les machines de TP de l'université, on va installer Composer dans le dossier utilisateur car nous n'avons pas les droits d'écriture dans `/usr/local/...` -->
-
-Attention : les commandes suivantes ne doivent être exécutées qu'une seule fois !
-
-
-```bash
-mkdir -p ${HOME}/.composer/bin
-wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --install-dir=${HOME}/.composer/bin --filename=composer
-```
-
-On modifie ensuite la variable d'environnement `$PATH` pour que l'exécutable `composer` soit disponible partout en ajoutant la ligne suivante au fichier `${HOME}/.profile`
-
-```bash
-export PATH="$HOME/.composer/bin:$PATH"
-```
+1. ontélécharge la version binaire de composer avec la commande :
+  ```bash
+  mkdir -p ${HOME}/.composer/bin
+  wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --install-dir=${HOME}/.composer/bin --filename=composer
+  ```
+2. On ajoute la ligne suivante au fichier `${HOME}/.profile`:
+  ```bash
+  export PATH="$HOME/.composer/bin:$PATH"
+  ```
+3. Enfin, on recharge l'environnement : 
+  ```sh
+  source ${HOME}/.profile
+  ```
 
 ### Symfony
 
 Pour installer Symfony on suit les instructions en fonction de l'OS utilisé : <https://symfony.com/download>
 
-#### sur les machine de TP de l'UFR
+#### Symfony sur les machine de TP de l'UFR
 
-1. On télécharge la version binaire de symfony :  <https://github.com/symfony-cli/symfony-cli/releases/download/v5.5.1/symfony-cli_linux_amd64.tar.gz>
-2. On extrait l'archive dans un dossier local, par exemple :  `$HOME/.symfony/bin`. 
-3. On ajoute la ligne suivante au fichier `${HOME}/.profile`
-
-```sh
-export PATH="$HOME/.symfony/bin:$PATH"
-```
-
-Enfin, on exécute la commande suivant pour recharger l'environnement : 
-
-```sh
-source ${HOME}/.profile
-```
+1. On télécharge la version binaire de symfony  avec la commande : 
+   ```sh
+    wget https://get.symfony.com/cli/installer -O - | bash
+    ```
+2. On ajoute la ligne suivante au fichier `${HOME}/.profile`:
+    ```sh
+    export PATH="$HOME/.symfony5/bin:$PATH"
+    ```
+3. Enfin, on recharge l'environnement : 
+  ```sh
+  source ${HOME}/.profile
+  ```
 
 ## Création d'un premier projet
 
@@ -98,7 +82,18 @@ cd projet_hello
 
 ### GIT
 
-C'est probablement le bon moment pour faire un `git init` dans le projet et pour le connecter à un projet sur la forge.
+Un  `git init` ainci que quelques commits ont été fait pour vous dans le projet. À vous d'ajouter ce projet dans la forge en ajoutant un `remote`  : 
+
+1. Créer un projet sur la forge avec ajoutant les enseignants comme développeurs.
+2. Ajouter un `remote` dans le projet pour le connecter à un projet sur la forge:
+  ```bash
+  git remote add origin https://www-apps.univ-lehavre.fr/NOM_UTILISATEUR/NOM_PROJET.git
+  ```
+  où `NOM_UTILISATEUR` est votre nom d'utilisateur de la forge et `NOM_PROJET` est le nom de votre projet créé sur la forge.
+3. Puis on pousse le projet sur la forge avec la commande :
+  ```bash
+  git push -u origin master
+  ```
 
 ## Analyse du projet de base
 
@@ -139,13 +134,14 @@ Le dossier `tests/` contient comme on s'en doute, les tests.
 
 <div class="question">
 
-### Questions 1, 2 et 3
+### Questions 1, 2, 3 et 4
 
 Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=337309) :
 
 1. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier `vendor/`.
-1. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier  `public/`.
-1. Quel fichier dois-je modifier pour configurer les identifiants de bases de données afin que Symfony puisse accéder à la Base de données ?
+2. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier  `public/`.
+3. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier  `assets/`.
+4. Quel fichier dois-je modifier pour configurer les identifiants de bases de données afin que Symfony puisse accéder à la Base de données ?
 
 </div>
 
@@ -168,11 +164,10 @@ La page visible a l'adresse `http://localhost:8000/` est une page par défaut, e
 Ces 3 termes sont importants :
 
 - Un **contrôleur** est la classe principale qui gère un ensemble d'**actions**.
-- Une **action** est une méthode de classe du contrôleur, c'est un peu comme un des services  possibles proposés par le contrôleur.
+- Une **action** est une méthode de classe du contrôleur, c'est un peu comme un des services possibles proposés par le contrôleur.
 - Une **route** est la partie qui vient après le nom de domaine dans une URL au sens de HTTP. Par exemple dans l'URL `https://www.example.com/truc/machin`, la route est `/truc/machin`.
 
 Il faut configurer le contrôleur pour que ses actions soient liées à des routes.
-
 
 
 ## Création d'un contrôleur
@@ -183,6 +178,7 @@ Nous allons créer un contrôleur des actions et des routes associées.
 
 ```php
 <?php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -192,9 +188,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HelloController extends AbstractController
 {
-  /**
-   * @Route("/helloRandom")
-   */
+
+  #[Route("/helloRandom")]
   public function randomNameAction(): Response
   {
     return new Response(
@@ -203,21 +198,21 @@ class HelloController extends AbstractController
         "</h1></body></html>"
     );
   }
-  
+
   static function generateRandomName(): string
   {
     $nouns = [
-      "Circle","Cone","Cylinder","Ellipse","Hexagon",
-      "Irregular Shape","Octagon","Oval","Parallelogram",
-      "Pentagon","Pyramid","Rectangle","Semicircle","Sphere",
-      "Square","Star","Trapezoid","Triangle","Wedge","Whorl",
+      "Circle", "Cone", "Cylinder", "Ellipse", "Hexagon",
+      "Irregular Shape", "Octagon", "Oval", "Parallelogram",
+      "Pentagon", "Pyramid", "Rectangle", "Semicircle", "Sphere",
+      "Square", "Star", "Trapezoid", "Triangle", "Wedge", "Whorl",
     ];
     $adjectives = [
-      "Amusing", "Athletic", "Beautiful", "Brave", "Careless", 
-      "Clever", "Crafty", "Creative", "Cute", "Dependable", 
-      "Energetic", "Famous", "Friendly", "Graceful", "Helpful", 
-      "Humble", "Inconsiderate", "Likable", "Mid  Class", "Outgoing", 
-      "Poor", "Practical", "Rich", "Sad", "Skinny", "Successful", "Thin", 
+      "Amusing", "Athletic", "Beautiful", "Brave", "Careless",
+      "Clever", "Crafty", "Creative", "Cute", "Dependable",
+      "Energetic", "Famous", "Friendly", "Graceful", "Helpful",
+      "Humble", "Inconsiderate", "Likable", "Mid  Class", "Outgoing",
+      "Poor", "Practical", "Rich", "Sad", "Skinny", "Successful", "Thin",
       "Ugly", "Wealth",
     ];
     return $adjectives[array_rand($adjectives)] .
@@ -232,7 +227,7 @@ On peut voir fonctionner ce nouveau contrôleur avec l'URL : [http://localhost:8
 
 <div class="question">
 
-### Question 4
+### Question 5
 
 Comment fait-on le lien entre une route (URL) de l'application et une action d'un contrôleur ?
 
@@ -268,13 +263,7 @@ class HelloControllerTest extends WebTestCase
   }
 }
 ```
-On doit installer `PHPUnit`: 
-
-```sh
-composer require --dev phpunit/phpunit symfony/test-pack
-```
-
-Puis, on exécute les tests avec `PHPUnit` (l'équivalent du `JUnit` de `Java` pour `PHP`):
+On exécute les tests avec `PHPUnit` (l'équivalent du `JUnit` de `Java` pour `PHP`):
 
 ```sh
 php bin/phpunit
@@ -290,16 +279,7 @@ OK (2 tests, 3 assertions)
 
 <div class="question">
 
-### Question 5
-
-A quoi sert le fichier `composer.json` qui se trouve à la racine du projet ?
-</div>
-
-
-
-<div class="question">
-
-### Questions  6 
+### Questions  6
 
 Dans la classe de test `HelloControllerTest` expliquer ce que fait la méthode `testHelloRandomRoute`.
 
@@ -320,9 +300,7 @@ On souhaite créer une action qui dépende des paramètres de la route (une rout
 **Ajouter** la méthode suivante à la classe `HelloController` :
 
 ```php
-  /**
-   * @Route("/hello/{name}", defaults={"name" = ""})
-   */
+  #[Route("/hello/{name}", defaults: ["name" => ""])]  
   public function nameAction($name): Response
   {
     if ($name == "") {
@@ -410,13 +388,23 @@ On souhaite que l'application se souvienne de nous. À chaque fois que l'action 
 
 Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)) cela va afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)) cela doit également afficher `"Hello You!"`. En revanche si j'appelle pour la première fois l'action sans paramètres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
 
-**Modifier** l'action `nameAction` pour qu'elle se comporte comme décrit ci-dessus, en utilisant la [documentation Symfony sur les sessions](https://symfony.com/doc/current/session.html). On notera que la session courante, dans un controleur est accessible avec l'objet `Request` que l'on peut passer en paramètre de l'action : "`$session = $request->getSession();`".
+**Modifier** l'action `nameAction` pour qu'elle se comporte comme décrit ci-dessus, en utilisant la [documentation Symfony sur les sessions](https://symfony.com/doc/current/session.html). 
+<!-- On notera que la session courante, dans un controleur est accessible avec l'objet `Request` que l'on peut passer en paramètre de l'action : "`$session = $request->getSession();`". -->
 
 <div class="question">
 
-### Questions  10
+### Question 10
 
-Copier le code de  `nameAction`  dans Eureka (Question 10).  
+A quoi sert le fichier `composer.json` qui se trouve à la racine du projet ?
+</div>
+
+
+
+<div class="question">
+
+### Questions  11
+
+Copier le code de  `nameAction`  dans Eureka (Question 11).  
 
 </div>
 
@@ -425,8 +413,8 @@ Copier le code de  `nameAction`  dans Eureka (Question 10).
 
 <div class="question">
 
-### Questions  11
+### Questions  12
 
-Copier le code de ces tests dans Eureka (Question 11).  
+Copier le code de ces tests dans Eureka (Question 12).  
   
 </div>
