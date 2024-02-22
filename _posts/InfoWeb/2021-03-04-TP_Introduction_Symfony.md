@@ -38,7 +38,7 @@ Pour installer Composer on peut suivre les instructions en fonction de l'OS util
 
 #### Composer sur les machine de TP de l'UFR
 
-1. ontélécharge la version binaire de composer avec la commande :
+1. On télécharge composer avec la commande :
   ```bash
   mkdir -p ${HOME}/.composer/bin
   wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --install-dir=${HOME}/.composer/bin --filename=composer
@@ -52,6 +52,8 @@ Pour installer Composer on peut suivre les instructions en fonction de l'OS util
   source ${HOME}/.profile
   ```
 
+En ouvrant un autre terminal on risque de ne plus avoir accès à `composer`. Il suffit de refaire la dernière commande : `source ${HOME}/.profile` ou bien de redémarrer sa session. 
+ 
 ### Symfony
 
 Pour installer Symfony on suit les instructions en fonction de l'OS utilisé : <https://symfony.com/download>
@@ -70,6 +72,7 @@ Pour installer Symfony on suit les instructions en fonction de l'OS utilisé : <
   ```sh
   source ${HOME}/.profile
   ```
+En ouvrant un autre terminal on risque de ne plus avoir accès à `symfony`. Il suffit de refaire la dernière commande : `source ${HOME}/.profile` ou bien de redémarrer sa session. 
 
 ## Création d'un premier projet
 
