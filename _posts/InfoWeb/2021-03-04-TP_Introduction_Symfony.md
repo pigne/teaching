@@ -91,9 +91,9 @@ Un  `git init` ainci que quelques commits ont été fait pour vous dans le proje
 1. Créer un projet sur la forge avec ajoutant les enseignants comme développeurs.
 2. Ajouter un `remote` dans le projet pour le connecter à un projet sur la forge:
   ```bash
-  git remote add origin https://www-apps.univ-lehavre.fr/NOM_UTILISATEUR/NOM_PROJET.git
+  git remote add origin https://www-apps.univ-lehavre.fr/<utilisateur>/<projet>.git
   ```
-  où `NOM_UTILISATEUR` est votre nom d'utilisateur de la forge et `NOM_PROJET` est le nom de votre projet créé sur la forge.
+  où `<utilisateur>` est votre nom d'utilisateur de la forge et `<projet>` est le nom de votre projet créé sur la forge.
 3. Puis on pousse le projet sur la forge avec la commande :
   ```bash
   git push -u origin master
