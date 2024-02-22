@@ -72,6 +72,7 @@ Pour installer Symfony on suit les instructions en fonction de l'OS utilisé : <
   ```sh
   source ${HOME}/.profile
   ```
+
 En ouvrant un autre terminal on risque de ne plus avoir accès à `symfony`. Il suffit de refaire la dernière commande : `source ${HOME}/.profile` ou bien de redémarrer sa session. 
 
 ## Création d'un premier projet
