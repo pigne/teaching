@@ -5,7 +5,8 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2024-02-11
 ---
 
 <!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
@@ -619,11 +620,12 @@ window.addEventListener( 'load', initEventHandlers, false);
 
 ### Events Bubbling/Capturing
 
-When an event is fired, the DOM tree is traversed twice. First from the root to the element firing the element. Then from that element back to the root of the DOM.
+When an event is fired, the DOM tree is traversed twice : 
+- First from the root to the element firing the event : _capturing_
+- Then from that element back to the root of the DOM : _bubbling_
 
-The first traversal from the root to the element is called _capturing_. The second traversal (from the element to the root) is called _bubbling_.
 
-An event, when registered, will be triggered during capturing or bubbling (bubbling by default) depending on the third parameter of the `addEventListener` method:
+An event, when registered, will be triggered during capturing or bubbling (bubbling by default) depending on the third parameter of the `addEventListener()` method:
 
 ```javascript
 otherElement.addEventListener( 'click', respondToClick , true); // use capture
@@ -631,18 +633,21 @@ someElement.addEventListener( 'focus', someSpecialBehaviour , false); // use bub
 window.addEventListener( 'load', something); // use bubbling
 ```
 
+### Propagation
+
 The normal course of doth traversals may be stopped by any event handler with `event.stopPropagation()`.
 
 [A complete event traversal example on CodePen](http://codepen.io/pigne/pen/meLGRp).
 
 ### Default Events
 
-During an event some default behavior is intended (e.g. clicking a radio button should change it UI, etc.). Default behaviors in response to events can be controlled. An event can be prevented from happening without preventing event propagation (capturing/bubbling). `event.preventDefault()` can prevent the default behavior of an element upon the considered event.
+During an event, some default behavior is intended (e.g., clicking a radio button should change its UI, etc.). Default behaviors in response to events can be controlled. An event can be prevented from happening without preventing event propagation (capturing/bubbling). `event.preventDefault()` can prevent the default behavior of an element upon the considered event.
 
 ## Asynchronous Communication
 
 ### XMLHttpRequest
-A JavaScript object that allows the exchange of information between the client and the server, _without_ reloading the page.
+
+A **Legacy** JavaScript object that allows the exchange of information between the client and the server, _without_ reloading the page.
 
 
 The object is standardized and mostly implemented everywhere.
