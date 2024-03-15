@@ -43,7 +43,8 @@ Chaque groupe constitué **doit** désigner un **référent** qui se charge de c
 
 - Le courriel du référent indiquant la composition du groupe, le n° de sujet et l'URL du projet doit être envoyé **le 24 mars**.
 
-- Les commits concernant cette première partie du TP doivent être publiés (push) **avant le jeudi 30 mars à 20h**  sur la forge. . 
+- Les commits concernant cette première partie du TP doivent être publiés (push) **avant le jeudi 21 mars à 20h**  sur la forge. 
+- [TODO] Un tag "v1". 
 
 <!-- - Pour information, la seconde partie du TP, qui sera présentée la semaine prochaine sera a rendre pour le dimanche 27 mars.  -->
 
@@ -61,7 +62,7 @@ Indications valable pour  les **deux sujets** :
 
 - Reprendre les étapes du [tp précédent](http://pigne.org/teaching/infoweb/lab/TP_Introduction_Symfony) pour créer un nouveau projet spécialement pour cette nouvelle app. **Attention** : seul le **référent** crée le projet Symfony et l'ajoute dans le GIT. Les autres membres n'ont qu'a faire un `git clone ...` et un `composer install`  dans la racine du projet.
 
-- Reprendre les étapes du [cours précédent](http://ppigne.org/teaching/infoweb/lecture/Symfony-Modeles) pour **configurer la base de donnée**  et **créer les entités** rapidement avec les commandes de la console. 
+- Reprendre les étapes du [cours précédent](http://pigne.org/teaching/infoweb/lecture/Symfony-Modeles) pour **configurer la base de donnée**  et **créer les entités** rapidement avec les commandes de la console. 
 **Attention** : pour éviter les conflits avec le fichier `.env` il est bon que chacun configure sa base de donnée locale (la variable `DATABASE_URL`) dans un fichier `.env.local` **non versionné**.  
 
 ## Sujet n°1
