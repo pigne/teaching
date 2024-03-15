@@ -40,7 +40,7 @@ Chaque groupe constitué **doit** désigner un **référent** qui se charge de c
 
 ## Échéances 
 
-- Le courriel du référent indiquant la composition du groupe, le n° de sujet et l'URL du projet doit être envoyé **le 24 mars**.
+- Le courriel du référent indiquant la composition du groupe, le n° de sujet et l'URL du projet doit être envoyé **le 18 mars**.
 
 - Les commits concernant cette première partie du TP doivent être publiés (push) **avant le jeudi 21 mars à 20h**  sur la forge. 
 - [TODO] Un tag "v1". 
