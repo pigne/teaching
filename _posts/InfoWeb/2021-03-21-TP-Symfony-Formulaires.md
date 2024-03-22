@@ -16,7 +16,7 @@ Suivre les instructions en fonction du n° de sujet choisi la semaine précéden
 
 ## Échéance (pour tous les sujets)
 
-Cette dernière partie doit toujours être versionnée et faire l'objet de validations régulières de la part de tous les membres du groupe. Les dépôts GIT seront relevés le **vendredi 7 avril 2023 à 21h42 (CEST)**, pour évaluation.
+Cette dernière partie doit toujours être versionnée et faire l'objet de validations régulières de la part de tous les membres du groupe. Les dépôts GIT seront relevés le **vendredi 29 mars 2024 à 21h42 (CEST)**, pour évaluation.
 
 ## Sujet 1
 
