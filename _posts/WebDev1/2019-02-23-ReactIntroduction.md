@@ -5,7 +5,8 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: false
+published: true
+update: 2024-03-26
 ---
 
 ## Les bases de React
@@ -32,6 +33,8 @@ ReactDOM.render(
 ```
 
 
+<!-- Notice importante -->
+:warning: On peux utiliser le support de REact en ligne pour se familiariser avec les concepts : <https://react.dev/learn>
 
 
 ### Les composants
@@ -184,7 +187,7 @@ L'avantage principal de l'utilisation de l'immuabilité est la détection des ch
 ##### Données modifiées par "mutation"
 
 ```js
-var player = {score: 1, name: 'Jeff'};
+const player = {score: 1, name: 'Jeff'};
 player.score = 2;
 // Now player is {score: 2, name: 'Jeff'}
 ```
@@ -192,13 +195,13 @@ player.score = 2;
 ##### Données immuables modifiées
 
 ```js
-var player = {score: 1, name: 'Jeff'};
+const player = {score: 1, name: 'Jeff'};
 
-var newPlayer = Object.assign({}, player, {score: 2});
+const newPlayer = Object.assign({}, player, {score: 2});
 // Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
 
 // Or if you are using object spread syntax proposal, you can write:
-// var newPlayer = {...player, score: 2};
+// const newPlayer = {...player, score: 2};
 ```
 
 ### Événements

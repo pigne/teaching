@@ -5,8 +5,8 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
-update: 2023-03-28
+published: true
+update: 2024-03-26
 ---
 
 **Ce TP n'est pas a rendre. Il ne sera pas évalué.**
@@ -40,13 +40,12 @@ avec `[name]` le nom du capteur (une chaîne de caractères),  `[value]` la repr
 -  'ON_OFF',
 -  'OPEN_CLOSE'.
 
- Réaliser une Web app permettant de :
+ Réaliser une Web app avec des composants React permettant de :
 
-- de se connecter à un serveur MQTT donnée,
+- de se connecter à un serveur MQTT dont l'URL est donnée par l'utilisateur depuis un `input`
 - de souscrire a tous les messages de ce serveur,
-- de créer des instances avec le model objet développé les semaines précédentes,
-- d'afficher une liste des capteurs qui se met à jours en fonction des données qui arrivent.
-- en face de chaque capteur, on affiche la dernière valeur reçu, et quand cela est possible, on affiche également la valeur moyenne.
+- d'afficher une liste des capteurs qui se met à jours en fonction des données qui arrivent
+- en face de chaque capteur, on affiche la dernière valeur reçu (on ne sauvegarde pas d'historique)
 
 <!-- Projet à rendre sous forme d'un *merge request* à partir du projet de départ : <https://www-apps.univ-lehavre.fr/forge/20120-2021-m1/WEB-mqtt-lab> -->
 
