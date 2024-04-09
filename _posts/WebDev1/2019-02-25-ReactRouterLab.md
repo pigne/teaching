@@ -5,8 +5,8 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: false
-update: 2022-04-10
+published: true
+update: 2024-04-09
 
 ---
 
@@ -64,12 +64,11 @@ avec `[name]` le nom du capteur (une chaîne de caractères),  `[value]` la repr
 -  'OPEN_CLOSE'.
 
 
-Deux brokers MQTT avec de faux capteurs sont disponibles : 
+Un broker MQTT avec de faux capteurs est disponible : 
 
 - `wss://random.pigne.org` 
-- `wss://wss.databeam.eu`
 
-tous deux sur le port `443`  pour le support WebSocket.
+sur le port `443`  pour le support WebSocket.
 
 
 
@@ -90,7 +89,7 @@ Pour la mise en page de l'application, on utilisera au choix le mode de mise en 
 
 On utilise les [CSS modules](https://github.com/css-modules/css-modules) pour gérer les feuilles de style. 
 
-On veillera a bien nommer les fichier comme décrit dans la [documentation de `create-react-app`](https://facebook.github.io/create-react-app/docs/adding-a-css-modules-stylesheet).
+On veillera a bien nommer les fichier comme décrit dans la [documentation de `Vite`](https://vitejs.dev/guide/features#css-modules).
 
 ## Tests
 
@@ -99,7 +98,7 @@ Les composants React **doivent** être testés comme n'importe quel code javascr
 ## Travail à réaliser
 
 - Travail à réaliser en **binome**. 
-- Partir d'un nouveau projet créé avec `create-react-app`  (`npx create-react-app mon-projet`) ou avec `vite` (`npm create vite@latest mon-projet -- --template react`) 
+- Partir d'un nouveau projet créé avec `vite` (`npm create vite@latest mon-projet -- --template react`) 
 - Versionner le projet sur la forge.
 - S'assurer que le  projet est privé et m'ajouter en tant que développeur à votre projet.
 - M'envoyer un mail avec le titre `" [M1-WEB] TP n°4 "`  et contenant les  **nom** et  **prénom** des membres du binôme ainsi que l'**URL du projet**. 
@@ -110,7 +109,7 @@ Les composants React **doivent** être testés comme n'importe quel code javascr
 
 ## Échéance
 
-- 16 mai 2023
+- 17 mai 2024
 
 ## Évaluation
 
