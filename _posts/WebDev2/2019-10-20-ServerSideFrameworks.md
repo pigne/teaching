@@ -6,278 +6,353 @@ categories:
 - lecture
 author: Yoann Pigné
 published: true
-update: 2023-09-11
+update: 2024-09-09
 ---
 
+On s'intéresse à la réalisation d'applications Web classiques (côté serveur) où les données dynamiques sont stockées dans des bases de données et les pages Web générées côté serveur à partir de templates. On parle aussi de **rendu côté serveur** (*server-side rendering*).
 
-On s'intéresse à la réalisation d'applications Web classiques (côté serveur) où les données dynamiques sont stockées dans des bases de données et les pages Web générées côté serveur à partir de templates.
+L'objectif est d'allier simplicité et modernité dans la conception d'applications web robustes et maintenables. Le framework **Express** avec un moteur de template permet de  générer des pages dynamiques côté serveur, tandis que **Mongoose** facilite la manipulation des données dans une base **MongoDB**. **Passport.js** est un outil populaire pour gérer l'authentification dans les applications Express. Enfin **TypeScript** apporte la vérification des types pour un code plus robuste.
+
+
+## TypeScript
+
+**TypeScript** est un sur-ensemble de JavaScript qui ajoute des fonctionnalités de typage statique au langage. Cela permet de détecter les erreurs de typage à la compilation plutôt qu'à l'exécution, ce qui rend le code plus robuste et plus facile à maintenir.
+
+
+### Installation
+
+On peut utiliser TypeScript avec Node.js en installant les outils suivants :
+
+1. **TypeScript (`tsc`)** – Le compilateur TypeScript.
+2. **ts-node** – Permet d'exécuter directement du TypeScript sans le compiler manuellement à chaque fois.
+
+```bash
+npm install -g typescript ts-node
+```
+
+#### Fichier de configuration TypeScript
+
+
+Dans chaque projet TypeScript, on crée un fichier de configuration `tsconfig.json` pour spécifier les options de compilation.
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules"]
+}
+```
+
+#### Phases de Compilation et d'Exécution
+
+On peut d'abord compiler puis exécuter le code TypeScript avec les commandes suivantes :
+
+```bash
+tsc
+node dist/index.js
+```
+ou utliser ts-node pour compiler et exécuter en une seule commande :
+```bash 
+ts-node src/index.ts
+```
+
+
+#### Automatisation avec des scripts dans package.json
+
+Pour simplifier l'exécution et la compilation on utulise des  **scripts** dans le fichier `package.json` :
+
+```json
+{
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "deploy": "npm run build && npm start"
+  }
+}
+```
+
+On utilise **Nodemon** pour recharger automatiquement le serveur à chaque modification du code.
+
+```bash
+npm install --save-dev nodemon
+```
+
+
+
+
 
 
 ## Web Application Frameworks
 
-Les applications Web (côté client ainsi que côté serveur) ont besoin de serveurs Web et d'autres frameworks liés au réseau.
+Les applications Web modernes, qu'elles soient côté client ou serveur, nécessitent des frameworks qui simplifient la gestion des requêtes HTTP, de la sécurité, de la mise en cache et de nombreuses autres fonctionnalités.
 
-Les frameworks d'applications Web gèrent toutes les parties techniques de la communication entre le client et le serveur, notamment :
+Les frameworks d'applications Web permettent de gérer la communication entre le client et le serveur, notamment :
 
-- l'authentification, 
-- la sécurité/cryptographie, 
-- la compression, 
-- le routage, 
-- la journalisation, 
-- la qualité de service, 
-- les sessions, 
-- les cookies, 
-- l'équilibrage de charge, 
-- et bien d'autres encore.
+- l'authentification,
+- la sécurité/cryptographie,
+- la compression,
+- le routage,
+- la journalisation,
+- la gestion des sessions et cookies,
+- l'équilibrage de charge,
+- et bien d'autres fonctionnalités.
 
+### Express avec TypeScript ([expressjs.com](https://expressjs.com/))
 
+**Express** est un framework minimaliste pour Node.js, souvent utilisé pour la création rapide d'applications serveur. En combinaison avec TypeScript, on peut bénéficier de la vérification des types pour un code plus robuste.
 
-### Express ([expressjs.com](https://expressjs.com/)). Un framework Web minimaliste pour Node.js.
+#### Installation
 
+```bash
+npm install express 
+npm install --save-dev @types/node @types/express
+```
 
-Les frameworks d'applications Web sont des outils essentiels pour simplifier le développement d'applications Web. Ils gèrent divers aspects techniques tels que la gestion des requêtes HTTP, la sécurité, le routage, et plus encore. Express est l'un de ces frameworks, spécialement conçu pour Node.js
+#### Exemple de serveur avec Express et TypeScript
 
+Voici un exemple de serveur minimal avec TypeScript.
 
-```javascript
-const express = require('express');
-const port = 1337;
+```typescript
+import express, { Request, Response } from 'express';
 
 const app = express();
+const port = 1337;
 
-app.get('*', function(req, res){
-  res.send('<h1>Hello World</h1>');
+app.get('*', (req: Request, res: Response) => {
+  res.send('<h1>Hello, World!</h1>');
 });
-let server = app.listen(port, ()=>console.log(`http://localhost:${port}/`));
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});
 ```
 
-Installez-le avec npm : npm install express
+Pour exécuter ce code, créez un fichier `tsconfig.json` avec la configuration suivante :
 
-Utilisez express-generator pour créer un projet de base :
-
-```sh
-npm i -g express-generator
-npx express-generator --view=pug nomProjet
+```json
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
 ```
 
+Compilez et exécutez avec :
+
+```bash
+tsc && node dist/index.js
+```
 
 ### Routage avec Express
 
-Dans une application Web, le routage fait référence à la manière dont les URL (Uniform Resource Locators) sont associées à des actions spécifiques. Express facilite la création de routes en associant des URL à des fonctions de traitement pour gérer les différentes actions HTTP telles que la récupération (GET), la création (POST) et la suppression (DELETE) de ressources. Les paramètres de route, comme :id?, permettent de capturer des valeurs variables dans l'URL.
+Dans une application Web, le routage détermine comment les URL sont associées à des fonctions spécifiques pour gérer les requêtes HTTP. Voici un exemple de routage avec TypeScript.
 
-
-```javascript
-app.get('/advert/:id?', function(req, res) {
-    res.send('You asked for advert' + req.params.id);
+```typescript
+app.get('/advert/:id?', (req: Request, res: Response) => {
+    const id = req.params.id;
+    res.send(`Vous avez demandé l'annonce avec l'id : ${id}`);
 })
-.get('/search', function(req, res) { //search?q=something+fun
-    console.log('the search query is: ' + req.query.q); // req.param('q')
-})
-.post('/advert', function(req, res){ // avec le middleware bodyParser() 
-    req.body.advertTittle
-})
-.delete('/advert/:id?', function(req, res) {
-    // supprimer l'entrée req.param('id') de la base de données
+.get('/search', (req: Request, res: Response) => {
+    const query = req.query.q;
+    console.log('Requête de recherche : ' + query);
+    res.send('Résultats de la recherche');
 });
 ```
 
-### *Templates* avec Express
+### Templates avec Express et EJS
 
-- Les *templates* (modèles de pages) permettent la création dynamique de pages Web.
-- Les *templates* utilisent un langage spécial avec des variables (données utilisateur), des boucles et des conditions.
-- Les *templates* sont stockés dans le dossier `views/` de l'application et sont appelés depuis une route.
+Pour générer des pages dynamiques, **EJS** (Embedded JavaScript) est un bon moteur de template qui fonctionne très bien avec Express.
 
-Dans le fichier de configuration principal d'Express (`app.js``):
+#### Installation
 
-```javascript
-app.set('view engine', 'pug');
-var users = [{id:'1', name:'Tom'},
-            {id:'2', name:'Max'}];
-app.get('/user/:id?', function(req, res){
-  res.render('hello_user', users.filter( user => user.id === req.params.id )[0]);
+```bash
+npm install ejs
+```
+
+#### Utilisation
+
+Dans votre configuration principale (`app.ts`), configurez EJS comme moteur de rendu.
+
+```typescript
+app.set('view engine', 'ejs');
+app.set('views', './views');
+```
+
+Voici un exemple de route qui utilise EJS pour rendre une vue.
+
+```typescript
+app.get('/user/:id', (req: Request, res: Response) => {
+    const user = { id: req.params.id, name: 'Tom' };
+    res.render('hello_user', { user });
 });
 ```
 
-Dans un fichier *template* (`views/hello_user.pug`) en utilisant la bibliothèque *Pug* (<https://pugjs.org>):
+Et dans le fichier `views/hello_user.ejs` :
 
-
-```
-.user
-  h2 Hello #{name}!
-```
-
-Result:
-
-```xml
+```html
 <div class="user">
-    <h2>Hello Max!</h2>
+    <h2>Hello, <%= user.name %>!</h2>
 </div>
 ```
 
 ### Middleware Express
 
-- Les middlewares sont des fonctionnalités supplémentaires fournies à l'application. Ils sont exécutés à chaque requête.
-- Ils sont exécutés séquentiellement, l'ordre est important.
-- Ils utilisent quatre paramètres :
-  - `err` : les messages d'erreur
-  - `req` : l'objet de requête utilisateur
-  - `res` : l'objet de réponse à renvoyer
-  - `next` : un rappel pour appeler le middleware suivant
-- Les middlewares sont configurés avec la fonction `use()`.
-- Exemples de middlewares : journalisation, protection CSRF, compression, authentification, bodyParser (formulaires), json, cookies, sessions, static, etc.
-- Les modules de middleware sont installés module par module à l'aide de `npm install`.
+Les **middlewares** sont des fonctions qui interceptent les requêtes et réponses. Voici comment les configurer en TypeScript.
 
-### Example classical Express middleware configuration
+```typescript
+import express, { Request, Response, NextFunction } from 'express';
 
-```javascript
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const app = express();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
-
-// Configuration du moteur de vues
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// Gestion des erreurs 404 et renvoi vers le gestionnaire d'erreurs
-app.use(function(req, res, next) {
-  next(createError(404));
+// Middleware de journalisation
+app.use((req: Request, res: Response, next: NextFunction) => {
+  console.log(`${req.method} - ${req.url}`);
+  next();
 });
 
-// Gestionnaire d'erreurs
-app.use(function(err, req, res, next) {
-  // Configuration des variables locales, fourniture de l'erreur uniquement en mode développement
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // Renvoi de la page d'erreur avec le code d'erreur approprié
-  res.status(err.status || 500);
-  res.render('error');
+// Middleware pour gérer les erreurs
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error(err.message);
+  res.status(500).send('Erreur serveur');
 });
 ```
 
 ## Bases de données
 
-ien sûr, les systèmes de gestion de base de données relationnelles classiques sont adaptés aux applications Web, mais les systèmes de base de données NoSQL peuvent être utiles dans les cas suivants :
+Les bases de données sont essentielles pour les applications Web. Avec TypeScript, les ORM modernes facilitent la manipulation des données tout en bénéficiant de la sécurité des types.
 
-- Données peu structurées (peu ou pas de clés étrangères).
-- Pas besoin de tables de jointure.
-- Big Data.
+### MongoDB avec Mongoose
 
-Il existe (au moins) quatre types de systèmes de base de données NoSQL :
+MongoDB est une base de données NoSQL orientée document qui stocke les données en JSON (BSON). **Mongoose** est un ODM (Object Data Modeler) populaire pour MongoDB, compatible avec TypeScript.
 
-- key-value
-- object-based
-- table-based
-- graph-based
+### Installation
 
-Projets célèbres:
+```bash
+npm install mongoose
+```
 
-- Apache Cassandra : projet open source de base de données NoSQL distribuée. Initialement développée par Facebook.
-- Elasticsearch : Elasticsearch est une base de données de recherche et d'analyse distribuée, souvent utilisée pour la recherche en texte intégral et l'analyse de données.
-- DynamoDB, par Amazon Web Services, pour les flux de données
-- CouchDB : CouchDB est une base de données NoSQL orientée document qui stocke les données au format JSON. Il est conçu pour la facilité d'utilisation et la réplication.
-- MongoDB : base de données NoSQL de stockage orientée objet qui utilise BSON pour le stockage des données.
-- Redis : Bien que Redis soit souvent classé comme une base de données de type clé-valeur, il est également utilisé pour le stockage en mémoire rapide et la mise en cache.
-- Neo4j : base de données NoSQL de type graph, idéale pour la gestion de données orientées graphs (réseaux), comme les réseaux sociaux et les recommandations.
+### Exemple de connexion avec TypeScript
 
-### MongoDB([www.mongodb.org](http://www.mongodb.org/)): une base de données NoSQL de stockage orientée objet
+```typescript
+import mongoose from 'mongoose';
 
-Les documents sont stockés dans un format JSON-like (BSON : représentation binaire de JSON).
+const uri = 'mongodb://localhost:27017/test';
 
-```javascript
-{
-  "_id": ObjectId("507f1f77bcf86cd799439011"),
-  "title": "My new house in the city",
-  "text": "<h2>Great new house</h2>",
-  "plot_id": "-628141",
-  "available_date": ISODate("2018-11-17T08:30:00.000Z"),
-  "high_priority": false,
-  "surface_area": 230
+mongoose.connect(uri, {})
+  .then(() => console.log('MongoDB connecté'))
+  .catch(err => console.error('Erreur de connexion à MongoDB :', err));
+```
+
+### Définition d'un schéma avec TypeScript
+
+```typescript
+import mongoose, { Document, Model } from 'mongoose';
+
+// Interface définissant le schéma Animal pour ajouter de la sécurité de type
+interface IAnimal extends Document {
+  name: string;
+  type: string;
+  age: number;
 }
+
+// Création du schéma Animal
+const animalSchema = new mongoose.Schema<IAnimal>({
+  name: { type: String, required: true },
+  type: { type: String, required: true },
+  age: { type: Number, default: 0 },
+});
+
+// Création du modèle Animal
+const Animal: Model<IAnimal> = mongoose.model<IAnimal>('Animal', animalSchema);
+
+// Création d'un nouvel objet
+const dog = new Animal({ name: 'Paf', type: 'dog', age: 4 });
+dog.save();
 ```
 
-- Chaque document est identifié par un champ `_id` de type `ObjectId` par défaut.
-- L'administration se fait via la console mongo (JavaScript).
+### Un exemple de requête
 
-### Mongoose ([mongoosejs.com](http://mongoosejs.com/)) un ODM (Object Document Mapper) pour MongoDB et Node.
 
-Créer de nouveaux objets modèle.
+```typescript
 
-```javascript
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const animalSchema = new Schema(
-  {
-    name: String,
-    type: String,
-    age: { type: Number, default: 0 },
-    birthday: { type: Date, default: Date.now },
-  }
-);
-const Animal = mongoose.model('Animal', animalSchema);
-const dog = new Animal({ type: 'dog' });
-```
-
-Connexion à une base de données Mongo et requête d'objets.
-
-```javascript
 (async () => {
-  await mongoose
-    .connect("mongodb://localhost:27017/test", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    .catch((err) => console.log("CONNECT", err));
+  try {
+    // Connexion à la base de données MongoDB
+    await mongoose.connect('mongodb://localhost:27017/test', {
+    });
+    console.log('MongoDB Connected');
 
-  const Animal = mongoose.models.Animal;
+    // Création de plusieurs objets Animal
+    const createDogs = [
+      new Animal({ name: 'Paf', type: 'dog', age: 4 }),
+      new Animal({ name: 'Tobi', type: 'dog', age: 5 }),
+      new Animal({ name: 'BebePaf', type: 'dog' }),
+    ];
 
-  const createDogs = [
-    new Animal({ name: "Paf", type: "dog", age: 4 }),
-    new Animal({ name: "Tobi", type: "dog", age: 5 }),
-    new Animal({ name: "BebePaf", type: "dog" }),
-  ].map(async (animal) => {
-    await animal.save().catch((err) => console.log("save error", err));
-  });
-  await Promise.all(createDogs);
+    // Sauvegarde des animaux
+    await Promise.all(
+      createDogs.map(async (animal) => {
+        try {
+          await animal.save();
+        } catch (err) {
+          console.error('Error saving animal:', err);
+        }
+      })
+    );
 
-  let dogs = await Animal.find({ type: "dog" })
-    .where("age")
-    .gt(2)
-    .lt(8) // contrainte
-    .sort({ age: -1 }) // tri
-    .select({ name: 1, age: 1 }); // selection de colonnes
-  //.lean() // conversion en objets JS simples
+    // Recherche d'animaux dans la base de données
+    let dogs = await Animal.find({ type: 'dog' })
+      .where('age')
+      .gt(2)
+      .lt(8) // contrainte sur l'âge
+      .sort({ age: -1 }) // tri par âge décroissant
+      .select({ name: 1, age: 1 }) // sélection des colonnes
+      .lean(); // conversion en objets JavaScript simples
 
-  const saveDogs = dogs.map(async (dog) => {
-    dog.age++;
-    const saveDog = await dog.save().catch((err) => console.log("SAVE error"));
-    return saveDog;
-  });
+    // Mise à jour de l'âge des chiens
+    const updatedDogs = await Promise.all(
+      dogs.map(async (dog) => {
+        dog.age++;
+        try {
+          const updatedDog = await Animal.findByIdAndUpdate(dog._id, { age: dog.age }, { new: true });
+          return updatedDog;
+        } catch (err) {
+          console.error('Error updating dog:', err);
+          return null;
+        }
+      })
+    );
 
-  dogs = await Promise.all(saveDogs);
+    console.log('Updated dogs:', updatedDogs.filter(Boolean)); // Filtrage des null
 
-  console.log(dogs);
-
-  mongoose.disconnect().catch((err) => console.log("DISCONNECT", err));
-})(); // async IIFE
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err);
+  } finally {
+    // Déconnexion de la base de données
+    try {
+      await mongoose.disconnect();
+      console.log('MongoDB Disconnected');
+    } catch (err) {
+      console.error('Error disconnecting MongoDB:', err);
+    }
+  }
+})();
 ```
 
-Utilisation de MongoDB avec Express.
+
+### Utilisation de MongoDB avec Express
 
 
 ```js
@@ -307,10 +382,37 @@ function createProject(req, res) {
 };
 ```
 
-<!-- ## Moteur de template
 
-Pour l'heure, préférer un autre moteur de template que celui par défaut (pug) car il a des dépendances avec vulnérabilités. `Blade` est compatible avec la syntaxe de jade/pug. -->
+## Authentification avec Passport.js
 
-## Authentification
+Pour l'authentification, **Passport.js** est l'une des solutions les plus populaires pour les applications Express.
 
-Plusieurs solutions sont possibles, mais [Passport](http://www.passportjs.org/)) semble la plus viable. Ce [billet de blog](https://mherman.org/blog/local-authentication-with-passport-and-express-4/) donne un bon exemple. 
+### Installation
+
+```bash
+npm install passport passport-local express-session @types/passport @types/passport-local @types/express-session
+```
+
+Voici un exemple de configuration simple de l'authentification locale avec Passport.js en TypeScript.
+
+```typescript
+import passport from 'passport';
+import { Strategy as LocalStrategy } from 'passport-local';
+
+passport.use(new LocalStrategy(
+  (username, password, done) => {
+    // Exemple de validation utilisateur
+    if (username === 'admin' && password === 'secret') {
+      return done(null, { id: 1, username: 'admin' });
+    } else {
+      return done(null, false, { message: 'Identifiants incorrects' });
+    }
+  }
+));
+
+app.use(require('express-session')({ secret: 'secret', resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+```
+
+Pour plus d'exemples détaillés, consultez la documentation officielle de [Passport.js](http://www.passportjs.org/).

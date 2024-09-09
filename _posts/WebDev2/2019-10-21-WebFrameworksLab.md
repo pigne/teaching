@@ -6,65 +6,79 @@ categories:
 - lab
 author: Yoann Pigné
 published: true
-update: 2023-09-11
+update: 2024-09-09
 ---
 
-Le but de ce TP est une mise en application des compétences déjà acquises dans le cursus (Licence, M1) avec la contrainte d'utiliser de nouvelles technologies. On propose de réaliser un site Web classique CRUD de gestion d'annonces immobilières.
 
+# Objectif du TP
+
+L'objectif de ce TP est de mettre en pratique les compétences acquises au cours du cursus (Licence, M1) avec la contrainte d'utiliser des technologies nouvelles. Il s'agit de développer un site web classique de gestion d'annonces immobilières avec des fonctionnalités CRUD.
 
 ## User Story
 
-Un site Web de gestion d'annonces immobilières contient et affiche des annonces immobilières. Un utilisateur non connecté doit pouvoir consulter les annonces. Un utilisateur connecté doit pouvoir en plus, poser des questions sur une annonce qu'il consulte. Un agent immobilier doit pouvoir ajouter, modifier, supprimer une annonce. Il peut aussi répondre aux questions des utilisateurs sur les annonces affichées.
+Un site de gestion d'annonces immobilières permet d'afficher et de gérer ces annonces. Voici les rôles et fonctionnalités :
 
-Une annonce immobilière est composée de :
+- Un utilisateur non connecté peut consulter les annonces.
+- Un utilisateur connecté peut poser des questions sur une annonce qu'il consulte.
+- Un agent immobilier peut ajouter, modifier, ou supprimer une annonce. Il peut également répondre aux questions des utilisateurs concernant une annonce.
+
+Une annonce immobilière comprend les éléments suivants :
 
 - un titre,
-- un type de bien (à la vente ou à la location),
-- un statut de publication (publiée, non publiée),
-- un statut de bien (disponible, loué, vendu),
-- une description longue,
+- un type de bien (vente ou location),
+- un statut de publication (publiée ou non publiée),
+- un statut du bien (disponible, loué, vendu),
+- une description détaillée,
 - un prix (de vente ou de location),
 - une date de disponibilité,
-- des photos (éventuellement),
-- des questions posées par des utilisateurs,
-- des réponses aux questions, répondues par les agents immobiliers.
+- des photos (facultatives),
+- des questions posées par les utilisateurs,
+- des réponses aux questions, fournies par les agents immobiliers.
 
+Lors de la création d'une annonce, un agent doit pouvoir ajouter autant de photos qu'il le souhaite via un système de **glisser-déposer**.
 
-Lors de la création d'une annonce, un agent doit pouvoir ajouter (**glisser déposer**) autant de photos que voulu.
+## Objectif pédagogique
 
-## But de ce TP
+L'objectif de ce TP est d'appliquer les compétences techniques acquises en Licence et M1. Ce projet n'introduit pas de nouveaux paradigmes de programmation, mais impose l'utilisation de technologies modernes et adaptées aux pratiques actuelles.
 
-Le but est de mettre en application les compétences déjà acquises en Licence et M1. Ce TP ne fait pas appel de nouveaux paradigmes de programmation. En revanche deux technologies sont imposées.
+### Technologies requises
 
-Le framework *Express* pour *node.js* doit être utilisé pour gérer :
+- **TypeScript** : Le développement de ce projet doit être réalisé en utilisant TypeScript pour améliorer la robustesse du code et bénéficier de la vérification statique des types.
+  
+- **Express** pour *Node.js* sera utilisé pour :
+  - le routage des pages web,
+  - la gestion des formulaires,
+  - la consultation et l'enregistrement dans la base de données,
+  - la génération des pages web à partir de templates,
+  - le logging,
+  - la gestion des sessions,
+  - les cookies,
+  - l'authentification,
+  - la sécurisation des routes.
 
-- le routage des pages Web,
-- la gestion des formulaires,
-- la consultation et l'enregistrement en bases de données,
-- La génération des pages Web à partir de templates,
-- le logging,
-- les sessions,
-- les cookies,
-- l'authentification,
-- la sécurité (des routes),
+Les données (annonces, utilisateurs, sessions, etc.) seront stockées dans une base de données *MongoDB*.
 
+L'aspect visuel du site ne devra pas être négligé. Les pages web générées à partir des templates devront respecter les standards web (HTML et CSS) et offrir une expérience utilisateur (UX) de qualité. Le site devra être [*responsive*](https://en.wikipedia.org/wiki/Responsive_web_design), assurer un minimum d'[accessibilité](https://fr.wikipedia.org/wiki/Accessibilit%C3%A9_du_web), et proposer des [formulaires efficaces](https://uxplanet.org/designing-more-efficient-forms-structure-inputs-labels-and-actions-e3a47007114f).
 
-Les données (annonces, utilisateurs, sessions, ...) sont stockées dans une base de données *MongoDB*.
+## Tests
 
-On ne négligera pas non plus les aspects visuels. Les pages Web générées à partir des templates respecteront les standards Web (HTML et CSS) et proposeront une expérience utilisateur (UX) de qualité. Le site doit être [*responsive*](https://en.wikipedia.org/wiki/Responsive_web_design), la navigation doit atteindre un niveau d'[accessibilité minimal](https://fr.wikipedia.org/wiki/Accessibilit%C3%A9_du_web), les formulaires [efficaces](https://uxplanet.org/designing-more-efficient-forms-structure-inputs-labels-and-actions-e3a47007114f).
+Une application de ce type doit être **testée** ! En plus des tests unitaires, une réflexion est attendue sur la manière de tester la génération des pages web à partir des données en base de données. Vous devrez proposer une solution technique adaptée.
 
-Une telle application doit être **testée** ! Au-delà des tests unitaires comment tester la génération de pages web à partir du contenu d'une base de données ? Il vous appartient de répondre à cette question en **proposant** une solution technique.
+## Travail sur la forge universitaire
 
-## Travail avec la forge de l'université
+Le projet doit être hébergé sur la [forge de l'université](https://www-apps.univ-lehavre.fr/forge/). Dès le début du TP, vous devez m'envoyer un email à l'adresse <yoann.pigne@univ-lehavre.fr> avec comme objet `"[M2 IWOCS WEB] Projet n°1"`. Ce message devra inclure :
 
-Ce travail doit faire l'objet d'un projet sur la [forge de l'université](https://www-apps.univ-lehavre.fr/forge/). Il faut m'envoyer dès le début du TP un email (<yoann.pigne@univ-lehavre.fr>) avec entête `"[M2 IWOCS WEB] Projet n°1"`. Ce mail m'indiquera : votre nom, prénom, n° d'étudiant, login et l'URL de votre projet sur la forge.
+- votre nom et prénom,
+- votre numéro d'étudiant,
+- votre login,
+- et l'URL du projet sur la forge.
 
-N'oubliez pas de me donner accès au projet en m'ajoutant en tant que "`developer`".
+N'oubliez pas de m'accorder l'accès au projet en m'ajoutant en tant que `developer`.
 
 ## Évaluation
 
-Ce travail doit être rendu pour le 8 octobre 2023 (délai de rigueur). Il ne sera pas corrigé, mais servira de base à un oral, le 9 octobre 2023, où les détails d'implémentation et le fonctionnement du projet seront présentés et expliqués.
+Le projet doit être rendu avant le **6 octobre 2024** (délai impératif). Il ne sera pas corrigé, mais servira de base à un oral les **7 et 8 octobre 2024**. Lors de cet oral, les détails de l'implémentation et le fonctionnement du projet seront présentés et discutés.
 
-Les compétences seront validées sur la base du rendu du projet ainsi que sur cette évaluation orale.
+Les compétences seront validées à la fois sur la base du rendu du projet et de l'évaluation orale.
 
-Ce travail est à faire en **binôme**. Les deux membres du binôme doivent être capables de présenter le projet et de répondre aux questions.
+Ce travail doit être réalisé en **binôme**. Chaque membre du binôme doit être capable de présenter le projet et de répondre aux questions.
