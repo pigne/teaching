@@ -134,27 +134,6 @@ app.listen(port, () => {
 });
 ```
 
-Pour exécuter ce code, créez un fichier `tsconfig.json` avec la configuration suivante :
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true
-  }
-}
-```
-
-Compilez et exécutez avec :
-
-```bash
-tsc && node dist/index.js
-```
-
 ### Routage avec Express
 
 Dans une application Web, le routage détermine comment les URL sont associées à des fonctions spécifiques pour gérer les requêtes HTTP. Voici un exemple de routage avec TypeScript.
