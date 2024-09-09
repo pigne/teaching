@@ -5,11 +5,14 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 update: 2022-10-15
 ---
 
 - [REST vs SOAP](#rest-vs-soap)
+  - [SOAP (Simple Object Access Protocol)](#soap-simple-object-access-protocol)
+  - [REST](#rest)
+  - [Pros / Cons](#pros--cons)
 - [GraphQL](#graphql)
 - [Les outils SWAGGER](#les-outils-swagger)
 
