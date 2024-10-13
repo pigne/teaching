@@ -5,38 +5,52 @@ categories:
 - WebDev2
 - lecture
 author: Yoann Pigné
-published: false
-update: 2022-10-15
+published: true
+update: 2024-10-13
 ---
 
-- [REST vs SOAP](#rest-vs-soap)
-  - [SOAP (Simple Object Access Protocol)](#soap-simple-object-access-protocol)
-  - [REST](#rest)
-  - [Pros / Cons](#pros--cons)
-- [GraphQL](#graphql)
-- [Les outils SWAGGER](#les-outils-swagger)
+# Sommaire
 
-Plusieurs technologies pour faire des services web en fonction du type de service que l'on veut fournir au client.
+- [Sommaire](#sommaire)
+  - [Introduction](#introduction)
+  - [REST vs SOAP](#rest-vs-soap)
+    - [SOAP (Simple Object Access Protocol)](#soap-simple-object-access-protocol)
+    - [REST](#rest)
+    - [Avantages et inconvénients](#avantages-et-inconvénients)
+    - [Complément sur les performances](#complément-sur-les-performances)
+  - [GraphQL](#graphql)
+    - [Limites de GraphQL](#limites-de-graphql)
+  - [Les outils Swagger](#les-outils-swagger)
+    - [Conception d'une API avec Swagger](#conception-dune-api-avec-swagger)
+    - [Spécification des paramètres](#spécification-des-paramètres)
+    - [Génération de code et tests](#génération-de-code-et-tests)
 
+## Introduction
+
+Il existe plusieurs technologies pour créer des services web, chacune étant adaptée à un type de service spécifique que l'on souhaite fournir au client.
 
 ## REST vs SOAP
 
-Souvent 2 technologies s'opposent :
+Deux technologies sont souvent comparées :
 
-- REST
-- SOAP
+- **REST**
+- **SOAP**
 
 ### SOAP (Simple Object Access Protocol)
 
-SOAP est une technologie **pas seulement Web** (HTTP, SMTP, UDP, TCP, ...) dédiée à la mise en place d'outils de manipulation de **services**. SOAP ne donne pas accès à des données, il donne accès à des services/actions dans une application serveur exposée.
+SOAP est une technologie **non limitée au web** (HTTP, SMTP, UDP, TCP, etc.) qui facilite la manipulation de **services**. Contrairement à REST, SOAP ne donne pas directement accès à des données mais à des services/actions dans une application serveur exposée.
 
-SOAP utilise un langage XML normalisé (WSDL) pour décrire les services à utiliser et les actions à exécuter.
+SOAP utilise un langage XML standardisé (WSDL) pour décrire les services disponibles et les actions à exécuter.
+
+**Exemples de méthodes SOAP :**
 
 ```java
 switchProtocol(Protocol)
 upgradeAccountToPremium(User)
-resendAuthentificationToken(User, Token)
+resendAuthenticationToken(User, Token)
 ```
+
+**Exemple de requête SOAP :**
 
 ```xml
 POST /InStock HTTP/1.1
@@ -45,105 +59,123 @@ Content-Type: application/soap+xml; charset=utf-8
 Content-Length: nnn
 
 <?xml version="1.0"?>
-
 <soap:Envelope
-xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
-soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
-
-<soap:Body xmlns:m="http://www.example.org/stock">
-  <m:GetStockPrice>
-    <m:StockName>IBM</m:StockName>
-  </m:GetStockPrice>
-</soap:Body>
-
+  xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
+  soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
+  <soap:Body xmlns:m="http://www.example.org/stock">
+    <m:GetStockPrice>
+      <m:StockName>IBM</m:StockName>
+    </m:GetStockPrice>
+  </soap:Body>
 </soap:Envelope>
 ```
 
-
-L'extensibilité offre de nouvelles fonctionnalités (sécurité, atomicité, etc..)
+SOAP est extensible, ce qui permet d'ajouter des fonctionnalités telles que la sécurité (WS-Security), la gestion des transactions (WS-AtomicTransaction), et plus encore. C'est pourquoi SOAP est souvent choisi dans des environnements où la sécurité et la fiabilité des transactions sont primordiales (par exemple, dans les secteurs bancaires ou d'assurance).
 
 ### REST
 
-REST est une technologie **Web** dédiée à la mise à disposition d'une interface publique (API) pour l'accès et la manipulation (*Create, Read, Update, Delete*) de **données**.
+REST est une technologie **orientée web** qui expose une interface publique (API) pour l'accès et la manipulation (*Create, Read, Update, Delete* - CRUD) de **données**.
 
-REST ne fonctionne qu'avec HTTP(s) et utilise ses mécanismes (URI, verbes, codes de retours) mais ne limite pas les formats de données.
+REST fonctionne exclusivement sur HTTP(s) et tire parti de ses mécanismes (URI, verbes, codes de retour), mais n'impose pas de format de données spécifique (JSON, XML, etc.).
+
+**Exemples de méthodes REST :**
 
 ```java
 getUserInformation(UserId)
 addProductToBasket(ProductId, BasketId)
 ```
 
-Les requêtes REST sont sans état (***stateless***). On peut décrire une API REST avec les mécanismes de HTTP (méthodes, URI, codes de retour).
+Les requêtes REST sont **sans état** (*stateless*), ce qui signifie que chaque requête est indépendante des autres. Cela permet de mettre en place des mécanismes de **cache**, ce qui améliore les performances et la rapidité des réponses pour les ressources fréquemment consultées. REST est souvent préféré pour sa courbe d'apprentissage plus douce et sa flexibilité.
 
-Par exemple on peut utiliser un outil comme [Swagger](http://swagger.io/) pour :
+Un outil comme [Swagger](http://swagger.io/) peut être utilisé pour :
 
-- définir des API REST
-- auto-générer les codes de serveurs et de clients pour ces API.
+- définir des API REST ;
+- générer automatiquement le code des serveurs et des clients pour ces API.
 
-### Pros / Cons
+### Avantages et inconvénients
 
-- A priori SOAP est plus complet et général que REST, surtout du fait de son extensibilité.
-- SOAP donne beaucoup de pouvoir au client (concevoir des requêtes complexes avec jointures, filtres, etc.).
-- REST ne permet qu'un accès simple aux données. Une requête complexe (avec jointures, filtres, etc.) nécessitera plusieurs appel REST.
-- REST est sans état (*stateless*) et permet la mise en place de mécanismes de **cache**. SOAP n'est pas *stateless*, donc **pas de cache possible**.
-- Il semble que REST soit plus facile à mettre en place et à maintenir que SOAP.
+| Critère | SOAP | REST |
+|---------|------|------|
+| **Extensibilité** | Très extensible grâce à des protocoles comme WS-Security, WS-AtomicTransaction, etc. | Moins extensible, mais très simple à utiliser. |
+| **Complexité des requêtes** | Permet des requêtes complexes (jointures, filtres, etc.). | Accès simple aux données ; requêtes complexes nécessitent plusieurs appels. |
+| **Stateless** | Non (garde un état entre les requêtes). | Oui (chaque requête est indépendante). |
+| **Mise en cache** | Pas de cache possible. | Possibilité de mise en cache grâce au caractère *stateless*. |
+| **Facilité de mise en œuvre** | Plus complexe à mettre en place. | Plus simple à mettre en œuvre et à maintenir. |
+| **Utilisation typique** | Souvent utilisé dans des environnements à forte exigence de sécurité et de fiabilité (ex. banques). | Populaire pour les API web grand public et les applications mobiles. |
+
+### Complément sur les performances
+
+- REST peut avoir l'avantage en termes de performances sur le web, car il exploite des méthodes HTTP comme *GET* qui peuvent être mises en cache par les navigateurs ou les serveurs.
+- SOAP, en revanche, est plus robuste pour des interactions complexes entre services, mais son format XML et ses fonctionnalités avancées peuvent introduire une certaine lourdeur dans la communication.
 
 ## GraphQL
 
-*Facebook* propose [*GraphQL*](http://graphql.org/), une approche proche de REST (api de manipulation de données)avec les avantages de SOAP (requêtes complexes). *GraphQL* est un langage de description qui permet au client de décrire le type de réponse qu'il désire recevoir du serveur.
+[GraphQL](http://graphql.org/), développé par *Facebook*, propose une approche similaire à REST (API de manipulation de données) tout en offrant certains des avantages de SOAP (requêtes complexes).
 
-- Dédié à la manipulation de données uniquement (comme REST)
-- Requête dans un langage dédié (*GraphQL*) (à l'image des requêtes WSDL de SOAP) pour décrire la requête.
-- Réponses sous forme d'objets JSON.
+- **Dédié à la manipulation de données** uniquement (comme REST).
+- Les requêtes sont exprimées dans un langage dédié (*GraphQL*), similaire au WSDL de SOAP.
+- Les réponses sont structurées en objets JSON.
+- **Flexibilité pour le client** : GraphQL permet aux clients de spécifier exactement les champs de données souhaités, réduisant ainsi la surcharge réseau et la quantité de données transférées.
 
-## Les outils SWAGGER
+### Limites de GraphQL
 
-Swagger propose plusieurs outils pour nous aider à créer des API cohérentes et maintenables.
+- Bien que plus flexible, GraphQL peut entraîner une surcharge côté serveur si les requêtes sont très complexes et mal optimisées.
+- Sa courbe d'apprentissage peut être plus raide que celle de REST pour les développeurs débutants, et sa mise en œuvre peut être plus complexe pour garantir la performance et la sécurité.
 
-D'abord on nous propose de concevoir des APIs avec une nomenclature fixée. Swagger est à l'origine de la spécification [OpenAPI](https://swagger.io/specification/).
+## Les outils Swagger
 
-Pour concevoir une API, Swagger nous propose un éditeur qui valide la saisie. Il peut être utilisé [en ligne](https://editor.swagger.io/) ou être téléchargé et exécuté en local à partir les [sources](https://github.com/swagger-api/swagger-editor) ou via docker:
+Swagger propose plusieurs outils pour aider à créer des API cohérentes et maintenables.
+
+Il permet de concevoir des API selon une nomenclature standardisée. Swagger est à l'origine de la spécification [OpenAPI](https://swagger.io/specification/), devenue un standard pour la documentation des API REST, facilitant l'interopérabilité entre différents services.
+
+### Conception d'une API avec Swagger
+
+Pour concevoir une API, Swagger propose un éditeur qui valide les définitions. Il peut être utilisé [en ligne](https://editor.swagger.io/) ou installé localement à partir des [sources](https://github.com/swagger-api/swagger-editor) ou via Docker :
 
 ```bash
 docker pull swaggerapi/swagger-editor
 docker run -d -p 80:8080 swaggerapi/swagger-editor
 ```
 
-Attention il y a 3 façons de spécifier des paramètre ou d'envoyer des données :
+### Spécification des paramètres
 
-- dans le corps d'une requête en méthode POST :
-  ```yaml
-  requestBody:
-    description: Created user object
-    content:
-      application/json:
-        schema:
-          $ref: '#/components/schemas/User'
-  ```
-- en paramètre d'une URI en méthode GET :
-  ```yaml
-  parameters:
-        - name: monParametre
-          in: query
-  ```
-- dans l'URL :
-  ```yaml
-  /url/url/{monParametre}:
-    get:
-      ...
-      parameters:
-        - name: monParametre
-          in: path
-  ```
+Il existe trois façons de spécifier des paramètres ou d'envoyer des données dans Swagger :
 
+1. **Dans le corps d'une requête POST** :
+   ```yaml
+   requestBody:
+     description: Created user object
+     content:
+       application/json:
+         schema:
+           $ref: '#/components/schemas/User'
+   ```
 
-Ensuite on peu générer des serveurs et des clients automatiquement à partir de cette spécification. 
+2. **En paramètre d'une URI dans une requête GET** :
+   ```yaml
+   parameters:
+     - name: monParametre
+       in: query
+   ```
 
-  
-On teste simplement une API avec la commande `curl` : 
+3. **Dans l'URL** :
+   ```yaml
+   /url/url/{monParametre}:
+     get:
+       ...
+       parameters:
+         - name: monParametre
+           in: path
+   ```
 
-```sh
+### Génération de code et tests
+
+Swagger permet de générer automatiquement des serveurs et des clients à partir de la spécification OpenAPI.
+
+On peut tester une API simplement avec la commande `curl` :
+
+```bash
 curl -X GET --header 'Accept: application/json' 'https://api.example.com/1.0.0/ping'
 ```
 
-On peut aussi tester avec un script JS qui utilise le client généré automatiquement par Swagger. 
+Il est aussi possible de tester avec un script JavaScript qui utilise le client généré automatiquement par Swagger.
