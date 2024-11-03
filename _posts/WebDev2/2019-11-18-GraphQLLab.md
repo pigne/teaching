@@ -5,14 +5,14 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published:  false
-update: 2023-11-05
+published:  true
+update: 2024-11-04
 ---
 
 
 
 
-On cherche à utiliser GraphQL comme système d'interrogation de notre base de données d'annonces immobilières.
+On cherche à utiliser GraphQL comme système d'interrogation et de modification **complémentaire** de notre base de Service Web *Swagger*  d'annonces immobilières.
 
 En se basant sur la [documentation en ligne](https://graphql.org/learn) et sur le précédent projet (API REST) on va mettre en place un serveur GraphQL avec l'une des implémentations, dans un des [langages supportés](https://graphql.org/code/). De préférence on utilisera l'[implémentation de référence en JS](https://graphql.org/code/#javascript).
 
@@ -30,7 +30,7 @@ Il est convenu de m'envoyer un mail portant le titre "[M2 IWOCS WEB] Projet n°2
 ## Échéance et Évaluation
 
 
-- Ce travail doit être rendu pour le **dimanche 19 novembre 2023**.
+- Ce travail doit être rendu pour le **dimanche 17 novembre 2024**.
 - Évaluation à l'oral, en binômes, en salle machine, pendant 20 minutes.
 - Présentation  de Swagger, GraphQL et du projet réalisé.
 - On doit pouvoir présenter et définir rapidement les concepts GraphQL suivants :
