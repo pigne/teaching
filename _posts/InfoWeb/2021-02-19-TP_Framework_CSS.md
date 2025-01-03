@@ -56,7 +56,7 @@ Créer un dossier de travail ( `TP-Framework-CSS` par exemple) et y ajouter un f
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
   </head>
   <body>
   <section class="section">
@@ -79,13 +79,20 @@ Se référer à la [documentation de bulma](https://bulma.io/documentation/) pou
 
 ## Travail à réaliser
 
-On se propose de créer un site Web en HTML et CSS statique (pas de PHP) qui permet de présenter les **équipes**  les **matchs** et les **groupes** de la Coupe d’Afrique des nations de football. Le but est de réaliser plusieurs pages sur ce sujet en utilisant le Framework CSS Bulma. Ce site possède plusieurs pages ou ensemble de pages liées entre elles. Le design doit respecter celui proposé par Bulma. Un maximum de [composants](https://bulma.io/documentation/components/) et d'[éléments](https://bulma.io/documentation/elements/) graphiques doivent être utilisés. Les pages sont "*responsives*" et utilisent le système de [colonnes](https://bulma.io/documentation/columns/) du Bulma.
+On se propose de créer un site Web en HTML et CSS statique (pas de PHP) qui permet de présenter les **équipes**  les **matchs** et les **groupes** de la Coupe du monde d'Aérospike qui aura lieu en 2036 à Néo-Singapour, une ville flottante futuriste.
+
+Aérospike est un sport d'équipe qui mélange les éléments du basketball, de la course aérienne et du jeu de stratégie. Il se joue sur une immense plateforme flottante équipée de systèmes de gravité ajustable. Les joueurs, munis de chaussures anti-gravité et de gants propulseurs, doivent marquer des points en envoyant une sphère lumineuse (le "Spike") dans des cercles suspendus appelés "Arches Dynamiques". Ces Arches changent de position toutes les 90 secondes, ajoutant un défi stratégique et physique.
+
+La première phase de la compétition se déroule en poules de 4 équipes. Les matches se jouent en round-robin. Les équipes qualifiées passent dans les phases suivantes de la compétition.
+
+
+Le but de ce TP est de réaliser plusieurs pages sur ce sujet en utilisant le Framework CSS Bulma. Ce site possède plusieurs pages ou ensemble de pages liées entre elles. Le design doit respecter celui proposé par Bulma. Un maximum de [composants](https://bulma.io/documentation/components/) et d'[éléments](https://bulma.io/documentation/elements/) graphiques doivent être utilisés. Les pages sont "*responsives*" et utilisent le système de [colonnes](https://bulma.io/documentation/columns/) du Bulma.
 
 Toutes les pages ont la même base graphique avec une entête contenant un logo et un titre. Le logo devient centré et le titre passe sur la seconde ligne en mode étroit (mobile). Chaque page propose un menu latéral qui disparaît en mode étroit (mobile).
 
 ### La page des groupes
 
-La page des groupes présente tous les groupes (il yen a 8) avec les matchs, les équipes et leur drapeau une seule page. Deux groupes  par ligne sont affichés, en mode large (desktop) et  un groupe par ligne en mode étroit (mobile).
+La page des groupes présente tous les groupes, les équipes et leur drapeau en une seule page. Deux groupes  par ligne sont affichés, en mode large (desktop) et  un groupe par ligne en mode étroit (mobile).
 
 La page des groupes en mode large :
 
@@ -106,7 +113,7 @@ Pas la peine d'écrire *toutes* les pages de groupes. Une seule suffit.
 
 ### Les pages équipe
 
-A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les éléments et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe du Sénégal (Tenant du titre)](https://fr.wikipedia.org/wiki/%C3%89quipe_du_S%C3%A9n%C3%A9gal_de_football)) pour constater qu'une équipe possède un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
+A vous d'imaginer ce qu'une page équipe peut afficher en utilisant les éléments et composants de Bulma. Vous pouvez vous inspirer de  Wikipedia (e.g. [Équipe de Football du Sénégal](https://fr.wikipedia.org/wiki/%C3%89quipe_du_S%C3%A9n%C3%A9gal_de_football)) pour constater qu'une équipe possède un emblème, des couleurs, un sélectionneur, un capitaine, un classement internationale, etc. Pas la peine d'écrire *toutes* les pages équipes. Une seule suffit.
 
 <!-- ## Fin du TP
 
