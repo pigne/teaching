@@ -5,7 +5,7 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-published: true
+published: false
 update: 2024-02-11
 ---
 

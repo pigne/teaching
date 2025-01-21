@@ -18,8 +18,11 @@ published: true
 - [Evaluation](#evaluation)
 - [Compétences](#compétences)
 - [Prérequis](#prérequis)
-- [Évaluations et aptitudes](#Évaluations-et-aptitudes)
 - [Aptitudes par évaluation](#aptitudes-par-évaluation)
+  - [**TP 1 (JS Basics) : Tests unitaires et JavaScript/TypeScript**](#tp-1-js-basics--tests-unitaires-et-javascripttypescript)
+  - [**TP 2 (WebSocket) : Fonctionnalités avancées avec WebSocket et Canvas**](#tp-2-websocket--fonctionnalités-avancées-avec-websocket-et-canvas)
+  - [\*\*TP 3 (React) : Application React avancée](#tp-3-react--application-react-avancée)
+  - [Examen Final](#examen-final)
 
 ## Présentation et Objectifs
 
@@ -82,212 +85,74 @@ Un examen final sur table (sous forme de QCM) reprend toutes les notions vues et
 - Connaissances de base en manipulation de lignes de commandes
 - Connaissances de base en outils de gestion de version : *GIT*
 
-## Évaluations et aptitudes
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th></th>
-      <th>JS Basics</th>
-      <th>Object Models</th>
-      <th>WebSocket</th>
-      <th>React + ReactRouter + Redux</th>
-      <th>Examen</th>
-    </tr>
-    <tr>
-      <th>Domaine</th>
-      <th>Compétence</th>
-      <th>Aptitude</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="4" valign="top">D1</th>
-      <th rowspan="3" valign="top">D1.C2</th>
-      <th>Maîtriser la gestion des états d’une application avec Redux</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th>Maîtriser les aspects fonctionnels de JavaScript</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th>Maîtriser les modèles objet de JavaScript</th>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th>D1.C4</th>
-      <th>Maîtriser l’écriture des tests et la couverture du code</th>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th rowspan="5" valign="top">D2</th>
-      <th rowspan="2" valign="top">D2.C1</th>
-      <th>Maîtriser la création d’interfaces graphiques (React, CSS, canvas)</th>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th>Maîtriser le routage dynamique de React Router</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th>D2.C2</th>
-      <th>Maîtriser les WebSocket en JavaScript</th>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">D2.C3</th>
-      <th>Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)</th>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Maîtriser l’écrire de code asynchrone</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">D4</th>
-      <th>D4.C1</th>
-      <th>Maîtriser un outil collaboratif de gestion de code (git)</th>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>D4.C4</th>
-      <th>Savoir respecter les consignes d'un énoncé, une échéance</th>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
 
 ## Aptitudes par évaluation
 
-### JS Basics
+### **TP 1 (JS Basics) : Tests unitaires et JavaScript/TypeScript**  
 
-- D1
-  - D1.C4
-    - **Maîtriser l’écriture des tests et la couverture du code**
-- D4
-  - D4.C1
-    - **Maîtriser un outil collaboratif de gestion de code (git)**
-  - D4.C4
-    - **Savoir respecter les consignes d'un énoncé, une échéance**
+- **D1** (Maîtrise des concepts techniques)  
+  - **D1.C2 :**  
+    - Maîtriser les fondamentaux de JavaScript et TypeScript (types, immutabilité, programmation fonctionnelle de base).  
+  - **D1.C4 :**  
+    - Écrire des tests unitaires pour valider le comportement d'un programme.  
+- **D4** (Compétences organisationnelles et collaboratives)  
+  - **D4.C1 :**  
+    - Maîtriser un outil collaboratif de gestion de code (Git).
+  - **D4.C4 :**  
+    - Respecter les consignes d’un énoncé et livrer dans les délais impartis.
 
-### Object Models
+### **TP 2 (WebSocket) : Fonctionnalités avancées avec WebSocket et Canvas**
 
-- D1
-  - D1.C2
-    - **Maîtriser les modèles objet de JavaScript**
-  - D1.C4
-    - **Maîtriser l’écriture des tests et la couverture du code**
-- D2
-  - D2.C3
-    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
-- D4
-  - D4.C1
-    - **Maîtriser un outil collaboratif de gestion de code (git)**
-  - D4.C4
-    - **Savoir respecter les consignes d'un énoncé, une échéance**
+- **D1** (Maîtrise des concepts techniques)  
+  - **D1.C4 :**  
+    - Écrire des tests pour les fonctionnalités temps réel.  
+- **D2** (Développement d’applications Web)  
+  - **D2.C1 :**  
+    - Créer des interfaces interactives avec Canvas et CSS moderne.  
+  - **D2.C2 :**  
+    - Intégrer des communications bidirectionnelles avec WebSocket dans une application client-serveur.  
+  - **D2.C3 :**  
+    - Organiser un projet complexe (structure, modules, dépendances).  
+- **D4** (Compétences organisationnelles et collaboratives)  
+  - **D4.C1 :**  
+    - Maîtriser un outil collaboratif de gestion de code (Git).
+  - **D4.C4 :**  
+    - Respecter les consignes d’un énoncé et livrer dans les délais impartis.
 
-### WebSocket
+### **TP 3 (React) : Application React avancée
 
-- D2
-  - D2.C1
-    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
-  - D2.C2
-    - **Maîtriser les WebSocket en JavaScript**
-  - D2.C3
-    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
-- D4
-  - D4.C1
-    - **Maîtriser un outil collaboratif de gestion de code (git)**
-  - D4.C4
-    - **Savoir respecter les consignes d'un énoncé, une échéance**
+- **D1** (Maîtrise des concepts techniques)  
+  - **D1.C2 :**  
+    - Maîtriser la gestion des états avec React Context et les hooks associés.  
+  - **D1.C4 :**  
+    - Écrire des tests unitaires pour valider les composants React et la gestion des états.  
+- **D2** (Développement d’applications Web)  
+  - **D2.C1 :**  
+    - Gérer le routage dynamique avec React Router.  
+    - Créer des interfaces utilisateur modernes avec React et une bibliothèque CSS.  
+  - **D2.C3 :**  
+    - Organiser un projet complexe (structure, modules, dépendances).  
+    - Intégrer des appels asynchrones à des API et gérer les réponses avec `async/await`.
+- **D4** (Compétences organisationnelles et collaboratives)  
+  - **D4.C1 :**  
+    - Travailler en équipe avec Git et gérer les contributions via pull requests.  
+  - **D4.C4 :**  
+    - Respecter les consignes d’un projet et livrer dans les délais impartis.
 
-### React + ReactRouter + Redux
 
-- D1
-  - D1.C2
-    - **Maîtriser les aspects fonctionnels de JavaScript**
-    - **Maîtriser la gestion des états d’une application avec Redux**
-  - D1.C4
-    - **Maîtriser l’écriture des tests et la couverture du code**
-- D2
-  - D2.C1
-    - **Maîtriser le routage dynamique de React Router**
-    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
-  - D2.C2
-    - **Maîtriser les WebSocket en JavaScript**
-  - D2.C3
-    - **Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)**
-    - **Maîtriser l’écrire de code asynchrone**
-- D4
-  - D4.C1
-    - **Maîtriser un outil collaboratif de gestion de code (git)**
-  - D4.C4
-    - **Savoir respecter les consignes d'un énoncé, une échéance**
+### Examen Final
 
-### Examen
-
-- D1
-  - D1.C2
-    - **Maîtriser les aspects fonctionnels de JavaScript**
-    - **Maîtriser les modèles objet de JavaScript**
-    - **Maîtriser la gestion des états d’une application avec Redux**
-- D2
-  - D2.C1
-    - **Maîtriser le routage dynamique de React Router**
-    - **Maîtriser la création d’interfaces graphiques (React, CSS, canvas)**
-  - D2.C2
-    - **Maîtriser les WebSocket en JavaScript**
-  - D2.C3
-    - **Maîtriser l’écrire de code asynchrone**
+- **D1** (Maîtrise des concepts techniques)  
+  - **D1.C2 :**  
+    - Maîtriser les concepts avancés de JavaScript et TypeScript.  
+    - Maîtriser la gestion des états avec React Context et des hooks.  
+  - **D1.C4 :**  
+    - Écrire des tests unitaires et fonctionnels pour une application Web.  
+- **D2** (Développement d’applications Web)  
+  - **D2.C1 :**  
+    - Créer des interfaces utilisateur complexes et responsive avec React et CSS moderne.  
+    - Gérer le routage et les transitions d’état avec React Router.  
+  - **D2.C2 :**  
+    - Intégrer WebSocket pour des interactions temps réel et gérer les communications serveur-client.  
+  - **D2.C3 :**  
+    - Écrire du code asynchrone robuste pour les appels API et la gestion des états.  

@@ -5,15 +5,15 @@ categories:
 - WebDev1
 - lab
 author: Yoann Pigné
-published: true
+published: false
 update: 2024-01-22
 ---
 
 # JS Basics Lab
 
-Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2023-2024-M1/WEB-jsbasics-lab>
+Le code source nécessaire à ce tp se trouve sur la forge de L'université : <https://www-apps.univ-lehavre.fr/forge/2024-2025-m1/WEB-jsbasics-lab>
 
-Ce projet est principalement constitué d'un fichier de tests (`test/index.test.js`) qui s'applique sur un ensemble de fonctions (`src/index.js`). Certains tests sont écrits, mais le corps des fonctions testées est vide ! D'autres fonctions sont écrites mais il faut écrire leurs testes. Parfois il manque le corps des fonctions et les tests.
+Ce projet est principalement constitué de fichiers de tests (`test/index.test.js` et `test/circle.test.js`) qui s'appliquent sur un ensemble de fonctions (fichiers `src/index.js` `src/circle.js`). Certains tests sont écrits, mais le corps des fonctions testées est vide ! D'autres fonctions sont écrites mais il faut écrire leurs testes. Parfois il manque le corps des fonctions et les tests.
 
 ## Travail à réaliser
 
@@ -46,8 +46,7 @@ Quand tous les tests passent, que la couverture du code par les tests est satisf
 ## Échéance
 
 TP à rendre pour le : 
-- 13/02/2024 pour le groupe 2
-- 20/02/2024 pour le groupe 1
+- 04/02/2025 
 
 ## Évaluation
 
