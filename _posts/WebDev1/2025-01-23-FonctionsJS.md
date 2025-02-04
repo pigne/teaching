@@ -235,6 +235,74 @@ for (const val of fib(100)) {
 }
 ```
 
+
+## Fonctions Asynchrones (ES7)
+
+La déclaration `async function` définit une fonction asynchrone qui retourne un objet de type `AsyncFunction`.  
+
+La fonction s'exécute de manière **asynchrone** (via la boucle d'événements) et utilise une `Promise` pour retourner des valeurs.  
+
+La syntaxe et la structure de la fonction **ressemblent** à du code synchrone, ce qui rend l'écriture et la lecture du code asynchrone plus simples.
+
+```js
+async function nom([param[, param[, ... param]]]) {
+   instructions
+}
+```
+
+Le mot-clé réservé `await` **suspend** l'exécution de la fonction asynchrone et attend que la `Promise` passée soit **résolue** avant de reprendre l'exécution.
+
+[Exemple tiré de MDN](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/async_function) :
+
+```javascript
+function seResoutApres2Secondes() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('résolu !');
+    }, 2000);
+  });
+}
+
+async function appelAsynchrone() {
+  console.log('appel en cours...');
+  const resultat = await seResoutApres2Secondes();
+  // resultat devrait être la chaîne : "résolu !"
+  console.log("résultat :", resultat);
+}
+
+appelAsynchrone();
+```
+
+
+## génératrice + asynchrone
+
+```js
+function* compteur() {
+  let i = 1;
+  while (true) {
+    yield i++;
+  }
+}
+
+async function afficherCompteur() {
+  const gen = compteur();
+
+  for (let i = 0; i < 5; i++) {
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Pause de 1 seconde
+    console.log("Valeur générée :", gen.next().value);
+  }
+
+  console.log("Fin du comptage !");
+}
+
+afficherCompteur();
+```
+
+
+
+
+
+
 ## Mode strict
 
 Le mode strict empêche certaines erreurs silencieuses et interdit des structures dangereuses.
