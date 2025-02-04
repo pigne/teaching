@@ -281,32 +281,102 @@ function fib(n, a = 1, b = 1) {
 }
 ```
 
-## Fermetures (Closures)
 
-Les fonctions conservent l'accès aux variables de leur contexte de création.
+[Recursion demo on CodePen.](http://codepen.io/pigne/pen/edLBE)
 
-```js
-function compteur() {
-    let count = 0;
-    return () => ++count;
-}
-const incrementer = compteur();
-console.log(incrementer()); // 1
-console.log(incrementer()); // 2
-```
 
-## Héritage avec `class`
+## Énumérations
+
+Il n'existe pas de méthode spécifique pour créer des énumérations en JavaScript.  
+Une énumération doit contenir un ensemble de clés **énumérables** (`for...in`) et **itérables** (`for...of`).  
+Une fois définie, une énumération doit être **immutable**.
+
+### Tableau simple
 
 ```js
-class Point3D extends Point {
-    constructor(x, y, z = 0) {
-        super(x, y);
-        this.z = z;
-    }
-    toString() {
-        return `(${this.x}, ${this.y}, ${this.z})`;
-    }
-}
-const p3d = new Point3D(1, 2, 3);
-console.log(p3d.toString()); // '(1, 2, 3)'
+const monEnum = [
+  'CECI',
+  'CELA',
+  'AUTRE'
+];
 ```
+
+- [:heavy_plus_sign:] **Itérable** (`for...of`)
+- [:heavy_minus_sign:] **Non énumérable** (`for...in`)
+- [:heavy_minus_sign:] **Mutable**
+
+### Objet simple (map)
+
+```js
+const monEnum = {
+  'CECI': 1,
+  'CELA': 2,
+  'AUTRE': 3
+};
+```
+
+- [:heavy_plus_sign:] **Énumérable** (`for...in`)
+- [:heavy_minus_sign:] **Non itérable** (`for...of`)
+- [:heavy_minus_sign:] **Mutable**
+
+### Fonction constructeur + `Object.freeze`
+
+```js
+const cles = [
+  'CECI',
+  'CELA',
+  'AUTRE'
+];
+const MonEnum = function () { };
+for (const cle of cles) {
+  MonEnum[cle] = new MonEnum();
+}
+Object.freeze(MonEnum);
+```
+
+- [:heavy_plus_sign:] **Énumérable** (`for...in`)
+- [:heavy_plus_sign:] **Immutable**
+- [:heavy_minus_sign:] **Non itérable** (`for...of`)
+
+### Implémenter `Iterable` avec un générateur
+
+```js
+const monEnum = {
+  [Symbol.iterator]: function* () {
+    for (const cle of cles) {
+      yield cle;
+    }
+  }
+};
+```
+
+### Itérable avec propriétés énumérables
+
+```js
+const Enumeration = function (cles) {
+  const enumeration = Object.create(null);
+  for (const cle of cles) {
+    enumeration[cle] = cle;
+  }
+  enumeration[Symbol.iterator] = function* () {
+    for (const cle of cles) {
+      yield enumeration[cle];
+    }
+  };
+  Object.freeze(enumeration);
+  return enumeration;
+};
+```
+
+```js
+// Test
+var monEnum = Enumeration(['POMME', 'ORANGE', 'CITRON', 'KIWI']);
+for (var i of monEnum) { console.log("-", i, ": ", monEnum[i]); }
+for (var i in monEnum) { console.log("-", i, ": ", monEnum[i]); }
+console.log([...monEnum]);
+```
+
+- [:heavy_plus_sign:] **Énumérable** (`for...in`)
+- [:heavy_plus_sign:] **Itérable** (`for...of`)
+- [:heavy_plus_sign:] **Immutable**
+
