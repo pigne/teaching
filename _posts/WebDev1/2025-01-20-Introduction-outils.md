@@ -5,7 +5,6 @@ categories:
 - WebDev1
 - lecture
 author: Yoann Pigné
-tags: js
 published: true
 ---
 
