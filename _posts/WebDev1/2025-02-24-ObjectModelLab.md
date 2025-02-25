@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Object Model Lab
+title: TP Modélisation Objet
 categories:
 - WebDev1
 - lab
@@ -9,8 +9,6 @@ published: true
 ---
 
 
-
-# TP : Modélisation Objet et Tests Unitaires - Gestion de Flotte de Véhicules Connectés
 
 Dans le cadre du développement d'une application de gestion de flotte de véhicules connectés, nous allons concevoir un modèle objet permettant de représenter les différents types de véhicules, leurs capteurs embarqués et les données qu'ils génèrent.
 
