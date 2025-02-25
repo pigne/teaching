@@ -148,7 +148,7 @@ Voici un exemple de fichier JSON représentant une flotte de véhicules connect�
 
 1. *Forker* et cloner le projet [https://www-apps.univ-lehavre.fr/forge/2024-2025-m1/WEB-objectmodel-lab.git](https://www-apps.univ-lehavre.fr/forge/2024-2025-m1/WEB-objectmodel-lab.git).
 2. Rendre le projet privé et m'ajouter en tant que développeur.
-3. Construire la hiérarchie de classes JavaScript/TypeScript permettant de représenter les véhicules et les capteurs. Le diagramme UML fourni peut être amélioré ou modifié pour mieux correspondre à votre conception. Justifiez vos choix de conception.
+3. Construire la hiérarchie de classes TypeScript permettant de représenter les véhicules et les capteurs. Le diagramme UML fourni peut être amélioré ou modifié pour mieux correspondre à votre conception. Justifiez vos choix de conception.
 4. Implémenter la logique permettant de charger les véhicules à partir du JSON et de récupérer les données de leurs capteurs.
 5. Ajouter la gestion de l'historique des valeurs des capteurs (mise à jour, récupération des valeurs passées, calculs statistiques sur l'évolution des données).
 6. Rédiger des tests unitaires couvrant au moins 90% du code. Ces tests doivent inclure :
