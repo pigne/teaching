@@ -5,75 +5,73 @@ categories:
 - InfoWeb
 - lab
 author: Yoann Pigné
-published: false
-update: 2024-02-20
+published: true
+update: 2025-02-25
 ---
 
 
 
 Symfony est entre autres un framework Web. Il contient un ensemble de ressources qui facilitent la création d'applications Web utilisant le _design pattern_ MVC (_Model View Controller_).
 
-
-
 ## TP + Questions
 
 Il y a 2 choses à faire dans ce TP :
 
 1. Suivre les étapes afin de réaliser le TP.
-2. Répondre en parallèle aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=337309) se trouvant sur la page du cours.
+2. Répondre en parallèle aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=5323) se trouvant sur la page du cours.
 
-Il est possible de travailler en binôme pour ce TP. En revanche, les réponses aux questions dans Eureka doivent être répondues par tout le monde. 
+Il est possible de travailler en binôme pour ce TP. En revanche, les réponses aux questions dans Eureka doivent être répondues par tout le monde.
 
-Ce TP doit être versionné avec GIT et être partagé en utilisant la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier d'ajouter les enseignants (`pigne` et `fournied`) au projet avec le status *developper*. 
+Ce TP doit être versionné avec GIT et être partagé en utilisant la [forge de l'université](https://www-apps.univ-lehavre.fr/forge). Ne pas oublier d'ajouter les enseignants (`pigne` et `fournied`) au projet avec le statut *developer*.
 
-Une fois le projet créé sur la forge, envoyer un mail à Dominique Fournier <dominique.fournier@univ-lehavre.fr> et  Yoann Pigné <yoann.pigne@univ-lehavre.fr> avec le titre "`[L3 InfoWeb] TP intro Symfony`". Ce mail indiquera les **nom** et **prénom** de chaque membre du groupe ainsi que l'URL du projet. 
+Une fois le projet créé sur la forge, envoyer un mail à Dominique Fournier <dominique.fournier@univ-lehavre.fr> et Yoann Pigné <yoann.pigne@univ-lehavre.fr> avec le titre "`[L3 InfoWeb] TP intro Symfony`". Ce mail indiquera les **nom** et **prénom** de chaque membre du groupe ainsi que l'URL du projet.
 
 ## Installations préalables
 
-Pour commencer à utiliser Symfony il faut installer  `composer` ainsi que le client `symfony`.
+Pour commencer à utiliser Symfony, il faut installer `composer` ainsi que le client `symfony`.
 
-### Composer 
+### Composer
 
-Pour installer Composer on peut suivre les instructions en fonction de l'OS utilisé : <https://getcomposer.org>
+Pour installer Composer, on peut suivre les instructions en fonction de l'OS utilisé : <https://getcomposer.org>
 
-#### Composer sur les machine de TP de l'UFR
+#### Composer sur les machines de TP de l'UFR
 
-1. On télécharge composer avec la commande :
-  ```bash
-  mkdir -p ${HOME}/.composer/bin
-  wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --install-dir=${HOME}/.composer/bin --filename=composer
-  ```
-2. On ajoute la ligne suivante au fichier `${HOME}/.profile`:
-  ```bash
-  export PATH="$HOME/.composer/bin:$PATH"
-  ```
-3. Enfin, on recharge l'environnement : 
-  ```sh
-  source ${HOME}/.profile
-  ```
+1. On télécharge Composer avec la commande :
+   ```bash
+   mkdir -p ${HOME}/.composer/bin
+   wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --install-dir=${HOME}/.composer/bin --filename=composer
+   ```
+2. On ajoute la ligne suivante au fichier `${HOME}/.profile` :
+   ```bash
+   export PATH="$HOME/.composer/bin:$PATH"
+   ```
+3. Enfin, on recharge l'environnement :
+   ```sh
+   source ${HOME}/.profile
+   ```
 
-En ouvrant un autre terminal on risque de ne plus avoir accès à `composer`. Il suffit de refaire la dernière commande : `source ${HOME}/.profile` ou bien de redémarrer sa session. 
- 
+**Note :** En ouvrant un autre terminal, on risque de ne plus avoir accès à `composer`. Il suffit de refaire la dernière commande : `source ${HOME}/.profile` ou bien de redémarrer sa session.
+
 ### Symfony
 
-Pour installer Symfony on suit les instructions en fonction de l'OS utilisé : <https://symfony.com/download>
+Pour installer Symfony, on suit les instructions en fonction de l'OS utilisé : <https://symfony.com/download>
 
-#### Symfony sur les machine de TP de l'UFR
+#### Symfony sur les machines de TP de l'UFR
 
-1. On télécharge la version binaire de symfony  avec la commande : 
+1. On télécharge la version binaire de Symfony avec la commande :
    ```sh
-    wget https://get.symfony.com/cli/installer -O - | bash
-    ```
-2. On ajoute la ligne suivante au fichier `${HOME}/.profile`:
-    ```sh
-    export PATH="$HOME/.symfony5/bin:$PATH"
-    ```
-3. Enfin, on recharge l'environnement : 
-  ```sh
-  source ${HOME}/.profile
-  ```
+   wget https://get.symfony.com/cli/installer -O - | bash
+   ```
+2. On ajoute la ligne suivante au fichier `${HOME}/.profile` :
+   ```sh
+   export PATH="$HOME/.symfony5/bin:$PATH"
+   ```
+3. Enfin, on recharge l'environnement :
+   ```sh
+   source ${HOME}/.profile
+   ```
 
-En ouvrant un autre terminal on risque de ne plus avoir accès à `symfony`. Il suffit de refaire la dernière commande : `source ${HOME}/.profile` ou bien de redémarrer sa session. 
+**Note :** En ouvrant un autre terminal, on risque de ne plus avoir accès à `symfony`. Il suffit de refaire la dernière commande : `source ${HOME}/.profile` ou bien de redémarrer sa session.
 
 ## Création d'un premier projet
 
@@ -86,35 +84,38 @@ cd projet_hello
 
 ### GIT
 
-Un  `git init` ainci que quelques commits ont été fait pour vous dans le projet. À vous d'ajouter ce projet dans la forge en ajoutant un `remote`  : 
+Un `git init` ainsi que quelques commits ont été faits pour vous dans le projet. À vous d'ajouter ce projet dans la forge en ajoutant un `remote` :
 
-1. Créer un projet sur la forge avec ajoutant les enseignants comme développeurs.
-2. Ajouter un `remote` dans le projet pour le connecter à un projet sur la forge:
-  ```bash
-  git remote add origin https://www-apps.univ-lehavre.fr/<utilisateur>/<projet>.git
-  ```
-  où `<utilisateur>` est votre nom d'utilisateur de la forge et `<projet>` est le nom de votre projet créé sur la forge.
-3. Puis on pousse le projet sur la forge avec la commande :
-  ```bash
-  git push -u origin master
-  ```
+1. Créer un projet sur la forge en ajoutant les enseignants comme développeurs.
+2. Ajouter un `remote` dans le projet pour le connecter à un projet sur la forge :
+   ```bash
+   git remote add origin https://www-apps.univ-lehavre.fr/<utilisateur>/<projet>.git
+   ```
+   où `<utilisateur>` est votre nom d'utilisateur de la forge et `<projet>` est le nom de votre projet créé sur la forge.
+3. Puis, on pousse le projet sur la forge avec la commande :
+   ```bash
+   git push -u origin master
+   ```
 
 ## Analyse du projet de base
 
-Examiner attentivement le contenu du projet (dossier `projet_hello`). les dossiers et sous-dossiers sont organisés de sorte à ne pas mélanger les choses qui n'ont rien à voir ensemble.
+Examiner attentivement le contenu du projet (dossier `projet_hello`). Les dossiers et sous-dossiers sont organisés de sorte à ne pas mélanger les choses qui n'ont rien à voir ensemble.
 
 ```bash
 ./
 ├── .env
+├── .env.dev
 ├── .env.test
 ├── .git/
 ├── .gitignore
+├── assets/
 ├── bin/
+├── compose.override.yaml
+├── compose.yaml
 ├── composer.json
 ├── composer.lock
 ├── config/
-├── docker-compose.override.yml
-├── docker-compose.yml
+├── importmap.php
 ├── migrations/
 ├── phpunit.xml.dist
 ├── public/
@@ -127,11 +128,11 @@ Examiner attentivement le contenu du projet (dossier `projet_hello`). les dossie
 └── vendor/
 ```
 
-Le dossier `config/` contient les paramètres de l'application. On modifiera ce dossier pour configurer l'application ou changer son comportement par défaut (e.g.: chargement de modules complémentaires). 
+Le dossier `config/` contient les paramètres de l'application. On modifiera ce dossier pour configurer l'application ou changer son comportement par défaut (e.g. : chargement de modules complémentaires).
 
 Le dossier `src/` contient les sources de notre application. C'est le dossier qui nous intéresse le plus ici.
 
-Le dossier `templates` contient les fichiers *templates* (les patrons) TWIG pour faciliter la génération de pages Web. 
+Le dossier `templates/` contient les fichiers *templates* (les patrons) TWIG pour faciliter la génération de pages Web.
 
 Le dossier `tests/` contient comme on s'en doute, les tests.
 
@@ -145,7 +146,7 @@ Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](
 1. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier `vendor/`.
 2. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier  `public/`.
 3. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier  `assets/`.
-4. Quel fichier dois-je modifier pour configurer les identifiants de bases de données afin que Symfony puisse accéder à la Base de données ?
+4. Quel fichier dois-je modifier pour configurer les identifiants de bases de données afin que Symfony puisse accéder à la base de données ?
 
 </div>
 
@@ -161,24 +162,23 @@ On peut voir le site dans un navigateur, à l'adresse [http://localhost:8000](ht
 
 
 
-## Contrôleur Action et Route
+## Contrôleur, Action et Route
 
-La page visible a l'adresse `http://localhost:8000/` est une page par défaut, elle correspond à une **route** et à une **action** dans le **contrôleur** par défaut.
+La page visible à l'adresse `http://localhost:8000/` est une page par défaut, elle correspond à une **route** et à une **action** dans le **contrôleur** par défaut.
 
-Ces 3 termes sont importants :
+Ces trois termes sont importants :
 
 - Un **contrôleur** est la classe principale qui gère un ensemble d'**actions**.
 - Une **action** est une méthode de classe du contrôleur, c'est un peu comme un des services possibles proposés par le contrôleur.
-- Une **route** est la partie qui vient après le nom de domaine dans une URL au sens de HTTP. Par exemple dans l'URL `https://www.example.com/truc/machin`, la route est `/truc/machin`.
+- Une **route** est la partie qui vient après le nom de domaine dans une URL au sens de HTTP. Par exemple, dans l'URL `https://www.example.com/truc/machin`, la route est `/truc/machin`.
 
 Il faut configurer le contrôleur pour que ses actions soient liées à des routes.
 
-
 ## Création d'un contrôleur
 
-Nous allons créer un contrôleur des actions et des routes associées.
+Nous allons créer un contrôleur, des actions et des routes associées.
 
-**Créer** un nouveaux fichier `"src/Controller/HelloController.php"` avec le contenu suivant :
+**Créer** un nouveau fichier `"src/Controller/HelloController.php"` avec le contenu suivant :
 
 ```php
 <?php
@@ -189,10 +189,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-
 class HelloController extends AbstractController
 {
-
   #[Route("/helloRandom")]
   public function randomNameAction(): Response
   {
@@ -215,9 +213,9 @@ class HelloController extends AbstractController
       "Amusing", "Athletic", "Beautiful", "Brave", "Careless",
       "Clever", "Crafty", "Creative", "Cute", "Dependable",
       "Energetic", "Famous", "Friendly", "Graceful", "Helpful",
-      "Humble", "Inconsiderate", "Likable", "Mid  Class", "Outgoing",
+      "Humble", "Inconsiderate", "Likable", "Middle-Class", "Outgoing",
       "Poor", "Practical", "Rich", "Sad", "Skinny", "Successful", "Thin",
-      "Ugly", "Wealth",
+      "Ugly", "Wealthy",
     ];
     return $adjectives[array_rand($adjectives)] .
       " " .
@@ -225,7 +223,6 @@ class HelloController extends AbstractController
   }
 }
 ```
-
 
 On peut voir fonctionner ce nouveau contrôleur avec l'URL : [http://localhost:8000/helloRandom](http://localhost:8000/helloRandom) et recharger la page plusieurs fois...
 
@@ -239,7 +236,7 @@ Comment fait-on le lien entre une route (URL) de l'application et une action d'u
 
 ## Lancer les tests
 
-Il faut maintenant tester ce contrôleur. **Écrire** le fichier de test `tests/Controller/HelloControllerTest.php`  (il faut créer le dossier `Controlleur/` dans `tests/` s'il n'existe pas):
+Il faut maintenant tester ce contrôleur. **Écrire** le fichier de test `tests/Controller/HelloControllerTest.php` (il faut créer le dossier `Controller/` dans `tests/` s'il n'existe pas) :
 
 ```php
 <?php
@@ -267,13 +264,14 @@ class HelloControllerTest extends WebTestCase
   }
 }
 ```
-On exécute les tests avec `PHPUnit` (l'équivalent du `JUnit` de `Java` pour `PHP`):
+
+On exécute les tests avec `PHPUnit` (l'équivalent de `JUnit` en Java pour `PHP`) :
 
 ```sh
 php bin/phpunit
 ```
 
-On devrait avoir :
+On devrait obtenir :
 
 ```
 OK (2 tests, 3 assertions)
@@ -283,20 +281,18 @@ OK (2 tests, 3 assertions)
 
 <div class="question">
 
-### Questions  6
+### Questions 6
 
-Dans la classe de test `HelloControllerTest` expliquer ce que fait la méthode `testHelloRandomRoute`.
+Dans la classe de test `HelloControllerTest`, expliquer ce que fait la méthode `testHelloRandomRoute`.
 
 </div>
 
 <div class="question">
 
-### Questions  7
+### Question 7
 
-Dans la classe de test `HelloControllerTest` expliquer ce que fait la méthode `testRandomNameGenerator`.
-
+Dans la classe de test `HelloControllerTest`, expliquer ce que fait la méthode `testRandomNameGenerator`.
 </div>
-
 ## Route et action paramétriques
 
 On souhaite créer une action qui dépende des paramètres de la route (une route paramétrique).
@@ -315,18 +311,15 @@ On souhaite créer une action qui dépende des paramètres de la route (une rout
   }
 ```
 
-**Exécuter** cette méthode avec la route :  [http://localhost:8000/hello/Albus Perceval Wulfric Brian Dumbledore](http://localhost:8000/hello/Albus Perceval Wulfric Brian Dumbledore)
-
+**Exécuter** cette méthode avec la route :  [http://localhost:8000/hello/Albus%20Perceval%20Wulfric%20Brian%20Dumbledore](http://localhost:8000/hello/Albus%20Perceval%20Wulfric%20Brian%20Dumbledore)
 
 ### Tester la route
-
-
 
 **Écrire** un test dans la classe `HelloControllerTest` qui vérifie que la méthode fonctionne comme prévu. Vérifier que la page web générée salue bien le Professeur Dumbledore quand son nom est passé dans l'URL. Vérifier aussi que le nom est aléatoire quand aucun paramètre n'est donné ([http://localhost:8000/hello](http://localhost:8000/hello)).
 
 <div class="question">
 
-### Questions  8
+### Questions 8
 
 Coller votre classe de test `HelloControllerTest` dans le questionnaire Eureka (Question 8).
 
@@ -338,25 +331,24 @@ On souhaite maintenant générer des pages Web complètes et pas seulement une c
 
 Symfony utilise le langage de _template_ `twig`.
 
-la méthode `render()` du contrôleur permet d'utiliser un template `twig` pour fabriquer une réponse et retourner un objet `Response`.
+La méthode `render()` du contrôleur permet d'utiliser un template `twig` pour fabriquer une réponse et retourner un objet `Response`.
 
-**Ouvrir** et **lire** les fichiers `templates/base.html.twig`.
+**Ouvrir** et **lire** le fichier `templates/base.html.twig`.
 
-**Créer** un template pour le contrôleur Hello dans le fichier  `templates/hello.html.twig` :
+**Créer** un template pour le contrôleur Hello dans le fichier `templates/hello.html.twig` :
 
 {% raw %}
 
 ```html
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello!{% endblock  %}
+{% block title %}Hello!{% endblock %}
 
 {% block body %}
     <div id="container">
         <div id="hello">
-            <h1> Hello <i>{{ name }}</i>!</h1>
+            <h1>Hello <i>{{ name }}</i>!</h1>
         </div>
-
     </div>
 {% endblock %}
 
@@ -376,7 +368,7 @@ la méthode `render()` du contrôleur permet d'utiliser un template `twig` pour 
 {% endraw %}
 
 
-**Modifier** l'action `nameAction` du contrôleur `HelloController` afin d'utiliser le _template_ qui vient d'être créé. On s'inspirera de la [documentation en ligne](https://symfony.com/doc/current/controller.html#rendering-templates).  
+**Modifier** l'action `nameAction` du contrôleur `HelloController` afin d'utiliser le _template_ qui vient d'être créé. On s'inspirera de la [documentation en ligne](https://symfony.com/doc/current/controller.html#rendering-templates).
 
 <div class="question">
 
@@ -388,37 +380,34 @@ Copier le code de l'action `nameAction` dans la question 9 du questionnaire Eure
 
 ## Sessions
 
-On souhaite que l'application se souvienne de nous. À chaque fois que l'action `nameAction` est appelée avec un paramètre (avec un nom), on veut qu'il soit **sauvegardé** dans une **session** (en remplaçant éventuellement celui qui existait déjà). À chaque fois que l'action `nameAction` est appelée **sans** paramètre, alors on veut retrouver le paramètre précédemment **enregistré dans la session**. Finalement si `nameAction` est appelé sans paramètre pour la première fois (rien d'existe dans la session), alors on génère un nom aléatoirement, que l'on sauvegarde dans la session.
+On souhaite que l'application se souvienne de nous. À chaque fois que l'action `nameAction` est appelée avec un paramètre (avec un nom), on veut qu'il soit **sauvegardé** dans une **session** (en remplaçant éventuellement celui qui existait déjà). À chaque fois que l'action `nameAction` est appelée **sans** paramètre, alors on veut retrouver le paramètre précédemment **enregistré dans la session**. Finalement, si `nameAction` est appelé sans paramètre pour la première fois (rien n'existe dans la session), alors on génère un nom aléatoirement, que l'on sauvegarde dans la session.
 
-Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)) cela va afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)) cela doit également afficher `"Hello You!"`. En revanche si j'appelle pour la première fois l'action sans paramètres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
+Par exemple, si j'appelle une fois ([http://localhost:8000/hello/You](http://localhost:8000/hello/You)), cela va afficher `"Hello You!"`. Si ensuite j'appelle (dans le même navigateur) ([http://localhost:8000/hello](http://localhost:8000/hello)), cela doit également afficher `"Hello You!"`. En revanche, si j'appelle pour la première fois l'action sans paramètres ([http://localhost:8000/hello](http://localhost:8000/hello)), alors on obtient un nom aléatoire qui va être stocké pour les appels futurs.
 
-**Modifier** l'action `nameAction` pour qu'elle se comporte comme décrit ci-dessus, en utilisant la [documentation Symfony sur les sessions](https://symfony.com/doc/current/session.html). 
-<!-- On notera que la session courante, dans un controleur est accessible avec l'objet `Request` que l'on peut passer en paramètre de l'action : "`$session = $request->getSession();`". -->
+**Modifier** l'action `nameAction` pour qu'elle se comporte comme décrit ci-dessus, en utilisant la [documentation Symfony sur les sessions](https://symfony.com/doc/current/session.html).
 
 <div class="question">
 
 ### Question 10
 
-A quoi sert le fichier `composer.json` qui se trouve à la racine du projet ?
+À quoi sert le fichier `composer.json` qui se trouve à la racine du projet ?
 </div>
-
-
 
 <div class="question">
 
-### Questions  11
+### Question 11
 
-Copier le code de  `nameAction`  dans Eureka (Question 11).  
+Copier le code de `nameAction` dans Eureka (Question 11).  
 
 </div>
 
-
-**Écrire** de nouveaux tests (en ajoutant des méthodes dans la classe `tests/Controller/HelloControllerTest.php`)  pour vérifier le nouveau fonctionnement. 
+**Écrire** de nouveaux tests (en ajoutant des méthodes dans la classe `tests/Controller/HelloControllerTest.php`) pour vérifier le nouveau fonctionnement.
 
 <div class="question">
 
-### Questions  12
+### Question 12
 
 Copier le code de ces tests dans Eureka (Question 12).  
   
 </div>
+
