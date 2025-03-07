@@ -41,7 +41,7 @@ Pour installer Composer, on peut suivre les instructions en fonction de l'OS uti
    mkdir -p ${HOME}/.composer/bin
    wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --install-dir=${HOME}/.composer/bin --filename=composer
    ```
-2. On ajoute la ligne suivante au fichier `${HOME}/.profile` :
+2. On ajoute la ligne suivante au fichier `${HOME}/.profile`  (il faut ouvrir ce fichier avec un éditeur de texte) :
    ```bash
    export PATH="$HOME/.composer/bin:$PATH"
    ```
@@ -62,7 +62,7 @@ Pour installer Symfony, on suit les instructions en fonction de l'OS utilisé : 
    ```sh
    wget https://get.symfony.com/cli/installer -O - | bash
    ```
-2. On ajoute la ligne suivante au fichier `${HOME}/.profile` :
+2. On ajoute la ligne suivante au fichier `${HOME}/.profile` (il faut ouvrir ce fichier avec un éditeur de texte):
    ```sh
    export PATH="$HOME/.symfony5/bin:$PATH"
    ```
