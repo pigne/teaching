@@ -97,7 +97,7 @@ Un `git init` ainsi que quelques commits ont été faits pour vous dans le proje
    git push -u origin master
    ```
 
-Pour le binome qui n'a pas cré le projet, il faut alors le cloner avec la commande :  
+Pour le binome qui n'a pas créé le projet, il faut cloner le projet avec la commande :
 ```bash
 git clone https://www-apps.univ-lehavre.fr/forge/UTILISATEUR/PROJET.git
 ```
