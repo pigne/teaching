@@ -18,7 +18,7 @@ Symfony est entre autres un framework Web. Il contient un ensemble de ressources
 Il y a 2 choses à faire dans ce TP :
 
 1. Suivre les étapes afin de réaliser le TP.
-2. Répondre en parallèle aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=5323) se trouvant sur la page du cours.
+2. Répondre en parallèle aux questions qui sont posées tout au long de l'énoncé. Les réponses sont à écrire dans le [questionnaire Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=5323se trouvant sur la page du cours.
 
 Il est possible de travailler en binôme pour ce TP. En revanche, les réponses aux questions dans Eureka doivent être répondues par tout le monde.
 
@@ -97,6 +97,19 @@ Un `git init` ainsi que quelques commits ont été faits pour vous dans le proje
    git push -u origin master
    ```
 
+Pour le binome qui n'a pas cré le projet, il faut alors le cloner avec la commande :  
+```bash
+git clone https://www-apps.univ-lehavre.fr/forge/UTILISATEUR/PROJET.git
+```
+
+puis installer les dépendances avec la commande : 
+
+```bash
+composer install
+```
+
+
+
 ## Analyse du projet de base
 
 Examiner attentivement le contenu du projet (dossier `projet_hello`). Les dossiers et sous-dossiers sont organisés de sorte à ne pas mélanger les choses qui n'ont rien à voir ensemble (séparation des responsabilités).
@@ -141,7 +154,7 @@ Le dossier `tests/` contient comme on s'en doute, les tests.
 
 ### Questions 1, 2, 3 et 4
 
-Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=337309) :
+Répondre aux questions suivantes sur le [questionnaire se trouvant sur Eureka](https://eureka.univ-lehavre.fr/mod/quiz/view.php?id=5323) :
 
 1. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier `vendor/`.
 2. En examinant le contenu des fichiers et en cherchant sur le site de Symfony, expliquer l'utilité du  dossier  `public/`.
