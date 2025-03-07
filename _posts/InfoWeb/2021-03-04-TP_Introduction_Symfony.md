@@ -84,22 +84,22 @@ cd projet_hello
 
 ### GIT
 
-Un `git init` ainsi que quelques commits ont été faits pour vous dans le projet. À vous d'ajouter ce projet dans la forge en ajoutant un `remote` :
+Un `git init` ainsi que quelques commits ont été faits pour vous dans le projet. À vous d'ajouter ce projet sur la forge en ajoutant un `remote` :  
 
-1. Créer un projet sur la forge en ajoutant les enseignants comme développeurs.
-2. Ajouter un `remote` dans le projet pour le connecter à un projet sur la forge :
+1. **Ajouter un `remote`** pour connecter votre projet local à un projet sur la forge. Ce projet n'existe pas encore sur la forge, mais il sera créé lors de l'étape suivante. Pour ajouter le `remote` :  
    ```bash
-   git remote add origin https://www-apps.univ-lehavre.fr/<utilisateur>/<projet>.git
+   git remote add origin https://www-apps.univ-lehavre.fr/forge/UTILISATEUR/PROJET.git
    ```
-   où `<utilisateur>` est votre nom d'utilisateur de la forge et `<projet>` est le nom de votre projet créé sur la forge.
-3. Puis, on pousse le projet sur la forge avec la commande :
+   où `UTILISATEUR` est votre nom d'utilisateur sur la forge et `PROJET` est le nom de votre projet (vous devez choisir ce nom).  
+
+2. **Pousser le projet sur la forge** (ce qui va le créer) avec la commande :  
    ```bash
    git push -u origin master
    ```
 
 ## Analyse du projet de base
 
-Examiner attentivement le contenu du projet (dossier `projet_hello`). Les dossiers et sous-dossiers sont organisés de sorte à ne pas mélanger les choses qui n'ont rien à voir ensemble.
+Examiner attentivement le contenu du projet (dossier `projet_hello`). Les dossiers et sous-dossiers sont organisés de sorte à ne pas mélanger les choses qui n'ont rien à voir ensemble (séparation des responsabilités).
 
 ```bash
 ./
