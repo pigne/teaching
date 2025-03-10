@@ -8,8 +8,6 @@ author: Yoann Pigné
 published: true
 ---
 
-
-
 Dans le cadre du développement d'une application de gestion de flotte de véhicules connectés, nous allons concevoir un modèle objet permettant de représenter les différents types de véhicules, leurs capteurs embarqués et les données qu'ils génèrent.
 
 ## Objectif
@@ -29,8 +27,6 @@ Votre mission est de :
 
 ![Object Model]({{ site.baseurl }}/images/2025-M1-ObjectModelLab.jpg)
 
-
-<!-- 
 ```mermaid
 classDiagram
     class Vehicle {
@@ -47,23 +43,23 @@ classDiagram
     +getFuelLevel(): number
     }
     class ElectricCar {
-    +batteryCapacity: number
+    -batteryCapacity: number
     +getBatteryStatus(): number
     }
 
     class Truck {
-    +maxLoad: number
+    -maxLoad: number
     +getCurrentLoad(): number
     }
 
     class Bike {
-    +type: string
+    -type: string
     }
 
     class Sensor {
-    +id: number
-    +type: string
-    +history: SensorHistory[]
+    -id: number
+    -type: string
+    -history: SensorHistory[]
     +getData(): SensorHistory | null
     }
 
@@ -91,7 +87,14 @@ SensorHistory -- SensorValue
     +getSpeed(): number
     +getAverageSpeed(): number
     }
+    class LoadSensor {
+      +getLoad(): number
+    }
     
+    class BatterySensor {
+      +getBatteryLevel(): number
+    }
+
     class FuelLevelSensor {
         +getFuelLevel(): number
     }
@@ -103,9 +106,11 @@ SensorHistory -- SensorValue
     Sensor <|-- GPSSensor
     Sensor <|-- SpeedSensor
     Sensor <|-- FuelLevelSensor
+    Sensor <|-- LoadSensor
+    Sensor <|-- BatterySensor
     Sensor o-- SensorHistory
     Vehicle o-- Sensor
-``` -->
+```
 
 ## Données JSON de test
 
@@ -158,7 +163,7 @@ Voici un exemple de fichier JSON représentant une flotte de véhicules connect�
 
 ## Échéance
 
-TP à rendre sous forme d'un Merge Request pour le : 11/03/2025
+TP à rendre sous forme d'une Merge Request pour le : 11/03/2025
 
 ## Évaluation
 
