@@ -5,8 +5,8 @@ categories:
 - InfoWeb
 - lecture
 author: Yoann Pigné
-published: false
-update: 2024-02-21
+published: true
+update: 2025-03-11
 ---
 
 Récapitulatif du cours et du TP précédent :
@@ -49,7 +49,7 @@ Les informations de connexion à la base de donnée sont stockés dans la variab
 
 ```bash
 # to use mariadb:
-DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=mariadb-10.5.8"
+DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=10.5.8-MariaDB"
 
 # to use postgresql:
 # DATABASE_URL="postgresql://db_user:db_password@127.0.0.1:5432/db_name?serverVersion=11&charset=utf8"
@@ -85,7 +85,7 @@ On peut créer l'entité à la main, c'est une classe php classique. On peut aus
 php bin/console make:entity
 ```
 
-Ce script est interactif et nous permet de définir une entité avec ses champs. On se laisse quider pour ajouter un champ `name` de type `string` et un `price`de type `integer`.
+Ce script est interactif et nous permet de définir une entité avec ses champs. On se laisse guider pour ajouter un champ `name` de type `string` et un `price` de type `integer`.
 
 Ce script produit 2 fichiers :
 
@@ -183,11 +183,11 @@ On note :
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {
@@ -224,7 +224,7 @@ php bin/console doctrine:query:sql 'SELECT * FROM product'
 
 Si l'on connait l'identifient d'un objet alors il est très simple de le consulter (_read_) à partir du contrôleur.
 
-On effectue toujours les requêtes de consultation sur un type d'objets grâce à son  _Repository_ (`RepositoryProduct`)  : `$entityManager->getRepository(Product::class)`.
+On effectue toujours les requêtes de consultation sur un type d'objet grâce à son  _Repository_ (`RepositoryProduct`)  : `$entityManager->getRepository(Product::class)`.
 
 
 ```php
@@ -249,12 +249,12 @@ On effectue toujours les requêtes de consultation sur un type d'objets grâce �
 
 ## Le _Repository_
 
-Le `Repository` contient une quantité de méthodes qui facilitent l'accès au modèle de données. On peut accéder aux objets:
+Le `Repository` contient des méthodes qui facilitent l'accès au modèle de données. On peut accéder aux objets:
 
 - un par un, par leur `id`: `find($id)`
 - dynamiquement avec en fonction des champs: `findOneBy(['name' => 'Keyboard']);`, `findOneBy(['price' => 1999]);`
 - plusieurs à la fois avec plusieurs critères : `findBy(['name' => 'Keyboard' , 'price' => 1999]);`
-- tous : `findAll()`
+- tous : `findAll()` : attention, cette méthode peut être très gourmande en ressources !
 
 ```php
 // query for one product matching by name and price
@@ -436,7 +436,7 @@ class ProductRepository extends ServiceEntityRepository
 ### Relations 1-n
 
 
-Supposons que chaque _product_ possède une et une seule a catégorie. On peut créer une nouvelle entité `Category` et la lier a `Product`:
+Supposons que chaque _product_ possède une et une seule a catégorie. On peut créer une nouvelle entité `Category` et la lier à `Product`:
 
 ```bash
 php bin/console make:entity Category
