@@ -4,9 +4,9 @@ title: TP Symfony - Gestion des formulaires
 categories:  
 - InfoWeb
 - lab
-published: false
+published: true
 author: Yoann Pigné
-update: 2024-01-30
+update: 2025-03-20
 ---
 
 On  continue le travail commencé lors du [TP Précédent](http://pigne.org/teaching/infoweb/lab/TP-Symfony-Modeles).
@@ -16,47 +16,35 @@ Suivre les instructions en fonction du n° de sujet choisi la semaine précéden
 
 ## Échéance (pour tous les sujets)
 
-Cette dernière partie doit toujours être versionnée et faire l'objet de validations régulières de la part de tous les membres du groupe. Les dépôts GIT seront relevés le **vendredi 29 mars 2024 à 21h42 (CEST)**, pour évaluation.
+Cette dernière partie doit toujours être versionnée et faire l'objet de validations régulières de la part de tous les membres du groupe. Les dépôts GIT seront relevés le **jeudi 27 mars 2025 à 21h42 (CEST)**. L'évaluation aura lieu le **vendredi 28 mars 2025**.
 
 ## Sujet 1
 
 Il y a **une seule** tâches à réaliser pour les groupes ayant choisi le sujet n°1 : les **formulaires**.
 
 
-### Gestion des formulaires
-
 En suivant le [cours](https://pigne.org/teaching/infoweb/lecture/Symfony-Forms) créer  des classes de *type* (e.g. `MonEntitéType`) dans le dossier `src/Form/` qui permettent la création de formulaires pour créer/modifier les entités (e.g. `MonEntité`) de votre base. 
 
-Chaque entité du modèle doit posséder son propre *type*.
+Chaque entité du modèle doit posséder son propre *type* qui doit permettre la création de formulaires pour la création et la modification. Ces formulaires doivent être utilisés dans les **contrôleurs** pour les actions de création et de modification. Il doivent **valider** le modèle objet avant de le persister en base. Les assertions de validation doivent être définies au niveau des entités. Enfin, les formulaires doivent être utilisés dans la création des **vues** et doivent permettre d'afficher correctement  les erreurs de validation.
 
 On peut s'aider de la commande : `php bin/console make:form`
 
-
-
-Adapter les **contrôleurs**, les **entités**, et les **vues** pour utiliser correctement les formulaires Symfony et pour que tous les champs soient correctement **validés** lors de la saisie des formulaires.
-
-La **validation** doit être gérée au niveau des entités, comme cela a été présenté en cours. 
-
-
+Une difficulté est la présentation des champs de type associations. Il est possible de les afficher sous forme de liste déroulante, de liste de cases à cocher, ou de liste de boutons radio. A vous de faire les bon choix lors de la création des formulaires.
 
 ## Sujet 2
 
 Il y a **deux** tâches à réaliser pour les groupes ayant choisi le sujet n°2 : 
 
-  - Les formulaires
-  - une vues cartographique 
+  - Les **formulaires**
+  - une **vues cartographique**
 
 ### Gestion des formulaires
 
-En suivant le [cours](https://pigne.org/teaching/infoweb/lecture/Symfony-Forms) créer une classe `EtablissementType` dans le dossier `src/Form/` qui permet la création de formulaires pour créer/modifier les entités `Etablissement`.
-
-Faire de même pour l'entité `Commentaire`.
+En suivant le [cours](https://pigne.org/teaching/infoweb/lecture/Symfony-Forms) créer  des classes de *type* (e.g. `MonEntitéType`) dans le dossier `src/Form/` qui permettent la création de formulaires pour créer/modifier les entités de votre projet (`Etablissement` et `Commentaire`). 
 
 On peut s'aider de la commande : `php bin/console make:form`
 
-Adapter les **contrôleurs**, les **entités**, et les **vues** pour utiliser correctement les formulaires Symfony et pour que tous les champs soient correctement **validés** lors de la saisie des formulaires d'`Etablissement` et de `Commentaire`.
-
-La **validation** doit être gérée au niveau des entités, comme cela a été présenté en cours. 
+Chaque entité du modèle doit posséder son propre *type* qui doit permettre la création de formulaires pour la création et la modification. Ces formulaires doivent être utilisés dans les **contrôleurs** pour les actions de création et de modification. Il doivent **valider** le modèle objet avant de le persister en base. Les assertions de validation doivent être définies au niveau des entités. Enfin, les formulaires doivent être utilisés dans la création des **vues** et doivent permettre d'afficher correctement  les erreurs de validation.
 
 ### Vue Cartographique
 
@@ -120,7 +108,7 @@ const data = [
     lon:'0.1137094907033469'
   },
   /*
-    TODO: à vous d'ajouter la suite dynamiquement avec TWIG...
+    TODO: à vous d'ajouter la suite dynamiquement avec TWIG... Et oui TWIG sait générer du javascript !
   */
 ];
 
