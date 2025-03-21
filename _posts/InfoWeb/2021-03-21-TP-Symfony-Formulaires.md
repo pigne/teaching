@@ -25,7 +25,7 @@ Il y a **une seule** tâches à réaliser pour les groupes ayant choisi le sujet
 
 En suivant le [cours](https://pigne.org/teaching/infoweb/lecture/Symfony-Forms) créer  des classes de *type* (e.g. `MonEntitéType`) dans le dossier `src/Form/` qui permettent la création de formulaires pour créer/modifier les entités (e.g. `MonEntité`) de votre base. 
 
-Chaque entité du modèle doit posséder son propre *type* qui doit permettre la création de formulaires pour la création et la modification. Ces formulaires doivent être utilisés dans les **contrôleurs** pour les actions de création et de modification. Il doivent **valider** le modèle objet avant de le persister en base. Les assertions de validation doivent être définies au niveau des entités. Enfin, les formulaires doivent être utilisés dans la création des **vues** et doivent permettre d'afficher correctement  les erreurs de validation.
+Chaque entité du modèle doit posséder son propre *type* qui doit permettre la création de formulaires pour la création et la modification. Ces formulaires doivent être utilisés dans les **contrôleurs** pour les actions de **création**, de **modification** et de **suppression**. Il doivent **valider** le modèle objet avant de le persister en base. Les assertions de validation doivent être définies au niveau des entités. Enfin, les formulaires doivent être utilisés dans la création des **vues** et doivent permettre d'afficher correctement  les erreurs de validation.
 
 On peut s'aider de la commande : `php bin/console make:form`
 
@@ -44,7 +44,7 @@ En suivant le [cours](https://pigne.org/teaching/infoweb/lecture/Symfony-Forms) 
 
 On peut s'aider de la commande : `php bin/console make:form`
 
-Chaque entité du modèle doit posséder son propre *type* qui doit permettre la création de formulaires pour la création et la modification. Ces formulaires doivent être utilisés dans les **contrôleurs** pour les actions de création et de modification. Il doivent **valider** le modèle objet avant de le persister en base. Les assertions de validation doivent être définies au niveau des entités. Enfin, les formulaires doivent être utilisés dans la création des **vues** et doivent permettre d'afficher correctement  les erreurs de validation.
+Chaque entité du modèle doit posséder son propre *type* qui doit permettre la création de formulaires pour la création et la modification. Ces formulaires doivent être utilisés dans les **contrôleurs** pour les actions de **création**, de **modification** et de **suppression**. Il doivent **valider** le modèle objet avant de le persister en base. Les assertions de validation doivent être définies au niveau des entités. Enfin, les formulaires doivent être utilisés dans la création des **vues** et doivent permettre d'afficher correctement  les erreurs de validation.
 
 ### Vue Cartographique
 
