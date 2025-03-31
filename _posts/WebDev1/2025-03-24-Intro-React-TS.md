@@ -88,9 +88,6 @@ const App: React.FC = () => {
 };
 ```
 
-> **Bonnes pratiques** : Toujours typer les props pour éviter des erreurs d'utilisation.
-
----
 
 
 
@@ -145,7 +142,7 @@ En React, il est important de ne pas modifier directement le **state**, mais d'u
 ### Mauvaise pratique
 ```tsx
 const [user, setUser] = useState({ name: "Alice", age: 25 });
-user.age = 26; // ❌ Ne pas modifier directement le state !
+user.age = 26; // Ne pas modifier directement le state !
 ```
 
 ### Bonne pratique
