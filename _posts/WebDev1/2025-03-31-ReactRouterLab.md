@@ -15,7 +15,7 @@ On s'intéresse ici à l'affichage et à la représentation graphique des donné
 
 Voici une idée générale de la structure de l'application :
 
-![IoT Sketch]({{ site.baseurl }}/images/apercu_sensor_app.jpg)
+![IoT Sketch]({{ site.baseurl }}/images/appercu_sensor_app.jpg)
 
 On souhaite avoir des URLs du type :
 
