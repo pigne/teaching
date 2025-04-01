@@ -265,7 +265,7 @@ La **Context API** de React permet de partager des données à travers l’arbre
     const logout = () => setIsAuthenticated(false);
 
     return (
-      <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+      <AuthContext.Provider value={ { isAuthenticated, login, logout } }>
         {children}
       </AuthContext.Provider>
     );
