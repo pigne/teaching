@@ -6,62 +6,97 @@ subtitle: M2 iWOCS - WEB - Université Le Havre Normandie
 order: 3
 published: true
 ---
+## UE : Outils, protocoles, standards et langages du Web
+**Master 2 Informatique IWOCS — Université Le Havre Normandie**  
+**Volume horaire :** 45h (15h CM, 30h TD/TP)  
+**Responsable :** Yoann Pigné  
+**Semestre :** 9  
 
-- Outils, protocoles, standards et langages du Web
-- Master 2 informatique IWOCS, Cours WEB-IHM, université Le Havre Normandie
-- 45 heures étudiants : 15h de cours, 30h de TD/TP
+---
 
+###  Objectifs pédagogiques
 
-### Plan
+Cette UE vise à consolider et approfondir les compétences en **développement Web full-stack** à l’aide des technologies modernes de l’écosystème TypeScript.  
+Les étudiants apprennent à concevoir une **application complète** intégrant :
 
-- [Présentation et Objectifs](#présentation-et-objectifs)
-- [Organisation et plan du cours](#organisation-et-plan-du-cours)
-- [Evaluation](#evaluation)
-- [Compétences](#compétences)
-- [Prérequis](#prérequis)
-- [Evaluations et aptitudes](#evaluations-et-aptitudes)
+1. un **serveur Web full-stack** avec génération côté serveur (SSR),  
+2. un **Web Service** interopérable (REST ou GraphQL),  
+3. une **interface de visualisation dynamique** des données.
 
-## Présentation et Objectifs
+L’ensemble est mis en pratique autour d’un **fil rouge d’application** :  
+> la gestion et la visualisation d’annonces immobilières.
 
-L'accent est mis sur les API Web et les paradigms de développement. 
+---
 
-## Organisation et plan du cours
+###  Contenu du cours
 
-1. Frameworks côté serveur
-2. Web Services
-3. Visualisation
-4. Integration Web Services et Frameworks Web coté client
+#### Partie 1 — Serveur full-stack et SSR
+- Framework Web **Next.js** (App Router)  
+- Modélisation et base de données avec **Prisma ORM**  
+- Authentification et rôles avec **NextAuth**  
+- Gestion des formulaires et rendu SSR  
+- Tests unitaires et d’intégration
 
-## Evaluation
+#### Partie 2 — Web Services et API
+- Architectures REST et GraphQL  
+- Conception et documentation d’API (OpenAPI / Swagger)  
+- Sécurisation et gestion des accès (JWT, rôles, middleware)  
+- Communication client / service (fetch, axios, Apollo)
 
-Chaque partie du plan du cours fait l'objet d'un travail de mise en application sur machine. Une évaluation des compétences est faite à chaque TP ou après chaque rendu. L'évaluation est faite à l'oral. Ce sont la compréhension du problème et la capacité à proposer une solution originale, qui sont évalués.
+#### Partie 3 — Visualisation et intégration Front
+- Composants front modernes (React, Next.js côté client)  
+- Représentation de données : **Recharts**, **D3.js**, etc.  
+- Interaction et filtres dynamiques  
+- Construction d’un tableau de bord des données
 
-## Compétences
+---
 
-- D1
-  - D1.C4 : Sécurité, tests de programme, robustesse
-- D2
-  - D2.C1 : Frontend / Backend
-  - D2.C2 : Concevoir et réaliser des API et des protocoles de communication
-  - D2.C3 : Concevoir des applications mobiles, distribuées, communicantes 
-- D4
-  - D4.C1 : Savoir s'organiser, travailler en équipe, et planifier
+###  Travaux pratiques et évaluation
 
-## Prérequis
+Chaque partie donne lieu à un **TP noté**, menant progressivement à une application complète.  
+L’évaluation repose sur :
 
-- Le cours de WEB du M1 IWOCS
+- la **qualité technique** (architecture, typage, tests),  
+- la **pertinence fonctionnelle** (authentification, rôles, CRUD, API),  
+- la **clarté de l’interface et de la visualisation**,  
+- et une **soutenance orale** de présentation du projet.
 
-## Evaluations et aptitudes
+> Évaluation continue + oral final.  
+> Travail en **binôme** sur la forge universitaire.
 
+---
+
+###  Compétences visées
+
+| Domaine | Code | Intitulé |  
+|----------|------|----------|  
+| D1 | C4 | Sécurité, tests, robustesse |  
+| D2 | C1 | Développement Web (frontend / backend) |  
+| D2 | C2 | Conception d’API et protocoles de communication |  
+| D2 | C3 | Architecture logicielle et intégration |  
+| D4 | C1 | Travail collaboratif, Git, forge universitaire |
+
+---
+
+### 🧰 Prérequis
+- Bases du développement Web vues en **M1 IWOCS**  
+- Notions de **JavaScript / TypeScript**, **HTTP**, **bases de données relationnelles**
+
+---
+
+### 🔑 Mots-clés
+Next.js, TypeScript, Prisma, NextAuth, REST, GraphQL, SSR, Recharts, D3.js, ORM, API, full-stack, data visualization.
+
+### Evaluations et aptitudes
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th></th>
       <th></th>
-      <th>Web Framework</th>
-      <th>Web Service</th>
-      <th>FullStack</th>
+      <th>Serveur Fullstack</th>
+      <th>Web Services</th>
+      <th>Visualisation / Front</th>
     </tr>
     <tr>
       <th>Domaine</th>
@@ -76,7 +111,7 @@ Chaque partie du plan du cours fait l'objet d'un travail de mise en application 
     <tr>
       <th>D1</th>
       <th>D1.C4</th>
-      <th>Maîtriser l’écriture des tests et la couverture du code</th>
+      <th>Maîtriser l’écriture des tests, la sécurité et la robustesse du code</th>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -84,33 +119,33 @@ Chaque partie du plan du cours fait l'objet d'un travail de mise en application 
     <tr>
       <th rowspan="5" valign="top">D2</th>
       <th rowspan="3" valign="top">D2.C1</th>
-      <th>Backend : Framework Web Express ; Moteurs de vues</th>
+      <th>Backend : Framework Web Next.js (SSR, ORM, Auth)</th>
       <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>Frontend : Formulaires ; Pages responsive ; Feuilles de style</th>
+      <th>Frontend : Formulaires, pages dynamiques et responsive design</th>
       <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>Frontend : Visualisation de données</th>
+      <th>Frontend : Visualisation de données (Recharts, D3, etc.)</th>
       <td></td>
       <td></td>
       <td>✓</td>
     </tr>
     <tr>
       <th>D2.C2</th>
-      <th>Concevoir et réaliser des API et des protocoles de communication</th>
+      <th>Concevoir et exposer des Web Services (REST, GraphQL)</th>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
     </tr>
     <tr>
       <th>D2.C3</th>
-      <th>Maîtriser l'architecture logicielle d'un projet (fichiers, classes, composants, dépendances)</th>
+      <th>Concevoir et structurer une architecture logicielle modulaire</th>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -118,10 +153,10 @@ Chaque partie du plan du cours fait l'objet d'un travail de mise en application 
     <tr>
       <th>D4</th>
       <th>D4.C1</th>
-      <th>Maîtriser un outil collaboratif de gestion de code (git)</th>
+      <th>Collaborer avec Git / travail en groupe</th>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
     </tr>
   </tbody>
-</table>
+  </table>

@@ -5,7 +5,7 @@ categories:
 - WebDev2
 - lab
 author: Yoann Pigné
-published: true
+published: false
 update: 2024-11-25
 ---
 
