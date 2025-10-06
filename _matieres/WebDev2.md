@@ -6,11 +6,9 @@ subtitle: M2 iWOCS - WEB - Université Le Havre Normandie
 order: 3
 published: true
 ---
-## UE : Outils, protocoles, standards et langages du Web
+## Outils, protocoles, standards et langages du Web
 **Master 2 Informatique IWOCS — Université Le Havre Normandie**  
 **Volume horaire :** 45h (15h CM, 30h TD/TP)  
-**Responsable :** Yoann Pigné  
-**Semestre :** 9  
 
 ---
 
