@@ -193,14 +193,14 @@ upgradeAccount(UserId)
 getUserCredit(UserId)
 ```
 
-✔ Très rigoureux
-✔ Protocoles de sécurité avancés (WS-Security)
+✔ Très rigoureux  
+✔ Protocoles de sécurité avancés (WS-Security)  
 ✔ Utilisé en banque, santé, SI critiques
 
 Mais :
 
-✖ Verbeux
-✖ Difficile à manipuler
+✖ Verbeux  
+✖ Difficile à manipuler  
 ✖ Peu adapté aux architectures Web modernes
 
 
@@ -225,8 +225,8 @@ service LocationService {
 ```
 
 
-✔ Très performant
-✔ Excellent pour des systèmes distribués
+✔ Très performant  
+✔ Excellent pour des systèmes distribués  
 ✔ Pas idéal pour le Web sans passerelle gRPC-Web
 
  
@@ -483,11 +483,11 @@ api.getAnnonces().then(console.log);
 
 ### Bonnes pratiques Swagger
 
-✔ Regrouper les modèles dans `components/schemas`
-✔ Documenter tous les codes d’erreur (400/401/403/404/500)
-✔ Versionner la spec (`v1`, `v2`…)
-✔ Générer les clients automatiquement (CI)
-✔ Utiliser `examples:` pour illustrer l’API
+✔ Regrouper les modèles dans `components/schemas`  
+✔ Documenter tous les codes d’erreur (400/401/403/404/500)  
+✔ Versionner la spec (`v1`, `v2`…)  
+✔ Générer les clients automatiquement (CI)  
+✔ Utiliser `examples:` pour illustrer l’API  
 ✔ Ajouter les règles de sécurité (Bearer, API Key, OAuth2)
 
 ---
@@ -496,7 +496,7 @@ api.getAnnonces().then(console.log);
 
 * Ne gère pas graphiquement les relations profondes (contrairement à GraphQL).
 * Ne permet pas au client de choisir précisément les champs retournés.
-* Peut devenir verbeux sur une grosse API (>150 endpoints).
+* Peut devenir verbeux sur une grosse API (100+ endpoints).
 * Le versioning peut devenir complexe si les modèles sont partagés entre endpoints.
 
 ---
@@ -697,7 +697,7 @@ On écrit un fichier `openapi.yaml` séparé puis on expose :
 C’est une approche **contract-first**, totalement indépendante du code.
 Elle fonctionne bien, mais nécessite de **maintenir le YAML manuellement**.
 
-#### 2) Utiliser un plugin code-first : *next-swagger-doc*
+#### 2) Utiliser un plugin code-first
 
 Pour se rapprocher du confort de frameworks code-first, il existe un plugin tiers :  **next-swagger-doc**
 
@@ -712,14 +712,14 @@ Cela transforme Next.js en une solution **code-first**, même si ce n’est pas 
 
 ---
 
-#### ✔️ Avantages du Contract-First
+####  Avantages du Contract-First
 
 * Permet de **concevoir** l’API avant d’écrire du code.
 * Idéal pour les équipes séparées front/back.
 * Parfait pour générer des SDK client avant le backend.
 * Facile à partager entre plusieurs langages ou services.
 
-#### ❌ Limites
+####  Limites
 
 * Le fichier YAML peut **diverger** du code si on ne fait pas attention.
 * Moins ergonomique (nombreuses répétitions).
