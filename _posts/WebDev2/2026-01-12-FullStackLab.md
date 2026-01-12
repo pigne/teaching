@@ -12,8 +12,7 @@ published: true
 On cherche à développer une application Web comportant des **composants de visualisation dynamique** permettant d’explorer les données relatives aux impôts locaux en France.
 
 On s’appuie sur un jeu de données ouvertes de `data.gouv.fr` :  
-**Impôts locaux : fichier de recensement des éléments d’imposition à la fiscalité directe locale (REI)**  
-https://www.data.gouv.fr/fr/datasets/impots-locaux-fichier-de-recensement-des-elements-dimposition-a-la-fiscalite-directe-locale-rei-3/
+[Impôts locaux : fichier de recensement des éléments d’imposition à la fiscalité directe locale (REI)](https://www.data.gouv.fr/fr/datasets/impots-locaux-fichier-de-recensement-des-elements-dimposition-a-la-fiscalite-directe-locale-rei-3/)
 
 Parmi les données disponibles, on s’intéresse à :
 
@@ -80,7 +79,7 @@ Les choix technologiques doivent être justifiés à partir de ce pipeline.
 
 ## Mise en œuvre
 
-L’application est construite comme une **Web App React** qui consomme une **API REST** fournie par **API Platform**.
+L’application est construite comme une **Web App React** qui consomme une **API REST** fournie par **[API Platform](https://api-platform.com/)**.
 
 API Platform est utilisé pour :
 - exposer les données
@@ -123,7 +122,7 @@ Le volume de données échangées (onglet *Network* des outils de développement
 ### 2. API
 
 - Installer la dernière version stable d’API Platform  
-  https://github.com/api-platform/api-platform/releases  
+  <https://github.com/api-platform/api-platform/releases>  
   (préférer l’archive `.tar.gz`)
 - Charger les données via le **Doctrine Fixtures Bundle**
 - L’API :
