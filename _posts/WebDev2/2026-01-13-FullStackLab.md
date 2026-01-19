@@ -156,7 +156,7 @@ Pour chaque graphique, expliciter :
 
 - Travail en groupes de 4 personnes. 
 - Un seul membre du groupe m'envoie un mail avec les **noms des 4 membres**, l'**URL du projet** et le  titre “[M2 IWOCS WEB] Projet n°3” **rapidement**.
-- Le **lundi 26 janvier 2026**, évaluation à l'oral, en groupes, pendant **30 minutes**.
+- Échéance : le  **vendredi 13 février 2026**, évaluation à l'oral, en groupes, pendant **30 minutes**.
 - Une présentation du projet et une démonstration seront réalisées devant la classe entière.
 - Évaluation par tous (professeur et étudiants).
 
