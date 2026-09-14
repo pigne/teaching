@@ -17,50 +17,79 @@ published: true
 Cette UE vise à consolider et approfondir les compétences en **développement Web full-stack** à l’aide des technologies modernes de l’écosystème TypeScript.  
 Les étudiants apprennent à concevoir une **application complète** intégrant :
 
-1. un **serveur Web full-stack** avec génération côté serveur (SSR),  
-2. un **Web Service** interopérable (REST ou GraphQL),  
+1. un **serveur Web full-stack** à composants serveur,  
+2. un **Web Service** interopérable (REST **et** GraphQL),  
 3. une **interface de visualisation dynamique** des données.
 
-L’ensemble est mis en pratique autour d’un **fil rouge d’application** :  
-> la gestion et la visualisation d’annonces immobilières.
+Le fil conducteur de l’année est le **parcours d’une donnée**, de son stockage
+jusqu’à sa représentation graphique — et ce que l’on risque de perdre à chaque
+frontière traversée (typage, sécurité, performance) :
+
+```
+schéma de données → types → validation → frontière réseau
+                  → contrat d’API → types du client → composant → pixels
+```
+
+Le domaine d’application est le **foncier et l’immobilier**.
 
 ---
 
 ###  Contenu du cours
 
-#### Partie 1 — Serveur full-stack et SSR
+#### Partie 1 — Serveur full-stack et composants serveur
 - Framework Web **Next.js** (App Router)  
-- Modélisation et base de données avec **Prisma ORM**  
-- Authentification et rôles avec **NextAuth**  
-- Gestion des formulaires et rendu SSR  
-- Tests unitaires et d’intégration
+- **Composants serveur / composants client** : où s’exécute le code, et pourquoi c’est décisif  
+- **Server Actions** : muter des données sans écrire d’API  
+- Modélisation et persistance avec **Prisma ORM** sur **PostgreSQL** (via Docker)  
+- **Validation des entrées au runtime** avec **Zod**  
+- **Authentification** (Better Auth) et **autorisation** : rôles, propriété des ressources  
+- Tests unitaires et d’intégration ; mesure du comportement (requêtes SQL, rendu serveur)
 
 #### Partie 2 — Web Services et API
 - Architectures REST et GraphQL  
-- Conception et documentation d’API (OpenAPI / Swagger)  
+- Conception et documentation d’API (OpenAPI / Swagger), approches *code-first* et *contract-first*  
 - Sécurisation et gestion des accès (JWT, rôles, middleware)  
-- Communication client / service (fetch, axios, Apollo)
+- Sécurité applicative : OWASP API, CORS, limitation de débit  
+- Cache HTTP et versionnement d’API  
+- Communication client / service, génération de clients typés
 
 #### Partie 3 — Visualisation et intégration Front
-- Composants front modernes (React, Next.js côté client)  
-- Représentation de données : **Recharts**, **D3.js**, etc.  
-- Interaction et filtres dynamiques  
-- Construction d’un tableau de bord des données
+- Le **pipeline de visualisation** : données → transformation → mise en page → encodage → rendu → interaction  
+- Les modèles de rendu du navigateur : **SVG**, **Canvas**, **WebGL** — et le choix selon le volume  
+- Bibliothèques : **D3.js**, **Vega**, **Observable Plot**… ; intégration avec React  
+- Interaction, filtres dynamiques, accessibilité des représentations  
+- **Maîtrise du volume de données échangé** entre le service et le client
 
 ---
 
 ###  Travaux pratiques et évaluation
 
-Chaque partie donne lieu à un **TP noté**, menant progressivement à une application complète.  
-L’évaluation repose sur :
+Chaque partie donne lieu à un **TP noté**, suivi d’une **évaluation orale**.
 
-- la **qualité technique** (architecture, typage, tests),  
-- la **pertinence fonctionnelle** (authentification, rôles, CRUD, API),  
-- la **clarté de l’interface et de la visualisation**,  
-- et une **soutenance orale** de présentation du projet.
+| TP | Sujet | Format |
+|---|---|---|
+| 1 | Serveur full-stack | binôme |
+| 2 | Web Services | binôme |
+| 3 | Visualisation | groupe de 4 (modèle + import + API + front) |
 
-> Évaluation continue + oral final.  
-> Travail en **binôme** sur la forge universitaire.
+Le travail est hébergé sur la **forge universitaire**.
+
+#### Sur quoi porte la note
+
+Le code d’une application de ce type est aujourd’hui largement générable
+automatiquement. **L’usage d’assistants IA est donc autorisé**, et l’évaluation
+porte sur ce qui n’est pas délégable :
+
+- des **cibles mesurées** et vérifiables (nombre de requêtes à la base, volume
+  de données transféré, codes de statut HTTP, tests qui passent) ;
+- la **compréhension du code rendu**, évaluée à l’oral, machine ouverte, en
+  naviguant dans le projet ;
+- le **jugement critique**, tracé dans un fichier `AI.md` qui documente ce qui
+  a été délégué, ce qui a été refusé, et pourquoi.
+
+S’y ajoutent la qualité de l’architecture et du typage, la pertinence
+fonctionnelle (authentification, autorisation, API) et la clarté des
+représentations graphiques.
 
 ---
 
@@ -68,7 +97,7 @@ L’évaluation repose sur :
 
 | Domaine | Code | Intitulé |  
 |----------|------|----------|  
-| D1 | C4 | Sécurité, tests, robustesse |  
+| D1 | C4 | Sécurité, tests, robustesse, mesure du comportement |  
 | D2 | C1 | Développement Web (frontend / backend) |  
 | D2 | C2 | Conception d’API et protocoles de communication |  
 | D2 | C3 | Architecture logicielle et intégration |  
@@ -77,13 +106,17 @@ L’évaluation repose sur :
 ---
 
 ### 🧰 Prérequis
-- Bases du développement Web vues en **M1 IWOCS**  
-- Notions de **JavaScript / TypeScript**, **HTTP**, **bases de données relationnelles**
+- Bases du développement Web vues en **M1 IWOCS** (TypeScript, React)  
+- Notions de **HTTP**, de **SQL** et de **bases de données relationnelles**  
+- **Docker** et **Git** (couverts ailleurs dans le master, utilisés ici comme acquis)
 
 ---
 
 ### 🔑 Mots-clés
-Next.js, TypeScript, Prisma, NextAuth, REST, GraphQL, SSR, Recharts, D3.js, ORM, API, full-stack, data visualization.
+Next.js, App Router, composants serveur, Server Actions, TypeScript, Prisma,
+PostgreSQL, Zod, Better Auth, autorisation, REST, GraphQL, OpenAPI, JWT, cache
+HTTP, D3.js, Vega, SVG / Canvas / WebGL, ORM, API, full-stack, visualisation de
+données.
 
 ### Evaluations et aptitudes
 <table border="1" class="dataframe">
@@ -109,7 +142,7 @@ Next.js, TypeScript, Prisma, NextAuth, REST, GraphQL, SSR, Recharts, D3.js, ORM,
     <tr>
       <th>D1</th>
       <th>D1.C4</th>
-      <th>Maîtriser l’écriture des tests, la sécurité et la robustesse du code</th>
+      <th>Maîtriser l’écriture des tests, la sécurité, la robustesse du code, et savoir mesurer le comportement d’une application</th>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -117,19 +150,19 @@ Next.js, TypeScript, Prisma, NextAuth, REST, GraphQL, SSR, Recharts, D3.js, ORM,
     <tr>
       <th rowspan="5" valign="top">D2</th>
       <th rowspan="3" valign="top">D2.C1</th>
-      <th>Backend : Framework Web Next.js (SSR, ORM, Auth)</th>
+      <th>Backend : Next.js (composants serveur, Server Actions), ORM, authentification et autorisation</th>
       <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>Frontend : Formulaires, pages dynamiques et responsive design</th>
+      <th>Frontend : formulaires validés, pages dynamiques, accessibilité, responsive design</th>
       <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>Frontend : Visualisation de données (Recharts, D3, etc.)</th>
+      <th>Frontend : visualisation de données (D3, Vega, SVG / Canvas / WebGL)</th>
       <td></td>
       <td></td>
       <td>✓</td>
