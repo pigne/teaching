@@ -2,13 +2,14 @@
 layout: post
 title: Graphiques et visualisation de données
 categories:
-- WebDev2
-- lecture
+  - WebDev2
+  - lecture
 author: Yoann Pigné
-published: true
+published: false
 ---
 
 <!--toc:start-->
+
 - [Le pipeline de la visualisation](#le-pipeline-de-la-visualisation)
 - [Les modèles de rendu du Web](#les-modèles-de-rendu-du-web)
 - [Dessin 2D avec Canvas](#dessin-2d-avec-canvas)
@@ -20,7 +21,7 @@ published: true
 - [Performances et passage à l’échelle](#performances-et-passage-à-léchelle)
 - [D3 et React](#d3-et-react)
 - [Stack moderne de visualisation](#stack-moderne-de-visualisation)
-- [Exemple react +  d3 + svg](#exemple-react-d3-svg)
+- [Exemple react + d3 + svg](#exemple-react-d3-svg)
 <!--toc:end-->
 
 Un des objectifs fondamentaux du Web est de **présenter et échanger de l’information**.
@@ -28,15 +29,15 @@ Cette information peut être textuelle, visuelle, spatiale, temporelle ou intera
 
 Les représentations graphiques peuvent être :
 
-* **statiques** (images, graphiques pré-rendus)
-* **dynamiques** (générées à partir de données)
+- **statiques** (images, graphiques pré-rendus)
+- **dynamiques** (générées à partir de données)
 
 Une visualisation dynamique transforme des **données** en **structures graphiques** qui peuvent être explorées, filtrées et manipulées.
 
 Ces graphiques peuvent être générés :
 
-* côté **serveur** (images, PDF, tuiles),
-* côté **client** grâce au navigateur, au GPU et à JavaScript.
+- côté **serveur** (images, PDF, tuiles),
+- côté **client** grâce au navigateur, au GPU et à JavaScript.
 
 ---
 
@@ -73,9 +74,9 @@ Le navigateur propose **trois modèles graphiques** :
 
 Chaque modèle implique :
 
-* des performances différentes,
-* une gestion différente des événements,
-* une architecture différente.
+- des performances différentes,
+- une gestion différente des événements,
+- une architecture différente.
 
 ---
 
@@ -95,21 +96,21 @@ ctx.fillRect(10, 10, 100, 100);
 
 Canvas est :
 
-* rapide,
-* simple,
-* non structuré,
-* non accessible au DOM.
+- rapide,
+- simple,
+- non structuré,
+- non accessible au DOM.
 
 Utilisé pour :
 
-* jeux,
-* particules,
-* grandes quantités d’objets.
+- jeux,
+- particules,
+- grandes quantités d’objets.
 
 Librairies :
 
-* p5.js
-* PixiJS (moteur 2D accéléré par WebGL)
+- p5.js
+- PixiJS (moteur 2D accéléré par WebGL)
 
 ---
 
@@ -119,9 +120,9 @@ WebGL permet d’utiliser la carte graphique via JavaScript.
 
 C’est :
 
-* extrêmement rapide,
-* basé sur des shaders,
-* bas niveau.
+- extrêmement rapide,
+- basé sur des shaders,
+- bas niveau.
 
 On utilise rarement WebGL directement. On passe par :
 
@@ -134,9 +135,9 @@ On utilise rarement WebGL directement. On passe par :
 
 WebGL devient indispensable pour :
 
-* cartes,
-* nuages de points,
-* big data graphique.
+- cartes,
+- nuages de points,
+- big data graphique.
 
 ---
 
@@ -147,21 +148,21 @@ SVG est un langage XML intégré au DOM.
 Chaque forme est un élément DOM :
 
 ```html
-<circle cx="50" cy="50" r="20" fill="red"/>
+<circle cx="50" cy="50" r="20" fill="red" />
 ```
 
 SVG offre :
 
-* événements,
-* CSS,
-* transformations,
-* animations.
+- événements,
+- CSS,
+- transformations,
+- animations.
 
 SVG est idéal pour :
 
-* petits jeux de données,
-* interfaces,
-* diagrammes.
+- petits jeux de données,
+- interfaces,
+- diagrammes.
 
 Il devient lent au-delà de quelques milliers d’éléments.
 
@@ -176,16 +177,16 @@ il calcule, projette et synchronise.
 
 D3 fournit :
 
-* échelles,
-* layouts,
-* géométrie,
-* jointures de données.
+- échelles,
+- layouts,
+- géométrie,
+- jointures de données.
 
 Le rendu est fait par :
 
-* SVG,
-* Canvas,
-* WebGL.
+- SVG,
+- Canvas,
+- WebGL.
 
 Usage moderne :
 
@@ -196,11 +197,12 @@ Usage moderne :
 ## La jointure de données
 
 ```js
-svg.selectAll("circle")
+svg
+  .selectAll("circle")
   .data(data)
   .join("circle")
-  .attr("cx", d => x(d.x))
-  .attr("cy", d => y(d.y))
+  .attr("cx", (d) => x(d.x))
+  .attr("cy", (d) => y(d.y))
   .attr("r", 5);
 ```
 
@@ -216,8 +218,8 @@ Cela synchronise le DOM avec les données.
 {
   "mark": "bar",
   "encoding": {
-    "x": {"field": "année"},
-    "y": {"aggregate": "sum", "field": "ventes"}
+    "x": { "field": "année" },
+    "y": { "aggregate": "sum", "field": "ventes" }
   }
 }
 ```
@@ -259,11 +261,11 @@ Ne jamais laisser React et D3 modifier les mêmes nœuds DOM.
 
 Librairies modernes :
 
-* Nivo
-* Recharts
-* Visx
-* ECharts
-* Observable Plot
+- Nivo
+- Recharts
+- Visx
+- ECharts
+- Observable Plot
 
 ---
 
@@ -280,15 +282,11 @@ En 2025, une application typique :
 | UI             | React                     |
 | Haut niveau    | Vega, Deck.gl, Observable |
 
+## Exemple react + d3 + svg
 
-
-
-## Exemple react +  d3 + svg
-
-
-* React → état
-* D3 → calcul (scales, layout, géométrie)
-* **SVG → rendu**
+- React → état
+- D3 → calcul (scales, layout, géométrie)
+- **SVG → rendu**
 
 Sans jamais laisser D3 toucher au DOM.
 
@@ -303,14 +301,13 @@ import * as d3 from "d3";
  */
 const data = [
   { region: "IDF", value: 120, volume: 3000 },
-  { region: "IDF", value: 80,  volume: 2000 },
+  { region: "IDF", value: 80, volume: 2000 },
   { region: "NAQ", value: 150, volume: 5000 },
-  { region: "PAC", value: 60,  volume: 1000 },
-  { region: "NAQ", value: 110, volume: 4200 }
+  { region: "PAC", value: 60, volume: 1000 },
+  { region: "NAQ", value: 110, volume: 4200 },
 ];
 
 export default function ScatterPlot() {
-
   /**
    * === 1. INTERACTION / STATE ==========================
    * L’utilisateur agit sur l’interface → cela modifie l’état React.
@@ -328,9 +325,7 @@ export default function ScatterPlot() {
    * prête à être encodée graphiquement.
    */
   const filteredData = useMemo(() => {
-    return region
-      ? data.filter(d => d.region === region)
-      : data;
+    return region ? data.filter((d) => d.region === region) : data;
   }, [region]);
 
   /**
@@ -340,18 +335,21 @@ export default function ScatterPlot() {
    * D3 joue ici le rôle de moteur mathématique.
    */
   const xScale = useMemo(() => {
-    return d3.scaleLinear()
-      .domain(d3.extent(filteredData, d => d.value))
+    return d3
+      .scaleLinear()
+      .domain(d3.extent(filteredData, (d) => d.value))
       .range([40, width - 20]);
   }, [filteredData]);
 
   const yScale = useMemo(() => {
-    return d3.scaleLinear()
-      .domain(d3.extent(filteredData, d => d.volume))
+    return d3
+      .scaleLinear()
+      .domain(d3.extent(filteredData, (d) => d.volume))
       .range([height - 30, 20]);
   }, [filteredData]);
 
-  const colorScale = d3.scaleOrdinal()
+  const colorScale = d3
+    .scaleOrdinal()
     .domain(["IDF", "NAQ", "PAC"])
     .range(["red", "blue", "green"]);
 
@@ -361,11 +359,11 @@ export default function ScatterPlot() {
    * en primitives graphiques abstraites.
    * (positions, tailles, couleurs)
    */
-  const visualMarks = filteredData.map(d => ({
+  const visualMarks = filteredData.map((d) => ({
     cx: xScale(d.value),
     cy: yScale(d.volume),
     r: 6,
-    fill: colorScale(d.region)
+    fill: colorScale(d.region),
   }));
 
   /**
@@ -375,9 +373,8 @@ export default function ScatterPlot() {
    */
   return (
     <div>
-
       {/* === INTERACTION ============================== */}
-      <select onChange={e => setRegion(e.target.value || null)}>
+      <select onChange={(e) => setRegion(e.target.value || null)}>
         <option value="">Toutes régions</option>
         <option value="IDF">IDF</option>
         <option value="NAQ">NAQ</option>
@@ -385,22 +382,20 @@ export default function ScatterPlot() {
       </select>
 
       <svg width={width} height={height}>
-
         {/* Axes (rendu pur SVG) */}
         <line x1="40" y1="20" x2="40" y2={height - 30} stroke="#999" />
-        <line x1="40" y1={height - 30} x2={width - 20} y2={height - 30} stroke="#999" />
+        <line
+          x1="40"
+          y1={height - 30}
+          x2={width - 20}
+          y2={height - 30}
+          stroke="#999"
+        />
 
         {/* Marques visuelles (résultat du pipeline) */}
         {visualMarks.map((m, i) => (
-          <circle
-            key={i}
-            cx={m.cx}
-            cy={m.cy}
-            r={m.r}
-            fill={m.fill}
-          />
+          <circle key={i} cx={m.cx} cy={m.cy} r={m.r} fill={m.fill} />
         ))}
-
       </svg>
     </div>
   );

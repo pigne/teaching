@@ -2,31 +2,29 @@
 layout: post
 title: Web Services
 categories:
-- WebDev2
-- lecture
+  - WebDev2
+  - lecture
 author: Yoann Pigné
-published:  true
+published: false
 ---
 
-
-## Concepts acquis 
+## Concepts acquis
 
 - **Comprendre une architecture web full-stack** : Front (SSR) + backend + DB + Auth dans un même projet
-- **Utiliser un ORM moderne (Prisma)**  : Création et requêtes sur des modèles typés
-- **Manipuler des routes API dans Next.js**  :    `GET`, `POST`, `PATCH`/`PUT`, `DELETE` basiques
-- **Gérer des utilisateurs et rôles** : Session, authentification, accès conditionnels     
-- **Comprendre la séparation logique** : Front SSR ↔ API interne ↔ base de données           
+- **Utiliser un ORM moderne (Prisma)** : Création et requêtes sur des modèles typés
+- **Manipuler des routes API dans Next.js** : `GET`, `POST`, `PATCH`/`PUT`, `DELETE` basiques
+- **Gérer des utilisateurs et rôles** : Session, authentification, accès conditionnels
+- **Comprendre la séparation logique** : Front SSR ↔ API interne ↔ base de données
 
 ## Nouveau concepts
 
 - **Web Service** : Les routes API de Next.js sont déjà des WS REST
-- **REST**:  URI + verbes HTTP (GET, POST, DELETE)
+- **REST**: URI + verbes HTTP (GET, POST, DELETE)
 - **Ressource** : Les « annonces », « utilisateurs », « questions » du TP1 sont des ressources
-- **API externe** :   Il suffit d’extraire la logique hors Next.js SSR
+- **API externe** : Il suffit d’extraire la logique hors Next.js SSR
 - **OpenAPI (Swagger)** : Formaliser la description des endpoints
 - **GraphQL** : Variante du même principe, plus flexible
-- **Sécurité (JWT, scopes)** : Extension naturelle de l’authentification du TP1 
-
+- **Sécurité (JWT, scopes)** : Extension naturelle de l’authentification du TP1
 
 ## REST
 
@@ -49,16 +47,16 @@ DELETE /annonces/42
 
 ### Requêtes stateless et performances
 
-REST est **sans état** (*stateless*) :
+REST est **sans état** (_stateless_) :
 
-* chaque requête contient toutes les informations nécessaires,
-* le serveur n’a pas besoin de conserver de contexte.
+- chaque requête contient toutes les informations nécessaires,
+- le serveur n’a pas besoin de conserver de contexte.
 
 Conséquences :
 
-* beaucoup plus facile à mettre en cache,
-* scalabilité simplifiée,
-* comportement prévisible.
+- beaucoup plus facile à mettre en cache,
+- scalabilité simplifiée,
+- comportement prévisible.
 
 ---
 
@@ -81,7 +79,6 @@ Erreurs :
 }
 ```
 
-
 ## GraphQL
 
 GraphQL expose **un unique endpoint** (souvent `/graphql`) auquel le client envoie une requête structurée :
@@ -100,13 +97,12 @@ query {
 ✔ Une seule requête peut récupérer des données liées
 ✔ Idéal pour une interface riche en données
 
-
 ### Langage de requêtes et schéma
 
 GraphQL repose sur deux éléments clés :
 
-* un **schéma** (`schema`), qui décrit les types de données et les relations disponibles,
-* des **queries** et **mutations**, écrites dans un langage dédié, pour interroger ou modifier les données.
+- un **schéma** (`schema`), qui décrit les types de données et les relations disponibles,
+- des **queries** et **mutations**, écrites dans un langage dédié, pour interroger ou modifier les données.
 
 Exemple simplifié :
 
@@ -129,7 +125,6 @@ type Mutation {
 }
 ```
 
-
 ---
 
 ### Résolveurs et optimisation des données
@@ -142,46 +137,45 @@ Exemple :
 const resolvers = {
   Query: {
     annonces: () => prisma.annonce.findMany(),
-    annonce: (_: any, args: { id: number }) => prisma.annonce.findUnique({ where: { id: args.id } })
+    annonce: (_: any, args: { id: number }) =>
+      prisma.annonce.findUnique({ where: { id: args.id } }),
   },
   Mutation: {
     creerAnnonce: (_: any, args: { titre: string; prix: number }) =>
-      prisma.annonce.create({ data: { titre: args.titre, prix: args.prix, agentId: 1 } })
-  }
+      prisma.annonce.create({
+        data: { titre: args.titre, prix: args.prix, agentId: 1 },
+      }),
+  },
 };
 ```
 
-* Chaque champ peut avoir son propre resolver.
-* Les résolveurs sont **appelés uniquement si le client les demande**, ce qui permet de **réduire le volume de données transférées** par rapport à REST classique.
+- Chaque champ peut avoir son propre resolver.
+- Les résolveurs sont **appelés uniquement si le client les demande**, ce qui permet de **réduire le volume de données transférées** par rapport à REST classique.
 
 Attention:
 
-* aux requêtes trop profondes,
-* aux surcoûts serveur en cas d’absence de garde-fous.
+- aux requêtes trop profondes,
+- aux surcoûts serveur en cas d’absence de garde-fous.
 
 ---
 
-
 ### Avantages de GraphQL
 
-* **Flexibilité pour le client** : possibilité de demander exactement les champs souhaités.
-* **Regroupement des requêtes** : on peut combiner plusieurs données en une seule requête.
-* **Typage strict** : le schéma impose la structure des données, ce qui facilite la validation et la documentation.
-* **Interopérabilité** : compatible avec n’importe quel front-end (React, Vue, mobile…).
+- **Flexibilité pour le client** : possibilité de demander exactement les champs souhaités.
+- **Regroupement des requêtes** : on peut combiner plusieurs données en une seule requête.
+- **Typage strict** : le schéma impose la structure des données, ce qui facilite la validation et la documentation.
+- **Interopérabilité** : compatible avec n’importe quel front-end (React, Vue, mobile…).
 
 ---
 
 ### Optimisation et bonnes pratiques
 
-* Limiter la **profondeur des requêtes** pour éviter les appels trop lourds.
-* Utiliser des **dataloaders** ou caches côté serveur pour prévenir le *N+1 problem*.
-* Documenter le schéma pour que les développeurs front-end sachent exactement quelles requêtes sont possibles.
-* Mettre en place une **authentification et des permissions** pour protéger les champs sensibles.
+- Limiter la **profondeur des requêtes** pour éviter les appels trop lourds.
+- Utiliser des **dataloaders** ou caches côté serveur pour prévenir le _N+1 problem_.
+- Documenter le schéma pour que les développeurs front-end sachent exactement quelles requêtes sont possibles.
+- Mettre en place une **authentification et des permissions** pour protéger les champs sensibles.
 
-
-**Pour aller plus loin avec GraphQL**  <https://graphql.org/learn>
-
-
+**Pour aller plus loin avec GraphQL** <https://graphql.org/learn>
 
 ## SOAP
 
@@ -203,18 +197,15 @@ Mais :
 ✖ Difficile à manipuler  
 ✖ Peu adapté aux architectures Web modernes
 
-
-
-
 ## gRPC
 
 gRPC est la technologie la plus performante actuellement pour des micro-services internes.
 
-* Communication binaire via **Protocol Buffers**
-* HTTP/2
-* Streaming bidirectionnel
-* Un fichier `.proto` définissant les services
-* Fort typage du contrat
+- Communication binaire via **Protocol Buffers**
+- HTTP/2
+- Streaming bidirectionnel
+- Un fichier `.proto` définissant les services
+- Fort typage du contrat
 
 Exemple :
 
@@ -224,12 +215,9 @@ service LocationService {
 }
 ```
 
-
 ✔ Très performant  
 ✔ Excellent pour des systèmes distribués  
 ✔ Pas idéal pour le Web sans passerelle gRPC-Web
-
- 
 
 ### Comparatif REST GraphQL / SOAP / gRPC
 
@@ -243,9 +231,6 @@ service LocationService {
 | **Cache HTTP**             | ✔ ✔                 | ✖                                | ✖                         | ✖                       |
 | **Courbe d’apprentissage** | Facile              | Moyenne                          | Élevée                    | Élevée                  |
 | **Cas d’usage**            | Web publics, mobile | Interfaces riches, multi-sources | Entreprises, SI critiques | Micro-services internes |
-
-
-
 
 ## Swagger / OpenAPI : Documentation, conception et tests d’API
 
@@ -275,11 +260,11 @@ Swagger répond précisément à ces problématiques avec :
 
 ### Les trois outils Swagger
 
-| Outil | Rôle |
-|-------|------|
-| **Swagger Editor** | Écriture et validation d’un schéma OpenAPI : <https://editor.swagger.io/> |
-| **Swagger UI** | Documentation interactive  |
-| **Swagger Codegen / OpenAPI Generator** | Génération du code client/serveur dans nimporte quel langage |
+| Outil                                   | Rôle                                                                      |
+| --------------------------------------- | ------------------------------------------------------------------------- |
+| **Swagger Editor**                      | Écriture et validation d’un schéma OpenAPI : <https://editor.swagger.io/> |
+| **Swagger UI**                          | Documentation interactive                                                 |
+| **Swagger Codegen / OpenAPI Generator** | Génération du code client/serveur dans nimporte quel langage              |
 
 ---
 
@@ -298,7 +283,7 @@ paths:
     get:
       summary: Liste des annonces
       responses:
-        '200':
+        "200":
           description: OK
 
 components:
@@ -310,7 +295,7 @@ components:
           type: integer
         titre:
           type: string
-````
+```
 
 Trois parties structurent 95% d’une API :
 
@@ -327,16 +312,15 @@ Swagger permet une approche **Contract First** :
 1. On écrit d’abord la spécification OpenAPI
 2. Le fichier devient le **contrat** entre front-end et back-end
 3. On génère :
-
-   * le serveur (squelettes d’endpoints)
-   * le client (SDK auto-typé)
-   * les mocks (tests automatisés)
+   - le serveur (squelettes d’endpoints)
+   - le client (SDK auto-typé)
+   - les mocks (tests automatisés)
 
 Avantages :
 
-* pas d’ambiguïté entre front et back,
-* validation centralisée,
-* documentation toujours à jour.
+- pas d’ambiguïté entre front et back,
+- validation centralisée,
+- documentation toujours à jour.
 
 ---
 
@@ -385,7 +369,7 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: '#/components/schemas/AnnonceInput'
+        $ref: "#/components/schemas/AnnonceInput"
 ```
 
 ---
@@ -401,14 +385,14 @@ requestBody:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CreateAnnonceDto'
+            $ref: "#/components/schemas/CreateAnnonceDto"
     responses:
-      '201':
+      "201":
         description: Annonce créée
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Annonce'
+              $ref: "#/components/schemas/Annonce"
 ```
 
 ---
@@ -417,10 +401,10 @@ requestBody:
 
 Swagger UI permet d’exécuter directement les requêtes depuis le navigateur :
 
-* champ pour les paramètres,
-* aperçu automatique du JSON,
-* codes HTTP documentés,
-* affichage des erreurs.
+- champ pour les paramètres,
+- aperçu automatique du JSON,
+- codes HTTP documentés,
+- affichage des erreurs.
 
 Dans NestJS (par exemple) :
 
@@ -429,14 +413,14 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('ImmoService API')
-    .setDescription('Documentation de l’API REST immobilière')
-    .setVersion('1.0')
+    .setTitle("ImmoService API")
+    .setDescription("Documentation de l’API REST immobilière")
+    .setVersion("1.0")
     .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup("api", app, document);
 
   await app.listen(3000);
 }
@@ -455,9 +439,9 @@ http://localhost:3000/api
 
 Swagger peut générer automatiquement :
 
-* un client JavaScript TypeScript pour appeler l’API,
-* des mocks pour tests,
-* une validation des contrats d’entrée/sortie.
+- un client JavaScript TypeScript pour appeler l’API,
+- des mocks pour tests,
+- une validation des contrats d’entrée/sortie.
 
 Exemple :
 
@@ -471,7 +455,7 @@ openapi-generator-cli generate \
 Le front peut ensuite importer :
 
 ```ts
-import { AnnoncesApi } from './sdk';
+import { AnnoncesApi } from "./sdk";
 
 const api = new AnnoncesApi();
 api.getAnnonces().then(console.log);
@@ -494,10 +478,10 @@ api.getAnnonces().then(console.log);
 
 ### Limites de Swagger / OpenAPI
 
-* Ne gère pas graphiquement les relations profondes (contrairement à GraphQL).
-* Ne permet pas au client de choisir précisément les champs retournés.
-* Peut devenir verbeux sur une grosse API (100+ endpoints).
-* Le versioning peut devenir complexe si les modèles sont partagés entre endpoints.
+- Ne gère pas graphiquement les relations profondes (contrairement à GraphQL).
+- Ne permet pas au client de choisir précisément les champs retournés.
+- Peut devenir verbeux sur une grosse API (100+ endpoints).
+- Le versioning peut devenir complexe si les modèles sont partagés entre endpoints.
 
 ---
 
@@ -507,17 +491,13 @@ api.getAnnonces().then(console.log);
 | ------------------------- | ------------------------ | ------------------ |
 | Type d’API                | REST                     | GraphQL            |
 | Documentation             | Détaillée, contractuelle | Déduite du schéma  |
-| Client choisit les champs | ❌ non                    | ✅ oui              |
+| Client choisit les champs | ❌ non                   | ✅ oui             |
 | Validation                | Forte, statique          | Forte, typée       |
 | Explorateur interactif    | Oui                      | Oui                |
 | Génération de SDK         | Excellente               | Excellente         |
 | Versioning                | Explicite (v1, v2…)      | Plus délicat       |
 
-
-
-
-
-##  Approches pour documenter une API : Code-First vs Contract-First
+## Approches pour documenter une API : Code-First vs Contract-First
 
 La documentation d’une API peut être produite de deux manières différentes :
 
@@ -530,21 +510,21 @@ Les deux approches coexistent aujourd’hui, chacune avec des avantages et des c
 
 ---
 
-### 1.  Approche **Code-First** (décorateurs)
+### 1. Approche **Code-First** (décorateurs)
 
 Dans l’approche Code-First, c’est le **code source de l’application** qui sert de source de vérité pour générer la documentation.
 Les développeurs annotent leur code avec des **décorateurs** qui décrivent l’API :
 
-* routes,
-* paramètres,
-* types de données,
-* réponses,
-* erreurs.
+- routes,
+- paramètres,
+- types de données,
+- réponses,
+- erreurs.
 
 Le framework se charge ensuite de produire :
 
-* un **document OpenAPI** (généralement `openapi.json`),
-* une **interface Swagger UI** prête à l’emploi.
+- un **document OpenAPI** (généralement `openapi.json`),
+- une **interface Swagger UI** prête à l’emploi.
 
 ---
 
@@ -553,12 +533,11 @@ Le framework se charge ensuite de produire :
 NestJS est aujourd’hui l’un des meilleurs exemples car il intègre Swagger de manière native.
 
 ```ts
-@ApiTags('annonces')
-@Controller('annonces')
+@ApiTags("annonces")
+@Controller("annonces")
 export class AnnoncesController {
-  
   @Get()
-  @ApiOperation({ summary: 'Liste les annonces' })
+  @ApiOperation({ summary: "Liste les annonces" })
   @ApiResponse({ status: 200, type: [AnnonceDto] })
   findAll() {
     return this.service.findAll();
@@ -568,14 +547,14 @@ export class AnnoncesController {
 
 → Avec ces décorateurs, NestJS génère automatiquement :
 
-* `/api-json` → le document OpenAPI
-* `/api` → l’interface Swagger UI
+- `/api-json` → le document OpenAPI
+- `/api` → l’interface Swagger UI
 
 Aucun fichier YAML n’est nécessaire.
 
 ---
 
-#### Autres frameworks *Code-First*
+#### Autres frameworks _Code-First_
 
 | Framework                   | Langage    | Méthode                         | Notes                                       |
 | --------------------------- | ---------- | ------------------------------- | ------------------------------------------- |
@@ -584,7 +563,6 @@ Aucun fichier YAML n’est nécessaire.
 | **LoopBack 4**              | TypeScript | Décorateurs + modèles           | Full code-first Node.js                     |
 | **Spring Boot (SpringDoc)** | Java       | Annotations                     | OpenAPI généré à partir des annotations     |
 
-
 Dans tous ces cas, **le code prime** :
 les décorateurs et les types définissent la documentation.
 
@@ -592,20 +570,20 @@ les décorateurs et les types définissent la documentation.
 
 #### ✔️ Avantages du Code-First
 
-* Documentation **toujours à jour** (liée au code).
-* Pas besoin d’écrire de YAML.
-* Améliore la productivité.
-* Réduit les erreurs entre “spec” et “implémentation”.
-* Génération d’outils automatique (SDK client, tests, etc.).
+- Documentation **toujours à jour** (liée au code).
+- Pas besoin d’écrire de YAML.
+- Améliore la productivité.
+- Réduit les erreurs entre “spec” et “implémentation”.
+- Génération d’outils automatique (SDK client, tests, etc.).
 
 #### ❌ Limites
 
-* Plus difficile si l’équipe veut concevoir l’API *avant* d’écrire le code.
-* Certains projets legacy ou polyglottes préfèrent un contrat indépendant du backend.
+- Plus difficile si l’équipe veut concevoir l’API _avant_ d’écrire le code.
+- Certains projets legacy ou polyglottes préfèrent un contrat indépendant du backend.
 
 ---
 
-### 2.  Approche **Contract-First** (`swagger.yaml`)
+### 2. Approche **Contract-First** (`swagger.yaml`)
 
 Dans l’approche Contract-First, la source de vérité est un **fichier OpenAPI** :
 
@@ -626,8 +604,8 @@ paths:
 
 Ce fichier peut être écrit :
 
-* **manuellement** (YAML),
-* ou dans un éditeur dédié (Swagger Editor, Stoplight, Insomnia).
+- **manuellement** (YAML),
+- ou dans un éditeur dédié (Swagger Editor, Stoplight, Insomnia).
 
 Le backend **implémente ensuite** ce contrat.
 
@@ -636,52 +614,43 @@ Le backend **implémente ensuite** ce contrat.
 #### Exemples de stacks / workflows Contract-First
 
 - **Express / Koa / Hapi (Node.js)**
+  - Rédaction manuelle du `openapi.yaml`.
+  - Servir la doc via `swagger-ui-express` (ou via page statique `public/docs`).
+  - Génération des clients avec `openapi-generator` ou `swagger-codegen`.
+  - _Pourquoi ?_ Frameworks minimalistes, pas d’intégration automatique : le YAML est naturel.
 
-   * Rédaction manuelle du `openapi.yaml`.
-   * Servir la doc via `swagger-ui-express` (ou via page statique `public/docs`).
-   * Génération des clients avec `openapi-generator` ou `swagger-codegen`.
-   * *Pourquoi ?* Frameworks minimalistes, pas d’intégration automatique : le YAML est naturel.
+  Exemple très simple (Express) :
 
-   Exemple très simple (Express) :
+  ```js
+  import express from "express";
+  import swaggerUi from "swagger-ui-express";
+  import YAML from "yamljs";
 
-   ```js
-   import express from 'express';
-   import swaggerUi from 'swagger-ui-express';
-   import YAML from 'yamljs';
+  const app = express();
+  const spec = YAML.load("./openapi.yaml");
 
-   const app = express();
-   const spec = YAML.load('./openapi.yaml');
+  app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(spec));
+  ```
 
-   app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(spec));
-   ```
+- **API Platform (Symfony / PHP)**
+  - Permet contract-first via OpenAPI et exposes automatiquement la doc.
+  - Très utilisé en enterprise où la spec circule entre équipes non-JS.
 
--  **API Platform (Symfony / PHP)**
-
-   * Permet contract-first via OpenAPI et exposes automatiquement la doc.
-   * Très utilisé en enterprise où la spec circule entre équipes non-JS.
-
--  **Golang (gin / chi / echo)** ou services **Go**
-
-   * Bonnes pratiques : fournir un `openapi.yaml` partagé, générer stubs/clients pour Go, TypeScript, etc.
-
+- **Golang (gin / chi / echo)** ou services **Go**
+  - Bonnes pratiques : fournir un `openapi.yaml` partagé, générer stubs/clients pour Go, TypeScript, etc.
 
 - **Workflow “OpenAPI Generator”** (langage-agnostique)
+  - Écrire `openapi.yaml` → `openapi-generator-cli` génère :
+    - stubs serveur (Java, Node, Go…),
+    - SDK client (TS, Java, Python…).
 
-   * Écrire `openapi.yaml` → `openapi-generator-cli` génère :
-
-     * stubs serveur (Java, Node, Go…),
-     * SDK client (TS, Java, Python…).
-   * Très pratique pour des projets où l’on veut **prototyper l’API et générer le code** pour plusieurs langages.
+  - Très pratique pour des projets où l’on veut **prototyper l’API et générer le code** pour plusieurs langages.
 
 - **gRPC / Protobuf** (éthique proche du contract-first)
-
-   * Définition dans `.proto` (contrat), génération des serveurs/clients.
-   * Utilisé quand la performance / le typage binaire sont prioritaires.
-
+  - Définition dans `.proto` (contrat), génération des serveurs/clients.
+  - Utilisé quand la performance / le typage binaire sont prioritaires.
 
 ### Le cas **Next.js**
-
-
 
 Contrairement à NestJS, FastAPI ou Spring, **Next.js n’intègre aucune solution native** pour documenter ses API.
 
@@ -691,37 +660,35 @@ Pour documenter une API construite avec Next.js, on a donc deux approches :
 
 On écrit un fichier `openapi.yaml` séparé puis on expose :
 
-* une route `/api/docs`
-* une page (`"use client"`) avec un composant react qui charge Swagger UI et interprète le code de la route `/api/docs/`. Le composant `swagger-ui-react` fait cela.
+- une route `/api/docs`
+- une page (`"use client"`) avec un composant react qui charge Swagger UI et interprète le code de la route `/api/docs/`. Le composant `swagger-ui-react` fait cela.
 
 C’est une approche **contract-first**, totalement indépendante du code.
 Elle fonctionne bien, mais nécessite de **maintenir le YAML manuellement**.
 
 #### 2) Utiliser un plugin code-first
 
-Pour se rapprocher du confort de frameworks code-first, il existe un plugin tiers :  **next-swagger-doc**
+Pour se rapprocher du confort de frameworks code-first, il existe un plugin tiers : **next-swagger-doc**
 
 Il permet :
 
-* d’ajouter des **annotations JSDoc** directement dans les handlers Next.js,
-* de **générer automatiquement** la spécification OpenAPI,
-* d’afficher une page Swagger UI intégrée à l’application (ex. `/api-doc`).
+- d’ajouter des **annotations JSDoc** directement dans les handlers Next.js,
+- de **générer automatiquement** la spécification OpenAPI,
+- d’afficher une page Swagger UI intégrée à l’application (ex. `/api-doc`).
 
 Cela transforme Next.js en une solution **code-first**, même si ce n’est pas nativement prévu dans le framework.
 
-
 ---
 
-####  Avantages du Contract-First
+#### Avantages du Contract-First
 
-* Permet de **concevoir** l’API avant d’écrire du code.
-* Idéal pour les équipes séparées front/back.
-* Parfait pour générer des SDK client avant le backend.
-* Facile à partager entre plusieurs langages ou services.
+- Permet de **concevoir** l’API avant d’écrire du code.
+- Idéal pour les équipes séparées front/back.
+- Parfait pour générer des SDK client avant le backend.
+- Facile à partager entre plusieurs langages ou services.
 
-####  Limites
+#### Limites
 
-* Le fichier YAML peut **diverger** du code si on ne fait pas attention.
-* Moins ergonomique (nombreuses répétitions).
-* Pas de “vérification” automatique que le code respecte la spec.
-
+- Le fichier YAML peut **diverger** du code si on ne fait pas attention.
+- Moins ergonomique (nombreuses répétitions).
+- Pas de “vérification” automatique que le code respecte la spec.

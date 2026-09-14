@@ -2,12 +2,11 @@
 layout: post
 title: FullStack Lab
 categories:
-- WebDev2
-- lab
+  - WebDev2
+  - lab
 author: Yoann Pigné
-published: true
+published: false
 ---
-
 
 On cherche à développer une application Web comportant des **composants de visualisation dynamique** permettant d’explorer les données relatives aux impôts locaux en France.
 
@@ -16,10 +15,10 @@ On s’appuie sur un jeu de données ouvertes de `data.gouv.fr` :
 
 Parmi les données disponibles, on s’intéresse à :
 
-- la taxe foncière sur les propriétés non bâties (TFPNB)  
-- la taxe foncière sur les propriétés bâties (TFPB)  
-- la taxe d’habitation (TH)  
-- la cotisation foncière des entreprises (CFE)  
+- la taxe foncière sur les propriétés non bâties (TFPNB)
+- la taxe foncière sur les propriétés bâties (TFPB)
+- la taxe d’habitation (TH)
+- la cotisation foncière des entreprises (CFE)
 
 ---
 
@@ -82,11 +81,13 @@ Les choix technologiques doivent être justifiés à partir de ce pipeline.
 L’application est construite comme une **Web App React** qui consomme une **API REST** fournie par **[API Platform](https://api-platform.com/)**.
 
 API Platform est utilisé pour :
+
 - exposer les données
 - effectuer les agrégations côté serveur
 - réduire le volume de données échangées
 
 Les composants graphiques peuvent être implémentés avec une/des bibliothèques de visualisation (D3, Vega, Chart.js, etc.) dont le backend de rendu pourra être :
+
 - SVG
 - Canvas
 - WebGL
@@ -100,11 +101,12 @@ Le moteur de rendu est laissé au choix, mais il doit être **cohérent avec le 
 L’application doit **minimiser le volume de données transférées** entre le serveur et le client.
 
 Les requêtes API doivent être conçues pour :
+
 - agréger les données
 - filtrer côté serveur
 - ne renvoyer que ce qui est nécessaire aux visualisations
 
-Le volume de données échangées (onglet *Network* des outils de développement) fera partie de l’évaluation.
+Le volume de données échangées (onglet _Network_ des outils de développement) fera partie de l’évaluation.
 
 ---
 
@@ -151,15 +153,13 @@ Pour chaque graphique, expliciter :
 
 ---
 
-
 ### Échéance et évaluation
 
-- Travail en groupes de 4 personnes. 
-- Un seul membre du groupe m'envoie un mail avec les **noms des 4 membres**, l'**URL du projet** et le  titre “[M2 IWOCS WEB] Projet n°3” **rapidement**.
-- Échéance : le  **vendredi 13 février 2026**, évaluation à l'oral, en groupes, pendant **30 minutes**.
+- Travail en groupes de 4 personnes.
+- Un seul membre du groupe m'envoie un mail avec les **noms des 4 membres**, l'**URL du projet** et le titre “[M2 IWOCS WEB] Projet n°3” **rapidement**.
+- Échéance : le **vendredi 13 février 2026**, évaluation à l'oral, en groupes, pendant **30 minutes**.
 - Une présentation du projet et une démonstration seront réalisées devant la classe entière.
 - Évaluation par tous (professeur et étudiants).
-
 
 ### Aptitudes évaluées
 
