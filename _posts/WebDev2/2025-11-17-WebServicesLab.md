@@ -6,6 +6,8 @@ categories:
   - lab
 author: Yoann Pigné
 published: false
+
+<!-- Remplacé par 2026-10-19-WebServicesLab.md (édition 2026-2027). Conservé pour référence. -->
 ---
 
 On souhaite transformer notre application de gestion d'annonces immobilières (réalisée au TP précédent) en un **WebService complet**, sécurisé et documenté, utilisable par :

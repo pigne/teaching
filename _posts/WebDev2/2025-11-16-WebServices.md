@@ -6,6 +6,8 @@ categories:
   - lecture
 author: Yoann Pigné
 published: false
+
+<!-- Remplacé par 2026-10-18-WebServices.md (édition 2026-2027). Conservé pour référence. -->
 ---
 
 ## Concepts acquis
